@@ -1,0 +1,663 @@
+,id,amc_mutual_fund,mutual_fund_name,nav,nav_upload_date_time,timestamp
+0,0,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund - Growth,361.7649,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+1,1,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund - Growth - Direct Plan,365.1063,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+2,2,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Daily IDCW,100.2137,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+3,3,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Direct - daily IDCW,100.2141,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+4,4,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -DIRECT - IDCW,198.2239,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+5,5,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Direct - weekly IDCW,100.2441,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+6,6,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Institutional - IDCW,108.044,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+7,7,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Institutional - weekly IDCW,108.0948,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+8,8,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Regular - IDCW,151.3722,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+9,9,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -Retail - IDCW,163.7249,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+10,10,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund -weekly IDCW,100.2441,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+11,11,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund- Discipline Advantage Plan,243.3333,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+12,12,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund-Institutional (Growth),602.4534,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+13,13,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Liquid Fund-Retail (Growth),587.0682,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+14,14,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Direct - Monthly Payout of IDCW,1000.2108,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+15,15,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Direct - Weekly Reinvestment of IDCW,1000.2001,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+16,16,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Regular - Weekly Reinvestment of IDCW option,1000.2079,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+17,17,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Direct - Daily Reinvestment of IDCW,1000.2107,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+18,18,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Regular - Daily Reinvestment of IDCW,1000.208,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+19,19,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND- Regular- Monthly Payout of IDCW option,1000.2077,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+20,20,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUN LIFE OVERNIGHT FUND-DIRECT PLAN-GROWTH,1218.7504,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+21,21,Aditya Birla Sun Life Mutual Fund,ADITYA BIRLA SUNLIFE OVERNIGHT FUND-REGULAR PLAN-GROWTH,1212.2698,29-Apr-2023 17:48:02,2023-05-01 17:57:44.066831
+22,22,Axis Mutual Fund,Axis Liquid Fund - Direct Plan - Daily IDCW,1000.9560,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+23,23,Axis Mutual Fund,Axis Liquid Fund - Direct Plan - Growth Option,2514.7972,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+24,24,Axis Mutual Fund,Axis Liquid Fund - Direct Plan - Monthly IDCW,1001.3712,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+25,25,Axis Mutual Fund,Axis Liquid Fund - Direct Plan - Weekly IDCW,1002.9155,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+26,26,Axis Mutual Fund,Axis Liquid Fund - Regular Plan - Daily IDCW,1001.3998,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+27,27,Axis Mutual Fund,Axis Liquid Fund - Regular Plan - Growth Option,2497.8297,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+28,28,Axis Mutual Fund,Axis Liquid Fund - Regular Plan - Monthly IDCW,1001.9541,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+29,29,Axis Mutual Fund,Axis Liquid Fund - Regular Plan - Weekly IDCW,1002.9057,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+30,30,Axis Mutual Fund,Axis Liquid Fund - Retail Plan - Daily IDCW,1000.9559,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+31,31,Axis Mutual Fund,Axis Liquid Fund - Retail Plan - Growth Option,2312.1750,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+32,32,Axis Mutual Fund,Axis Liquid Fund - Retail Plan - Monthly IDCW,1001.3133,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+33,33,Axis Mutual Fund,Axis Liquid Fund - Retail Plan - Weekly IDCW,1001.4283,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+34,34,Axis Mutual Fund,Axis Overnight Fund - Direct Plan - Daily IDCW,1000.5073,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+35,35,Axis Mutual Fund,Axis Overnight Fund - Direct Plan - Growth Option,1191.7476,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+36,36,Axis Mutual Fund,Axis Overnight Fund - Direct Plan - Monthly IDCW,1001.5775,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+37,37,Axis Mutual Fund,Axis Overnight Fund - Direct Plan - Weekly IDCW,1001.6168,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+38,38,Axis Mutual Fund,Axis Overnight Fund - Regular Plan - Daily IDCW,1000.5032,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+39,39,Axis Mutual Fund,Axis Overnight Fund - Regular Plan - Growth Option,1188.8273,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+40,40,Axis Mutual Fund,Axis Overnight Fund - Regular Plan - Monthly IDCW,1001.5627,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+41,41,Axis Mutual Fund,Axis Overnight Fund - Regular Plan - Weekly IDCW,1001.5785,29-Apr-2023 19:34:08,2023-05-01 17:57:44.066831
+42,42,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Regular Plan - Daily IDCW,1001.2705,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+43,43,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Regular Plan - Growth,2715.1197,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+44,44,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Regular Plan - Monthly IDCW,1000.6643,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+45,45,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Regular Plan - Periodic IDCW,1172.2314,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+46,46,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Regular Plan - Weekly IDCW,1001.2733,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+47,47,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Unclaimed IDCW Less than 3 years,1.4561,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+48,48,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Unclaimed IDCW More than 3 years,1.0000,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+49,49,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Unclaimed Redemption Less than 3 years,1.4561,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+50,50,Bandhan Mutual Fund,BANDHAN LIQUID Fund - Unclaimed Redemption More than 3 years,1.0000,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+51,51,Bandhan Mutual Fund,BANDHAN LIQUID Fund -Direct Plan -Monthly IDCW,1007.3872,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+52,52,Bandhan Mutual Fund,BANDHAN LIQUID Fund -Direct Plan -Weekly IDCW,1007.1493,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+53,53,Bandhan Mutual Fund,BANDHAN LIQUID Fund -Direct Plan-Daily IDCW,1001.8558,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+54,54,Bandhan Mutual Fund,BANDHAN LIQUID Fund -Direct Plan-Growth,2733.6602,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+55,55,Bandhan Mutual Fund,BANDHAN LIQUID Fund -Direct Plan-Periodic IDCW,1101.3475,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+56,56,Bandhan Mutual Fund,BANDHAN Overnight Fund - Direct Plan - Daily IDCW,1000.1829,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+57,57,Bandhan Mutual Fund,BANDHAN Overnight Fund - Direct Plan - Growth,1201.7945,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+58,58,Bandhan Mutual Fund,BANDHAN Overnight Fund - Direct Plan - Monthly IDCW,1000.3725,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+59,59,Bandhan Mutual Fund,BANDHAN Overnight Fund - Direct Plan - Periodic IDCW,1094.8208,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+60,60,Bandhan Mutual Fund,BANDHAN Overnight Fund - Direct Plan - Weekly IDCW,1000.1084,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+61,61,Bandhan Mutual Fund,BANDHAN Overnight Fund - Regular Plan - Daily IDCW,1000.1801,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+62,62,Bandhan Mutual Fund,BANDHAN Overnight Fund - Regular Plan - Growth,1196.0072,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+63,63,Bandhan Mutual Fund,BANDHAN Overnight Fund - Regular Plan - Monthly IDCW,1000.3657,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+64,64,Bandhan Mutual Fund,BANDHAN Overnight Fund - Regular Plan - Weekly IDCW,1001.1214,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+65,65,Bandhan Mutual Fund,BANDHAN Overnight Fund - REGULAR PLAN PERIODIC IDCW,1094.3321,29-Apr-2023 18:43:03,2023-05-01 17:57:44.066831
+66,66,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Direct Plan- Daily IDCW,1002.6483,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+67,67,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Direct Plan- Growth,2605.1996,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+68,68,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Direct Plan- Weekly IDCW,1062.4029,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+69,69,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Regular Plan- Daily IDCW,1002.1069,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+70,70,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Regular Plan- Growth,2581.4235,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+71,71,Bank of India Mutual Fund,BANK OF INDIA Liquid Fund- Regular Plan- Weekly IDCW,1002.1089,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+72,72,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Direct Plan Growth,1141.7663,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+73,73,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Direct Plan- Daily IDCW,1000.0024,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+74,74,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Direct Plan- Monthly IDCW,1000.5498,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+75,75,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Direct Plan- Weekly IDCW,1000.9161,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+76,76,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Regular Plan Growth,1139.1341,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+77,77,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Regular Plan- Daily IDCW,1000.0030,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+78,78,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Regular Plan- Monthly IDCW,1000.5486,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+79,79,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Unclaimed IDCW Plan - Greater than 3 Years,1000.0000,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+80,80,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Unclaimed IDCW Plan - Up to 3 Years,1073.5787,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+81,81,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Unclaimed Redemption Plan - Greater than 3 Years,1000.0000,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+82,82,Bank of India Mutual Fund,BANK OF INDIA Overnight Fund Unclaimed Redemption Plan - Upto 3 Years,1073.4944,29-Apr-2023 14:44:14,2023-05-01 17:57:44.066831
+83,83,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - DIRECT PLAN - DAILY IDCW OPTION,1002.0849,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+84,84,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - DIRECT PLAN - GROWTH OPTION,2609.7096,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+85,85,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - DIRECT PLAN - WEEKLY IDCW OPTION,1219.6125,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+86,86,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - Regular Plan - DAILY IDCW OPTION,1001.1996,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+87,87,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - Regular Plan - GROWTH OPTION,2584.3271,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+88,88,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND - Regular Plan - WEEKLY IDCW OPTION,1001.0152,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+89,89,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND- Defunct Plan -Growth Option,3803.7323,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+90,90,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas LIQUID FUND-Defunct Plan- IDCW Option,3138.4924,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+91,91,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Direct Plan - Daily IDCW,1000.0028,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+92,92,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Direct Plan - Growth,1183.3630,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+93,93,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Direct Plan - Weekly IDCW,1000.8413,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+94,94,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Plan C - Unclaimed IDCW - Greater than 3 years,1000.0000,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+95,95,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Plan C - Unclaimed IDCW - Up to 3 years,1061.7205,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+96,96,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Plan C - Unclaimed Redemption - Greater than 3 years,1000.0000,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+97,97,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Plan C - Unclaimed Redemption - Up to 3 years,1061.7204,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+98,98,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Regular Plan - Daily IDCW,1000.0018,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+99,99,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Regular Plan - Growth,1180.6653,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+100,100,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Overnight Fund - Regular Plan - Weekly IDCW,1000.8177,29-Apr-2023 01:21:44,2023-05-01 17:57:44.066831
+101,101,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - DIRECT PLAN - DAILY IDCW (Reinvestment),1005.5000,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+102,102,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - DIRECT PLAN - GROWTH OPTION,2711.8722,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+103,103,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - DIRECT PLAN - IDCW (Payout/Reinvestment),1940.9586,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+104,104,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - DIRECT PLAN - MONTHLY IDCW (Payout/Reinvestment),1000.8633,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+105,105,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - DIRECT PLAN - WEEKLY IDCW (Payout/Reinvestment),1000.8617,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+106,106,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - REGULAR PLAN - DAILY IDCW (Reinvestment),1005.5000,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+107,107,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - REGULAR PLAN - GROWTH OPTION,2701.0591,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+108,108,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - REGULAR PLAN - MONTHLY IDCW (Payout/Reinvestment),1000.8592,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+109,109,Canara Robeco Mutual Fund,CANARA ROBECO LIQUID FUND - REGULAR PLAN - WEEKLY IDCW (Payout/Reinvestment),1000.8576,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+110,110,Canara Robeco Mutual Fund,Canara Robeco Liquid Fund -Unclaimed Redemption and Dividend Plan -Direct Growth Option,1477.5043,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+111,111,Canara Robeco Mutual Fund,CANARA ROBECO OVERNIGHT FUND - DIRECT PLAN - DAILY IDCW (Reinvestment),1001.0007,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+112,112,Canara Robeco Mutual Fund,CANARA ROBECO OVERNIGHT FUND - DIRECT PLAN - GROWTH OPTION,1166.1379,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+113,113,Canara Robeco Mutual Fund,CANARA ROBECO OVERNIGHT FUND - REGULAR PLAN - DAILY IDCW (Reinvestment),1001.0000,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+114,114,Canara Robeco Mutual Fund,CANARA ROBECO OVERNIGHT FUND - REGULAR PLAN - GROWTH OPTION,1165.2623,29-Apr-2023 16:10:12,2023-05-01 17:57:44.066831
+115,115,DSP Mutual Fund,DSP Liquidity Fund - Direct Plan - Growth,3234.8206,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+116,116,DSP Mutual Fund,DSP Liquidity Fund - Direct Plan - IDCW - Daily,1001.1210,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+117,117,DSP Mutual Fund,DSP Liquidity Fund - Direct Plan - IDCW - Weekly,1001.2230,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+118,118,DSP Mutual Fund,DSP Liquidity Fund - Regular Plan - Growth,3204.9927,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+119,119,DSP Mutual Fund,DSP Liquidity Fund - Regular Plan - IDCW - Weekly,1001.2184,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+120,120,DSP Mutual Fund,DSP Liquidity Fund- Regular Plan - IDCW - Daily,1001.1188,29-Apr-2023 18:28:41,2023-05-01 17:57:44.066831
+121,121,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan - Bonus Option,1699.454,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+122,122,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan - Growth Option,2921.1153,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+123,123,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan - IDCW Option,2921.1198,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+124,124,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan Annual - IDCW Option,2921.0956,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+125,125,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan daily - IDCW Option,1031.0535,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+126,126,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan Fortnightly - IDCW Option,2308.6749,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+127,127,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan Monthly - IDCW Option,1004.9247,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+128,128,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Direct Plan weekly - IDCW Option,2174.258,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+129,129,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan - Bonus Option,1673.6112,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+130,130,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan - Growth Option,2873.3671,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+131,131,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan - IDCW Option,2873.3701,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+132,132,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan Annual - IDCW Option,1988.1237,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+133,133,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan Daily - IDCW Option,1063.9244,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+134,134,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan Fortnightly - IDCW Option,2153.0779,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+135,135,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan Monthly - IDCW Option,1034.1074,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+136,136,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Regular Plan Weekly - IDCW Option,1078.3784,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+137,137,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Retail Plan - Growth Option,2613.1138,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+138,138,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Retail Plan - Weekly Dividend Option,1231.7362,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+139,139,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Retail Plan Daily - IDCW Option,1056.2834,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+140,140,Edelweiss Mutual Fund,Edelweiss Liquid Fund - Retail Plan Monthly - IDCW Option,1244.3533,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+141,141,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Direct Plan - Annual - IDCW Option,1167.7303,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+142,142,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Direct Plan - Daily - IDCW Option,1000.0311,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+143,143,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Direct Plan - Growth,1167.3136,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+144,144,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Direct Plan - Monthly - IDCW Option,1058.2551,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+145,145,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Annual - IDCW Option,1164.7608,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+146,146,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Daily - IDCW Option,1008.123,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+147,147,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Fortnightly - IDCW Option,1095.2083,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+148,148,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Growth,1164.7608,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+149,149,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Monthly - IDCW Option,1004.5678,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+150,150,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Regular Plan - Weekly - IDCW Option,1016.7337,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+151,151,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Unclaimed IDCW Plan - Above 3 years,1000,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+152,152,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Unclaimed IDCW Plan - Upto 3 years,1068.0275,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+153,153,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Unclaimed Redemption Plan - Above 3 years,1000,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+154,154,Edelweiss Mutual Fund,Edelweiss Overnight Fund - Unclaimed Redemption Plan - Upto 3 years,1068.0276,29-Apr-2023 12:59:12,2023-05-01 17:57:44.066831
+155,155,Franklin Templeton Mutual Fund,Franklin India Liquid Fund - Regular Plan - Growth,5153.8345,29-Apr-2023 17:48:37,2023-05-01 17:57:44.066831
+156,156,Franklin Templeton Mutual Fund,Franklin India Liquid Fund - Super Instittutional - Direct - Growth,3400.1356,29-Apr-2023 17:48:37,2023-05-01 17:57:44.066831
+157,157,Franklin Templeton Mutual Fund,Franklin India Liquid Fund - Super Institutional Plan - Growth,3377.2905,29-Apr-2023 17:48:37,2023-05-01 17:57:44.066831
+158,158,Franklin Templeton Mutual Fund,Franklin India Overnight fund- Growth,1173.6533,29-Apr-2023 17:48:37,2023-05-01 17:57:44.066831
+159,159,Franklin Templeton Mutual Fund,Franklin India Overnight Fund- Growth - Direct,1176.1729,29-Apr-2023 17:48:37,2023-05-01 17:57:44.066831
+160,160,HDFC Mutual Fund,HDFC Liquid Fund - Growth Option - Direct Plan,4447.6211,29-Apr-2023 12:45:34,2023-05-01 17:57:44.066831
+161,161,HDFC Mutual Fund,HDFC Liquid Fund - Growth Plan,4407.84,29-Apr-2023 12:45:34,2023-05-01 17:57:44.066831
+162,162,HDFC Mutual Fund,HDFC Overnight Fund - Growth Option,3319.2649,29-Apr-2023 12:45:34,2023-05-01 17:57:44.066831
+163,163,HDFC Mutual Fund,HDFC Overnight Fund - Growth Option - Direct Plan,3345.5989,29-Apr-2023 12:45:34,2023-05-01 17:57:44.066831
+164,164,ICICI Prudential Mutual Fund,ICICI Prudential Liquid Fund - Direct Plan - Growth,335.0261,29-Apr-2023 19:54:18,2023-05-01 17:57:44.066831
+165,165,ICICI Prudential Mutual Fund,ICICI Prudential Liquid Fund - Growth,332.4575,29-Apr-2023 19:54:18,2023-05-01 17:57:44.066831
+166,166,IDBI Mutual Fund,IDBI Liquid Fund Bonus Direct,1825.0392,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+167,167,IDBI Mutual Fund,IDBI Liquid Fund Growth Direct,2435.2508,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+168,168,IDBI Mutual Fund,IDBI Liquid Fund- Monthly IDCW,1004.3310,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+169,169,IDBI Mutual Fund,IDBI Liquid Fund- Monthly IDCW Direct,1002.7759,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+170,170,IDBI Mutual Fund,IDBI Liquid Fund-Daily IDCW,1005.2683,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+171,171,IDBI Mutual Fund,IDBI Liquid Fund-Daily IDCW Direct,1002.3548,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+172,172,IDBI Mutual Fund,IDBI Liquid Fund-Growth,2414.5201,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+173,173,IDBI Mutual Fund,IDBI Liquid Fund-Weekly IDCW,1024.0337,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+174,174,IDBI Mutual Fund,IDBI Liquid Fund-Weekly IDCW Direct,1004.7547,29-Apr-2023 00:00:32,2023-05-01 17:57:44.066831
+175,175,Indiabulls Mutual Fund,Indiabulls Liquid Fund - Direct Plan - Growth Option,2193.9143,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+176,176,Indiabulls Mutual Fund,Indiabulls Liquid Fund - Growth Option,2172.171,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+177,177,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Direct Plan- - Income Distribution cum capital withdrawal Option ( Reinvestment),1001.06,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+178,178,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Direct Plan- Fortnightly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1001.2516,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+179,179,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Direct Plan- Monthly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1033.9581,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+180,180,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Direct Plan- Weekly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1001.3701,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+181,181,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Regular Plan- - Income Distribution cum capital withdrawal Option (Reinvestment),1001.1451,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+182,182,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Regular Plan- Fortnightly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1001.1642,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+183,183,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Regular Plan- Monthly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1005.2797,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+184,184,Indiabulls Mutual Fund,Indiabulls Liquid Fund- Regular Plan- Weekly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1002.4305,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+185,185,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Direct Plan- - Income Distribution cum capital withdrawal Option ( Reinvestment),1000.9998,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+186,186,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Direct Plan- Growth Option,1164.6832,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+187,187,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Direct Plan- Monthly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1006.0607,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+188,188,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Regular Plan- - Income Distribution cum capital withdrawal Option ( Reinvestment),1001.0085,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+189,189,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Regular Plan- Fortnightly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1001.5156,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+190,190,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Regular Plan- Growth Option,1160.7408,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+191,191,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Regular Plan- Monthly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1006.0719,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+192,192,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Regular Plan- Weekly - Income Distribution cum capital withdrawal Option (Payout & Reinvestment),1001.6559,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+193,193,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Unclaimed Dividend < 3 years,1070.2583,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+194,194,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Unclaimed Dividend > 3 Years,1069.451,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+195,195,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Unclaimed Redemption < 3 Years,1068.0489,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+196,196,Indiabulls Mutual Fund,Indiabulls Overnight Fund- Unclaimed Redemption > 3 Years,1069.8618,29-Apr-2023 00:18:30,2023-05-01 17:57:44.066831
+197,197,Invesco Mutual Fund,Invesco India Liquid Fund - Bonus Option,3089.2917,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+198,198,Invesco Mutual Fund,Invesco India Liquid Fund - Daily IDCW (Reinvestment),1002.7594,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+199,199,Invesco Mutual Fund,Invesco India Liquid Fund - Direct Plan - Growth,3107.0359,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+200,200,Invesco Mutual Fund,Invesco India Liquid Fund - Direct Plan - Monthly IDCW (Payout / Reinvestment),1082.454,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+201,201,Invesco Mutual Fund,Invesco India Liquid Fund - Direct Plan - Weekly IDCW (Reinvestment),1068.0228,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+202,202,Invesco Mutual Fund,Invesco India Liquid Fund - Direct Plan- Daily IDCW (Reinvestment),1000.9596,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+203,203,Invesco Mutual Fund,Invesco India Liquid Fund - Growth,3085.102,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+204,204,Invesco Mutual Fund,Invesco India Liquid Fund - Monthly IDCW (Payout / Reinvestment),1003.2697,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+205,205,Invesco Mutual Fund,Invesco India Liquid Fund - Regular - Growth,2763.5371,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+206,206,Invesco Mutual Fund,Invesco India Liquid Fund - Regular - Weekly IDCW (Reinvestment),1003.0062,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+207,207,Invesco Mutual Fund,Invesco India Liquid Fund - Unclaimed Dividend Plan - Above 3 Years,1000,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+208,208,Invesco Mutual Fund,Invesco India Liquid Fund - Unclaimed Dividend Plan - Below 3 Years,1472.5104,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+209,209,Invesco Mutual Fund,Invesco India Liquid Fund - Unclaimed Redemption Plan - Above 3 Years,1000,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+210,210,Invesco Mutual Fund,Invesco India Liquid Fund - Unclaimed Redemption Plan - Below 3 years,1472.4162,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+211,211,Invesco Mutual Fund,Invesco India Liquid Fund - Weekly IDCW (Reinvestment),1011.7522,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+212,212,Invesco Mutual Fund,Invesco India Overnight Fund - Direct Plan - Daily IDCW (Reinvestment),1000.5109,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+213,213,Invesco Mutual Fund,Invesco India Overnight Fund - Direct Plan - Growth,1138.5791,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+214,214,Invesco Mutual Fund,Invesco India Overnight Fund - Direct Plan - Monthly IDCW (Payout / Reinvestment),1000.4121,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+215,215,Invesco Mutual Fund,Invesco India Overnight Fund - Direct Plan - Weekly IDCW (Reinvestment),1000.9691,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+216,216,Invesco Mutual Fund,Invesco India Overnight Fund - Regular Plan - Daily IDCW (Reinvestment),1000.1316,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+217,217,Invesco Mutual Fund,Invesco India Overnight Fund - Regular Plan - Growth,1136.3149,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+218,218,Invesco Mutual Fund,Invesco India Overnight Fund - Regular Plan - Monthly IDCW (Payout / Reinvestment),1000.4196,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+219,219,Invesco Mutual Fund,Invesco India Overnight Fund - Regular Plan - Weekly IDCW (Reinvestment),1000.9187,29-Apr-2023 16:48:15,2023-05-01 17:57:44.066831
+220,220,ITI Mutual Fund,ITI Liquid Fund - Direct Plan - Annually IDCW Option,1184.2327,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+221,221,ITI Mutual Fund,ITI Liquid Fund - Direct Plan - Daily IDCW Option,1001.0000,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+222,222,ITI Mutual Fund,ITI Liquid Fund - Direct Plan - Growth Option,1183.3551,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+223,223,ITI Mutual Fund,ITI Liquid Fund - Direct Plan - Monthly IDCW Option,1001.5438,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+224,224,ITI Mutual Fund,ITI Liquid Fund - Direct Plan - Weekly IDCW Option,1001.7004,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+225,225,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Annually IDCW Option,1180.3680,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+226,226,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Daily IDCW Option,1001.0000,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+227,227,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Fortnightly Income Distribution cum capital withdrawal option Option,1001.5301,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+228,228,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Growth Option,1177.4192,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+229,229,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Monthly IDCW Option,1001.5291,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+230,230,ITI Mutual Fund,ITI Liquid Fund - Regular Plan - Weekly IDCW Option,1001.6817,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+231,231,ITI Mutual Fund,ITI Overnight Fund - Direct Plan - Annual IDCW Option,1140.9535,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+232,232,ITI Mutual Fund,ITI Overnight Fund - Direct Plan - Fortnightly IDCW Option,1001.5235,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+233,233,ITI Mutual Fund,ITI Overnight Fund - Direct Plan - Growth Option,1147.8956,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+234,234,ITI Mutual Fund,ITI Overnight Fund - Direct Plan - Monthly IDCW Option,1001.5208,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+235,235,ITI Mutual Fund,ITI Overnight Fund - Direct Plan - Weekly IDCW option,1001.7033,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+236,236,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Annual IDCW Option,1072.4811,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+237,237,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Daily IDCW Option,1001.0000,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+238,238,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Fortnightly IDCW Option,1001.5428,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+239,239,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Growth Option,1143.7644,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+240,240,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Monthly IDCW Option,1001.5155,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+241,241,ITI Mutual Fund,ITI Overnight Fund - Regular Plan - Weekly IDCW Option,1001.6937,29-Apr-2023 14:39:00,2023-05-01 17:57:44.066831
+242,242,LIC Mutual Fund,LIC MF Liquid Fund-Direct Plan-Daily IDCW,1014.6694,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+243,243,LIC Mutual Fund,LIC MF Liquid Fund-Direct Plan-Growth,4110.135,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+244,244,LIC Mutual Fund,LIC MF Liquid Fund-Regular Plan-Daily IDCW,1000.1751,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+245,245,LIC Mutual Fund,LIC MF Liquid Fund-Regular Plan-Growth,4060.9629,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+246,246,LIC Mutual Fund,LIC MF Overnight Fund-Direct Plan-Daily IDCW,1064.9461,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+247,247,LIC Mutual Fund,LIC MF Overnight Fund-Direct Plan-Growth,1168.121,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+248,248,LIC Mutual Fund,LIC MF Overnight Fund-Direct Plan-IDCW,1167.852,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+249,249,LIC Mutual Fund,LIC MF Overnight Fund-Direct Plan-Weekly IDCW,1001.3175,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+250,250,LIC Mutual Fund,LIC MF Overnight Fund-Regular Plan-Daily IDCW,1044.7352,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+251,251,LIC Mutual Fund,LIC MF Overnight Fund-Regular Plan-Growth,1162.3845,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+252,252,LIC Mutual Fund,LIC MF Overnight Fund-Regular Plan-Weekly IDCW,1046.2999,29-Apr-2023 12:46:59,2023-05-01 17:57:44.066831
+253,253,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Direct Plan - Daily IDCW,1036.6180,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+254,254,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Direct Plan - Weekly IDCW,1003.3520,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+255,255,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Direct Plan -Growth,1472.7087,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+256,256,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Regular Plan - Daily IDCW,1000.4699,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+257,257,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Regular Plan - Growth,1460.6024,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+258,258,Mahindra Manulife Mutual Fund,Mahindra Manulife Liquid Fund - Regular Plan - Weekly IDCW,1009.7771,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+259,259,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Direct Plan - Daily IDCW,1169.5244,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+260,260,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Direct Plan -Growth,1166.5557,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+261,261,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Regular Plan - Daily IDCW,1128.6546,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+262,262,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Regular Plan - Growth,1162.1026,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+263,263,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Unclaimed Redemption/IDCW beyond 3 years,1000.0000,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+264,264,Mahindra Manulife Mutual Fund,Mahindra Manulife Overnight Fund - Unclaimed Redemption/IDCW upto 3 years,1069.7878,29-Apr-2023 00:55:06,2023-05-01 17:57:44.066831
+265,265,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - DAILY IDCW OPTION,1529.0210,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+266,266,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - DIRECT Plan - DAILY IDCW OPTION,1529.0265,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+267,267,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - DIRECT Plan - MONTHLY IDCW OPTION,1588.1747,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+268,268,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - DIRECT Plan - QUARTERLY IDCW OPTION,1013.3042,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+269,269,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - DIRECT Plan - WEEKLY IDCW OPTION,1530.5868,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+270,270,Nippon India Mutual Fund,Nippon India Liquid Fund - Direct Plan Growth Plan - Growth Option,5537.1584,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+271,271,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - MONTHLY IDCW OPTION,1584.8474,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+272,272,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - QUARTERLY IDCW OPTION,1011.4030,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+273,273,Nippon India Mutual Fund,Nippon India Liquid Fund - Retail Option - Growth Plan,4916.3441,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+274,274,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - RETAIL Plan - DAILY IDCW OPTION,1524.5350,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+275,275,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - RETAIL plan - MONTHLY IDCW OPTION,1327.2249,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+276,276,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - RETAIL Plan - QUARTERLY IDCW OPTION,1223.8651,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+277,277,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - RETAIL Plan - WEEKLY IDCW OPTION,1034.3429,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+278,278,Nippon India Mutual Fund,NIPPON INDIA LIQUID FUND - WEEKLY IDCW OPTION,1530.5826,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+279,279,Nippon India Mutual Fund,Nippon India Liquid Fund -Growth Plan,5482.5373,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+280,280,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - DAILY IDCW Option,100.0233,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+281,281,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - DIRECT Plan - DAILY IDCW Option,100.0236,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+282,282,Nippon India Mutual Fund,Nippon India Overnight Fund - Direct Plan - Growth Option,120.9931,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+283,283,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - DIRECT Plan - MONTHLY IDCW Option,100.1952,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+284,284,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - DIRECT Plan - QUARTERLY IDCW Option,101.0753,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+285,285,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - DIRECT Plan - WEEKLY IDCW Option,100.0236,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+286,286,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - MONTHLY IDCW Option,100.1852,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+287,287,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - QUARTERLY IDCW Option,101.0608,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+288,288,Nippon India Mutual Fund,Nippon India Overnight Fund - Regular Plan - Growth Option,120.4798,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+289,289,Nippon India Mutual Fund,NIPPON INDIA OVERNIGHT FUND - WEEKLY IDCW Option,100.0234,29-Apr-2023 17:40:16,2023-05-01 17:57:44.066831
+290,290,PGIM India Mutual Fund,PGIM India Liquid Fund - Daily Dividend,100.304,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+291,291,PGIM India Mutual Fund,PGIM India Liquid Fund - Direct Plan - Daily Dividend,108.57,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+292,292,PGIM India Mutual Fund,PGIM India Liquid Fund - Direct Plan - Growth,295.0336,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+293,293,PGIM India Mutual Fund,PGIM India Liquid Fund - Direct Plan - Monthly Dividend,111.2215,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+294,294,PGIM India Mutual Fund,PGIM India Liquid Fund - Direct Plan - Weekly Dividend,100.5237,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+295,295,PGIM India Mutual Fund,PGIM India Liquid Fund - Growth,292.3673,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+296,296,PGIM India Mutual Fund,PGIM India Liquid Fund - Monthly Dividend,111.8571,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+297,297,PGIM India Mutual Fund,PGIM India Liquid Fund - Weekly Dividend,100.5232,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+298,298,PGIM India Mutual Fund,PGIM India Overnight Fund - Direct Plan - Daily Dividend Option,1000.0063,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+299,299,PGIM India Mutual Fund,PGIM India Overnight Fund - Direct Plan - Growth Option,1163.062,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+300,300,PGIM India Mutual Fund,PGIM India Overnight Fund - Direct Plan - Weekly Dividend Option,1000.2593,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+301,301,PGIM India Mutual Fund,PGIM India Overnight Fund - Regular Plan - Daily Dividend Option,1000,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+302,302,PGIM India Mutual Fund,PGIM India Overnight Fund - Regular Plan - Weekly Dividend Option,1000.1811,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+303,303,PGIM India Mutual Fund,PGIM India Overnight Fund - Regular Plan- Growth Option,1159.497,29-Apr-2023 15:36:44,2023-05-01 17:57:44.066831
+304,304,Quantum Mutual Fund,Quantum Liquid Fund - Direct Plan Daily IDCW,10.0085,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+305,305,Quantum Mutual Fund,Quantum Liquid Fund - Direct Plan Growth Option,30.4401,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+306,306,Quantum Mutual Fund,Quantum Liquid Fund - Direct Plan Monthly IDCW,10.0193,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+307,307,Quantum Mutual Fund,Quantum Liquid Fund - Regular Plan Daily IDCW,10.0002,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+308,308,Quantum Mutual Fund,Quantum Liquid Fund - Regular Plan Growth Option,30.2932,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+309,309,Quantum Mutual Fund,Quantum Liquid Fund - Regular Plan Monthly IDCW,10.0143,29-Apr-2023 00:26:25,2023-05-01 17:57:44.066831
+310,310,Samco Mutual Fund,Samco Overnight Fund - Direct Plan - Growth Option,1034.7879,29-Apr-2023 16:08:35,2023-05-01 17:57:44.066831
+311,311,Samco Mutual Fund,Samco Overnight Fund - Regular Plan - Growth Option,1033.6497,29-Apr-2023 16:08:35,2023-05-01 17:57:44.066831
+312,312,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 3) - Direct Plan - Growth,13.4543,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+313,313,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 3) - Regular Plan - Growth,13.1833,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+314,314,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 4) - Direct Plan - Growth,13.3960,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+315,315,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 4) - Regular Plan - Growth,13.1352,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+316,316,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 5) - Direct Plan - Growth,13.1931,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+317,317,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 5) - Regular Plan - Growth,12.9343,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+318,318,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 6) - Direct Plan - Growth,13.0201,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+319,319,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 6) - Regular Plan - Growth,12.7619,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+320,320,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 7) - Direct Plan - Growth,12.5488,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+321,321,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 7) - Regular Plan - Growth,12.2861,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+322,322,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 8) - Direct Plan - Growth,12.7962,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+323,323,SBI Mutual Fund,SBI Capital Protection Oriented Fund - Series A (Plan 8) - Regular Plan - Growth,12.5344,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+324,324,SBI Mutual Fund,SBI Debt Fund Series C - 27 - (391 Days) - Direct Plan - Growth,13.9276,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+325,325,SBI Mutual Fund,SBI Debt Fund Series C - 27 - (391 Days) - Regular Plan - Growth,13.7453,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+326,326,SBI Mutual Fund,SBI Debt Fund Series - C - 28 (386 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.7811,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+327,327,SBI Mutual Fund,SBI Debt Fund Series C - 28 - (386 Days) - Direct Plan - Growth,13.7772,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+328,328,SBI Mutual Fund,SBI Debt Fund Series C - 28 - (386 Days) - Regular Plan - Growth,13.5783,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+329,329,SBI Mutual Fund,SBI Debt Fund Series C - 30 - (385 Days) - Direct Plan - Growth,13.7464,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+330,330,SBI Mutual Fund,SBI Debt Fund Series C - 30 - (385 Days) - Regular Plan - Growth,13.5758,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+331,331,SBI Mutual Fund,SBI Debt Fund Series - C - 32 (380 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.6886,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+332,332,SBI Mutual Fund,SBI Debt Fund Series C - 32 - (380 Days) - Direct Plan - Growth,13.6860,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+333,333,SBI Mutual Fund,SBI Debt Fund Series C - 32 - (380 Days) - Regular Plan - Growth,13.5098,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+334,334,SBI Mutual Fund,SBI Debt Fund Series - C - 35 (376 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.6115,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+335,335,SBI Mutual Fund,SBI Debt Fund Series - C - 35 (376 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.4664,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+336,336,SBI Mutual Fund,SBI Debt Fund Series C - 35 (376 Days) - Direct Plan - Growth,13.6103,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+337,337,SBI Mutual Fund,SBI Debt Fund Series C - 35 (376 Days) - Regular Plan - Growth,13.4650,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+338,338,SBI Mutual Fund,SBI Debt Fund Series - C - 38 (389 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.4831,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+339,339,SBI Mutual Fund,SBI Debt Fund Series - C - 38 (389 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3364,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+340,340,SBI Mutual Fund,SBI Debt Fund Series C - 38 (389 Days) - Direct Plan - Growth,13.4782,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+341,341,SBI Mutual Fund,SBI Debt Fund Series C - 38 (389 Days) - Regular Plan - Growth,13.3361,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+342,342,SBI Mutual Fund,SBI Debt Fund Series - C - 43 (384 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.5071,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+343,343,SBI Mutual Fund,SBI Debt Fund Series - C - 43 (384 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3661,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+344,344,SBI Mutual Fund,SBI Debt Fund Series C - 43 (384 Days) - Direct Plan - Growth,13.5075,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+345,345,SBI Mutual Fund,SBI Debt Fund Series C - 43 (384 Days) - Regular Plan - Growth,13.3661,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+346,346,SBI Mutual Fund,SBI Debt Fund Series - C - 44 (378 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.5110,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+347,347,SBI Mutual Fund,SBI Debt Fund Series - C - 44 (378 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3704,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+348,348,SBI Mutual Fund,SBI Debt Fund Series C - 44 (378 Days) - Direct Plan - Growth,13.5103,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+349,349,SBI Mutual Fund,SBI Debt Fund Series C - 44 (378 Days) - Regular Plan - Growth,13.3705,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+350,350,SBI Mutual Fund,SBI Debt Fund Series - C - 46 (376 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3657,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+351,351,SBI Mutual Fund,SBI Debt Fund Series - C - 46 (376 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.2280,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+352,352,SBI Mutual Fund,SBI Debt Fund Series C - 46 (376 Days) - Direct Plan- Growth,13.3675,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+353,353,SBI Mutual Fund,SBI Debt Fund Series C - 46 (376 Days) - Regular Plan - Growth,13.2279,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+354,354,SBI Mutual Fund,SBI Debt Fund Series C - 48 (385 Days) - Direct Plan - Growth,13.3911,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+355,355,SBI Mutual Fund,SBI Debt Fund Series C - 48 (385 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3920,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+356,356,SBI Mutual Fund,SBI Debt Fund Series C - 48 (385 Days) - Regular Plan - Growth,13.2529,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+357,357,SBI Mutual Fund,SBI Debt Fund Series C - 48 (385 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.2529,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+358,358,SBI Mutual Fund,SBI Debt Fund Series - C - 49 (390 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.3322,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+359,359,SBI Mutual Fund,SBI Debt Fund Series - C - 49 (390 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.1913,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+360,360,SBI Mutual Fund,SBI Debt Fund Series C - 49 (390 Days) - Direct Plan - Growth,13.3327,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+361,361,SBI Mutual Fund,SBI Debt Fund Series C - 49 (390 Days) - Regular Plan - Growth,13.1960,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+362,362,SBI Mutual Fund,SBI Debt Fund Series - C - 50 (383 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.2675,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+363,363,SBI Mutual Fund,SBI Debt Fund Series - C - 50 (383 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.1304,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+364,364,SBI Mutual Fund,SBI Debt Fund Series C - 50 (383 Days) - Direct Plan - Growth,13.2657,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+365,365,SBI Mutual Fund,SBI Debt Fund Series C - 50 (383 Days) - Regular Plan - Growth,13.1305,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+366,366,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 1 (3668 Days) - Direct Plan - Growth,13.9053,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+367,367,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 1 (3668 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.9072,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+368,368,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 1 (3668 Days) - Regular Plan - Growth,13.7676,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+369,369,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 1 (3668 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.7676,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+370,370,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 14 (384 Days) - Direct Plan - Growth,12.7934,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+371,371,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 14 (384 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),12.7953,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+372,372,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 14 (384 Days) - Regular Plan - Growth,12.6739,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+373,373,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 14 (384 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),12.6860,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+374,374,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 31 (1160 Days) - Direct Plan - Growth,12.2656,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+375,375,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 31 (1160 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),12.2656,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+376,376,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 31 (1160 Days) - Regular Plan - Growth,12.1702,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+377,377,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 31 (1160 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),12.1702,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+378,378,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 32 (1140 Days) - Direct Plan - Growth,11.8327,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+379,379,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 32 (1140 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.8327,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+380,380,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 32 (1140 Days) - Regular Plan - Growth,11.7433,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+381,381,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 32 (1140 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.7433,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+382,382,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 33 (1128 Days) - Direct Plan - Growth,11.6891,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+383,383,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 33 (1128 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.6880,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+384,384,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 33 (1128 Days) - Regular Plan - Growth,11.6016,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+385,385,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 33 (1128 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.6017,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+386,386,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 34 (3682 Days) - Direct Plan - Growth,11.6994,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+387,387,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 34 (3682 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.6994,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+388,388,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 34 (3682 Days) - Regular Plan - Growth,11.6124,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+389,389,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 34 (3682 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.6124,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+390,390,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 41 (1498 Days) - Direct Plan - Growth,11.0313,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+391,391,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 41 (1498 Days) - Regular Plan - Growth,10.9878,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+392,392,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 41 (1498 Days) Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.0313,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+393,393,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 41 (1498 Days) Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.9878,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+394,394,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 46 (1850 Days) - Direct Plan - Growth,10.9095,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+395,395,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 46 (1850 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.9095,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+396,396,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 46 (1850 Days) - Regular Plan - Growth,10.8759,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+397,397,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 46 (1850 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.8759,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+398,398,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 47 (1434 Days) - Direct Plan - Growth,10.7878,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+399,399,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 47 (1434 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7878,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+400,400,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 47 (1434 Days) - Regular Plan - Growth,10.7559,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+401,401,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 47 (1434 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7559,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+402,402,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 48 (1458 Days) - Direct Plan - Growth,10.7608,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+403,403,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 48 (1458 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7608,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+404,404,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 48 (1458 Days) - Regular Plan - Growth,10.7272,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+405,405,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 48 (1458 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7272,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+406,406,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 49 (1823 Days) - Direct Plan - Growth,10.7505,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+407,407,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 49 (1823 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7505,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+408,408,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 49 (1823 Days) - Regular Plan - Growth,10.7180,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+409,409,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 49 (1823 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.7180,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+410,410,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 50 (1843 Days) - Direct Plan - Growth,10.6511,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+411,411,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 50 (1843 Days) - Direct Plan - Income Distribution Capital Withdrawal Option (IDCW),10.6511,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+412,412,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 50 (1843 Days) - Regular Plan - Growth,10.6179,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+413,413,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 50 (1843 Days) - Regular Plan -Income Distribution Capital Withdrawal Option (IDCW),10.6179,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+414,414,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 51 (1846 Days) - Direct Plan - Growth,10.6320,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+415,415,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 51 (1846 Days) - Direct Plan - Income Distribution Capital Withdrawal Option (IDCW),10.6325,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+416,416,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 51 (1846 Days) - Regular Plan - Growth,10.6028,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+417,417,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 51 (1846 Days) - Regular Plan - Income Distribution Capital Withdrawal Option (IDCW),10.6028,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+418,418,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 52 (1848 Days) - Direct Plan - Growth,10.6136,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+419,419,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 52 (1848 Days) - Direct Plan - Income Distribution Cum Withdrawal (IDCW),10.6136,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+420,420,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 52 (1848 Days) - Regular Plan - Growth,10.5867,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+421,421,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 52 (1848 Days) - Regular Plan - Income Distribution Cum Withdrawal (IDCW),10.5867,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+422,422,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 53 (1839 Days) - Direct Plan - Growth,10.6163,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+423,423,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 53 (1839 Days) - Direct Plan - Income Distribution Cum Withdrawal Option (IDCW),10.6163,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+424,424,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 53 (1839 Days) - Regular Plan - Growth,10.5922,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+425,425,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 53 (1839 Days) - Regular Plan - Income Distribution Cum Withdrawal Option (IDCW),10.5922,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+426,426,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 54 (1842 Days) - Direct Plan - Growth,10.5935,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+427,427,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 54 (1842 Days) - Direct Plan - Income Distribution Cum Withdrawal Option (IDCW),10.5939,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+428,428,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 54 (1842 Days) - Regular Plan - Growth,10.5702,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+429,429,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 54 (1842 Days) - Regular Plan - Income Distribution Cum Capital Withdrawal Option (IDCW),10.5702,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+430,430,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 55 (1849 Days) - Direct Plan - Growth,10.5760,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+431,431,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 55 (1849 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5760,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+432,432,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 55 (1849 Days) - Regular Plan - Growth,10.5533,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+433,433,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 55 (1849 Days) - Regular Plan - Income Distribution Cum Capital Withdrawal Option (IDCW),10.5533,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+434,434,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 56 (1232 Days) - Direct Plan - Growth,10.5026,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+435,435,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 56 (1232 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5026,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+436,436,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 56 (1232 Days) - Regular Plan - Growth,10.4810,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+437,437,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 56 (1232 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.4810,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+438,438,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 57 (1835 Days) - Direct Plan - Growth,10.5018,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+439,439,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 57 (1835 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5018,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+440,440,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 57 (1835 Days) - Regular Plan - Growth,10.4802,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+441,441,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 57 (1835 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.4802,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+442,442,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 58 (1842 Days) - Direct Plan - Growth,10.5891,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+443,443,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 58 (1842 Days) - Direct Plan - Income Distribution cum Capital withdrawal option (IDCW),10.5891,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+444,444,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 58 (1842 Days) - Regular Plan - Growth,10.5682,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+445,445,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 58 (1842 Days) - Regular Plan - Income Distribution cum Capital withdrawal option (IDCW),10.5682,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+446,446,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 59 (1618 Days) - Direct Plan - Growth,10.5414,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+447,447,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 59 (1618 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5403,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+448,448,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 59 (1618 Days) - Regular Plan - Growth,10.5217,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+449,449,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 59 (1618 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5217,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+450,450,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 6 (3668 Days) - Direct Plan - Growth,13.5642,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+451,451,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 6 (3668 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.5642,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+452,452,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 6 (3668 Days) - Regular Plan - Growth,13.4307,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+453,453,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 6 (3668 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),13.4328,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+454,454,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 60 (1878 Days) - Direct Plan - Growth,10.4906,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+455,455,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 60 (1878 Days) - Direct Plan - Income Distribution cum Capital Withdrwal Option (IDCW),10.4912,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+456,456,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 60 (1878 Days) - Regular Plan - Growth,10.4717,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+457,457,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 60 (1878 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.4717,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+458,458,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)- Series 61 (1927 Days)- Direct Plan- Growth option,10.5282,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+459,459,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)- Series 61 (1927 Days)- Direct Plan- Income Distribution Cum Capital withdrawal option,10.5282,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+460,460,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)- Series 61 (1927 Days)- Regular Plan- Growth option,10.5107,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+461,461,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)- Series 61 (1927 Days)- Regular Plan- Income Distribution Cum Capital withdrawal option,10.5107,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+462,462,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 63 (372 Days) - Direct Plan - Growth,10.3967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+463,463,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 63 (372 Days) - Direct Plan - IDCW Payout,10.3967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+464,464,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 63 (372 Days) - Regular Plan - Growth,10.3895,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+465,465,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 63 (372 Days) - Regular Plan - IDCW Payout,10.3896,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+466,466,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 64 (1169 Days) - Direct Plan - Growth,10.4241,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+467,467,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 64 (1169 Days) - Direct Plan - IDCW Payout,10.4241,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+468,468,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 64 (1169 Days) - Regular Plan - Growth,10.4138,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+469,469,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 64 (1169 Days) - Regular Plan - IDCW Payout,10.4138,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+470,470,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 65 (367 Days) - Direct Plan - Growth,10.3960,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+471,471,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 65 (367 Days) - Direct Plan - IDCW Payout,10.3961,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+472,472,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 65 (367 Days) - Regular Plan - Growth,10.3893,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+473,473,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 65 (367 Days) - Regular Plan - IDCW Payout,10.3893,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+474,474,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 66 (1361 Days) - Direct Plan - Growth,10.5854,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+475,475,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 66 (1361 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5854,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+476,476,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 66 (1361 Days) - Regular Plan - Growth,10.5730,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+477,477,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 66 (1361 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.5730,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+478,478,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 67 (1467 Days) - Direct Plan - Growth,10.5462,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+479,479,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 67 (1467 Days) - Direct Plan - IDCW Payout,10.5462,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+480,480,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 67 (1467 Days) - Regular Plan - Growth,10.5343,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+481,481,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 67 (1467 Days) - Regular Plan - IDCW Payout,10.5346,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+482,482,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 68 (1302 Days) - Direct Plan - Growth,10.4815,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+483,483,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 68 (1302 Days) - Direct Plan - IDCW Payout,10.4826,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+484,484,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 68 (1302 Days) - Regular Plan - Growth,10.4720,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+485,485,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 68 (1302 Days) - Regular Plan - IDCW Payout,10.4720,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+486,486,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 69 (367 Days) - Direct Plan - Growth,10.3722,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+487,487,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 69 (367 Days) - Direct Plan - IDCW Payout,10.3722,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+488,488,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 69 (367 Days) - Regular Plan - Growth,10.3666,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+489,489,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 69 (367 Days) - Regular Plan - IDCW Payout,10.3666,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+490,490,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 71 (364 Days) - Direct Plan - Growth,10.3385,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+491,491,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 71 (364 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.3385,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+492,492,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 71 (364 Days) - Regular Plan - Growth,10.3318,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+493,493,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 71 (364 Days) - Regular Plan - Income Distribution cun Capital Withdrawal Option (IDCW),10.3318,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+494,494,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 79 (1170 Days) - Direct Plan - Growth,10.1853,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+495,495,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 79 (1170 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Payout,10.1854,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+496,496,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 79 (1170 Days) - Regular Plan - Growth,10.1834,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+497,497,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 79 (1170 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Payout,10.1834,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+498,498,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 42 (1857 Days) Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.0839,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+499,499,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 42 (1857 Days) Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.0444,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+500,500,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 42 (1857 Days) - Direct Plan - Growth,11.0838,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+501,501,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 42 (1857 Days) - Regular Plan - Growth,11.0444,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+502,502,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 43 (1616 Days) - Direct Plan - Growth,11.0010,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+503,503,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 43 (1616 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),11.0010,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+504,504,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 43 (1616 Days) - Regular Plan - Growth,10.9658,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+505,505,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 43 (1616 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.9659,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+506,506,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 44 (1855 Days) - Direct Plan - Growth,10.9198,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+507,507,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 44 (1855 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.9198,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+508,508,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 44 (1855 Days) - Regular Plan - Growth,10.8865,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+509,509,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 44 (1855 Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.8865,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+510,510,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 45 (1840 Days) - Direct Plan - Growth,10.9067,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+511,511,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 45 (1840 Days) - Direct Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.9067,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+512,512,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 45 (1840 Days) - Regular Plan - Growth,10.8742,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+513,513,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) Series 45 (1840Days) - Regular Plan - Income Distribution cum Capital Withdrawal Option (IDCW),10.8742,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+514,514,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 72 (1239 Days) Direct Plan- Growth,10.3194,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+515,515,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 72 (1239 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.3194,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+516,516,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 72 (1239 Days) Regular Plan- Growth,10.3127,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+517,517,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 72 (1239 Days) Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.3126,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+518,518,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 73 (1226 Days) - Direct Plan - Growth,10.2967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+519,519,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 73 (1226 Days) - Direct Plan - IDCW Payout,10.2967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+520,520,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 73 (1226 Days) - Regular Plan - Growth,10.2907,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+521,521,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 73 (1226 Days) - Regular Plan - IDCW Payout,10.2907,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+522,522,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 74 (1243 Days)- Direct Plan- Growth,10.2632,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+523,523,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 74 (1243 Days)- Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.2632,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+524,524,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 74 (1243 Days)- Regular Plan- Growth,10.2583,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+525,525,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 74 (1243 Days)- Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.2583,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+526,526,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 75 (366 Days) - Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.2340,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+527,527,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 75 (366 Days)- Direct Plan- Growth,10.2339,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+528,528,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 75 (366 Days)- Regular Plan- Growth,10.2308,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+529,529,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 75 (366 Days)- Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.2308,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+530,530,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 76 (1221 Days) - Direct Plan - Growth,10.2385,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+531,531,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 76 (1221 Days) - Direct Plan - Income Distribution Cum Capital Withdrawal Payout,10.2385,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+532,532,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 76 (1221 Days) - Regular Plan - Growth,10.2344,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+533,533,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP) - Series 76 (1221 Days) - Regular Plan - Income Distribution Cum Capital Withdrawal Payout,10.2345,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+534,534,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 77 (366 Days) Direct Plan- Growth,10.1778,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+535,535,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 77 (366 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.1778,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+536,536,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 77 (366 Days)- Regular Plan- Growth,10.1757,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+537,537,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 77 (366 Days)- Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.1757,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+538,538,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 78 (1170 Days) Direct Plan- Growth,10.2160,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+539,539,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 78 (1170 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.2159,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+540,540,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 78 (1170 Days) Regular Plan- Growth,10.2131,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+541,541,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 78 (1170 Days) Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.2132,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+542,542,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 80 (366 Days) Direct Plan- Growth,10.1040,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+543,543,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 80 (366 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout Option,10.1040,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+544,544,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 80 (366 Days) Regular Plan- Growth,10.1029,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+545,545,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 80 (366 Days)- Regular Plan- Income Distribution Cum Capital Withdrawal Payout Option,10.1029,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+546,546,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 81 (1157 Days) Direct Plan- Growth,10.0979,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+547,547,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 81 (1157 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.0978,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+548,548,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 81 (1157 Days) Regular Plan- Growth,10.0967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+549,549,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 81 (1157 Days) Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.0967,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+550,550,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 82 (91 Days) Direct Plan- Growth,10.0792,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+551,551,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 82 (91 Days) Direct Plan- Income Distribution Cum Capital Withdrawal Payout,10.0792,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+552,552,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 82 (91 Days) Regular Plan- Growth,10.0782,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+553,553,SBI Mutual Fund,SBI Fixed Maturity Plan (FMP)-Series 82 (91 Days) Regular Plan- Income Distribution Cum Capital Withdrawal Payout,10.0782,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+554,554,SBI Mutual Fund,SBI Liquid Fund - Direct Paln - Fortnightly Income Distribution cum Capital Withdrawal Option (IDCW),1156.8571,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+555,555,SBI Mutual Fund,SBI Liquid Fund - Direct Plan - Daily Income Distribution cum Capital Withdrawal Option (IDCW),1143.1804,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+556,556,SBI Mutual Fund,SBI Liquid Fund - Direct Plan - Weekly Income Distribution cum Capital Withdrawal Option (IDCW),1209.9565,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+557,557,SBI Mutual Fund,SBI Liquid Fund - DIRECT PLAN -Growth,3542.6591,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+558,558,SBI Mutual Fund,SBI Liquid Fund - Institutional - Growth,3548.1744,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+559,559,SBI Mutual Fund,SBI Liquid Fund - Institutional Daily Income Distribution cum Capital Withdrawal Option (IDCW),1139.8910,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+560,560,SBI Mutual Fund,SBI Liquid Fund - Institutional Fortnightly Income Distribution cum Capital Withdrawal Option (IDCW),1166.3991,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+561,561,SBI Mutual Fund,SBI Liquid Fund - Regular Plan - Daily Income Distribution cum Capital Withdrawal Option (IDCW),1139.8885,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+562,562,SBI Mutual Fund,SBI Liquid Fund - Regular Plan - Fortnightly Income Distribution cum Capital Withdrawal Option (IDCW),1153.5396,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+563,563,SBI Mutual Fund,SBI Liquid Fund - Regular Plan - Weekly Income Distribution cum Capital Withdrawal Option (IDCW),1206.4667,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+564,564,SBI Mutual Fund,SBI Liquid Fund - REGULAR PLAN -Growth,3514.9509,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+565,565,SBI Mutual Fund,SBI Overnight Fund - Direct Plan - Daily Income Distribution cum Capital Withdrawal Option (IDCW),1138.5270,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+566,566,SBI Mutual Fund,SBI OVERNIGHT FUND - DIRECT PLAN - GROWTH,3668.0909,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+567,567,SBI Mutual Fund,SBI Overnight Fund - Direct Plan - Weekly Income Distribution cum Capital Withdrawal Option (IDCW),1162.6028,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+568,568,SBI Mutual Fund,SBI Overnight Fund - Regular Plan - Daily Income Distribution cum Capital Withdrawal Option (IDCW),1135.8787,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+569,569,SBI Mutual Fund,SBI OVERNIGHT FUND - REGULAR PLAN - GROWTH,3626.7230,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+570,570,SBI Mutual Fund,SBI Overnight Fund - Regular Plan - Weekly Income Distribution cum Capital Withdrawal Option (IDCW),1159.8254,29-Apr-2023 15:53:22,2023-05-01 17:57:44.066831
+571,571,Shriram Mutual Fund,Shriram Overnight Fund - Direct Growth,10.4261,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+572,572,Shriram Mutual Fund,Shriram Overnight Fund - Direct Daily IDCW,10.0000,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+573,573,Shriram Mutual Fund,Shriram Overnight Fund - Regular Daily IDCW,10.0000,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+574,574,Shriram Mutual Fund,Shriram Overnight Fund - Regular Growth,10.4192,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+575,575,Shriram Mutual Fund,Shriram Overnight Fund - Regular Monthly IDCW,10.0213,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+576,576,Shriram Mutual Fund,Shriram Overnight Fund - Regular Weekly IDCW,10.0090,29-Apr-2023 13:39:31,2023-05-01 17:57:44.066831
+577,577,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Direct Quarterly IDCW,1060.1979,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+578,578,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Regular Plan Principal Units,1097.3292,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+579,579,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund )- Direct Plan - Income Distribution CUM Capital Withdrawal Option - Daily,1000.8273,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+580,580,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) - Daily Income Distribution CUM Capital Withdrawal,1001.0778,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+581,581,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) - Direct Plan - Growth Option,1998.7129,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+582,582,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) - Monthly Income Distribution CUM Capital Withdrawal Option,1026.1410,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+583,583,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) -Direct Plan - Income Distribution CUM Capital Withdrawal Option - Monthly,1026.2384,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+584,584,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) -Growth Option,1982.4177,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+585,585,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Direct Fortnightly IDCW,1024.3734,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+586,586,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Direct Principal Units,1099.1126,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+587,587,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Regular Fortnightly IDCW,1024.3155,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+588,588,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Known as Principal Cash Management Fund) Regular Quarterly IDCW,1058.4519,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+589,589,Sundaram Mutual Fund,Sundaram Liquid Fund (Formerly Principal Cash Management Fund) - Weekly Income Distribution CUM Capital Withdrawal Option,1006.7604,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+590,590,Sundaram Mutual Fund,Sundaram Liquid Fund(Formerly Known as Principal Cash Management Fund)- Direct Plan - Income Distribution CUM Capital Withdrawal Option - Weekly,1007.2240,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+591,591,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Daily Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1000.2161,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+592,592,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Fortnightly Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1063.7712,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+593,593,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Growth,1197.4375,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+594,594,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Monthly Payout of Income Distribution cum Capital Withdrawal (IDCW),1044.6231,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+595,595,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Monthly Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1044.6231,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+596,596,Sundaram Mutual Fund,Sundaram Overnight Fund Direct Plan - Weekly Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1048.5007,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+597,597,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Daily Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1000.2118,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+598,598,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Fortnightly Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1065.1928,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+599,599,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Growth,1192.6358,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+600,600,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Monthly Payout of Income Distribution cum Capital Withdrawal (IDCW),1040.8800,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+601,601,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Monthly Reinvestment of Income Distribution cum Capital Withdrawal (IDCW),1040.8800,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+602,602,Sundaram Mutual Fund,Sundaram Overnight Fund Regular Plan - Weekly Payout of Income Distribution cum Capital Withdrawal (IDCW),1047.4180,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+603,603,Sundaram Mutual Fund,Sundaram Overnight Fund Unclaimed IDCW beyond three years,1000.0000,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+604,604,Sundaram Mutual Fund,Sundaram Overnight Fund Unclaimed IDCW upto three years,1066.5605,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+605,605,Sundaram Mutual Fund,Sundaram Overnight Fund Unclaimed Redemption beyond three years,1000.0000,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+606,606,Sundaram Mutual Fund,Sundaram Overnight Fund Unclaimed Redemption upto three years,1066.5502,29-Apr-2023 19:12:48,2023-05-01 17:57:44.066831
+607,607,Tata Mutual Fund,Tata Liquid Fund -Regular Plan - Growth Option,3537.2486,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+608,608,Tata Mutual Fund,Tata Liquid Fund- Direct Plan - Daily Reinvestment of IDCW Option,1001.5187,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+609,609,Tata Mutual Fund,Tata Liquid Fund- Direct Plan-Growth Option,3570.8239,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+610,610,Tata Mutual Fund,Tata Liquid Fund- Regular Plan - Daily Reinvestment of IDCW Option,1001.5157,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+611,611,Tata Mutual Fund,TATA Overnight Fund Direct Plan - Daily Reinvestment of Income Distribution cum capital withdrawal option,1000.0000,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+612,612,Tata Mutual Fund,TATA Overnight Fund Regular Plan - Daily Reinvestment of Income Distribution cum capital withdrawal option,1000.0000,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+613,613,Tata Mutual Fund,Tata Overnight Fund-Direct Plan-Growth,1188.7301,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+614,614,Tata Mutual Fund,Tata Overnight Fund-Regular Plan-Growth,1183.5298,01-May-2023 07:25:11,2023-05-01 17:57:44.066831
+615,615,Union Mutual Fund,Union Liquid Fund - Daily IDCW Option,1000.7927,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+616,616,Union Mutual Fund,Union Liquid Fund - Direct Plan - Daily IDCW Option,1000.7927,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+617,617,Union Mutual Fund,Union Liquid Fund - Direct Plan - Fortnightly IDCW Option,1001.1818,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+618,618,Union Mutual Fund,Union Liquid Fund - Direct Plan - Growth Option,2181.5849,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+619,619,Union Mutual Fund,Union Liquid Fund - Direct Plan - Monthly IDCW Option,1001.1807,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+620,620,Union Mutual Fund,Union Liquid Fund - Direct Plan - Weekly IDCW Option,1001.4748,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+621,621,Union Mutual Fund,Union Liquid Fund - Fortnightly IDCW Option,1001.1806,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+622,622,Union Mutual Fund,Union Liquid Fund - Growth Option,2159.7581,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+623,623,Union Mutual Fund,Union Liquid Fund - Monthly IDCW Option,1001.1752,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+624,624,Union Mutual Fund,Union Liquid Fund - Weekly IDCW Option,1001.6437,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+625,625,Union Mutual Fund,Union Overnight Fund - Direct Plan - Daily IDCW Option,1000.7630,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+626,626,Union Mutual Fund,Union Overnight Fund - Direct Plan - Growth Option,1186.3868,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+627,627,Union Mutual Fund,Union Overnight Fund - Direct Plan - Monthly IDCW Option,1001.3029,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+628,628,Union Mutual Fund,Union Overnight Fund - Regular Plan - Daily IDCW Option,1001.1199,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+629,629,Union Mutual Fund,Union Overnight Fund - Regular Plan - Growth Option,1181.6258,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+630,630,Union Mutual Fund,Union Overnight Fund - Regular Plan - Monthly IDCW Option,1001.2774,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+631,631,Union Mutual Fund,Union Overnight Fund - Unclaimed Amounts Plan - IDCW Beyond 3 years,1000.0000,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+632,632,Union Mutual Fund,Union Overnight Fund - Unclaimed Amounts Plan - IDCW Upto 3 years,1069.5527,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+633,633,Union Mutual Fund,Union Overnight Fund - Unclaimed Amounts Plan - Redemption Beyond 3 years,1000.0000,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+634,634,Union Mutual Fund,Union Overnight Fund - Unclaimed Amounts Plan - Redemption Upto 3 years,1069.5782,29-Apr-2023 00:29:45,2023-05-01 17:57:44.066831
+635,635,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Annual IDCW,1631.5479,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+636,636,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Daily IDCW (Reinvestment),1063.0079,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+637,637,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Flexi IDCW,1343.8161,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+638,638,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Fortnightly IDCW,1155.6207,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+639,639,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Half-Yearly IDCW,1274.4533,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+640,640,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Monthly IDCW,1053.3655,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+641,641,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Quarterly IDCW,1540.8853,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+642,642,UTI Mutual Fund,UTI Liquid Cash Plan - Direct Plan - Weekly IDCW,1152.0277,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+643,643,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Annual IDCW,1624.2327,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+644,644,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Daily IDCW (Reinvestment),1079.6588,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+645,645,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Flexi IDCW,1338.6554,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+646,646,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Fortnightly IDCW,1154.7922,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+647,647,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Half-Yearly IDCW,1130.8854,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+648,648,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Monthly IDCW,1044.2669,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+649,649,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Quarterly IDCW,1533.639,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+650,650,UTI Mutual Fund,UTI Liquid Cash Plan - Regular Plan - Weekly IDCW,1053.461,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+651,651,UTI Mutual Fund,UTI- Liquid Cash Plan - Direct Plan - Growth Option,3709.8571,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+652,652,UTI Mutual Fund,UTI- Liquid Cash Plan - Regular Plan - Growth Option,3683.5563,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+653,653,UTI Mutual Fund,UTI- Liquid Cash Plan- Discontinued - Regular Plan - Monthly Dividend Option,1078.4451,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+654,654,UTI Mutual Fund,UTI- Liquid Cash Plan- Discontinued - Regular Plan -Growth,3368.3103,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+655,655,UTI Mutual Fund,UTI- Liquid Cash Plan- Discontinued -Regular Plan Periodic Dividend Option,1136.6485,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+656,656,UTI Mutual Fund,UTI - Overnight Fund - Regular Plan - Growth Option,3054.6153,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+657,657,UTI Mutual Fund,UTI - Overnight Fund - Direct Plan - Growth Option,3084.4018,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+658,658,UTI Mutual Fund,UTI Overnight Fund - Direct Plan - Daily IDCW,1371.6621,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+659,659,UTI Mutual Fund,UTI Overnight Fund - Direct Plan - Periodic IDCW,1618.7338,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+660,660,UTI Mutual Fund,UTI Overnight Fund - Regular Plan - Daily IDCW,1370.8617,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831
+661,661,UTI Mutual Fund,UTI Overnight Fund - Regular Plan - Periodic IDCW,1573.6308,28-Apr-2023 23:44:14,2023-05-01 17:57:44.066831

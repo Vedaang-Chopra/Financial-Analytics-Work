@@ -1,0 +1,10 @@
+.env
+.env.*
+*.env
+.venv/
+venv/
+env/
+mutual_fund_analysis/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/

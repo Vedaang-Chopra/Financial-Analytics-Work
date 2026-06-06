@@ -1,0 +1,7 @@
+lxml
+numpy
+openpyxl
+pandas
+pika
+requests
+SQLAlchemy
