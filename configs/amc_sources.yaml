@@ -1,0 +1,888 @@
+sources:
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.360.one/asset/mutual-funds/downloads/
+  amc_name: 360 ONE Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.abakkusmf.com/statutory-disclosures.html
+  amc_name: Abakkus Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://mutualfund.adityabirlacapital.com/forms-and-downloads/portfolio
+  amc_name: Aditya Birla Sun Life Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://alphagrepmf.com/
+  amc_name: AlphaGrep Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.angelonemf.com/
+  amc_name: Angel One Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.askfinancials.com/
+  amc_name: ASK Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://www.axismf.com/statutory-disclosures
+  amc_name: Axis Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.bajajamc.com/downloads?statutory-disclosures=
+  amc_name: Bajaj Finserv Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://bandhanmutual.com/downloads/disclosures
+  amc_name: Bandhan Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.boimf.in/regulatory-reports
+  amc_name: Bank of India Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.barodabnpparibasmf.in/downloads/midmonth-portfolio-scheme
+  amc_name: Baroda BNP Paribas Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.canararobeco.com/documents/statutory-disclosures/fortnightly-portfolio-disclosure-debt/
+  amc_name: Canara Robeco Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://capitalmindmf.com/statutory-disclosures.html#
+  amc_name: Capitalmind Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://choicemf.com/
+  amc_name: Choice Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://www.dspim.com/mandatory-disclosures/portfolio-disclosures
+  amc_name: DSP Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.edelweissmf.com/statutory#Portfolio-of-Schemes
+  amc_name: Edelweiss Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://www.franklintempletonindia.com/investor/reports?firstFilter-10
+  amc_name: Franklin Templeton Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://growwmf.in/statutory-disclosure/portfolio
+  amc_name: Groww Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_disclosure_page
+  seed_url: https://www.hdfcfund.com/statutory-disclosure/portfolio/fortnightly-portfolio
+  amc_name: HDFC Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.heliosmf.in/portfolio-disclosure/
+  amc_name: Helios Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources/information-library#&accordion1446811090=9
+  amc_name: HSBC Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.icicipruamc.com/media-center/downloads?currentTabFilter=OtherSchemeDisclosures&&subCatTabFilter=FortnightlyPortfolioDisclosures
+  amc_name: ICICI Prudential Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: http://www.ilfsinfrafund.com/other.php
+  amc_name: IL&FS Mutual Fund (IDF)
+  expected_document_types:
+  - statutory_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback for IDF member; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.invescomutualfund.com/literature-and-form?tab=Fortnightly
+  amc_name: Invesco Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.itiamc.com/statuory-disclosure
+  amc_name: ITI Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.jioblackrockamc.com/statutory-disclosure/disclosures/fortnightly-portfolio-disclosure
+  amc_name: JioBlackRock Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.jmfinancialmf.com/downloads/Portfolio-Disclosure
+  amc_name: JM Financial Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.kotakmf.com/Information/forms-and-downloads
+  amc_name: Kotak Mahindra Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.licmf.com/downloads/monthly-portfolio
+  amc_name: LIC Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.mahindramanulife.com/downloads#MANDATORY-DISCLOSURES-+-Fortnightly-Debt-Portfolio-Disclosures
+  amc_name: Mahindra Manulife Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.miraeassetmf.co.in/downloads/portfolio
+  amc_name: Mirae Asset Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.motilaloswalmf.com/downloads/scheme-portfolio-details
+  amc_name: Motilal Oswal Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://navi.com/mutual-fund/downloads/portfolio
+  amc_name: Navi Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures
+  amc_name: Nippon India Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://downloads.njmutualfund.com/njmf_download.php?nme=415
+  amc_name: NJ Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.oldbridgemf.com/
+  amc_name: Old Bridge Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.pgimindia.com/mutual-funds/disclosures/Portfolios/Fortnightly-portfolio
+  amc_name: PGIM India Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/
+  amc_name: PPFAS Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://quantmutual.com/statutory-disclosures
+  amc_name: Quant Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.quantumamc.com/portfolio/combined/-1/1/0/0
+  amc_name: Quantum Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.samcomf.com/StatutoryDisclosure
+  amc_name: Samco Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.sbimf.com/portfolios
+  amc_name: SBI Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.shriramamc.in/investor-statutory-disclosures
+  amc_name: Shriram Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.sundarammutual.com/Monthly-Fortnightly-Adhoc-Portfolios
+  amc_name: Sundaram Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.tatamutualfund.com/schemes-related
+  amc_name: Tata Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.taurusmutualfund.com/downloads
+  amc_name: Taurus Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://www.wealthcompanyamc.in/literature-forms/portfolio-documents/fortnightly/
+  amc_name: The Wealth Company Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.trustmf.com/disclosures?activeTab=portfolio-disclosures
+  amc_name: TRUST Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_homepage
+  seed_url: https://unifimf.com/statutorydocuments/#fortnightly-portfolio-disclosure
+  amc_name: Unifi Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+  notes: Homepage fallback; refine from profile evidence.
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://unionmf.com/about-us/downloads/fortnightly-portfolio
+  amc_name: Union Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.utimf.com/downloads/consolidate-debt-portfolio-disclosure
+  amc_name: UTI Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://mf.whiteoakamc.com/regulatory-disclosures/scheme-portfolios
+  amc_name: WhiteOak Capital Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: primary_provider
+  source_type: provider_download_page
+  seed_url: https://www.zerodhafundhouse.com/resources/disclosures?source=footer
+  amc_name: Zerodha Mutual Fund
+  expected_document_types:
+  - factsheet
+  - portfolio_disclosure
+  discovered_from:
+  - manual_curated
+  - existing_config
+  confidence: unknown
+  priority: primary
+  manual_overrides:
+  - seed_url
+  - source_type
+- enabled: true
+  source_role: reference_index
+  source_type: industry_reference_portal
+  seed_url: https://www.amfiindia.com/
+  source_name: AMFI
+  expected_document_types:
+  - disclosure_index
+  - nav_reference
+  - scheme_metadata
+  discovered_from:
+  - manual_reference
+  confidence: high
+  priority: secondary
+  access_notes: May require VPN depending on the execution environment.
+  notes: Use for source discovery and validation, not as the primary provider source.
+- enabled: true
+  source_role: reference_index
+  source_type: regulatory_reference_portal
+  seed_url: https://www.sebi.gov.in/
+  source_name: SEBI
+  expected_document_types:
+  - disclosure_index
+  - scheme_metadata
+  discovered_from:
+  - manual_reference
+  confidence: medium
+  priority: secondary
+  notes: Corroborative regulatory reference; discovered material may be stale.

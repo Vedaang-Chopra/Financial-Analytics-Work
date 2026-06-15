@@ -1,0 +1,146 @@
+"""Discovery engine for URL queue management and link extraction."""
+from __future__ import annotations
+
+import logging
+import re
+from collections import deque
+from dataclasses import dataclass, field
+from typing import Any
+from urllib.parse import urljoin, urlparse
+
+import requests
+
+from utils.http import HttpSettings, build_session
+from utils.url_utils import canonical_url, file_type_from_url
+
+
+LOGGER = logging.getLogger(__name__)
+
+DATASET_TYPE_HINTS = {
+    "portfolio_disclosure": ["portfolio", "holding", "monthly portfolio"],
+    "factsheet": ["factsheet", "fact sheet"],
+    "nav_history": ["nav", "net asset value", "historical nav"],
+    "scheme_master": ["scheme", "scheme code", "scheme name"],
+    "amc_provider_list": ["amc", "mutual fund", "fund house", "members"],
+    "ter": ["total expense ratio", "ter"],
+    "sid": ["scheme information document", "sid"],
+    "kim": ["key information memorandum", "kim"],
+    "statutory_disclosure": ["statutory", "disclosure"],
+    "aum_aaum": ["aum", "aaum"],
+}
+
+RELEVANCE_KEYWORDS = {
+    "high": ["NAV", "Net Asset Value", "Scheme", "Portfolio", "Portfolio Disclosure", 
+             "Monthly Portfolio", "Factsheet", "Fact Sheet", "Disclosure", "Download"],
+    "low": ["careers", "contact", "privacy", "terms", "sitemap", "media", 
+            "press release", "login", "feedback", "branches"],
+}
+
+
+class EvidenceParser:
+    def __init__(self) -> None:
+        self.anchors: list[dict[str, str]] = []
+        self._anchor: dict[str, str] | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = {key.casefold(): (value or "") for key, value in attrs}
+        if tag.casefold() == "a":
+            href = attributes.get("href")
+            if href:
+                self._anchor = {"href": href.strip(), "text": "", "title": attributes.get("title", "")}
+
+    def handle_data(self, data: str) -> None:
+        if self._anchor is not None:
+            self._anchor["text"] += data
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.casefold() == "a" and self._anchor is not None:
+            self._anchor["text"] = " ".join(self._anchor["text"].split())
+            self.anchors.append(self._anchor)
+            self._anchor = None
+
+    def feed(self, html: str) -> None:
+        # Simple HTML parsing - in production would use BeautifulSoup or lxml
+        import re
+        pattern = re.compile(r'<a\s+([^>]*?)>(.*?)</a>', re.IGNORECASE | re.DOTALL)
+        for match in pattern.finditer(html):
+            attrs_str, text = match.groups()
+            attrs = dict(re.findall(r'(\w+)=["\']([^"\']*)["\']', attrs_str))
+            href = attrs.get("href", "")
+            if href and not href.startswith(("#", "javascript:", "mailto:", "tel:")):
+                self.anchors.append({
+                    "href": href,
+                    "text": re.sub(r'<[^>]+>', '', text).strip(),
+                    "title": attrs.get("title", ""),
+                })
+
+
+@dataclass
+class DiscoveryEngine:
+    session: requests.Session
+    settings: HttpSettings
+    visited_urls: set[str] = field(default_factory=set)
+    url_queue: deque[tuple[str, str | None, int]] = field(default_factory=deque)
+
+    def __post_init__(self) -> None:
+        if self.session is None:
+            self.session = build_session(self.settings)
+
+    def add_urls(self, urls: list[str], parent: str | None = None, depth: int = 0) -> None:
+        for url in urls:
+            c_url = canonical_url(url)
+            if c_url not in self.visited_urls:
+                self.url_queue.append((c_url, parent, depth))
+
+    def fetch(self, url: str) -> tuple[int, str | None]:
+        try:
+            response = self.session.get(url, timeout=self.settings.timeout_seconds)
+            content_type = response.headers.get("content-type", "").lower()
+            if "text/html" in content_type or "application/xhtml" in content_type:
+                return response.status_code, response.text
+            return response.status_code, None
+        except requests.RequestException:
+            return 0, None
+
+    def extract_links(self, html: str, source_url: str) -> list[dict[str, str]]:
+        parser = EvidenceParser()
+        parser.feed(html)
+        links = []
+        for anchor in parser.anchors:
+            href = anchor["href"]
+            if href.startswith(("#", "javascript:", "mailto:", "tel:")):
+                continue
+            full_url = canonical_url(urljoin(source_url, href))
+            links.append({"url": full_url, "text": anchor.get("text", ""), "title": anchor.get("title", "")})
+        return links
+
+    def score_relevance(self, url: str, text: str, title: str) -> tuple[float, str | None]:
+        combined = (text + " " + title + " " + url).lower()
+        for term in RELEVANCE_KEYWORDS["low"]:
+            if term in combined:
+                return 0.0, None
+        for term in RELEVANCE_KEYWORDS["high"]:
+            if term.lower() in combined:
+                return 0.8, "relevant"
+        for dataset_type, keywords in DATASET_TYPE_HINTS.items():
+            for keyword in keywords:
+                if keyword in combined:
+                    return 0.7, dataset_type
+        return 0.3, None
+
+    def classify_dataset(self, url: str, text: str) -> str | None:
+        combined = (text + " " + url).lower()
+        for dataset_type, keywords in DATASET_TYPE_HINTS.items():
+            for keyword in keywords:
+                if keyword in combined:
+                    return dataset_type
+        return None
+
+    def get_file_type(self, url: str) -> str | None:
+        return file_type_from_url(url)
+
+    def get_domain(self, url: str) -> str:
+        return urlparse(url).netloc.lower().removeprefix("www.")
+
+    def is_off_domain(self, url: str, task_domain: str) -> bool:
+        return self.get_domain(url) != task_domain
