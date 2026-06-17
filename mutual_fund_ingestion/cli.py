@@ -33,20 +33,20 @@ def _get_agent_config():
         _agent_config = _ac
     return _agent_config
 
-from .artifacts import ArtifactPaths, load_latest_profiles, write_profile_artifacts
-from .browser import render_reference_html
-from .http import HttpSettings, build_session
-from .profiler import ProfileContext, ProfileOptions, profile_sources
-from .registry import DEFAULT_REGISTRY, load_registry, load_sources
-from .reports import calculate_metrics, generate_profile_reports
-from .models import SourceCandidate
-from .source_discovery import (
+from .profiling.artifacts import ArtifactPaths, load_latest_profiles, write_profile_artifacts
+from .profiling.browser import render_reference_html
+from .profiling.http import HttpSettings, build_session
+from .profiling.profiler import ProfileContext, ProfileOptions, profile_sources
+from .profiling.registry import DEFAULT_REGISTRY, load_registry, load_sources
+from .profiling.reports import calculate_metrics, generate_profile_reports
+from .profiling.models import SourceCandidate
+from .profiling.source_discovery import (
     AMFI_MEMBERS_URL,
     SEBI_REGISTERED_FUNDS_URL,
     discover_amfi_candidates,
     discover_sebi_candidates,
 )
-from .source_registry import (
+from .profiling.source_registry import (
     SourceRegistryPaths,
     calculate_source_registry_metrics,
     candidates_from_registry,
@@ -135,6 +135,19 @@ def build_parser() -> argparse.ArgumentParser:
     init_db = subparsers.add_parser("init-db")
     init_db.add_argument("--database-url", required=True)
     init_db.add_argument("--log-level", default="INFO")
+
+    # Inspect run subcommand
+    inspect_run = subparsers.add_parser("inspect-run")
+    inspect_run.add_argument("--database-url", required=True, help="PostgreSQL connection URL")
+    inspect_run.add_argument("--run-id", required=True, help="Run ID to inspect")
+    inspect_run.add_argument("--log-level", default="INFO")
+
+    # Retry failed subcommand
+    retry_failed = subparsers.add_parser("retry-failed")
+    retry_failed.add_argument("--database-url", required=True, help="PostgreSQL connection URL")
+    retry_failed.add_argument("--run-id", help="Run ID to retry failed tasks for (default: all pending)")
+    retry_failed.add_argument("--max-retries", type=int, default=3, help="Max retry attempts per task")
+    retry_failed.add_argument("--log-level", default="INFO")
 
     return parser
 
@@ -243,6 +256,126 @@ def _profile(args, session, sources=None) -> int:
     return 0
 
 
+def _inspect_run(args) -> int:
+    """Show details of an ingestion run."""
+    from .agent.db import get_session_maker, IngestionRun, TaskURL, SourcePage, DiscoveredLink, DatasetCandidate, RawArtifact, ValidationResult, QuarantineRow, RetryQueue
+    from sqlalchemy import select
+    import uuid
+    
+    session_maker = get_session_maker(args.database_url)
+    session = session_maker()
+    
+    try:
+        run_id = uuid.UUID(args.run_id)
+        run = session.get(IngestionRun, run_id)
+        if not run:
+            print(f"Run {args.run_id} not found")
+            return 1
+        
+        print(f"=== Ingestion Run: {run.id} ===")
+        print(f"Status: {run.status}")
+        print(f"Started: {run.started_at}")
+        print(f"Finished: {run.finished_at}")
+        print(f"Pages seen: {run.pages_seen}")
+        print(f"Files seen: {run.files_seen}")
+        print(f"Rows inserted: {run.rows_inserted}")
+        print(f"Rows rejected: {run.rows_rejected}")
+        
+        # Task URLs
+        task_urls = session.execute(select(TaskURL).where(TaskURL.run_id == run_id)).scalars().all()
+        print(f"\n=== Task URLs ({len(task_urls)}) ===")
+        for tu in task_urls:
+            print(f"  {tu.url} - {tu.status}")
+        
+        # Source pages
+        pages = session.execute(select(SourcePage).where(SourcePage.run_id == run_id)).scalars().all()
+        print(f"\n=== Source Pages ({len(pages)}) ===")
+        for p in pages[:10]:
+            print(f"  {p.url} - {p.status_code} - {p.page_relevance}")
+        if len(pages) > 10:
+            print(f"  ... and {len(pages) - 10} more")
+        
+        # Discovered links
+        links = session.execute(select(DiscoveredLink).where(DiscoveredLink.run_id == run_id)).scalars().all()
+        print(f"\n=== Discovered Links ({len(links)}) ===")
+        for l in links[:10]:
+            print(f"  {l.url} - score: {l.relevance_score} - follow: {l.should_follow}")
+        if len(links) > 10:
+            print(f"  ... and {len(links) - 10} more")
+        
+        # Dataset candidates
+        candidates = session.execute(select(DatasetCandidate).where(DatasetCandidate.run_id == run_id)).scalars().all()
+        print(f"\n=== Dataset Candidates ({len(candidates)}) ===")
+        for c in candidates:
+            print(f"  {c.url} - {c.dataset_type} - {c.status}")
+        
+        # Raw artifacts
+        artifacts = session.execute(select(RawArtifact).where(RawArtifact.run_id == run_id)).scalars().all()
+        print(f"\n=== Raw Artifacts ({len(artifacts)}) ===")
+        for a in artifacts:
+            print(f"  {a.source_url} - {a.file_type} - {a.size_bytes} bytes - retained: {a.retained}")
+        
+        # Validation results
+        validations = session.execute(select(ValidationResult).where(ValidationResult.run_id == run_id)).scalars().all()
+        print(f"\n=== Validation Results ({len(validations)}) ===")
+        for v in validations[:10]:
+            print(f"  {v.entity_type} - {v.check_name} - {v.status} - {v.message}")
+        
+        # Quarantine rows
+        quarantine = session.execute(select(QuarantineRow).where(QuarantineRow.run_id == run_id)).scalars().all()
+        print(f"\n=== Quarantine Rows ({len(quarantine)}) ===")
+        for q in quarantine[:10]:
+            print(f"  {q.dataset_type} - {q.reason}")
+        
+        # Retry queue
+        retries = session.execute(select(RetryQueue).where(RetryQueue.run_id == run_id)).scalars().all()
+        print(f"\n=== Retry Queue ({len(retries)}) ===")
+        for r in retries:
+            print(f"  {r.task_type} - {r.url} - {r.status} - retryable: {r.retryable}")
+        
+        return 0
+    finally:
+        session.close()
+
+
+def _retry_failed(args) -> int:
+    """Retry failed tasks from retry queue."""
+    from .agent.db import get_session_maker, RetryQueue
+    from sqlalchemy import select, update
+    import uuid
+    
+    session_maker = get_session_maker(args.database_url)
+    session = session_maker()
+    
+    try:
+        run_id = uuid.UUID(args.run_id)
+        
+        # Get pending retry tasks
+        retries = session.execute(
+            select(RetryQueue)
+            .where(RetryQueue.run_id == run_id, RetryQueue.status == "pending")
+        ).scalars().all()
+        
+        if not retries:
+            print(f"No pending retry tasks for run {args.run_id}")
+            return 0
+        
+        print(f"Found {len(retries)} pending retry tasks")
+        
+        # Reset status to pending for re-processing
+        for r in retries:
+            r.status = "pending"
+            r.retry_count += 1
+        
+        session.commit()
+        print(f"Reset {len(retries)} retry tasks to pending status")
+        print("Re-run the agent with the same task URLs to process retries")
+        
+        return 0
+    finally:
+        session.close()
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     logging.basicConfig(level=getattr(logging, args.log_level.upper()), format="%(asctime)s %(levelname)s %(message)s")
@@ -298,4 +431,8 @@ def main(argv: list[str] | None = None) -> int:
         result = runner.run()
         print(json.dumps(result, indent=2, default=str))
         return 0
+    if args.command == "inspect-run":
+        return _inspect_run(args)
+    if args.command == "retry-failed":
+        return _retry_failed(args)
     return 0

@@ -11,6 +11,7 @@ from mutual_fund_ingestion.agent.config import AgentConfig
 from mutual_fund_ingestion.agent.models import ParserResult
 from mutual_fund_ingestion.agent.parser.nav import parse_nav_text, parse_nav_csv
 from mutual_fund_ingestion.agent.parser.amc import parse_amc_html
+from mutual_fund_ingestion.agent.parser.scheme_master import parse_scheme_master_csv, parse_scheme_master_html
 from mutual_fund_ingestion.agent.parser import route_parser, parse_file
 from mutual_fund_ingestion.agent.validate import validate_nav_record, validate_portfolio_record, validate_and_filter_records
 
@@ -169,6 +170,41 @@ class RouteParserIntegrationTests(unittest.TestCase):
         self.assertEqual(result.parser_name, "unknown")
         self.assertEqual(result.confidence, 0.0)
         self.assertIn("No parser found", result.warnings[0])
+
+
+class SchemeMasterParserTests(unittest.TestCase):
+    def test_scheme_master_csv_parser_with_valid_data(self):
+        content = "Scheme Code,Scheme Name,AMC Name,Category\n12345,HDFC Top 100,HDFC Mutual Fund,Equity\n67890,ICICI Bluechip,ICICI Prudential Mutual Fund,Equity"
+        result = parse_scheme_master_csv(content, {"source_url": "https://amfiindia.com/scheme_master.csv"})
+        self.assertEqual(result.parser_name, "scheme_master_csv_v1")
+        self.assertEqual(len(result.records), 2)
+        self.assertEqual(result.records[0]["scheme_code"], "12345")
+        self.assertEqual(result.records[0]["scheme_name"], "HDFC Top 100")
+        self.assertEqual(result.records[0]["amc_name"], "HDFC Mutual Fund")
+        self.assertEqual(result.records[0]["category"], "Equity")
+        self.assertEqual(result.records[1]["scheme_code"], "67890")
+        self.assertEqual(result.records[1]["scheme_name"], "ICICI Bluechip")
+
+    def test_scheme_master_csv_parser_with_alternative_columns(self):
+        content = "schemecode,schemename,amc,fund category\n111,Test Fund,Test AMC,Debt"
+        result = parse_scheme_master_csv(content, {"source_url": "https://amfiindia.com/scheme_master.csv"})
+        self.assertEqual(result.parser_name, "scheme_master_csv_v1")
+        self.assertEqual(len(result.records), 1)
+        self.assertEqual(result.records[0]["scheme_code"], "111")
+        self.assertEqual(result.records[0]["scheme_name"], "Test Fund")
+        self.assertEqual(result.records[0]["amc_name"], "Test AMC")
+        self.assertEqual(result.records[0]["category"], "Debt")
+
+    def test_parse_file_routes_to_scheme_master_csv_parser(self):
+        content = "Scheme Code,Scheme Name\n123,Test Fund"
+        result = parse_file("scheme_master", "csv", content, {"source_url": "https://amfi.com"})
+        self.assertEqual(result.parser_name, "scheme_master_csv_v1")
+        self.assertEqual(len(result.records), 1)
+
+    def test_parse_file_routes_to_scheme_master_html_parser(self):
+        content = '<html><body><table><tr><th>Scheme Code</th><th>Scheme Name</th></tr><tr><td>123</td><td>Test Fund</td></tr></table></body></html>'
+        result = parse_file("scheme_master", "html", content, {"source_url": "https://amfi.com"})
+        self.assertEqual(result.parser_name, "scheme_master_html_v1")
 
 
 class CLITests(unittest.TestCase):

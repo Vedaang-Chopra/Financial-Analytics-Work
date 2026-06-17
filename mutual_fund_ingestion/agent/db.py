@@ -310,6 +310,7 @@ class RetryQueue(Base):
     retry_count = Column(Integer, nullable=False, default=0)
     next_retry_at = Column(DateTime(timezone=True), nullable=True)
     status = Column(Text, nullable=False, default="pending")
+    retryable = Column(Boolean, nullable=False, default=True)
     metadata_json = Column(JSON, nullable=False, default=dict)
     created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=False, default=func.now(), onupdate=func.now())

@@ -37,30 +37,13 @@ RELEVANCE_KEYWORDS = {
 }
 
 
-class EvidenceParser:
+class LinkExtractor:
+    """Simple regex-based link extractor for discovery pages."""
+
     def __init__(self) -> None:
         self.anchors: list[dict[str, str]] = []
-        self._anchor: dict[str, str] | None = None
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attributes = {key.casefold(): (value or "") for key, value in attrs}
-        if tag.casefold() == "a":
-            href = attributes.get("href")
-            if href:
-                self._anchor = {"href": href.strip(), "text": "", "title": attributes.get("title", "")}
-
-    def handle_data(self, data: str) -> None:
-        if self._anchor is not None:
-            self._anchor["text"] += data
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag.casefold() == "a" and self._anchor is not None:
-            self._anchor["text"] = " ".join(self._anchor["text"].split())
-            self.anchors.append(self._anchor)
-            self._anchor = None
 
     def feed(self, html: str) -> None:
-        # Simple HTML parsing - in production would use BeautifulSoup or lxml
         import re
         pattern = re.compile(r'<a\s+([^>]*?)>(.*?)</a>', re.IGNORECASE | re.DOTALL)
         for match in pattern.finditer(html):
@@ -103,7 +86,7 @@ class DiscoveryEngine:
             return 0, None
 
     def extract_links(self, html: str, source_url: str) -> list[dict[str, str]]:
-        parser = EvidenceParser()
+        parser = LinkExtractor()
         parser.feed(html)
         links = []
         for anchor in parser.anchors:

@@ -1,0 +1,6 @@
+amc_name,seed_url,status,detected_strategy,failure_reason,candidate_links_count
+360 ONE Mutual Fund,https://www.360one.com/asset-management/mutual-fund/downloads/,manual_review_required,manual_review,,0
+Abakkus Mutual Fund,https://abakkusmf.com/,failed,manual_review,"static_html: HTTPSConnectionPool(host='www.abakkusmf.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.abakkusmf.com', port=443) at 0x11489a0d0>, 'Connection to www.abakkusmf.com timed out. (connect timeout=30)')); playwright: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.",0
+HDFC Mutual Fund,https://www.hdfcfund.com/statutory-disclosure/portfolio-disclosure,failed,manual_review,"static_html: 404 Client Error: Not Found for url: https://www.hdfcfund.com/statutory-disclosure/portfolio-disclosure; playwright: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.",0

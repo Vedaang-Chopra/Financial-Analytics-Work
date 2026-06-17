@@ -21,6 +21,9 @@ PARSER_ROUTER: dict[tuple[str, str], str] = {
     ("portfolio_disclosure", "xlsx"): "portfolio_excel",
     ("portfolio_disclosure", "xls"): "portfolio_excel",
     ("portfolio_disclosure", "csv"): "portfolio_csv",
+    # Scheme master parsers
+    ("scheme_master", "csv"): "scheme_master_csv",
+    ("scheme_master", "html"): "scheme_master_html",
 }
 
 
@@ -46,6 +49,12 @@ def parse_file(dataset_type: str, file_type: str | None, content: bytes | str, m
     elif parser_name in ("portfolio_excel", "portfolio_csv"):
         from .portfolio import parse_portfolio_excel
         return parse_portfolio_excel(content, metadata)
+    elif parser_name == "scheme_master_csv":
+        from .scheme_master import parse_scheme_master_csv
+        return parse_scheme_master_csv(content, metadata)
+    elif parser_name == "scheme_master_html":
+        from .scheme_master import parse_scheme_master_html
+        return parse_scheme_master_html(content, metadata)
     return ParserResult(
         dataset_type=dataset_type,
         parser_name="unknown",

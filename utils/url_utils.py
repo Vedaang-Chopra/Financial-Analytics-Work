@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlparse, urlunparse
 
 
-FILE_EXTENSIONS = {"pdf", "xls", "xlsx", "csv", "zip"}
+FILE_EXTENSIONS = {"pdf", "xls", "xlsx", "csv", "zip", "txt"}
 
 
 def canonical_url(value: str) -> str:

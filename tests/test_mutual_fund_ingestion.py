@@ -4,12 +4,12 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from mutual_fund_ingestion.artifacts import ArtifactPaths, load_latest_profiles, write_profile_artifacts
-from mutual_fund_ingestion.browser import augment_with_network_evidence, save_browser_failure_artifacts
+from mutual_fund_ingestion.profiling.artifacts import ArtifactPaths, load_latest_profiles, write_profile_artifacts
+from mutual_fund_ingestion.profiling.browser import augment_with_network_evidence, save_browser_failure_artifacts
 from mutual_fund_ingestion.cli import build_parser, main
-from mutual_fund_ingestion.extract import extract_page_evidence
+from mutual_fund_ingestion.profiling.extract import extract_page_evidence
 from utils.url_utils import safe_name
-from mutual_fund_ingestion.models import (
+from mutual_fund_ingestion.profiling.models import (
     AMCSource,
     CandidateLink,
     ProviderProfile,
@@ -17,10 +17,10 @@ from mutual_fund_ingestion.models import (
     SourcePage,
     SourceRegistryEntry,
 )
-from mutual_fund_ingestion.profiler import ProfileContext, ProfileOptions, profile_source, profile_sources
-from mutual_fund_ingestion.registry import load_registry, load_sources
-from mutual_fund_ingestion.reports import calculate_metrics, generate_profile_reports
-from mutual_fund_ingestion.source_registry import (
+from mutual_fund_ingestion.profiling.profiler import ProfileContext, ProfileOptions, profile_source, profile_sources
+from mutual_fund_ingestion.profiling.registry import load_registry, load_sources
+from mutual_fund_ingestion.profiling.reports import calculate_metrics, generate_profile_reports
+from mutual_fund_ingestion.profiling.source_registry import (
     SourceRegistryPaths,
     candidates_from_registry,
     calculate_source_registry_metrics,
@@ -29,7 +29,7 @@ from mutual_fund_ingestion.source_registry import (
     normalize_amc_name,
     write_source_registry_artifacts,
 )
-from mutual_fund_ingestion.source_discovery import discover_amfi_candidates, discover_sebi_candidates
+from mutual_fund_ingestion.profiling.source_discovery import discover_amfi_candidates, discover_sebi_candidates
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -478,7 +478,7 @@ class ProfilerTests(unittest.TestCase):
                 options=ProfileOptions(browser_enabled=True),
             )
             with patch(
-                "mutual_fund_ingestion.profiler.inspect_with_browser",
+                "mutual_fund_ingestion.profiling.profiler.inspect_with_browser",
                 side_effect=RuntimeError("browser unavailable"),
             ):
                 profile = profile_source(make_source(), context)
