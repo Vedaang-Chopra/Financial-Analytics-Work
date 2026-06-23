@@ -154,5 +154,11 @@ Run all tests:
 
 ```bash
 python -m pytest tests/ -v
-# 118 tests: 38 Phase 1 + 36 agent + 11 amfi_disclosure + 22 DB integration + 11 parser/routing
+# 125 tests: 38 Phase 1 + 46 agent + 11 amfi_disclosure + 22 DB integration + 8 smoke/parser
+```
+
+Run smoke tests (requires network):
+
+```bash
+python -m pytest -m smoke tests/ -v
 ```

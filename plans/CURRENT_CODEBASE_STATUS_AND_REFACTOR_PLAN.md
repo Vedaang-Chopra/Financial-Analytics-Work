@@ -11,6 +11,7 @@ This project is an agentic mutual fund data ingestion system for Indian capital 
 **Overall status**: The system is substantially further along than the existing PLAN.md suggests. Phase 1A/1B is production-complete. The Task-URL Agent has a working orchestration loop with full DB persistence, a functional parser framework (NAV, AMC, Scheme Master, Portfolio), browser automation, artifact download with checksums, validation/quarantine, and both `inspect-run` and `retry-failed` CLI commands. 85 tests pass.
 
 **Key gaps remaining before end-to-end agent runs work reliably:**
+
 1. VLM is instantiated but `analyze_page()` is never called — all candidates silently skip VLM analysis.
 2. `portfolio.py` column mapping is broken for real Excel files (`header=None` produces integer column indices, but aliases expect string headers from row 0).
 3. `retry-failed` CLI crashes when `--run-id` not provided (tries `uuid.UUID(None)`).
@@ -25,6 +26,7 @@ This project is an agentic mutual fund data ingestion system for Indian capital 
 Source: `docs/design/task_url_agent_design_pack/`, `AGENTS.md`, `CHATGPT_PROJECT_MEMORY.md`.
 
 **What it should do:**
+
 1. Accept one or more task URLs (initially AMFI disclosure portal)
 2. Crawl and discover relevant data source pages
 3. Classify discovered URLs as dataset candidates (NAV, portfolio, factsheet, etc.)
@@ -48,6 +50,7 @@ Source: `docs/design/task_url_agent_design_pack/`, `AGENTS.md`, `CHATGPT_PROJECT
 ## 3. Repository Inventory
 
 ### Classification Key
+
 File type: `production_core | production_support | test | fixture | notebook | documentation | generated_artifact | legacy_or_experimental | unknown_needs_review`
 Layer: `cli | orchestration | discovery | browser_automation | vlm_integration | download_extraction | classification | parser | validation | database | provenance | retry_quarantine | utils`
 
@@ -203,7 +206,7 @@ runner.__init__()
 | 21 | Validation rules | **partial** | NAV and portfolio validated; scheme_master, AMC, factsheet etc. not validated |
 | 22 | Quarantine rows | **complete** | write_quarantine_row() used in runner for invalid records |
 | 23 | Retry queue | **partial** | RetryQueue table written; retry-failed CLI resets status but relies on re-running agent |
-| 24 | Canonical PostgreSQL loading | **complete** | _upsert_nav_history, _upsert_amcs, _upsert_schemes, _upsert_portfolio all implemented |
+| 24 | Canonical PostgreSQL loading | **complete** | _upsert_nav_history,_upsert_amcs,_upsert_schemes,_upsert_portfolio all implemented |
 | 25 | Provenance tracking | **complete** | raw_artifact_id and source_url on every canonical row |
 | 26 | Tests | **complete** | 85/85 pass — unit + integration + DB |
 | 27 | Logging/debuggability | **partial** | LOGGER used in most modules; no structured format, no timestamps in CLI output, VLM never logged |
@@ -227,7 +230,7 @@ All of the following have been verified by test execution and code inspection:
 - **NAV CSV parser**: Handles CSV NAV format. Tested.
 - **AMC HTML parser**: Extracts AMC name + URL from HTML. Tested.
 - **Scheme master CSV parser**: Flexible column alias mapping. Tested with both standard and alternative column names.
-- **Canonical upserts**: _upsert_nav_history, _upsert_amcs, _upsert_schemes, _upsert_portfolio all write to canonical tables using SQLAlchemy with upsert semantics.
+- **Canonical upserts**: _upsert_nav_history,_upsert_amcs,_upsert_schemes,_upsert_portfolio all write to canonical tables using SQLAlchemy with upsert semantics.
 - **Validation**: validate_nav_record(), validate_portfolio_record() tested.
 - **Quarantine**: QuarantineRow written for invalid records. Tested.
 - **Staging rows**: StagingRow written for every parsed artifact. Tested.
@@ -243,12 +246,14 @@ All of the following have been verified by test execution and code inspection:
 ### BROKEN — Will crash or produce wrong results
 
 **B-1: `retry-failed` without `--run-id` crashes**
+
 - `cli.py:_retry_failed()` line ~350: `run_id = uuid.UUID(args.run_id)`
 - `args.run_id` is `None` when `--run-id` not provided (CLI marks it optional)
 - `uuid.UUID(None)` raises `TypeError`
 - Fix: add `if not args.run_id` guard, either fail with message or process all pending retries
 
 **B-2: `portfolio.py` column mapping broken for real Excel files**
+
 - `parse_portfolio_excel()` calls `pd.read_excel(..., header=None)` so columns are integers (0, 1, 2...)
 - `_map_columns(df)` then maps `str(0)` → `"0"`, `str(1)` → `"1"` etc.
 - None of these match the column aliases ("security_name", "percentage_to_nav" etc.)
@@ -258,12 +263,14 @@ All of the following have been verified by test execution and code inspection:
 ### PARTIAL — Works in limited scenarios, silently fails otherwise
 
 **P-1: VLM not invoked**
+
 - `runner.py` instantiates `self.vlm` correctly based on `use_vlm` config flag
 - `self.vlm.analyze_page()` is never called anywhere in the BFS loop
 - `requires_vlm=False` is hardcoded on all DatasetCandidate records
 - Impact: `--use-vlm` flag does nothing at runtime
 
 **P-2: Raw file retention incomplete**
+
 - `ArtifactCollector.download()` returns `"retained": self.keep_raw_files` in result dict
 - `runner.py` line 360 stores this in `raw_artifacts.retained` column
 - Files are never actually moved from temp dir to a permanent `raw_dir`
@@ -271,22 +278,26 @@ All of the following have been verified by test execution and code inspection:
 - Fix: in `_download_and_process_artifact()`, if `artifact_result["retained"]`, move/copy file to `config.raw_dir / run_id / safe_name`
 
 **P-3: Network/API capture not used as discovery source**
+
 - `extract_with_browser()` returns `downloads` (network calls with file extensions)
 - These are used to create DatasetCandidates from browser links
 - But the design spec requires treating embedded API endpoints (JSON data URLs) as first-class dataset candidates before Playwright
 - Runner currently only uses browser network captures as an addendum, not as a separate strategy step
 
 **P-4: Validation coverage is incomplete**
+
 - `validate_and_filter_records()` routes to NAV or portfolio validators
 - No validators for: scheme_master, amc_provider_list, factsheet, SID/KIM/TER, AUM/AAUM
 - These parse successfully but produce unvalidated staging rows
 
 **P-5: `inspect-run` and `retry-failed` use `--database-url` (PostgreSQL) but test DBs are SQLite**
+
 - Tests use SQLite but production requires PostgreSQL
 - No in-memory or file-based PostgreSQL alternative for local debugging without a PG server
 - Impact: cannot easily test CLI commands against local data without PG
 
 **P-6: Logging is inconsistent**
+
 - Most agent modules use `LOGGER = logging.getLogger(__name__)` correctly
 - `runner.py` has good LOGGER calls throughout the main loop
 - But: no log formatter is configured by CLI (no timestamps, no level labels in output)
@@ -382,7 +393,7 @@ Evaluating against `AGENTS.md`.
 | Notebooks for inspection only | ✅ Followed | All 4 notebooks are inspection/analysis only |
 | Update CODEBASE_MAP with every change | ⚠️ Partial | CODEBASE_MAP exists but not fully up to date |
 | No new code duplication | ✅ Followed | No unnecessary duplication found |
-| Import only from __init__.py / interfaces | ⚠️ Partial | Some tests import internal module paths directly |
+| Import only from **init**.py / interfaces | ⚠️ Partial | Some tests import internal module paths directly |
 | Self-check 17-point checklist | ❌ Not visible | No evidence checklist was run before last commit |
 
 ---
@@ -390,6 +401,7 @@ Evaluating against `AGENTS.md`.
 ## 12. Logging and Debuggability Review
 
 **Current state:**
+
 - Most agent modules define `LOGGER = logging.getLogger(__name__)` — correct pattern.
 - `runner.py` logs: run start/end, page fetch (INFO), warnings for download failures, parser misses, Playwright unavailability.
 - `cli.py` calls `logging.basicConfig(level=args.log_level)` — no format string set, so output has no timestamps or log levels in most terminals.
@@ -417,6 +429,7 @@ Evaluating against `AGENTS.md`.
 | Failures with URL and reason | ✅ LOGGER.warning | ✅ |
 
 **Refactor needed:**
+
 1. Add log format with timestamps: `logging.basicConfig(level=..., format="%(asctime)s %(levelname)s %(name)s: %(message)s")`
 2. Add `LOGGER.info("Discovered %d links, %d candidates from %s", ...)` after link extraction
 3. Add `LOGGER.info("Downloaded %s (%d bytes, sha256=%s)", url, size, checksum[:8])` on success
@@ -446,6 +459,7 @@ These are generated by `tests/test_agent_db.py` which uses `tempfile.mktemp(suff
 Current `.gitignore` covers: `.env`, `venv/`, `__pycache__/`, `.ipynb_checkpoints/`, specific `data/` subdirs, specific report files.
 
 **Missing patterns to add:**
+
 ```
 *.db
 *.db-journal
@@ -477,29 +491,29 @@ Prioritized by: impact on correctness → impact on completeness → code qualit
 
 ### Priority 2: Complete partial features (core pipeline)
 
-5. Implement raw file retention (move files to raw_dir when keep_raw_files=True)
-6. Wire VLM invocation in runner main loop (call analyze_page() for candidates that trigger requires_vlm)
-7. Add NAV HTML parser
-8. Add portfolio CSV parser (separate from Excel; same column mapping fix applies)
+1. Implement raw file retention (move files to raw_dir when keep_raw_files=True)
+2. Wire VLM invocation in runner main loop (call analyze_page() for candidates that trigger requires_vlm)
+3. Add NAV HTML parser
+4. Add portfolio CSV parser (separate from Excel; same column mapping fix applies)
 
 ### Priority 3: Extend validator coverage
 
-9. Add scheme_master validation rules (required: scheme_code, scheme_name, amc_name)
-10. Add AMC validation rules (required: name; normalized_name must be unique)
+1. Add scheme_master validation rules (required: scheme_code, scheme_name, amc_name)
+2. Add AMC validation rules (required: name; normalized_name must be unique)
 
 ### Priority 4: Code quality and compliance
 
-11. Update CODEBASE_MAP.md to reflect current state
-12. Update plans/task_url_ingestion_agent.md with accurate status
-13. Update CHATGPT_PROJECT_MEMORY.md current status section
-14. Add log events for links discovered, candidates found, parser selected, rows parsed
-15. Remove `pika` from requirements.txt
-16. Mark PLAN.md tasks 1 and 2 as complete
+1. Update CODEBASE_MAP.md to reflect current state
+2. Update plans/task_url_ingestion_agent.md with accurate status
+3. Update CHATGPT_PROJECT_MEMORY.md current status section
+4. Add log events for links discovered, candidates found, parser selected, rows parsed
+5. Remove `pika` from requirements.txt
+6. Mark PLAN.md tasks 1 and 2 as complete
 
 ### Priority 5: Next phase (not yet started)
 
-17. Phase 2: Raw document download from Phase 1 provider profiles (see `docs/design/phase_2/`)
-18. Add remaining parsers: SID/KIM/TER, factsheet, AUM/AAUM (when Phase 2 downloads them)
+1. Phase 2: Raw document download from Phase 1 provider profiles (see `docs/design/phase_2/`)
+2. Add remaining parsers: SID/KIM/TER, factsheet, AUM/AAUM (when Phase 2 downloads them)
 
 ---
 
@@ -514,10 +528,12 @@ Each task is independently testable. Do them in order.
 **Goal:** Remove SQLite test databases from git tracking.
 
 **Files touched:**
+
 - `.gitignore`
 
 **Implementation:**
 Add these lines to `.gitignore`:
+
 ```
 *.db
 *.db-journal
@@ -527,6 +543,7 @@ data/tmp/
 ```
 
 **Test:**
+
 ```bash
 git status  # should no longer show test.db, test2.db etc.
 python -m pytest tests/ test_amfi_disclosure.py -v  # all 85 pass
@@ -545,10 +562,12 @@ python -m pytest tests/ test_amfi_disclosure.py -v  # all 85 pass
 **Goal:** All log output should include timestamps and log level.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/cli.py`
 
 **Implementation:**
 Find the `logging.basicConfig(level=...)` call and change to:
+
 ```python
 logging.basicConfig(
     level=getattr(logging, args.log_level.upper(), logging.INFO),
@@ -558,6 +577,7 @@ logging.basicConfig(
 ```
 
 **Test:**
+
 ```bash
 python -m mutual_fund_ingestion run-agent --task-url https://example.com \
     --database-url sqlite:///test_logging.db --log-level DEBUG --dry-run 2>&1 | head -5
@@ -576,18 +596,22 @@ python -m mutual_fund_ingestion run-agent --task-url https://example.com \
 **Goal:** `retry-failed` should either require `--run-id` explicitly or handle the case gracefully.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/cli.py` (`_retry_failed` function, ~line 341)
 
 **Implementation:**
 Add guard at start of `_retry_failed`:
+
 ```python
 if not args.run_id:
     print("--run-id is required for retry-failed")
     return 1
 ```
+
 (Or alternatively change CLI to `required=True` for `--run-id`.)
 
 **Test:**
+
 ```bash
 python -m mutual_fund_ingestion retry-failed --database-url sqlite:///test_retry.db
 # should print error message and exit 1, not crash with TypeError
@@ -606,10 +630,12 @@ python -m mutual_fund_ingestion retry-failed --database-url sqlite:///test_retry
 **Goal:** `parse_portfolio_excel()` correctly maps columns from real AMFI portfolio Excel files.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/parser/portfolio.py`
 
 **Implementation:**
 Replace the current `pd.read_excel(..., header=None)` approach with header row detection:
+
 ```python
 # Strategy: read without header, find the row where most COLUMN_ALIASES match,
 # use that as the header row
@@ -646,23 +672,30 @@ python -m pytest tests/test_agent_db.py::ParserUpsertTests::test_portfolio_parse
 **Goal:** Make crawl progress visible without needing to query the DB.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/runner.py`
 
 **Implementation:**
 In `run()` after link extraction loop, add:
+
 ```python
 LOGGER.info("Page %s: %d links extracted, %d candidates identified", url, len(links), candidates_from_page)
 ```
+
 After artifact download:
+
 ```python
 LOGGER.info("Downloaded %s: %d bytes sha256=%s...", url, artifact_result["size_bytes"], artifact_result["checksum"][:12])
 ```
+
 After parsing:
+
 ```python
 LOGGER.info("Parser %s: %d records from %s", parser_result.parser_name, len(parser_result.records), url)
 ```
 
 **Test:**
+
 ```bash
 python -m mutual_fund_ingestion run-agent \
     --task-url https://www.amfiindia.com/nav-history \
@@ -683,10 +716,12 @@ python -m mutual_fund_ingestion run-agent \
 **Goal:** When `--keep-raw-files` is set, downloaded files are permanently preserved in `raw_dir`.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/runner.py` (`_download_and_process_artifact`)
 
 **Implementation:**
 After `raw_artifact` DB record is flushed (after line ~363), add:
+
 ```python
 if artifact_result.get("retained") and self.config.raw_dir:
     import shutil
@@ -699,6 +734,7 @@ if artifact_result.get("retained") and self.config.raw_dir:
 ```
 
 **Test:**
+
 ```bash
 python -c "
 import tempfile, os
@@ -723,10 +759,12 @@ print(hasattr(AgentConfig, 'raw_dir'))
 **Goal:** Handle AMFI-style HTML NAV pages (parser router already routes to `nav_html` but no function exists).
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/parser/nav.py` (add `parse_nav_html`)
 - `mutual_fund_ingestion/agent/parser/__init__.py` (add elif branch for `nav_html`)
 
 **Implementation:**
+
 ```python
 def parse_nav_html(content: bytes | str, metadata: dict) -> ParserResult:
     """Parse NAV data from HTML tables (e.g., AMFI NAV history page)."""
@@ -737,6 +775,7 @@ def parse_nav_html(content: bytes | str, metadata: dict) -> ParserResult:
 
 **Test:**
 Add fixture `tests/fixtures/nav_page.html` with a minimal table and write test:
+
 ```bash
 python -m pytest tests/test_agent.py -k nav_html -v
 ```
@@ -754,10 +793,12 @@ python -m pytest tests/test_agent.py -k nav_html -v
 **Goal:** When a page classification is low-confidence and `use_vlm=True`, call `self.vlm.analyze_page()`.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/runner.py` (BFS loop, after relevance scoring)
 
 **Implementation:**
 After relevance scoring for a page, if score < threshold and `self.config.use_vlm`:
+
 ```python
 if relevance_score < 0.5 and self.config.use_vlm:
     payload = PageAnalysisPayload(url=url, html=html, screenshot_path=None, links=links)
@@ -767,10 +808,12 @@ if relevance_score < 0.5 and self.config.use_vlm:
         dataset_type_hint = decision.dataset_type
         LOGGER.info("VLM classified %s as %s (confidence=%.2f)", url, dataset_type_hint, decision.confidence)
 ```
+
 Also mark resulting DatasetCandidates with `requires_vlm=True`.
 
 **Test:**
 Add a test that patches `OllamaVLMClient.analyze_page` and verifies it's called when `use_vlm=True` and a page has low relevance score.
+
 ```bash
 python -m pytest tests/test_agent_db.py -k vlm -v
 ```
@@ -788,10 +831,12 @@ python -m pytest tests/test_agent_db.py -k vlm -v
 **Goal:** validate_and_filter_records() should validate scheme_master and AMC records, not just NAV and portfolio.
 
 **Files touched:**
+
 - `mutual_fund_ingestion/agent/validate.py`
 - `mutual_fund_ingestion/agent/runner.py` (route to new validators)
 
 **Implementation:**
+
 ```python
 def validate_scheme_master_record(record: dict) -> list[str]:
     errors = []
@@ -807,12 +852,15 @@ def validate_amc_record(record: dict) -> list[str]:
         errors.append("missing name")
     return errors
 ```
+
 Update `validate_and_filter_records` to route these dataset types.
 
 **Test:**
+
 ```bash
 python -m pytest tests/test_agent.py -k validation -v
 ```
+
 Add new test cases for scheme_master and AMC validation.
 
 **Expected output:** All validation tests pass including new cases.
@@ -828,11 +876,13 @@ Add new test cases for scheme_master and AMC validation.
 **Goal:** Bring PLAN.md, plans/task_url_ingestion_agent.md, and CHATGPT_PROJECT_MEMORY.md into sync with actual state.
 
 **Files touched:**
+
 - `PLAN.md` — mark Tasks 1 and 2 complete; correct "runner does not write to DB" statement
 - `plans/task_url_ingestion_agent.md` — update test count to 85, update gap list
 - `CHATGPT_PROJECT_MEMORY.md` — update Current Status section
 
 **Test:**
+
 ```bash
 grep -n "50 passing\|21 agent\|does NOT insert" PLAN.md plans/task_url_ingestion_agent.md CHATGPT_PROJECT_MEMORY.md
 # Should return no matches after update
@@ -851,12 +901,14 @@ grep -n "50 passing\|21 agent\|does NOT insert" PLAN.md plans/task_url_ingestion
 **Goal:** Remove unused RabbitMQ dependency.
 
 **Files touched:**
+
 - `requirements.txt`
 
 **Implementation:**
 Delete the `pika` line.
 
 **Test:**
+
 ```bash
 grep -r "import pika\|from pika" .  # should return nothing
 python -m pytest tests/ test_amfi_disclosure.py -v  # all 85 pass
@@ -873,18 +925,21 @@ python -m pytest tests/ test_amfi_disclosure.py -v  # all 85 pass
 ## 16. Tests and Verification Commands
 
 ### Run full test suite
+
 ```bash
 python -m pytest tests/ test_amfi_disclosure.py -v
 # Expected: 85 passed in ~4s
 ```
 
 ### Run only agent tests
+
 ```bash
 python -m pytest tests/test_agent.py tests/test_agent_db.py -v
 # Expected: 66 passed
 ```
 
 ### Verify CLI works
+
 ```bash
 python -m mutual_fund_ingestion --help
 python -m mutual_fund_ingestion run-agent --help
@@ -894,12 +949,14 @@ python -m mutual_fund_ingestion retry-failed --help
 ```
 
 ### Initialize a local SQLite schema for smoke testing
+
 ```bash
 python -m mutual_fund_ingestion init-db --database-url sqlite:///smoke.db
 # Expected: prints table names and exits 0
 ```
 
 ### Smoke crawl (no real network needed if dry-run)
+
 ```bash
 python -m mutual_fund_ingestion run-agent \
     --task-url https://www.amfiindia.com/nav-history \
@@ -909,6 +966,7 @@ python -m mutual_fund_ingestion run-agent \
 ```
 
 ### Verify inspect-run works
+
 ```bash
 # Get a run_id from the smoke run, then:
 python -m mutual_fund_ingestion inspect-run \
@@ -925,6 +983,7 @@ python -m mutual_fund_ingestion inspect-run \
 Reason: It is the most impactful correctness bug. The portfolio parser is the core value-generating path for the system (portfolio holdings are the primary analytics target per `CHATGPT_PROJECT_MEMORY.md`). It currently silently produces no records for real AMFI Excel files while appearing to run successfully. The fix is contained to one function in one file with zero risk of breaking other tests.
 
 After TASK-004, run:
+
 ```bash
 python -m pytest tests/test_agent.py tests/test_agent_db.py -v
 ```
@@ -932,3 +991,36 @@ python -m pytest tests/test_agent.py tests/test_agent_db.py -v
 Then proceed with TASK-001 (gitignore), TASK-002 (logging format), TASK-003 (retry-failed crash), and TASK-005 (log events).
 
 The entire Priority 1 + Priority 2 backlog (TASK-001 through TASK-008) should be completable in a single focused session before Phase 2 work begins.
+
+## 18. Completion Notes — 2026-06-22
+
+**Tasks completed through this session: 88-110 (23 tasks across Epics A-T)**
+
+### Test Results
+
+- **125 tests pass** (was 85 before this session)
+- 2 smoke tests skip gracefully when network unavailable
+
+### Key Fixes Delivered
+
+1. **File URL dataset_type classification** — `runner.py` now calls `classify_dataset()` for file URLs instead of returning generic "relevant"
+2. **NAV .txt file parsing** — Added ("nav_history","txt") route to PARSER_ROUTER
+3. **nav_history ON CONFLICT** — Added unique index for SQLite-compatible upsert
+4. **RELEVANCE_KEYWORDS** — Removed "Download" from high keywords to prevent false relevance matches
+
+### New Test Coverage
+
+- R003/R004: Fixture-based end-to-end tests (seed page + NAV file upsert)
+- DatabaseSchemaTests: nav_history composite index, amc normalized_name unique
+- DiscoveryEngineTests: portfolio xlsx classification
+- test_smoke.py: 3 smoke tests (AMFI reachability, NAV discovery, raw file retention)
+- ArtifactCollectorTests: file size limit enforcement
+
+### Remaining Known Issues
+
+- VLM `analyze_page()` never called in BFS loop (K004/K005 wired but threshold not reached in practice)
+- Some pre-existing type checker warnings in metadata.py (false positives)
+
+### Next Session Starting Point
+
+Task 111+ of 140. Review `docs/session_state.md` for full context.
