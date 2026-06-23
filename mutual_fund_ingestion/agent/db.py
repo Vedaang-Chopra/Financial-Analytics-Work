@@ -184,7 +184,11 @@ class NAVHistory(Base):
     raw_artifact_id = Column(UUID(as_uuid=True), ForeignKey("raw_artifacts.id"), nullable=True)
     created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
 
-    __table_args__ = (Index("ix_nav_history_scheme_code_nav_date", "scheme_code", "nav_date"),)
+    __table_args__ = (
+        Index("ix_nav_history_scheme_code_nav_date", "scheme_code", "nav_date"),
+        # SQLite-compatible unique constraint for upsert
+        Index("uq_nav_history_scheme_code_nav_date", "scheme_code", "nav_date", unique=True),
+    )
 
 
 class Document(Base):

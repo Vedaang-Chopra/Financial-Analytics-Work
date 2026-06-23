@@ -100,7 +100,7 @@ class DBIntegrationTests(unittest.TestCase):
         config = AgentConfig(
             task_urls=["https://example.com/test"],
             database_url=self.db_path,
-            max_pages=2,
+            max_pages=1,  # Limit to 1 page to avoid following external links
             dry_run=True,
         )
         runner = IngestionRunner(config)
@@ -166,6 +166,87 @@ class DBIntegrationTests(unittest.TestCase):
             self.assertEqual(links[0].url, "https://example.com/link1")
         finally:
             session.close()
+
+    def test_fixture_seed_page_writes_source_pages(self):
+        """R003: Test seed page discovery writes source_pages and discovered_links."""
+        from pathlib import Path
+        import unittest.mock as mock
+        from mutual_fund_ingestion.agent.db import SourcePage, DiscoveredLink
+        from sqlalchemy import select
+        
+        seed_html = (Path(__file__).parent / "fixtures" / "amfi_seed_page.html").read_text()
+        config = AgentConfig(
+            task_urls=["https://fixture.amfi.com/"],
+            database_url=self.db_path,
+            max_pages=1, max_files=0, use_browser=False,
+        )
+        with mock.patch("mutual_fund_ingestion.agent.discovery.DiscoveryEngine.fetch",
+                        return_value=(200, seed_html)):
+            runner = IngestionRunner(config)
+            runner.run()
+        session = self.session_maker()
+        try:
+            pages = session.execute(select(SourcePage)).scalars().all()
+            self.assertGreaterEqual(len(pages), 1)
+        finally:
+            session.close()
+        session = self.session_maker()
+        try:
+            links = session.execute(select(DiscoveredLink)).scalars().all()
+            self.assertGreaterEqual(len(links), 3)
+        finally:
+            session.close()
+
+    def test_fixture_nav_file_upserted_to_nav_history(self):
+        """R004: Test NAV file parse and upsert to nav_history."""
+        from pathlib import Path
+        import unittest.mock as mock
+        import tempfile
+        import os
+        from mutual_fund_ingestion.agent.db import NAVHistory
+        from sqlalchemy import select
+        
+        seed_html = (Path(__file__).parent / "fixtures" / "amc_disclosure_page.html").read_text()
+        nav_content = (Path(__file__).parent / "fixtures" / "data" / "nav_all_schemes.txt").read_bytes()
+        
+        # Create a temp file with the nav content for the mock to return as local_path
+        fd, temp_nav_path = tempfile.mkstemp(suffix=".txt")
+        os.close(fd)
+        Path(temp_nav_path).write_bytes(nav_content)
+        
+        def fake_fetch(url):
+            return (200, seed_html)
+        
+        def fake_download(url, run_id):
+            if "nav_all_schemes" in url:
+                return {
+                    "url": url, "file_type": "text", "content_type": "text/plain",
+                    "checksum": "abc123", "size_bytes": len(nav_content),
+                    "local_path": temp_nav_path, "retained": False, "content": nav_content
+                }
+            return {"error": "not found"}
+        
+        config = AgentConfig(
+            task_urls=["https://fixture.amc.com/"],
+            database_url=self.db_path,
+            max_pages=2, max_files=1, use_browser=False,
+        )
+        try:
+            with mock.patch("mutual_fund_ingestion.agent.discovery.DiscoveryEngine.fetch", side_effect=fake_fetch), \
+                 mock.patch("mutual_fund_ingestion.agent.extract.ArtifactCollector.download", side_effect=fake_download):
+                runner = IngestionRunner(config)
+                runner.run()
+            
+            session = self.session_maker()
+            try:
+                nav_rows = session.execute(select(NAVHistory)).scalars().all()
+                self.assertGreaterEqual(len(nav_rows), 1, "No NAV rows in nav_history")
+            finally:
+                session.close()
+        finally:
+            # Cleanup temp file
+            if os.path.exists(temp_nav_path):
+                os.unlink(temp_nav_path)
 
 
 class ParserUpsertTests(unittest.TestCase):
@@ -597,6 +678,53 @@ class ParserUnitTests(unittest.TestCase):
         from mutual_fund_ingestion.agent.parser import route_parser
         self.assertEqual(route_parser("scheme_master", "csv"), "scheme_master_csv")
         self.assertEqual(route_parser("scheme_master", "html"), "scheme_master_html")
+
+
+class DatabaseSchemaTests(unittest.TestCase):
+    """Schema verification tests for DB constraints and indexes."""
+
+    def setUp(self):
+        self.db_path = f"sqlite:///{tempfile.mktemp(suffix='.db')}"
+        create_tables(self.db_path)
+        self.session_maker = get_session_maker(self.db_path)
+
+    def test_nav_history_has_scheme_code_nav_date_index(self):
+        """F002: Verify nav_history has index on (scheme_code, nav_date)."""
+        import sqlite3
+        from mutual_fund_ingestion.agent.db import NAVHistory
+        # Check the model has the index defined
+        self.assertTrue(hasattr(NAVHistory, '__table_args__'))
+        # Check SQLite creates the indexes
+        db_file = self.db_path.replace("sqlite:///", "")
+        conn = sqlite3.connect(db_file)
+        indexes = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='nav_history'"
+        ).fetchall()
+        conn.close()
+        index_names = [idx[0] for idx in indexes]
+        has_composite = any(
+            "scheme_code" in name and "nav_date" in name for name in index_names
+        )
+        self.assertTrue(has_composite, f"No composite index on nav_history. Found: {index_names}")
+
+    def test_amc_normalized_name_is_unique(self):
+        """F003: Verify amcs.normalized_name has unique constraint enforced."""
+        from sqlalchemy.exc import IntegrityError
+        from mutual_fund_ingestion.agent.db import AMC
+        from utils.text_utils import normalize_amc_name
+        
+        session = self.session_maker()
+        try:
+            amc1 = AMC(name="Example Fund", normalized_name="example_fund", source_url="http://a.com")
+            session.add(amc1)
+            session.flush()
+            
+            amc2 = AMC(name="Example Fund 2", normalized_name="example_fund", source_url="http://b.com")
+            session.add(amc2)
+            with self.assertRaises(IntegrityError):
+                session.flush()
+        finally:
+            session.close()
 
 
 if __name__ == "__main__":

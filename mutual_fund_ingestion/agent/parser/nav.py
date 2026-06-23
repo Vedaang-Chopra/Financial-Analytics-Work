@@ -8,6 +8,7 @@ from typing import Any
 
 import pandas as pd
 
+from lxml import html as lhtml
 from ..models import ParserResult
 
 
@@ -96,4 +97,44 @@ def parse_nav_csv(content: bytes | str, metadata: dict[str, Any]) -> ParserResul
         warnings=[],
         errors=errors,
         metadata=metadata,
+    )
+
+def parse_nav_html(content: bytes | str, metadata: dict[str, Any]) -> ParserResult:
+    """Parse NAV data from an HTML table."""
+    records = []
+    errors = []
+    if isinstance(content, bytes):
+        content = content.decode("utf-8", errors="replace")
+    try:
+        doc = lhtml.fromstring(content)
+        for table in doc.cssselect("table"):
+            headers = [th.text_content().strip().lower() for th in table.cssselect("tr:first-child th, tr:first-child td")]
+            for row in table.cssselect("tr")[1:]:
+                cells = [td.text_content().strip() for td in row.cssselect("td")]
+                if len(cells) < 3:
+                    continue
+                record = {}
+                for i, header in enumerate(headers):
+                    if "scheme code" in header or "code" == header:
+                        record["scheme_code"] = cells[i] if i < len(cells) else None
+                    elif "nav" in header:
+                        try:
+                            record["nav_value"] = float(cells[i].replace(",", ""))
+                        except (ValueError, IndexError):
+                            pass
+                    elif "date" in header:
+                        record["nav_date"] = cells[i] if i < len(cells) else None
+                    elif "scheme name" in header or "name" in header:
+                        record["scheme_name"] = cells[i] if i < len(cells) else None
+                if record.get("scheme_code") and record.get("nav_value"):
+                    record.setdefault("source_url", metadata.get("source_url", ""))
+                    records.append(record)
+    except Exception as exc:
+        errors.append(f"HTML NAV parse error: {exc}")
+    return ParserResult(
+        dataset_type="nav_history",
+        parser_name="nav_html_v1",
+        parser_version="1.0",
+        confidence=0.7 if records else 0.0,
+        records=records, warnings=[], errors=errors, metadata=metadata,
     )

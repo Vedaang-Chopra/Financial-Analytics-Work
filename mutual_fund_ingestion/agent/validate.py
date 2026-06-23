@@ -67,6 +67,24 @@ def validate_portfolio_record(record: dict[str, Any]) -> list[str]:
     return errors
 
 
+def validate_scheme_master_record(record: dict[str, Any]) -> list[str]:
+    """Return list of validation errors for a scheme_master record."""
+    errors = []
+    if not record.get("scheme_code"):
+        errors.append("missing_scheme_code")
+    if not record.get("scheme_name"):
+        errors.append("missing_scheme_name")
+    return errors
+
+
+def validate_amc_record(record: dict[str, Any]) -> list[str]:
+    """Return list of validation errors for an amc_provider_list record."""
+    errors = []
+    if not record.get("name"):
+        errors.append("missing_name")
+    return errors
+
+
 def write_quarantine_row(run_id: str, reason: str, raw_data: dict[str, Any] | None, parser_error: str | None, retryable: bool) -> dict[str, Any]:
     return {
         "run_id": run_id,
@@ -104,7 +122,16 @@ def write_retry_task(run_id: str, url: str, task_type: str, failure_reason: str,
 def validate_and_filter_records(parser_result: ParserResult, run_id: str) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     valid_records = []
     quarantined_records = []
-    validate_fn = validate_nav_record if parser_result.dataset_type == "nav_history" else validate_portfolio_record
+    if parser_result.dataset_type == "nav_history":
+        validate_fn = validate_nav_record
+    elif parser_result.dataset_type == "portfolio_disclosure":
+        validate_fn = validate_portfolio_record
+    elif parser_result.dataset_type == "scheme_master":
+        validate_fn = validate_scheme_master_record
+    elif parser_result.dataset_type == "amc_provider_list":
+        validate_fn = validate_amc_record
+    else:
+        validate_fn = lambda r: ["unknown_dataset_type"]
     for record in parser_result.records:
         errors = validate_fn(record)
         if errors:

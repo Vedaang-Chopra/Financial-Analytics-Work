@@ -1,0 +1,4 @@
+Scheme Code	NAV Date	Net Asset Value
+120503	16-Jun-2026	52.1234
+120504	16-Jun-2026	147.8921
+INVALIDROW	bad	data

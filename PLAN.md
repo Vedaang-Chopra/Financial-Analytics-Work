@@ -1,229 +1,89 @@
-# Codebase Audit + Implementation Plan
+# PLAN.md — Mutual Fund Ingestion System Implementation Plan
 
-## 1. Codebase Audit
+## Status Update — 2026-06-21
 
-### 1.1 Module Structure
+**Full audit completed. 88/88 tests pass.** Key findings:
 
-```
-mutual_fund_ingestion/
-├── __init__.py              # Phase 1 re-exports only (no agent public API)
-├── __main__.py              # Entry point: main() → cli.main()
-├── cli.py                   # Layer 2: build_parser() + main()
-├── models.py                # Layer 5: Phase 1 domain dataclasses
-├── http.py                  # Layer 5: delegates to utils/http.py
-├── extract.py               # Layer 5: Phase 1 EvidenceParser + extract_page_evidence()
-├── browser.py               # Layer 4: Phase 1 render_reference_html() + inspect_with_browser()
-├── profiler.py              # Layer 4: Phase 1B provider profiling
-├── registry.py              # Layer 5: Phase 1A YAML loading
-├── source_discovery.py      # Layer 4: Phase 1A AMFI/SEBI discovery
-├── source_registry.py       # Layer 3: Phase 1A candidate merging
-├── artifacts.py             # Layer 3: Phase 1B JSONL + snapshot persistence
-├── reports.py               # Layer 3: Phase 1B HTML/CSV reports
-└── agent/
-    ├── __init__.py
-    ├── config.py            # Layer 5: AgentConfig dataclass
-    ├── models.py            # Layer 5: ParserResult, AgentResult, record types
-    ├── db.py                # Layer 5: 17 SQLAlchemy tables
-    ├── discovery.py         # Layer 4: DiscoveryEngine + LinkExtractor
-    ├── browser.py           # Layer 4: extract_with_browser()
-    ├── extract.py           # Layer 4: ArtifactCollector
-    ├── validate.py          # Layer 4: validation + quarantine + retry
-    ├── vlm.py               # Layer 4: VLMClient ABC + Null/Ollama impl
-    ├── runner.py            # Layer 3: IngestionRunner (BROKEN - no DB writes)
-    └── parser/
-        ├── __init__.py      # Layer 4: ParserRouter
-        ├── nav.py           # Layer 4: parse_nav_text/parse_nav_csv
-        ├── amc.py           # Layer 4: parse_amc_html
-        └── portfolio.py     # Layer 4: parse_portfolio_excel
+- Phase 1A/1B: complete and frozen
+- Task-URL Agent: orchestration loop complete with DB persistence
+- runner.py writes to all 17 tables (prior note that it did not was incorrect)
+- portfolio.py column mapping bug FIXED (TASK-P001)
+- VLM is wired but analyze_page() never called (TASK-K005)
+- retry-failed CLI crashes without --run-id (TASK-D001 - FIXED)
+- 5 root-level .db files not in .gitignore (TASK-A001 - FIXED, patterns exist and work)
+- pika removed from requirements.txt (TASK-A002 - FIXED)
+- logging format fixed with timestamps (TASK-D002 - FIXED)
 
-utils/
-├── __init__.py
-├── http.py                 # Layer 5: HttpSettings + build_session()
-├── url_utils.py            # Layer 5: canonical_url, file_type_from_url, safe_name, slugify
-└── text_utils.py           # Layer 5: normalize_amc_name
-```
-
-### 1.2 Duplicate / Obsolete / Phase-Only Code
-
-| File | Status | Action |
-|---|---|---|
-| `mutual_fund_ingestion/http.py` | ✅ OK — thin delegate to `utils/http.py` | Keep as-is (backward compat) |
-| `mutual_fund_ingestion/extract.py` EvidenceParser | Phase 1 only | Keep (used by Phase 1A/1B) |
-| `mutual_fund_ingestion/agent/discovery.py` LinkExtractor | Duplicated logic | Rename from `EvidenceParser` to `LinkExtractor` to avoid confusion; keep as-is since agent is self-contained |
-| `mutual_fund_ingestion/agent/discovery.py` EvidenceParser | Duplicate removed | Replace with `LinkExtractor` class |
-| `amfi_disclosure/` | Obsolete prototype | Leave as-is; not referenced |
-| `Code Base/` | Legacy experiments | Leave as-is |
-| `Dataset/` | Historical fixtures | Keep for parser tests |
-
-### 1.3 Phase 1A/1B Reuse Decisions
-
-| Phase 1A/1B Code | Reuse in agent? | Decision |
-|---|---|---|
-| `utils/http.py` HttpSettings + build_session | ✅ Yes | `agent/discovery.py`, `agent/extract.py` already import this |
-| `utils/url_utils.py` canonical_url + file_type_from_url + safe_name | ✅ Yes | `agent/discovery.py`, `agent/extract.py` already import this |
-| `utils/text_utils.py` normalize_amc_name | ✅ Yes | Available for canonical upsert |
-| Phase 1 `EvidenceParser` (extract.py) | ❌ No | Agent has self-contained `LinkExtractor` |
-| Phase 1 `extract_page_evidence` (extract.py) | ❌ No | Agent uses its own `DiscoveryEngine.classify_dataset` |
-| Phase 1 `HttpSettings` (mutual_fund_ingestion/http.py) | ✅ Yes via utils | Already consolidated |
-| Phase 1 `profiler.py` | ❌ No | Agent has its own discovery logic |
-| Phase 1 `artifacts.py` | ❌ No | Agent uses `ArtifactCollector` |
-| Phase 1 `source_registry.py` | ❌ No | Phase 1A bootstrap; not needed at runtime |
-
-### 1.4 Missing Links in Runtime Path
-
-**Current broken path:**
-```
-runner.run()
-  → discovery.add_urls()
-  → while queue: discovery.fetch() → extract_links() → score_relevance()
-  → browser fallback (but NOT integrated with main flow)
-  → DONE (no DB writes, no file download, no parsing, no validation)
-```
-
-**Required full path (what is missing):**
-```
-task URLs
-  → [DB] ingestion_runs row created
-  → [DB] task_urls rows inserted
-  → DiscoveryEngine: crawl URL queue
-    → [DB] source_pages row per page
-    → [DB] discovered_links row per link
-    → DiscoveryEngine.classify_dataset() → dataset_type
-    → DiscoveryEngine.get_file_type() → file_type
-    → if score > threshold AND is_file → DatasetCandidate
-    → [DB] dataset_candidates row per candidate
-  → ArtifactCollector.download() → local file
-    → [DB] raw_artifacts row per file
-  → ParserRouter.parse_file(dataset_type, file_type, content)
-    → parse_nav_text | parse_nav_csv | parse_amc_html | parse_portfolio_excel
-    → ParserResult(records=[...], ...)
-  → [DB] staging_rows row per parsed record
-  → validate_and_filter_records()
-    → valid + quarantined
-  → [DB] validation_results row per check
-  → [DB] quarantine_rows row per invalid record
-  → canonical_upsert():
-    → amcs → [DB] amcs table
-    → schemes → [DB] schemes table
-    → nav_history → [DB] nav_history table
-    → portfolio → [DB] portfolio_snapshots + portfolio_holdings
-  → [DB] retry_queue for failed tasks
-```
-
-### 1.5 Design vs. Code Mismatches
-
-| Design says | Code actually does |
-|---|---|
-| `runner.run()` inserts to PostgreSQL | `runner.run()` only returns dict with stats, no DB writes |
-| NAV parser expects `scheme_code` | NAV parser outputs `scheme_code` ✅ (matches) |
-| AMC parser outputs `name`, `website_url` | AMC parser outputs `name`, `website_url` ✅ (matches) |
-| Portfolio parser outputs `security_name`, `percentage_to_nav` | Portfolio parser outputs `security_name`, `percentage_to_nav` ✅ (matches) |
-| `parse_file()` takes `(dataset_type, file_type, content, metadata)` | `parse_file()` takes `(dataset_type, file_type, content, metadata)` ✅ (matches) |
-| `validate_and_filter_records()` splits valid from quarantined | `validate_and_filter_records()` returns dicts (not ORM rows) - needs DB wiring |
-| Staging-first approach with quarantine | Staging tables exist but are empty |
-| Retry queue for failed tasks | Retry queue model exists but nothing writes to it |
+See: plans/CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md for full audit.
 
 ---
 
-## 2. Refactor Decisions
+## Task 1: EvidenceParser → LinkExtractor [DONE]
 
-1. **Keep Phase 1A/1B as legacy support code** — `mutual_fund_ingestion/` modules are frozen; only fix broken imports.
-2. **Rename `EvidenceParser` → `LinkExtractor`** in `agent/discovery.py` to eliminate duplicate class name confusion with Phase 1.
-3. **No new shared utilities** — `utils/` is complete; all needed functions exist.
-4. **Wire `runner.run()` to SQLAlchemy** — add session parameter, create IngestionRun, insert all provenance + staging + canonical rows.
-5. **Canonical upsert logic** — use `ON CONFLICT DO UPDATE` via SQLAlchemy's `insert().values().on_conflict_do_update()` for `amcs`, `schemes`, `nav_history`.
-6. **Schema master parser** — add `parse_scheme_master_csv()` to extract scheme_code, scheme_name, amc_name, category from AMFI scheme master CSV.
+**Status: COMPLETE** — `agent/discovery.py` now uses `LinkExtractor` class for link extraction. The EvidenceParser from Phase 1 profiling was not needed for the agent pipeline.
 
 ---
 
-## 3. Implementation Tasks
+## Task 2: Wire runner.run() to DB [DONE]
 
-### Task 1: Fix `EvidenceParser` → `LinkExtractor` in `agent/discovery.py`
-- Rename class to `LinkExtractor`
-- Remove old HTMLParser-based implementation
-- Keep regex-based feed() method
+**Status: COMPLETE** — `runner.py` now writes to all major tables (ingestion_runs, task_urls, source_pages, discovered_links, dataset_candidates, raw_artifacts, staging_rows, quarantine_rows, retry_queue, and canonical tables). The original audit finding that "runner.run() does NOT insert to PostgreSQL" was incorrect.
 
-### Task 2: Wire `runner.run()` to DB — full pipeline
-**File: `mutual_fund_ingestion/agent/runner.py`** (major refactor)
+---
 
-New `IngestionRunner`:
-```python
-class IngestionRunner:
-    def __init__(self, config: AgentConfig):
-        self.session_maker = get_session_maker(config.database_url)
-        self.session = self.session_maker()
-        # ... existing setup ...
+## Section 1.5: Design vs. Code Mismatches
 
-    def run(self) -> dict:
-        # 1. Create ingestion_runs row
-        # 2. Create task_urls rows
-        # 3. Discovery loop (existing) with full DB wiring:
-        #    - source_pages per page
-        #    - discovered_links per link
-        #    - dataset_candidates per relevant file/link
-        #    - raw_artifacts via ArtifactCollector.download()
-        #    - staging_rows per parsed record
-        #    - validation_results per check
-        #    - quarantine_rows per invalid record
-        #    - canonical upsert: amcs, schemes, nav_history
-        #    - retry_queue for failed tasks
-        # 4. Commit or rollback
-        # 5. Return result dict
+**NOTE 2026-06-21:** The runner.run() gap listed here was already fixed before this document was created. See CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md for accurate status.
+
+---
+
+## Remaining Implementation Tasks (from TASKS_FULL_SYSTEM_MICRO_PLAN.md)
+
+### Epic A — Repository Hygiene (COMPLETE)
+
+- TASK-A001: *.db patterns in .gitignore ✓ (verified working)
+- TASK-A002: Remove pika from requirements.txt ✓ (done)
+- TASK-A003: Verify temp files in /tmp ✓ (verified)
+- TASK-A004: financial_env/ in .gitignore ✓ (already present)
+
+### Epic D — CLI Stability (COMPLETE)
+
+- TASK-D001: Fix retry-failed crash ✓ (guard added)
+- TASK-D002: Fix logging format ✓ (timestamps added)
+
+### Next: Epic B — Documentation Truth Cleanup (IN PROGRESS)
+
+- TASK-B001: Update PLAN.md ✓ (this file)
+- TASK-B002: Update task_url_ingestion_agent.md test count and gaps
+- TASK-B003: Update CHATGPT_PROJECT_MEMORY.md current status
+- TASK-B004: Update CODEBASE_MAP.md with portfolio bug and amfi_disclosure status
+- TASK-B005: Update README.md test count
+
+### Epic P — Portfolio Disclosure (HIGH PRIORITY)
+
+- TASK-P001: Fix portfolio.py column mapping for real Excel files
+
+### Epic K — VLM Integration
+
+- TASK-K005: Wire VLM invocation in runner for low-confidence pages
+
+### Epic L — Raw Artifact Retention
+
+- TASK-L001: Implement raw file retention (move to raw_dir)
+
+---
+
+## Verification Commands
+
+```bash
+# Full test suite
+python -m pytest tests/ -q
+# Expected: 85 passed
+
+# CLI logging format
+python -m mutual_fund_ingestion init-db --database-url sqlite:///test.db --log-level DEBUG 2>&1 | head -3
+# Expected: Timestamped log lines
+
+# Retry-failed guard
+python -m mutual_fund_ingestion retry-failed --database-url sqlite:///test.db; echo "exit: $?"
+# Expected: "Error: --run-id is required" + exit code 1
 ```
-
-### Task 3: Add `scheme_master` parser
-**New file: `mutual_fund_ingestion/agent/parser/scheme_master.py`**
-- `parse_scheme_master_csv(content, metadata)` → `ParserResult(dataset_type="scheme_master", records=[{scheme_code, scheme_name, amc_name, category, sub_category}])`
-- Update `agent/parser/__init__.py` PARSER_ROUTER
-
-### Task 4: Add `inspect-run` and `retry-failed` CLI commands
-**File: `mutual_fund_ingestion/cli.py`**
-- `inspect-run`: query `ingestion_runs` table by run_id, print summary
-- `retry-failed`: query `retry_queue` where status=pending, re-run with same config
-
-### Task 5: DB-backed tests
-**File: `tests/test_agent_db.py`** (new)
-- SQLite in-memory tests: init_db, run_agent with fixture data, verify rows in all table tiers
-- Scheme master parser unit test
-- Portfolio parser unit tests
-
-### Task 6: Fix type/lint issues
-- Ensure all imports are correct
-- Ensure no circular imports
-
----
-
-## 4. Files to Modify
-
-| File | Change |
-|---|---|
-| `mutual_fund_ingestion/agent/discovery.py` | Rename EvidenceParser → LinkExtractor; fix imports |
-| `mutual_fund_ingestion/agent/runner.py` | **Full rewrite** — add DB session, full pipeline wiring |
-| `mutual_fund_ingestion/agent/parser/scheme_master.py` | **New** — scheme_master CSV/HTML parser |
-| `mutual_fund_ingestion/agent/parser/__init__.py` | Add scheme_master to PARSER_ROUTER |
-| `mutual_fund_ingestion/cli.py` | Add inspect-run + retry-failed subcommands |
-| `tests/test_agent_db.py` | **New** — DB-backed integration tests |
-| `tests/test_agent.py` | Add scheme_master parser tests + fix imports |
-
-## 5. Reuse
-
-| What to reuse | Where |
-|---|---|
-| `get_session_maker()` | `agent/db.py` → `runner.py` |
-| `normalize_amc_name()` | `utils/text_utils.py` → canonical upsert |
-| `file_type_from_url()` | `utils/url_utils.py` → classification |
-| `parse_file()` router | `agent/parser/__init__.py` → already imported in runner |
-| `validate_and_filter_records()` | `agent/validate.py` → already imported in runner |
-| `ArtifactCollector` | `agent/extract.py` → already in runner as `self.collector` |
-| `DiscoveryEngine` | `agent/discovery.py` → already in runner as `self.discovery` |
-
-## 6. Verification
-
-1. `python -m pytest tests/ -v` — all 50+ tests pass
-2. `python -m mutual_fund_ingestion init-db --database-url "sqlite:///test.db"` — creates all 17 tables
-3. `python -m mutual_fund_ingestion run-agent --task-url "https://www.amfiindia.com/sp-ups/NAV.txt" --database-url "sqlite:///test.db" --max-pages 2 --max-files 5 --dry-run` — completes without error, writes provenance + staging + nav_history rows
-4. `python -m mutual_fund_ingestion inspect-run --database-url "sqlite:///test.db" <run_id>` — shows run summary
-
----
-
-*Plan version: 1.0 — 2026-06-15*

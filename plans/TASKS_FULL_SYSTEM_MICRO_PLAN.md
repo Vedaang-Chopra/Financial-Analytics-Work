@@ -33,7 +33,7 @@ Implementation steps:
 
 Test command:
 ```bash
-python -m pytest tests/ test_amfi_disclosure.py -q
+python -m pytest tests/ -q
 ```
 
 Expected observable output: `85 passed` with no failures. `git status` should no longer list `test.db`, `test2.db`, `test3.db`, `final_test.db`, or `test_mock.db`.
@@ -66,7 +66,7 @@ Implementation steps:
 
 Test command:
 ```bash
-python -m pytest tests/ test_amfi_disclosure.py -q
+python -m pytest tests/ -q
 ```
 
 Expected observable output: `85 passed`. No import errors related to `pika`.
@@ -345,25 +345,25 @@ None — documentation only.
 Status: pending
 
 Goal:
-Create `amfi_disclosure/README.md` so future agents do not try to extend or integrate this module.
+Create `mutual_fund_ingestion/amfi_disclosure/README.md` so future agents do not try to extend or integrate this module.
 
 Files to read:
-- `amfi_disclosure/cli.py`
-- `amfi_disclosure/discovery.py`
+- `mutual_fund_ingestion/amfi_disclosure/cli.py`
+- `mutual_fund_ingestion/amfi_disclosure/discovery.py`
 
 Files to edit:
-- `amfi_disclosure/README.md` (new file)
+- `mutual_fund_ingestion/amfi_disclosure/README.md` (new file)
 
 Implementation steps:
-1. Create `amfi_disclosure/README.md` with content:
+1. Create `mutual_fund_ingestion/amfi_disclosure/README.md` with content:
    ```
-   # amfi_disclosure — Legacy Prototype
+   # mutual_fund_ingestion/amfi_disclosure — Isolated Prototype
 
    This module is a Phase 0 proof-of-concept for crawling the AMFI portfolio disclosure page.
    It is fully functional but **not integrated** with the main ingestion agent pipeline.
 
    ## Status
-   - All 11 tests pass (test_amfi_disclosure.py)
+   - All 11 tests pass (tests/test_amfi_disclosure.py)
    - Not imported by mutual_fund_ingestion/
    - Do not extend this module — the agent handles portfolio disclosure via Epic P tasks
 
@@ -374,7 +374,7 @@ Implementation steps:
 
 Test command:
 ```bash
-ls amfi_disclosure/README.md && python -m pytest test_amfi_disclosure.py -q
+ls mutual_fund_ingestion/amfi_disclosure/README.md && python -m pytest tests/test_amfi_disclosure.py -q
 ```
 
 Expected observable output: `README.md` exists; `11 passed`.
@@ -387,24 +387,24 @@ None — new file only.
 
 ---
 
-### TASK-C002 — Add README to Code Base/ marking it as legacy
+### TASK-C002 — Add README to docs/archive/legacy_experiments/ marking it as legacy
 
 Status: pending
 
 Goal:
-Create `Code Base/README.md` so future agents understand this directory contains superseded experiments.
+Create `docs/archive/legacy_experiments/README.md` so future agents understand this directory contains superseded experiments.
 
 Files to read:
-- (list the directory: `ls "Code Base/"`)
+- (list the directory: `ls docs/archive/legacy_experiments/`)
 
 Files to edit:
-- `Code Base/README.md` (new file)
+- `docs/archive/legacy_experiments/README.md` (new file)
 
 Implementation steps:
-1. Run `ls "Code Base/"` to see what is there.
-2. Create `Code Base/README.md` with content:
+1. Run `ls docs/archive/legacy_experiments/` to see what is there.
+2. Create `docs/archive/legacy_experiments/README.md` with content:
    ```
-   # Code Base — Legacy Experiments
+   # docs/archive/legacy_experiments — Legacy Experiments
 
    This directory contains early dataset collection experiments predating the current architecture.
    It is **not part of the production codebase** and is not tested or maintained.
@@ -420,7 +420,7 @@ Implementation steps:
 
 Test command:
 ```bash
-ls "Code Base/README.md"
+ls docs/archive/legacy_experiments/README.md
 ```
 
 Expected observable output: File exists.
@@ -3191,7 +3191,7 @@ Implementation steps:
 
 Test command:
 ```bash
-python -m pytest tests/ test_amfi_disclosure.py -q
+python -m pytest tests/ -q
 ```
 
 Expected observable output: 85+ tests pass (count will be higher after all epics).
@@ -3220,7 +3220,7 @@ Files to edit:
 
 Implementation steps:
 1. Run `python -m mutual_fund_ingestion --help` and verify all subcommands are documented.
-2. Run `python -m pytest tests/ test_amfi_disclosure.py -q` and update the test count.
+2. Run `python -m pytest tests/ -q` and update the test count.
 3. Update the `retry-failed` section to note that `--run-id` is required.
 4. Add a section on smoke tests: `python -m pytest -m smoke tests/`.
 
@@ -3253,14 +3253,14 @@ Files to edit:
 - none
 
 Implementation steps:
-1. Run: `python -m pytest tests/ test_amfi_disclosure.py -v --tb=short`
+1. Run: `python -m pytest tests/ -v --tb=short`
 2. Verify all tests pass.
 3. Record the final test count.
 4. If any test fails, do not mark this task complete — fix the failing test first.
 
 Test command:
 ```bash
-python -m pytest tests/ test_amfi_disclosure.py -v --tb=short 2>&1 | tail -5
+python -m pytest tests/ -v --tb=short 2>&1 | tail -5
 ```
 
 Expected observable output: `N passed in X.XXs` with 0 failures.

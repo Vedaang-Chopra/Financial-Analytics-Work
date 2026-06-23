@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import sys
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
@@ -347,6 +348,10 @@ def _retry_failed(args) -> int:
     session_maker = get_session_maker(args.database_url)
     session = session_maker()
     
+    if not args.run_id:
+        print("Error: --run-id is required for retry-failed", file=sys.stderr)
+        return 1
+    
     try:
         run_id = uuid.UUID(args.run_id)
         
@@ -378,7 +383,11 @@ def _retry_failed(args) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    logging.basicConfig(level=getattr(logging, args.log_level.upper()), format="%(asctime)s %(levelname)s %(message)s")
+    logging.basicConfig(
+        level=getattr(logging, args.log_level.upper()),
+        format="%(asctime)s %(levelname)-8s %(name)s: %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
     settings = HttpSettings(timeout_seconds=getattr(args, 'timeout', 30))
     session = build_session(settings)
     if args.command == "bootstrap-sources":

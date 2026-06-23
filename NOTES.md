@@ -1,0 +1,2 @@
+- Preference: textual resources over long videos.
+- Time constraint: incremental learning sessions.

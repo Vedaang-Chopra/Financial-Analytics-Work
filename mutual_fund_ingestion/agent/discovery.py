@@ -30,9 +30,9 @@ DATASET_TYPE_HINTS = {
 }
 
 RELEVANCE_KEYWORDS = {
-    "high": ["NAV", "Net Asset Value", "Scheme", "Portfolio", "Portfolio Disclosure", 
-             "Monthly Portfolio", "Factsheet", "Fact Sheet", "Disclosure", "Download"],
-    "low": ["careers", "contact", "privacy", "terms", "sitemap", "media", 
+    "high": ["NAV", "Net Asset Value", "Scheme", "Portfolio", "Portfolio Disclosure",
+              "Monthly Portfolio", "Factsheet", "Fact Sheet", "Disclosure"],
+    "low": ["careers", "contact", "privacy", "terms", "sitemap", "media",
             "press release", "login", "feedback", "branches"],
 }
 

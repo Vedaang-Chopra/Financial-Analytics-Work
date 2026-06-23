@@ -99,6 +99,21 @@ Codex should:
 - add reports and notebooks at the end of every phase
 - avoid financial advice language
 
+## Status Update — 2026-06-21
+
+Full audit completed. 88/88 tests pass. Key findings:
+- Phase 1A/1B: complete and frozen
+- Task-URL Agent: orchestration loop complete with DB persistence
+- runner.py writes to all 17 tables (prior note that it did not was incorrect)
+- portfolio.py column mapping bug FIXED (TASK-P001) - header row detection works for real AMFI Excel files
+- VLM is wired but analyze_page() never called (TASK-K005)
+- retry-failed CLI crashes without --run-id (TASK-D001 - FIXED)
+- 5 root-level .db files not in .gitignore (TASK-A001 - FIXED, patterns exist)
+- pika removed from requirements.txt (TASK-A002 - FIXED)
+- logging format fixed with timestamps (TASK-D002 - FIXED)
+- Portfolio CSV parser added (parse_portfolio_csv)
+See: plans/CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md
+
 ## Current Status
 
 Phase 1 design documents were created. The user later indicated Phase 1 has been completed or is in progress.

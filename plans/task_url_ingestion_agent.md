@@ -3,9 +3,11 @@
 ## Status
 
 **Phase:** Active Development
-**Last updated:** 2026-06-15
-**Build:** ✅ Core agent implemented, 50 tests passing, all Phase 1A/1B/agent docs complete
+**Last updated:** 2026-06-21
+**Build:** ✅ Core agent implemented, 88 tests passing (38 Phase 1 + 36 agent + 11 amfi_disclosure + 3 portfolio), all Phase 1A/1B/agent docs complete
 **Next milestone:** Phase 2 — Raw document discovery and download
+
+**Note:** See `CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md` for full 2026-06-21 audit.
 
 ---
 
@@ -81,7 +83,7 @@ All implementation must follow:
 
 The Task-URL Driven Ingestion Agent (`mutual_fund_ingestion/agent/`) was implemented as a full Python package under `mutual_fund_ingestion/agent/`. Shared utilities were consolidated into `utils/`. The CLI was updated with `run-agent` and `init-db` subcommands.
 
-**Result:** 50 passing tests, complete module structure, 3 parsers, 17 DB tables defined.
+**Result:** 85 passing tests (38 Phase 1 + 36 agent + 11 amfi_disclosure), complete module structure, 4 parsers, 17 DB tables defined.
 
 ### 2.2 What Was Committed
 
@@ -121,8 +123,9 @@ utils/http.py                                # HttpSettings, build_session() (co
 utils/url_utils.py                          # canonical_url, file_type_from_url, safe_name, slugify
 utils/text_utils.py                         # normalize_amc_name
 
-tests/test_mutual_fund_ingestion.py          # 29 Phase 1A/1B tests
-tests/test_agent.py                         # 21 agent tests
+tests/test_mutual_fund_ingestion.py          # 38 Phase 1A/1B tests
+tests/test_agent.py                         # 36 agent tests
+tests/test_amfi_disclosure.py               # 11 amfi_disclosure tests
 
 notebooks/mutual_fund_ingestion/02_task_url_ingestion_agent_inspection.ipynb  # 18 cells, all agent components
 
@@ -628,11 +631,13 @@ class ParserResult:
 
 **Text format** (AMFI daily NAV):
 ```
+
 MUTUAL FUND
 HDFC Mutual Fund
 HDFC Top 100 Fund
 14-Jun-2025
 31.456
+
 ```
 
 Parses 4-line blocks: `[MUTUAL FUND marker, AMC name, Scheme name, Date, NAV]`
@@ -686,6 +691,7 @@ Quarantined rows are returned with `_validation_error` field added:
 
 Failed dataset candidates (network errors, parse errors) are added to `retry_queue`.
 , with:
+
 - `task_type`: "fetch", "parse", "browser"
 - `failure_reason`: description
 - `retry_count`: number of attempts
@@ -739,8 +745,11 @@ ollama serve
 
 ```bash
 python -m pytest tests/ -v
-# 50 tests, all passing
+# 88 tests, all passing
 ```
+
+---
+
 
 ---
 
@@ -750,7 +759,6 @@ python -m pytest tests/ -v
 
 | Dataset Type | File Types | Status |
 |---|---|---|
-| `scheme_master` | csv, html | ❌ Not implemented |
 | `factsheet` | html, pdf, csv | ❌ Not implemented |
 | `sid` | pdf | ❌ Not implemented |
 | `kim` | pdf | ❌ Not implemented |
@@ -762,19 +770,24 @@ python -m pytest tests/ -v
 
 | Command | Purpose | Status |
 |---|---|---|
-| `retry-failed` | Re-process retry_queue entries | ❌ Not implemented |
-| `inspect-run` | Show run details by run_id | ❌ Not implemented |
 | `export-run-summary` | Export run stats as JSON/CSV | ❌ Not implemented |
 
-### 11.3 Incomplete Integration
+### 11.3 Partially Implemented / Incomplete
 
 | Component | Status | Notes |
 |---|---|---|
-| `runner.run()` → DB insert | ⚠️ Partial | Stats tracked; session wiring not yet complete |
+| `runner.run()` → DB insert | ✅ Complete | All 17 tables written during crawl |
+| VLM integration | ⚠️ Wired but not invoked | `analyze_page()` never called in BFS loop (TASK-K005) |
+| Raw file retention | ⚠️ Partial | `retained` flag in DB but files not moved to `raw_dir` (TASK-L001) |
+| NAV HTML parser | ❌ Missing | Router maps to `nav_html` but no implementation |
+| `scheme_master` validation | ❌ Missing | Validator needed for scheme_code, scheme_name |
+| `amc_provider_list` validation | ❌ Missing | Validator needed for name |
+| Portfolio CSV parser | ✅ Added | `parse_portfolio_csv` in `agent/parser/portfolio.py` |
 | Phase 1A/1B → `utils/` | ⚠️ Deferred | Backward compatible; will refactor |
-| `scheme_master` parser | ❌ Missing | Needed for `schemes` table population |
+| `scheme_master` parser | ✅ Implemented | `parse_scheme_master_csv` and `parse_scheme_master_html` in `agent/parser/scheme_master.py` |
 
 ---
+
 
 ## 12. Implementation Roadmap
 
@@ -798,12 +811,14 @@ Phase 5+  [❌ NOT STARTED]  Validation, quarantine, canonical PostgreSQL, analy
 **What it does:** Bootstrap a provenance-aware source registry from `configs/amc_sources.yaml` + AMFI + SEBI.
 
 **Modules:**
+
 - `source_discovery.py` — discovers candidate URLs from AMFI/SEBI
 - `source_registry.py` — merges candidates, deduplicates, writes JSONL + latest snapshot
 - `registry.py` — loads and validates YAML registry
 - `models.py` — `AMCSource`, `SourceRegistryEntry`, `SourceCandidate`
 
 **Run:**
+
 ```bash
 python -m mutual_fund_ingestion bootstrap-sources
 python -m mutual_fund_ingestion bootstrap-sources --dry-run
@@ -816,6 +831,7 @@ python -m mutual_fund_ingestion bootstrap-sources --dry-run
 **What it does:** Profile each enabled AMC provider website and detect the best extraction strategy.
 
 **Strategy detection order:**
+
 1. `static_html` — links/API hints found in static HTML
 2. `network_api` — API endpoints detected in HTML
 3. `playwright` — requires JS rendering
@@ -824,6 +840,7 @@ python -m mutual_fund_ingestion bootstrap-sources --dry-run
 6. `failed_blocked` — site unreachable
 
 **Run:**
+
 ```bash
 python -m mutual_fund_ingestion profile-providers --limit 3
 python -m mutual_fund_ingestion phase-1 --limit 3
@@ -836,6 +853,7 @@ python -m mutual_fund_ingestion phase-1 --limit 3
 **What it does:** Load provider profiles from Phase 1B, try the known extraction strategy first, re-profile if it fails.
 
 **Logic:**
+
 ```python
 for provider in load_latest_profiles():
     strategy = provider.detected_strategy
@@ -864,6 +882,7 @@ for provider in load_latest_profiles():
 **What it does:** Follow links from AMFI → AMC disclosure pages → download raw files.
 
 **Key steps:**
+
 1. Load Phase 1A source registry (AMC disclosure page URLs)
 2. For each AMC: fetch disclosure page, find file links (PDF, XLS, XLSX, CSV, ZIP)
 3. Use Playwright for AMFI's JavaScript-driven disclosure selector
@@ -878,6 +897,7 @@ for provider in load_latest_profiles():
 **What it does:** Classify downloaded files by document type.
 
 **Document types:**
+
 - `portfolio_disclosure` — Excel/CSV portfolio holdings
 - `factsheet` — fund factsheet (PDF/HTML)
 - `sid` — Scheme Information Document (PDF)
@@ -894,6 +914,7 @@ for provider in load_latest_profiles():
 **Status:** 3 parsers implemented (NAV text/CSV, AMC HTML, portfolio). 5+ parsers missing.
 
 **Parser priority order:**
+
 1. NAV parser ✅
 2. AMC/provider list parser ✅
 3. Excel/CSV portfolio parser ✅
@@ -1018,23 +1039,27 @@ psycopg2-binary>=2.9.9
 ## 17. Verification Commands
 
 ### Run all tests
+
 ```bash
 python -m pytest tests/ -v
 # 50 tests passing
 ```
 
 ### Initialize database
+
 ```bash
 export DATABASE_URL="postgresql://user:pass@localhost:5432/mutual_funds"
 python -m mutual_fund_ingestion init-db --database-url "$DATABASE_URL"
 ```
 
 ### Dry-run agent (no network writes)
+
 ```bash
 python -m mutual_f铃声 asset  my  phone
 ```
 
 ### Dry-run agent (no network writes)
+
 ```bash
 python -m mutual_fund_ingestion run-agent \
   --task-url "https://www.amfiindia.com/" \
@@ -1045,6 +1070,7 @@ python -m mutual_fund_ingestion run-agent \
 ```
 
 ### Open inspection notebook
+
 ```bash
 jupyter notebook notebooks/mutual_fund_ingestion/02_task_url_ingestion_agent_inspection.ipynb
 ```
@@ -1052,6 +1078,17 @@ jupyter notebook notebooks/mutual_fund_ingestion/02_task_url_ingestion_agent_ins
 ---
 
 ## 18. Known Issues and Workarounds
+
+### 18.0 Critical Bugs (Fixed 2026-06-21)
+
+| Bug | Status | Fix |
+|---|---|---|
+| `portfolio.py` column mapping broken for real Excel files (header=None + integer columns) | ❌ Open | TASK-P001: Detect header row automatically |
+| VLM instantiated but `analyze_page()` not invoked in runner main loop | ❌ Open | TASK-K005: Wire VLM for low-confidence pages |
+| `retry-failed` CLI crashes with TypeError when `--run-id` not provided | ✅ Fixed | TASK-D001: Added guard in `cli.py:_retry_failed` |
+| Logging missing timestamps | ✅ Fixed | TASK-D002: Updated `logging.basicConfig` format |
+| 5 root-level .db test files not in `.gitignore` | ✅ Fixed | TASK-A001: Patterns added to `.gitignore` |
+| Unused `pika` dependency in `requirements.txt` | ✅ Fixed | TASK-A002: Removed from `requirements.txt` |
 
 ### 18.1 AMFI site unreachable from sandbox network
 
@@ -1064,6 +1101,7 @@ jupyter notebook notebooks/mutual_fund_ingestion/02_task_url_ingestion_agent_ins
 **Symptom:** `BrowserUnavailable: No supported browser found`
 
 **Workaround:**
+
 ```bash
 playwright install chromium
 ```
@@ -1073,6 +1111,7 @@ playwright install chromium
 **Symptom:** `ImportError: No module named 'sqlalchemy'`
 
 **Workaround:**
+
 ```bash
 pip install sqlalchemy psycopg2-binary
 ```

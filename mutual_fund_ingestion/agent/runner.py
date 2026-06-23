@@ -166,12 +166,34 @@ class IngestionRunner:
 
                 # Extract links
                 links = self.discovery.extract_links(html, url)
+                LOGGER.info("Page %s: %d links extracted", url, len(links))
 
                 for link in links:
                     link_url = link["url"]
                     score, dataset_hint = self.discovery.score_relevance(
                         link_url, link.get("text", ""), link.get("title", "")
                     )
+
+                    # VLM invocation for low-confidence pages
+                    requires_vlm = False
+                    if self.config.use_vlm and score > 0 and score < self.config.vlm_confidence_threshold and html:
+                        from .vlm import PageAnalysisPayload
+                        vlm_payload = PageAnalysisPayload(
+                            objective="Find financial data files (NAV, portfolio, scheme metadata, factsheets, TER, SID, KIM)",
+                            current_url=link_url,
+                            page_title=link.get("title", ""),
+                            visible_text_excerpt=html[:4000],
+                            links=links[:20],
+                            buttons=[],
+                            forms=[],
+                            screenshot_path=None
+                        )
+                        vlm_decision = self.vlm.analyze_page(vlm_payload)
+                        if vlm_decision and vlm_decision.page_relevance in ("high", "medium"):
+                            score = vlm_decision.confidence
+                            dataset_hint = vlm_decision.dataset_hints[0] if vlm_decision.dataset_hints else dataset_hint
+                            requires_vlm = True
+                            LOGGER.info("VLM classified %s as %s (confidence=%.2f)", link_url, dataset_hint, score)
 
                     # Create discovered_link record
                     discovered_link = DiscoveredLink(
@@ -194,23 +216,30 @@ class IngestionRunner:
                         # If it's a file, create dataset candidate
                         file_type = self.discovery.get_file_type(link_url)
                         if file_type:
+                            # Use classify_dataset for file URLs (more specific than score_relevance hint)
+                            inferred_type = self.discovery.classify_dataset(link_url, link.get("text", ""))
+                            dataset_type = inferred_type if inferred_type else (dataset_hint or "unknown")
                             dataset_candidate = DatasetCandidate(
                                 run_id=uuid.UUID(self.run_id),
                                 source_page_id=source_page.id,
                                 url=link_url,
-                                dataset_type=dataset_hint or "unknown",
+                                dataset_type=dataset_type,
                                 file_type=file_type,
                                 requires_browser=False,
                                 requires_form=False,
-                                requires_vlm=False,
+                                requires_vlm=requires_vlm,
                                 confidence=score,
                                 status="discovered",
                             )
                             self.session.add(dataset_candidate)
                             self.session.flush()
+                            candidates_from_page = 0
 
                             # Download artifact
                             self._download_and_process_artifact(dataset_candidate, source_page.id)
+                            candidates_from_page += 1
+
+                            LOGGER.info("Page %s: %d dataset candidates identified", url, candidates_from_page)
 
                         # Add to crawl queue
                         if link_url.startswith("http"):
@@ -284,9 +313,18 @@ class IngestionRunner:
             self.session.commit()
             self._pending_commit = False
 
-            LOGGER.info("Run %s complete: %d pages, %d links, %d files, %d rows inserted, %d quarantined",
-                       self.run_id, self.stats["pages_visited"], self.stats["links_discovered"],
-                       self.stats["files_downloaded"], self.stats["rows_inserted"], self.stats["rows_quarantined"])
+            LOGGER.info(
+                "Run %s complete: pages=%d links=%d candidates=%d files=%d staged=%d inserted=%d quarantined=%d retries=%d",
+                self.run_id,
+                self.stats["pages_visited"],
+                self.stats["links_discovered"],
+                len(self.discovery.visited_urls),
+                self.stats["files_downloaded"],
+                self.stats["rows_staged"],
+                self.stats["rows_inserted"],
+                self.stats["rows_quarantined"],
+                self.stats["retry_tasks"],
+            )
 
             return {
                 "run_id": self.run_id,
@@ -345,6 +383,12 @@ class IngestionRunner:
             return
 
         self.stats["files_downloaded"] += 1
+        LOGGER.info(
+            "Downloaded %s: %d bytes sha256=%s",
+            url,
+            artifact_result.get("size_bytes", 0),
+            artifact_result.get("checksum", "")[:12]
+        )
 
         # Create raw_artifact record
         raw_artifact = RawArtifact(
@@ -361,6 +405,18 @@ class IngestionRunner:
         )
         self.session.add(raw_artifact)
         self.session.flush()
+
+        # L001: Implement raw file retention - move to raw_dir if configured
+        if artifact_result.get("retained") and self.config.raw_dir:
+            import shutil
+            from pathlib import Path
+            raw_dir = Path(self.config.raw_dir) / self.run_id
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            src = Path(artifact_result["local_path"])
+            dest = raw_dir / src.name
+            shutil.copy2(src, dest)
+            raw_artifact.local_path = str(dest)
+            LOGGER.info("Retained raw file at %s", dest)
 
         dataset_candidate.status = "downloaded"
 
@@ -383,12 +439,21 @@ class IngestionRunner:
 
         # Parse the file
         metadata = {"source_url": url, "raw_artifact_id": str(raw_artifact.id)}
+        LOGGER.info("Routing to parser for dataset_type=%s file_type=%s", dataset_candidate.dataset_type, dataset_candidate.file_type)
         parser_result = parse_file(
             dataset_type=dataset_candidate.dataset_type,
             file_type=dataset_candidate.file_type,
             content=content,
             metadata=metadata,
         )
+
+        LOGGER.info(
+            "Parser %s returned %d records from %s (confidence=%.2f)",
+            parser_result.parser_name, len(parser_result.records),
+            url, parser_result.confidence
+        )
+        if parser_result.errors:
+            LOGGER.warning("Parser errors for %s: %s", url, "; ".join(parser_result.errors))
 
         if parser_result.confidence == 0.0:
             LOGGER.warning("No parser for dataset_type=%s file_type=%s", dataset_candidate.dataset_type, dataset_candidate.file_type)
@@ -417,6 +482,11 @@ class IngestionRunner:
 
         # Validate and filter
         valid_records, quarantined_records = validate_and_filter_records(parser_result, self.run_id)
+
+        LOGGER.info(
+            "Validation for %s: %d valid, %d quarantined",
+            url, len(valid_records), len(quarantined_records)
+        )
 
         # Write validation results for each record
         for i, record in enumerate(parser_result.records):
@@ -722,6 +792,7 @@ class IngestionRunner:
 
     def _add_retry_task(self, url: str, task_type: str, failure_reason: str, retryable: bool) -> None:
         """Add a task to the retry queue."""
+        LOGGER.warning("Retry queued for %s: %s", url, failure_reason)
         retry = RetryQueue(
             run_id=uuid.UUID(self.run_id),
             url=url,

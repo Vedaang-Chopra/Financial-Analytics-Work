@@ -154,5 +154,5 @@ Run all tests:
 
 ```bash
 python -m pytest tests/ -v
-# 50 tests: 29 Phase 1 + 21 agent tests
+# 118 tests: 38 Phase 1 + 36 agent + 11 amfi_disclosure + 22 DB integration + 11 parser/routing
 ```

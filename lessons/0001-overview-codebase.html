@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Overview of the Financial Analytics Codebase</title>
+    <style>
+      body {
+        font-family: Georgia, serif;
+        margin: 2em;
+        line-height: 1.6;
+        max-width: 800px;
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+      a {
+        color: #2980b9;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .quiz {
+        margin-top: 1.5em;
+        padding: 1em;
+        background: #f9f9f9;
+        border-left: 4px solid #27ae60;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Overview of the Financial Analytics Codebase</h1>
+    <p>
+      This lesson gives you a high‑level map of the repository, the layered
+      architecture, and where key components live.
+    </p>
+
+    <h2>Key Resources</h2>
+    <ul>
+      <li>
+        <a href="../docs/ai_context/CODEBASE_MAP.md">CODEBASE_MAP.md</a> –
+        module ownership, public entry points, and directory responsibilities.
+      </li>
+      <li>
+        <a href="../docs/design/mutual_fund_ingestion/README.md"
+          >Mutual Fund Ingestion Design Spec</a
+        >
+        – phased implementation plan and data flow.
+      </li>
+      <li>
+        <a href="../README.md">Project README</a> – setup, CLI commands, and
+        quick start.
+      </li>
+    </ul>
+
+    <h2>Layered Architecture Recap</h2>
+    <p>Recall the five‑layer model used throughout the project:</p>
+    <ol>
+      <li>Notebooks – inspection and visualization only.</li>
+      <li>
+        Public Interface – <code>cli.py</code>, <code>registry.py</code>,
+        <code>interfaces.py</code>.
+      </li>
+      <li>Orchestration – workflow composition, no algorithmic logic.</li>
+      <li>Core – implementation details, provider‑specific code.</li>
+      <li>Schemas/Utilities – data contracts, helpers, and config objects.</li>
+    </ol>
+
+    <h2>Quick Quiz (self‑check)</h2>
+    <div class="quiz">
+      <p>
+        Answer the following questions in your own words. When you feel
+        confident, let me know your answers so we can confirm your
+        understanding.
+      </p>
+      <ol>
+        <li>Where would you add a new public command for the CLI?</li>
+        <li>Which directory contains the core logic for provider profiling?</li>
+        <li>What file documents the overall module ownership?</li>
+      </ol>
+    </div>
+
+    <p><em>Remember to ask follow‑up questions if anything is unclear.</em></p>
+
+    <hr />
+    <p>
+      Next steps: Dive into
+      <a href="0002-module‑walkthrough.html">Module Walkthrough</a> (coming
+      soon) or explore the
+      <a href="../reference/architecture.html">Architecture Reference</a> for a
+      visual diagram.
+    </p>
+  </body>
+</html>

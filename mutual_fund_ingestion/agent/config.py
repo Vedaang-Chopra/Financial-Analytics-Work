@@ -71,5 +71,11 @@ class AgentConfig:
             log_level=args.log_level,
             fail_fast=args.fail_fast,
             dry_run=args.dry_run,
-            dataset_type_priority=args.dataset_type_priority if hasattr(args, "dataset_type_priority") else cls.dataset_type_priority,
+            dataset_type_priority=args.dataset_type_priority if hasattr(args, "dataset_type_priority") else [
+                "amc_provider_list",
+                "scheme_master",
+                "nav_history",
+                "portfolio_disclosure",
+                "factsheet",
+            ],
         )

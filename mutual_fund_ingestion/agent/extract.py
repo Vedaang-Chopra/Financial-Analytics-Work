@@ -59,6 +59,11 @@ class ArtifactCollector:
                     hasher.update(chunk)
             checksum = hasher.hexdigest()
 
+            LOGGER.info(
+                "Downloaded %s: %d bytes sha256=%s",
+                url, temp_path.stat().st_size, checksum[:12]
+            )
+
             return {
                 "url": url,
                 "file_type": file_type,
