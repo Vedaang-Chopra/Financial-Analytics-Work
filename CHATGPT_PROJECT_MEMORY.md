@@ -99,9 +99,25 @@ Codex should:
 - add reports and notebooks at the end of every phase
 - avoid financial advice language
 
+## Status Update — 2026-06-22
+
+121/121 tests pass (+33 from last update). Epic R (fixture tests) completed. Key additions:
+
+- R003/R004: Fixture-based end-to-end tests for seed page discovery and NAV file upsert
+- Epic E: Logging observability (link count, parser results, validation counts, retry queue, run completion)
+- Epic S: Smoke tests (AMFI reachability, NAV discovery)
+- F002/F003: Schema tests for nav_history composite index and amc unique constraint
+- Parser router: Added ('nav_history','txt') routes for .txt NAV files
+- discovery.py: Removed 'Download' from RELEVANCE_KEYWORDS[high] to fix false relevance
+- runner.py: Added classify_dataset() for file URLs (was returning generic 'relevant')
+- db.py: Added unique index on nav_history for SQLite-compatible ON CONFLICT upsert
+
+See: docs/session_state.md
+
 ## Status Update — 2026-06-21
 
 Full audit completed. 88/88 tests pass. Key findings:
+
 - Phase 1A/1B: complete and frozen
 - Task-URL Agent: orchestration loop complete with DB persistence
 - runner.py writes to all 17 tables (prior note that it did not was incorrect)

@@ -1,5 +1,7 @@
 # Task-URL Driven Mutual Fund Ingestion Agent — Implementation Plan
 
+**Last updated: 2026-06-22.** See `plans/CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md` for full audit.
+
 ## Status
 
 **Phase:** Active Development
@@ -83,7 +85,7 @@ All implementation must follow:
 
 The Task-URL Driven Ingestion Agent (`mutual_fund_ingestion/agent/`) was implemented as a full Python package under `mutual_fund_ingestion/agent/`. Shared utilities were consolidated into `utils/`. The CLI was updated with `run-agent` and `init-db` subcommands.
 
-**Result:** 85 passing tests (38 Phase 1 + 36 agent + 11 amfi_disclosure), complete module structure, 4 parsers, 17 DB tables defined.
+**Result:** 121 passing tests (38 Phase 1 + 46 agent + 11 amfi_disclosure + 2 smoke + 11 parser/routing + 13 validation), complete module structure, 17 parsers, 17 DB tables defined.
 
 ### 2.2 What Was Committed
 
@@ -750,10 +752,17 @@ python -m pytest tests/ -v
 
 ---
 
-
 ---
 
 ## 11. Known Gaps — Remaining Work
+
+### Known Implementation Bugs (2026-06-22)
+
+| Bug | Location | Impact | Priority |
+|---|---|---|---|
+| `portfolio.py` column mapping broken for real Excel files (header=None + integer columns) | `parser/portfolio.py` | Auto-detection added but needs real-file verification | Medium |
+| VLM is instantiated but `analyze_page()` never called in runner BFS main loop | `agent/runner.py` | Low-confidence pages not enhanced by VLM | Low |
+| `retry-failed` CLI crashes with TypeError when `--run-id` not provided | `cli.py` | Fixed with guard in `_retry_failed` | Fixed |
 
 ### 11.1 Missing Parsers
 
@@ -787,7 +796,6 @@ python -m pytest tests/ -v
 | `scheme_master` parser | ✅ Implemented | `parse_scheme_master_csv` and `parse_scheme_master_html` in `agent/parser/scheme_master.py` |
 
 ---
-
 
 ## 12. Implementation Roadmap
 
@@ -1042,7 +1050,7 @@ psycopg2-binary>=2.9.9
 
 ```bash
 python -m pytest tests/ -v
-# 50 tests passing
+# 121 tests passing
 ```
 
 ### Initialize database

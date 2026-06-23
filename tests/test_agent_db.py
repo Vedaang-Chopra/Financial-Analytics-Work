@@ -727,5 +727,30 @@ class DatabaseSchemaTests(unittest.TestCase):
             session.close()
 
 
+class ArtifactCollectorTests(unittest.TestCase):
+    """Tests for ArtifactCollector behavior."""
+
+    def test_download_rejects_oversized_file_by_content_length(self):
+        """L003: Verify download returns file_too_large when content-length exceeds limit."""
+        from mutual_fund_ingestion.agent.extract import ArtifactCollector
+        import unittest.mock as mock
+        from utils.http import HttpSettings
+        from pathlib import Path
+        import tempfile
+        
+        collector = ArtifactCollector(
+            session=mock.MagicMock(),
+            temp_dir=Path(tempfile.mkdtemp()),
+            max_file_size_mb=0.001,  # 1KB limit
+        )
+        fake_response = mock.MagicMock()
+        fake_response.headers = {"content-length": "999999999"}
+        fake_response.raise_for_status.return_value = None
+        collector.session.get.return_value = fake_response
+        
+        result = collector.download("https://example.com/huge.txt", "test-run")
+        self.assertEqual(result["error"], "file_too_large")
+
+
 if __name__ == "__main__":
     unittest.main()
