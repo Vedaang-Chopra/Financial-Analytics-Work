@@ -29,10 +29,12 @@ Referenced by `AGENTS.md` §1 and §3. Update whenever module structure changes.
 | `mutual_fund_ingestion/agent/browser.py` | 4 | Playwright extraction — rendered HTML, screenshots, network capture | `extract_with_browser()`, `BrowserUnavailable`, `BrowserResult` |
 | `mutual_fund_ingestion/agent/extract.py` | 4 | Artifact download, SHA256 checksum, temp file management, retention policy | `ArtifactCollector` |
 | `mutual_fund_ingestion/agent/parser/__init__.py` | 4 | Parser router — dispatches by (dataset_type, file_type) | `ParserRouter`, `route_parser()`, `parse_file()` |
-| `mutual_fund_ingestion/agent/parser/nav.py` | 4 | AMFI NAV text/CSV parser → `nav_history` rows | `parse_nav_text()`, `parse_nav_csv()` |
+| `mutual_fund_ingestion/agent/parser/nav.py` | 4 | AMFI NAV text/CSV/HTML parser → `nav_history` rows | `parse_nav_text()`, `parse_nav_csv()`, `parse_nav_html()` |
+| `mutual_fund_ingestion/agent/parser/metadata.py` | 4 | Factsheet/SID/KIM/TER/AUM metadata parsers → document records | `parse_metadata_html()`, `parse_metadata_pdf()`, `parse_tabular_csv()` |
+| `mutual_fund_ingestion/agent/parser/scheme_master.py` | 4 | Scheme master CSV/HTML parser → `schemes` rows | `parse_scheme_master_csv()`, `parse_scheme_master_html()` |
 | `mutual_fund_ingestion/agent/parser/amc.py` | 4 | AMC provider list HTML parser → `amcs` rows | `parse_amc_html()` |
 | `mutual_fund_ingestion/agent/parser/portfolio.py` | 4 | Excel/CSV portfolio disclosure parser → `portfolio_holdings` rows. **FIXED: header row detection works for real AMFI Excel files.** | `parse_portfolio_excel()`, `parse_portfolio_csv()` |
-| `mutual_fund_ingestion/agent/validate.py` | 4 | NAV/portfolio validation, quarantine writer, retry queue | `validate_nav_record()`, `validate_portfolio_record()`, `validate_and_filter_records()` |
+| `mutual_fund_ingestion/agent/validate.py` | 4 | NAV/portfolio/scheme_master/amc validation, quarantine writer, retry queue | `validate_nav_record()`, `validate_portfolio_record()`, `validate_scheme_master_record()`, `validate_amc_record()`, `validate_and_filter_records()` |
 | `mutual_fund_ingestion/agent/vlm.py` | 4 | Pluggable VLM client — null backend (default) + Ollama backend. **NOTE: analyze_page() is never called in runner.py. See TASK-K005.** | `VLMClient`, `NullVLMClient`, `OllamaVLMClient`, `PageAnalysisPayload`, `PageAnalysisDecision` |
 | `mutual_fund_ingestion/agent/db.py` | 5 | SQLAlchemy models for all 17 tables + schema creation | 17 table classes, `create_tables()`, `get_session_maker()` |
 | `mutual_fund_ingestion/agent/models.py` | 5 | Runtime dataclasses — `AgentResult`, `ParserResult`, record types | `AgentResult`, `ParserResult`, `SourcePageRecord`, `DiscoveredLinkRecord`, `DatasetCandidateRecord`, `RawArtifactRecord` |
