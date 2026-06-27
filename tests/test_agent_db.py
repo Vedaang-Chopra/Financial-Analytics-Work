@@ -1,9 +1,11 @@
 """DB-backed integration tests for the task-URL ingestion agent."""
 from __future__ import annotations
 
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from typing import Any, cast
 
 from mutual_fund_ingestion.agent.config import AgentConfig
 from mutual_fund_ingestion.agent.db import create_tables, get_session_maker
@@ -17,9 +19,20 @@ class DBIntegrationTests(unittest.TestCase):
 
     def setUp(self):
         """Create a temporary SQLite database for each test."""
-        self.db_path = f"sqlite:///{tempfile.mktemp(suffix='.db')}"
+        fd, db_path = tempfile.mkstemp(suffix='.db')
+        os.close(fd)
+        self.db_path = f"sqlite:///{db_path}"
+        self._db_temp_path = db_path  # for tearDown cleanup
         create_tables(self.db_path)
         self.session_maker = get_session_maker(self.db_path)
+
+    def tearDown(self):
+        """Clean up temporary database file."""
+        if hasattr(self, '_db_temp_path') and self._db_temp_path:
+            try:
+                os.unlink(self._db_temp_path)
+            except OSError:
+                pass
 
     def _count_rows(self, model):
         """Count rows in a table."""
@@ -257,6 +270,14 @@ class ParserUpsertTests(unittest.TestCase):
         create_tables(self.db_path)
         self.session_maker = get_session_maker(self.db_path)
 
+    def tearDown(self):
+        if hasattr(self, "db_path"):
+            path = self.db_path.replace("sqlite:///", "")
+            try:
+                os.unlink(path)
+            except OSError:
+                pass
+
     def test_nav_parser_upserts_to_nav_history(self):
         """Test that NAV parser results are upserted to nav_history table."""
         from mutual_fund_ingestion.agent.db import Scheme, NAVHistory, AMC
@@ -445,7 +466,7 @@ class ParserUpsertTests(unittest.TestCase):
             "market_value": [10000000, 8000000],
         })
         buffer = io.BytesIO()
-        df.to_excel(buffer, index=False)
+        df.to_excel(buffer, index=False)  # type: ignore[arg-type]
         excel_content = buffer.getvalue()
         
         # Parse
@@ -523,6 +544,14 @@ class ValidationQuarantineTests(unittest.TestCase):
         self.db_path = f"sqlite:///{tempfile.mktemp(suffix='.db')}"
         create_tables(self.db_path)
         self.session_maker = get_session_maker(self.db_path)
+
+    def tearDown(self):
+        if hasattr(self, "db_path"):
+            path = self.db_path.replace("sqlite:///", "")
+            try:
+                os.unlink(path)
+            except OSError:
+                pass
 
     def test_validation_creates_validation_results(self):
         """Test that validation creates validation_results rows."""
@@ -688,6 +717,14 @@ class DatabaseSchemaTests(unittest.TestCase):
         create_tables(self.db_path)
         self.session_maker = get_session_maker(self.db_path)
 
+    def tearDown(self):
+        if hasattr(self, "db_path"):
+            path = self.db_path.replace("sqlite:///", "")
+            try:
+                os.unlink(path)
+            except OSError:
+                pass
+
     def test_nav_history_has_scheme_code_nav_date_index(self):
         """F002: Verify nav_history has index on (scheme_code, nav_date)."""
         import sqlite3
@@ -746,7 +783,8 @@ class ArtifactCollectorTests(unittest.TestCase):
         fake_response = mock.MagicMock()
         fake_response.headers = {"content-length": "999999999"}
         fake_response.raise_for_status.return_value = None
-        collector.session.get.return_value = fake_response
+        mock_session_get = collector.session.get
+        cast(Any, collector.session).get.return_value = fake_response
         
         result = collector.download("https://example.com/huge.txt", "test-run")
         self.assertEqual(result["error"], "file_too_large")
