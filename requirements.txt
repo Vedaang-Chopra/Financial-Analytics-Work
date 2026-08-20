@@ -2,6 +2,7 @@ lxml
 numpy
 openpyxl
 pandas
+plotly
 playwright
 PyYAML
 requests

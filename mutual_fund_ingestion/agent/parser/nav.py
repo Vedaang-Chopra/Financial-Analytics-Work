@@ -20,16 +20,28 @@ def parse_nav_text(content: bytes | str, metadata: dict[str, Any]) -> ParserResu
     lines = content.strip().split("\n")
     for i, line in enumerate(lines):
         line = line.strip()
-        if not line or line.startswith("#") or "Scheme Code" in line or "NAV Date" in line:
+        if not line or line.startswith("#"):
             continue
-        parts = re.split(r"[\t,|]+", line)
+        # Skip header lines
+        if "Scheme Code" in line or "NAV Date" in line or "ISIN Div" in line:
+            continue
+        # Handle multiple delimiters: tab, comma, pipe, semicolon
+        parts = re.split(r"[\t,|;]+", line)
         if len(parts) < 3:
             errors.append("Line %d: insufficient columns: %s" % (i, line))
             continue
+        
+        # AMFI NAVAll.txt format: Scheme Code;ISIN Div Payout;ISIN Div Reinvestment;Scheme Name;Plan;Option;Net Asset Value;Date
+        # We need: scheme_code (parts[0]), nav_value (parts[6]), nav_date (parts[7])
+        # Skip category/AMC name lines (they have < 8 parts after split)
+        if len(parts) < 8:
+            continue
+            
         scheme_code = parts[0].strip()
-        nav_date_str = parts[1].strip() if len(parts) > 1 else ""
-        nav_value_str = parts[2].strip() if len(parts) > 2 else ""
-        if not scheme_code or not nav_value_str:
+        nav_value_str = parts[6].strip() if len(parts) > 6 else ""
+        nav_date_str = parts[7].strip() if len(parts) > 7 else ""
+        
+        if not scheme_code or not nav_value_str or not nav_date_str:
             continue
         try:
             nav_value = float(nav_value_str.replace(",", "").replace(" ", ""))

@@ -102,6 +102,32 @@ class AMCParserTests(unittest.TestCase):
         self.assertIn("ICICI Prudential Mutual Fund", names)
 
 
+    def test_nav_csv_parser_parses_real_fixture(self):
+        # N002 extension: NAV CSV parser handles realistic CSV data
+        from mutual_fund_ingestion.agent.parser.nav import parse_nav_csv
+        content = "Scheme Code,NAV Date,NAV\nABC123,16-Jun-2026,52.1234\nDEF456,16-Jun-2026,147.89"
+        result = parse_nav_csv(content, {"source_url": "https://example.com/nav.csv"})
+        self.assertGreaterEqual(len(result.records), 1)
+        self.assertIn("scheme_code", result.records[0])
+        self.assertIsInstance(result.records[0]["nav_value"], (int, float))
+
+    def test_nav_text_parser_parses_date_formats(self):
+        # N002 edge: NAV text parser handles DD-MMM-YYYY date format
+        from mutual_fund_ingestion.agent.parser.nav import parse_nav_text
+        content = "SCHEME_CODE\tNAV_DATE\tNAV\nABC123\t15-Jul-2024\t100.50"
+        result = parse_nav_text(content, {"source_url": "https://test.com/nav.txt"})
+        self.assertEqual(len(result.records), 1)
+        self.assertEqual(result.records[0]["nav_value"], 100.50)
+
+    def test_nav_html_parser_with_real_fixture(self):
+        # N004: parse_nav_html works with real fixture
+        from pathlib import Path
+        from mutual_fund_ingestion.agent.parser.nav import parse_nav_html
+        fixture = (Path(__file__).parent / "fixtures" / "data" / "nav_page.html").read_bytes().decode("utf-8", errors="replace")
+        result = parse_nav_html(fixture, {"source_url": "https://example.com/nav.html"})
+        self.assertGreaterEqual(len(result.records), 1)
+        self.assertIn("scheme_code", result.records[0])
+
 class ValidationTests(unittest.TestCase):
     def test_nav_validation_passes_valid_record(self):
         record = {"scheme_code": "ABC123", "nav_date": "2024-01-01", "nav_value": 450.5, "source_url": "https://amfi.com"}
@@ -173,19 +199,34 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(len(quarantined), 1)
 
     def test_scheme_master_validation_fails_missing_scheme_code(self):
+        # G004: Tuple validator returns (False, reason) for missing scheme_code
         record = {"scheme_name": "Example Growth Fund"}
-        errors = validate_scheme_master_record(record)
-        self.assertIn("missing_scheme_code", errors)
+        is_valid, reason = validate_scheme_master_record(record)
+        self.assertFalse(is_valid)
+        self.assertIn("scheme_code", reason)
 
     def test_scheme_master_validation_passes_valid_record(self):
-        record = {"scheme_code": "120503", "scheme_name": "Example Growth Fund", "amc_name": "Example AMC"}
-        errors = validate_scheme_master_record(record)
-        self.assertEqual(errors, [])
+        # G004: Valid scheme_master record passes
+        record = {"scheme_code": "120503", "scheme_name": "Example Growth Fund"}
+        is_valid, reason = validate_scheme_master_record(record)
+        self.assertTrue(is_valid)
+        self.assertEqual(reason, "")
 
-    def test_amc_validation_fails_missing_name(self):
-        record = {"website_url": "http://example.com"}
-        errors = validate_amc_record(record)
-        self.assertIn("missing_name", errors)
+    def test_validate_amc_record_valid(self):
+        # G004: Valid AMC record passes
+        record = {"amc_code": "AMC001", "amc_name": "Test AMC", "source_url": "https://test.com"}
+        is_valid, reason = validate_amc_record(record)
+        self.assertTrue(is_valid)
+        self.assertEqual(reason, "")
+
+    def test_amc_validation_fails_missing_fields(self):
+        # G004: AMC record missing required fields fails with tuple format
+        record = {"website_url": "http://example.com"}  # missing amc_code, amc_name, source_url
+        is_valid, reason = validate_amc_record(record)
+        self.assertFalse(is_valid)
+        self.assertIn("amc_code", reason)
+        self.assertIn("amc_name", reason)
+        self.assertIn("source_url", reason)
 
     def test_validate_and_filter_records_routes_to_scheme_master_validator(self):
         parser_result = ParserResult(
@@ -204,7 +245,45 @@ class ValidationTests(unittest.TestCase):
         valid, quarantined = validate_and_filter_records(parser_result, "run-1")
         self.assertEqual(len(valid), 1)
         self.assertEqual(len(quarantined), 1)
-        self.assertIn("missing_scheme_code", quarantined[0]["reason"])
+        self.assertIn("scheme_code", quarantined[0]["reason"])
+
+    def test_validate_and_filter_passes_valid_scheme_master_records(self):
+        # G004 integration: valid scheme_master records pass through, none quarantined
+        parser_result = ParserResult(
+            dataset_type="scheme_master",
+            parser_name="scheme_master_csv_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"scheme_code": "SCH001", "scheme_name": "Growth Fund A"},
+                {"scheme_code": "SCH002", "scheme_name": "Growth Fund B"},
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 2)
+        self.assertEqual(len(quarantined), 0)
+
+    def test_validate_and_filter_passes_valid_amc_records(self):
+        # G004 integration: valid AMC records pass through, none quarantined
+        parser_result = ParserResult(
+            dataset_type="amc_provider_list",
+            parser_name="amc_html_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"amc_code": "AMC001", "amc_name": "Test AMC 1", "source_url": "https://test1.com"},
+                {"amc_code": "AMC002", "amc_name": "Test AMC 2", "source_url": "https://test2.com"},
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 2)
+        self.assertEqual(len(quarantined), 0)
 
     def test_validate_and_filter_records_routes_to_amc_validator(self):
         parser_result = ParserResult(
@@ -213,8 +292,8 @@ class ValidationTests(unittest.TestCase):
             parser_version="1.0",
             confidence=0.9,
             records=[
-                {"name": "Test AMC", "website_url": "https://test.com"},
-                {"website_url": "https://example.com"},  # missing name
+                {"amc_code": "AMC001", "amc_name": "Test AMC", "source_url": "https://test.com"},  # valid
+                {"amc_code": "AMC002"},  # missing amc_name and source_url
             ],
             warnings=[],
             errors=[],
@@ -223,7 +302,154 @@ class ValidationTests(unittest.TestCase):
         valid, quarantined = validate_and_filter_records(parser_result, "run-1")
         self.assertEqual(len(valid), 1)
         self.assertEqual(len(quarantined), 1)
-        self.assertIn("missing_name", quarantined[0]["reason"])
+        self.assertIn("amc_name", quarantined[0]["reason"])
+
+
+    def test_nav_validation_fails_missing_source_url(self):
+        """NAV record missing source_url is rejected."""
+        record = {"scheme_code": "ABC", "nav_date": "2024-01-01", "nav_value": "100.50"}
+        errors = validate_nav_record(record)
+        self.assertIn("missing_source_url", errors)
+
+    def test_validate_and_filter_quarantines_nav_missing_scheme_code(self):
+        """G004: NAV record missing scheme_code goes to quarantine via validate_and_filter."""
+        parser_result = ParserResult(
+            dataset_type="nav_history",
+            parser_name="nav_text_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"nav_value": "100.50"},  # missing scheme_code, nav_date, source_url
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 0)
+        self.assertEqual(len(quarantined), 1)
+        self.assertIn("scheme_code", quarantined[0]["reason"])
+
+    def test_portfolio_validation_checks_market_value_not_numeric(self):
+        """Portfolio record with non-numeric market_value is rejected."""
+        record = {"security_name": "Reliance", "market_value": "not_a_number", "percentage_to_nav": "10.5"}
+        errors = validate_portfolio_record(record)
+        self.assertIn("market_value_not_numeric", errors)
+
+    def test_validate_and_filter_quarantines_scheme_master_multiple_errors(self):
+        """Scheme master record with multiple missing fields lists all in reason."""
+        parser_result = ParserResult(
+            dataset_type="scheme_master",
+            parser_name="scheme_master_csv_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"amc_name": "Some AMC"},  # missing scheme_code AND scheme_name
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 0)
+        self.assertEqual(len(quarantined), 1)
+        # Both scheme_code and scheme_name missing
+        self.assertIn("scheme_code", quarantined[0]["reason"])
+        self.assertIn("scheme_name", quarantined[0]["reason"])
+
+    def test_validate_and_filter_quarantines_amc_multiple_errors(self):
+        """AMC record with multiple missing fields lists all in reason."""
+        parser_result = ParserResult(
+            dataset_type="amc_provider_list",
+            parser_name="amc_html_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"website_url": "https://test.com"},  # missing amc_code, amc_name, source_url
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 0)
+        self.assertEqual(len(quarantined), 1)
+        self.assertIn("amc_code", quarantined[0]["reason"])
+        self.assertIn("amc_name", quarantined[0]["reason"])
+        self.assertIn("source_url", quarantined[0]["reason"])
+
+
+    def test_portfolio_validation_rejects_negative_percentage(self):
+        # Edge case: percentage_to_nav negative is rejected
+        from mutual_fund_ingestion.agent.validate import validate_portfolio_record
+        record = {"security_name": "Test", "percentage_to_nav": -5.0, "market_value": "100000"}
+        errors = validate_portfolio_record(record)
+        self.assertIn("percentage_out_of_range", errors)
+
+    def test_classify_dataset_returns_none_for_unknown_url(self):
+        # H003 edge: unknown URL returns None
+        from mutual_fund_ingestion.agent.discovery import DiscoveryEngine
+        from utils.http import HttpSettings
+        import requests
+        engine = DiscoveryEngine(session=requests.Session(), settings=HttpSettings())
+        result = engine.classify_dataset("https://example.com/random-page", "Random Content")
+        self.assertIsNone(result)
+
+    def test_classify_dataset_with_factsheet_pdf_url(self):
+        # H005: factsheet URL classification works for PDF files
+        from mutual_fund_ingestion.agent.discovery import DiscoveryEngine
+        from utils.http import HttpSettings
+        import requests
+        engine = DiscoveryEngine(session=requests.Session(), settings=HttpSettings())
+        result = engine.classify_dataset(
+            "https://amc.com/funds/factsheet-hdfc-top-100-q1-2024.pdf",
+            "Quarterly Factsheet Q1 2024"
+        )
+        self.assertEqual(result, "factsheet")
+
+    def test_classify_dataset_with_ter_csv_url(self):
+        # H005: TER URL classification works for CSV files
+        from mutual_fund_ingestion.agent.discovery import DiscoveryEngine
+        from utils.http import HttpSettings
+        import requests
+        engine = DiscoveryEngine(session=requests.Session(), settings=HttpSettings())
+        result = engine.classify_dataset(
+            "https://amc.com/TER-Report-June-2024.csv",
+            "Total Expense Ratio Disclosure"
+        )
+        self.assertEqual(result, "ter")
+
+    def test_classify_dataset_with_sid_pdf_url(self):
+        # H004/H005: SID URL classification works for PDF files
+        from mutual_fund_ingestion.agent.discovery import DiscoveryEngine
+        from utils.http import HttpSettings
+        import requests
+        engine = DiscoveryEngine(session=requests.Session(), settings=HttpSettings())
+        result = engine.classify_dataset(
+            "https://amc.com/SID-hdfc-equity-fund.pdf",
+            "Scheme Information Document"
+        )
+        self.assertEqual(result, "sid")
+
+    def test_validate_and_filter_routes_to_portfolio_validator(self):
+        # Verify validate_and_filter_records correctly routes portfolio records
+        from mutual_fund_ingestion.agent.validate import validate_and_filter_records
+        from mutual_fund_ingestion.agent.models import ParserResult
+        parser_result = ParserResult(
+            dataset_type="portfolio_disclosure",
+            parser_name="portfolio_excel_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"security_name": "Reliance", "percentage_to_nav": "8.5", "market_value": "10000000"},
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+        valid, quarantined = validate_and_filter_records(parser_result, "run-1")
+        self.assertEqual(len(valid), 1)
+        self.assertEqual(len(quarantined), 0)
 
 
 class RouteParserIntegrationTests(unittest.TestCase):
@@ -483,6 +709,43 @@ class BrowserAgentTests(unittest.TestCase):
         with mock.patch.dict("sys.modules", {"playwright": None, "playwright.sync_api": None}):
             with self.assertRaises((BrowserUnavailable, ImportError)):
                 extract_with_browser("https://example.com", Path("/tmp/debug"), timeout_seconds=5)
+
+    def test_browser_result_network_calls_tracked(self):
+        # J001: Verify BrowserResult.network_calls captures HTTP responses
+        from mutual_fund_ingestion.agent.browser import BrowserResult
+
+        result = BrowserResult(
+            html="<html><body>Done</body></html>",
+            screenshot_path=None,
+            links=[],
+            downloads=[],
+            network_calls=[
+                {"url": "https://example.com/data.xlsx", "status": 200, "content_type": "application/vnd.ms-excel"},
+                {"url": "https://example.com/page.html", "status": 200, "content_type": "text/html"},
+            ],
+        )
+        # network_calls should have entries
+        self.assertEqual(len(result.network_calls), 2)
+        self.assertEqual(result.network_calls[0]["content_type"], "application/vnd.ms-excel")
+        # downloads should be empty for a page that didn't trigger explicit downloads
+        self.assertEqual(len(result.downloads), 0)
+
+    def test_browser_result_downloads_tracked(self):
+        # J001: Verify BrowserResult.downloads captures file downloads
+        from mutual_fund_ingestion.agent.browser import BrowserResult
+
+        result = BrowserResult(
+            html="<html><body>Download</body></html>",
+            screenshot_path=None,
+            links=[],
+            downloads=[
+                {"url": "https://example.com/portfolio-jun2024.xlsx", "file_type": "xlsx", "size": 45000},
+            ],
+            network_calls=[],
+        )
+        self.assertEqual(len(result.downloads), 1)
+        self.assertEqual(result.downloads[0]["file_type"], "xlsx")
+        self.assertIn("portfolio", result.downloads[0]["url"])
 
     def test_extract_with_browser_returns_links(self):
         from mutual_fund_ingestion.agent.browser import extract_with_browser, BrowserResult

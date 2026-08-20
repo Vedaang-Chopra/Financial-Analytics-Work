@@ -262,6 +262,81 @@ class DBIntegrationTests(unittest.TestCase):
                 os.unlink(temp_nav_path)
 
 
+    def test_raw_artifact_retained_flag_set_when_keep_raw_files_true(self):
+        """L002: ArtifactProcessor sets retained=True and writes to raw_dir when configured."""
+        import unittest.mock as mock
+        import os
+        from mutual_fund_ingestion.agent.db import RawArtifact
+        from mutual_fund_ingestion.agent.artifact_processor import ArtifactProcessor
+        from mutual_fund_ingestion.agent.upserts import UpsertManager
+        from mutual_fund_ingestion.agent.extract import ArtifactCollector
+        from pathlib import Path
+        import uuid
+
+        # Create a real temp file for the download
+        fd, temp_path = tempfile.mkstemp(suffix=".txt")
+        os.write(fd, b"SCHEME_CODE\tNAV_DATE\tNAV\nABC123\t16-Jun-2026\t52.00\n")
+        os.close(fd)
+
+        raw_dir = Path(tempfile.mkdtemp())
+
+        try:
+            collector = mock.MagicMock(spec=ArtifactCollector)
+            collector.download.return_value = {
+                "url": "https://example.com/nav.txt",
+                "file_type": "txt",
+                "content_type": "text/plain",
+                "checksum": "abc123",
+                "size_bytes": 45,
+                "local_path": temp_path,
+                "retained": True,
+            }
+
+            run_id = str(uuid.uuid4())
+            upsert_manager = UpsertManager()
+            upsert_manager.set_run_id(run_id)
+
+            processor = ArtifactProcessor(
+                run_id=run_id,
+                stats={"files_downloaded": 0},
+                collector=collector,
+                upsert_manager=upsert_manager,
+            )
+
+            from mutual_fund_ingestion.agent.db import DatasetCandidate
+            session = self.session_maker()
+            try:
+                dc = DatasetCandidate(
+                    run_id=uuid.UUID("00000000-0000-0000-0000-000000000001"),
+                    url="https://example.com/nav.txt",
+                    dataset_type="nav_history",
+                    file_type="txt",
+                    status="discovered",
+                    requires_browser=False,
+                    requires_form=False,
+                    requires_vlm=False,
+                    confidence=0.8,
+                )
+                session.add(dc)
+                session.flush()
+
+                processor.process(session, dc, raw_dir=raw_dir)
+                session.commit()
+
+                artifacts = session.query(RawArtifact).filter_by(checksum="abc123").all()
+                self.assertEqual(len(artifacts), 1)
+                self.assertTrue(artifacts[0].retained)
+                self.assertIsNotNone(artifacts[0].local_path)
+            finally:
+                session.close()
+        finally:
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
+            import shutil
+            if raw_dir.exists():
+                shutil.rmtree(raw_dir)
+
+
 class ParserUpsertTests(unittest.TestCase):
     """Tests for parser upserts to canonical tables."""
 
@@ -655,8 +730,44 @@ class ValidationQuarantineTests(unittest.TestCase):
             for s in staging:
                 self.assertEqual(s.dataset_type, "nav_history")
                 self.assertIsNotNone(s.parsed_fields_json)
+                # G005: raw_row_json must preserve original parsed record
+                self.assertIsNotNone(s.raw_row_json)
+                self.assertIn("scheme_code", s.raw_row_json)
+                self.assertIn("nav_value", s.raw_row_json)
         finally:
             session.close()
+
+    def test_quarantine_reason_is_non_empty(self):
+        """G006: Every quarantine row has a non-empty reason when validation fails."""
+        from mutual_fund_ingestion.agent.validate import validate_and_filter_records
+        from mutual_fund_ingestion.agent.models import ParserResult
+        import uuid
+
+        run_id = str(uuid.uuid4())
+
+        # Inject invalid NAV record (missing scheme_code, nav_date)
+        parser_result = ParserResult(
+            dataset_type="nav_history",
+            parser_name="nav_text_v1",
+            parser_version="1.0",
+            confidence=0.9,
+            records=[
+                {"nav_value": "100.50"},  # invalid: missing scheme_code, nav_date, source_url
+            ],
+            warnings=[],
+            errors=[],
+            metadata={},
+        )
+
+        valid, quarantined = validate_and_filter_records(parser_result, run_id)
+
+        self.assertEqual(len(valid), 0)
+        self.assertEqual(len(quarantined), 1)
+        # G006: reason must be non-empty string
+        self.assertIsInstance(quarantined[0]["reason"], str)
+        self.assertGreater(len(quarantined[0]["reason"]), 0)
+        # Raw data preserved in quarantine row
+        self.assertIsNotNone(quarantined[0]["raw_data_json"])
 
 
 class ParserUnitTests(unittest.TestCase):
@@ -788,6 +899,44 @@ class ArtifactCollectorTests(unittest.TestCase):
         
         result = collector.download("https://example.com/huge.txt", "test-run")
         self.assertEqual(result["error"], "file_too_large")
+
+
+    def test_download_returns_download_failed_on_request_exception(self):
+        """ArtifactCollector returns download_failed on requests errors."""
+        from mutual_fund_ingestion.agent.extract import ArtifactCollector
+        import unittest.mock as mock
+        from pathlib import Path
+        import tempfile
+        import requests
+
+        collector = ArtifactCollector(
+            session=mock.MagicMock(),
+            temp_dir=Path(tempfile.mkdtemp()),
+            max_file_size_mb=1.0,
+        )
+        collector.session.get.side_effect = requests.RequestException("network error")
+
+        result = collector.download("https://example.com/fail.txt", "test-run")
+        self.assertEqual(result["error"], "download_failed")
+        self.assertIn("network error", result["reason"])
+
+    def test_download_returns_unknown_on_unexpected_exception(self):
+        """ArtifactCollector returns unknown on unexpected errors."""
+        from mutual_fund_ingestion.agent.extract import ArtifactCollector
+        import unittest.mock as mock
+        from pathlib import Path
+        import tempfile
+
+        collector = ArtifactCollector(
+            session=mock.MagicMock(),
+            temp_dir=Path(tempfile.mkdtemp()),
+            max_file_size_mb=1.0,
+        )
+        collector.session.get.side_effect = RuntimeError("boom")
+
+        result = collector.download("https://example.com/boom.txt", "test-run")
+        self.assertEqual(result["error"], "unknown")
+        self.assertIn("boom", result["reason"])
 
 
 if __name__ == "__main__":

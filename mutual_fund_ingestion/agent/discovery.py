@@ -10,7 +10,7 @@ from urllib.parse import urljoin, urlparse
 
 import requests
 
-from utils.http import HttpSettings, build_session
+from utils.http import HttpSettings, build_session, get_with_retry
 from utils.url_utils import canonical_url, file_type_from_url
 
 
@@ -19,20 +19,26 @@ LOGGER = logging.getLogger(__name__)
 DATASET_TYPE_HINTS = {
     "portfolio_disclosure": ["portfolio", "holding", "monthly portfolio"],
     "factsheet": ["factsheet", "fact sheet"],
-    "nav_history": ["nav", "net asset value", "historical nav"],
-    "scheme_master": ["scheme", "scheme code", "scheme name"],
-    "amc_provider_list": ["amc", "mutual fund", "fund house", "members"],
+    "nav_history": ["nav", "net asset value", "historical nav", "navall"],
     "ter": ["total expense ratio", "ter"],
     "sid": ["scheme information document", "sid"],
     "kim": ["key information memorandum", "kim"],
-    "statutory_disclosure": ["statutory", "disclosure"],
     "aum_aaum": ["aum", "aaum"],
+    "scheme_master": ["scheme", "scheme code", "scheme name"],
+    "amc_provider_list": ["amc", "mutual fund", "fund house", "members"],
+    "statutory_disclosure": ["statutory", "disclosure"],
 }
+
+def _keyword_matches(text: str, keyword: str) -> bool:
+    keyword_l = keyword.lower()
+    if keyword_l.isalpha() and len(keyword_l) <= 3:
+        return re.search(rf"(?<!\w){re.escape(keyword_l)}(?!\w)", text) is not None
+    return keyword_l in text
 
 RELEVANCE_KEYWORDS = {
     "high": ["NAV", "Net Asset Value", "Scheme", "Portfolio", "Portfolio Disclosure",
               "Monthly Portfolio", "Factsheet", "Fact Sheet", "Disclosure"],
-    "low": ["careers", "contact", "privacy", "terms", "sitemap", "media",
+    "low": ["careers", "contact", "privacy", "terms", "sitemap", 
             "press release", "login", "feedback", "branches"],
 }
 
@@ -77,7 +83,13 @@ class DiscoveryEngine:
 
     def fetch(self, url: str) -> tuple[int, str | None]:
         try:
-            response = self.session.get(url, timeout=self.settings.timeout_seconds)
+            response = get_with_retry(
+                self.session,
+                url,
+                timeout=self.settings.timeout_seconds,
+            )
+            if response.status_code >= 400:
+                return response.status_code, None
             content_type = response.headers.get("content-type", "").lower()
             if "text/html" in content_type or "application/xhtml" in content_type:
                 return response.status_code, response.text
@@ -100,14 +112,14 @@ class DiscoveryEngine:
     def score_relevance(self, url: str, text: str, title: str) -> tuple[float, str | None]:
         combined = (text + " " + title + " " + url).lower()
         for term in RELEVANCE_KEYWORDS["low"]:
-            if term in combined:
+            if _keyword_matches(combined, term):
                 return 0.0, None
         for term in RELEVANCE_KEYWORDS["high"]:
-            if term.lower() in combined:
+            if _keyword_matches(combined, term):
                 return 0.8, "relevant"
         for dataset_type, keywords in DATASET_TYPE_HINTS.items():
             for keyword in keywords:
-                if keyword in combined:
+                if _keyword_matches(combined, keyword):
                     return 0.7, dataset_type
         return 0.3, None
 
@@ -115,7 +127,7 @@ class DiscoveryEngine:
         combined = (text + " " + url).lower()
         for dataset_type, keywords in DATASET_TYPE_HINTS.items():
             for keyword in keywords:
-                if keyword in combined:
+                if _keyword_matches(combined, keyword):
                     return dataset_type
         return None
 

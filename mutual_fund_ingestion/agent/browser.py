@@ -1,4 +1,3 @@
-"""Browser-based extraction using Playwright."""
 from __future__ import annotations
 
 import json
@@ -8,7 +7,6 @@ from pathlib import Path
 from typing import Any
 
 from utils.url_utils import canonical_url, file_type_from_url
-
 
 LOGGER = logging.getLogger(__name__)
 
@@ -33,61 +31,66 @@ def extract_with_browser(
     headless: bool = True,
 ) -> BrowserResult:
     try:
-        from playwright.sync_api import sync_playwright
+        from playwright.async_api import async_playwright
     except ImportError as exc:
         raise BrowserUnavailable("Playwright is not installed") from exc
 
-    debug_dir.mkdir(parents=True, exist_ok=True)
-    network_calls: list[dict[str, Any]] = []
-    downloads: list[dict[str, Any]] = []
+    import asyncio
 
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=headless)
-        page = browser.new_page()
+    async def _extract():
+        debug_dir.mkdir(parents=True, exist_ok=True)
+        network_calls: list[dict[str, Any]] = []
+        downloads: list[dict[str, Any]] = []
 
-        page.on("response", lambda response: network_calls.append({
-            "url": response.url,
-            "status": response.status,
-            "content_type": response.headers.get("content-type"),
-        }))
+        async with async_playwright() as playwright:
+            browser = await playwright.chromium.launch(headless=headless)
+            page = await browser.new_page()
 
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=int(timeout_seconds * 1000))
-            page.wait_for_timeout(1500)
-            html = page.content()
+            page.on("response", lambda response: network_calls.append({
+                "url": response.url,
+                "status": response.status,
+                "content_type": response.headers.get("content-type"),
+            }))
 
-            # Extract links
-            links = []
-            for elem in page.locator("a").all():
-                try:
-                    href = elem.get_attribute("href")
-                    text = elem.inner_text().strip()
-                    if href:
-                        links.append({"url": canonical_url(href), "text": text, "title": ""})
-                except Exception:
-                    pass
-
-            # Screenshot
-            screenshot_path = debug_dir / "screenshot.png"
             try:
-                page.screenshot(path=str(screenshot_path), full_page=True, timeout=10_000)
-                screenshot_path_str = str(screenshot_path)
-            except Exception:
-                screenshot_path_str = None
+                await page.goto(url, wait_until="domcontentloaded", timeout=int(timeout_seconds * 1000))
+                await page.wait_for_timeout(1500)
+                html = await page.content()
 
-            # Network downloads
-            for call in network_calls:
-                ft = file_type_from_url(call["url"])
-                if ft:
-                    downloads.append({"url": call["url"], "content_type": call.get("content_type"), "file_type": ft})
+                # Extract links
+                links = []
+                for elem in await page.locator("a").all():
+                    try:
+                        href = await elem.get_attribute("href")
+                        text = await elem.inner_text()
+                        if href:
+                            links.append({"url": canonical_url(href), "text": text.strip(), "title": ""})
+                    except Exception:
+                        pass
 
-            browser.close()
-            return BrowserResult(
-                html=html,
-                screenshot_path=screenshot_path_str,
-                links=links,
-                downloads=downloads,
-                network_calls=network_calls,
-            )
-        finally:
-            browser.close()
+                # Screenshot
+                screenshot_path = debug_dir / "screenshot.png"
+                try:
+                    await page.screenshot(path=str(screenshot_path), full_page=True, timeout=10_000)
+                    screenshot_path_str = str(screenshot_path)
+                except Exception:
+                    screenshot_path_str = None
+
+                # Network downloads
+                for call in network_calls:
+                    ft = file_type_from_url(call["url"])
+                    if ft:
+                        downloads.append({"url": call["url"], "content_type": call.get("content_type"), "file_type": ft})
+
+                await browser.close()
+                return BrowserResult(
+                    html=html,
+                    screenshot_path=screenshot_path_str,
+                    links=links,
+                    downloads=downloads,
+                    network_calls=network_calls,
+                )
+            finally:
+                await browser.close()
+
+    return asyncio.run(_extract())

@@ -10,7 +10,7 @@ from typing import Any
 
 import requests
 
-from utils.http import HttpSettings, build_session
+from utils.http import HttpSettings, build_session, get_with_retry
 from utils.url_utils import file_type_from_url, safe_name, slugify
 
 
@@ -38,7 +38,13 @@ class ArtifactCollector:
         temp_dir = self.temp_dir / run_id
         temp_dir.mkdir(parents=True, exist_ok=True)
         try:
-            response = self.session.get(url, timeout=30, stream=True, allow_redirects=True)
+            response = get_with_retry(
+                self.session,
+                url,
+                timeout=30,
+                stream=True,
+                allow_redirects=True,
+            )
             response.raise_for_status()
             content_type = response.headers.get("content-type", "")
             content_length = response.headers.get("content-length")

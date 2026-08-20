@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from .models import ParserResult
+
+if TYPE_CHECKING:
+    pass
 
 
 LOGGER = logging.getLogger(__name__)
@@ -67,25 +70,49 @@ def validate_portfolio_record(record: dict[str, Any]) -> list[str]:
     return errors
 
 
-def validate_scheme_master_record(record: dict[str, Any]) -> list[str]:
-    """Return list of validation errors for a scheme_master record."""
-    errors = []
+def validate_scheme_master_record(record: dict[str, Any]) -> tuple[bool, str]:
+    """Validate a scheme_master record.
+
+    Returns (True, "") if valid, (False, "reason: <description>") if invalid.
+    Checks required fields: scheme_code, scheme_name.
+    Per TASK-G001 per docs/06_plans/active/BATCH_E_validation.md.
+    """
+    missing: list[str] = []
     if not record.get("scheme_code"):
-        errors.append("missing_scheme_code")
+        missing.append("scheme_code")
     if not record.get("scheme_name"):
-        errors.append("missing_scheme_name")
-    return errors
+        missing.append("scheme_name")
+    if missing:
+        return False, "missing_required_field: " + ", ".join(missing)
+    return True, ""
 
 
-def validate_amc_record(record: dict[str, Any]) -> list[str]:
-    """Return list of validation errors for an amc_provider_list record."""
-    errors = []
-    if not record.get("name"):
-        errors.append("missing_name")
-    return errors
+def validate_amc_record(record: dict[str, Any]) -> tuple[bool, str]:
+    """Validate an amc_provider_list record.
+
+    Returns (True, "") if valid, (False, "reason: <description>") if invalid.
+    Checks required fields: amc_code, amc_name, source_url.
+    Per TASK-G002 per docs/06_plans/active/BATCH_E_validation.md.
+    """
+    missing: list[str] = []
+    if not record.get("amc_code"):
+        missing.append("amc_code")
+    if not record.get("amc_name"):
+        missing.append("amc_name")
+    if not record.get("source_url"):
+        missing.append("source_url")
+    if missing:
+        return False, "missing_required_field: " + ", ".join(missing)
+    return True, ""
 
 
-def write_quarantine_row(run_id: str, reason: str, raw_data: dict[str, Any] | None, parser_error: str | None, retryable: bool) -> dict[str, Any]:
+def write_quarantine_row(
+    run_id: str,
+    reason: str,
+    raw_data: dict[str, Any] | None,
+    parser_error: str | None,
+    retryable: bool,
+) -> dict[str, Any]:
     return {
         "run_id": run_id,
         "reason": reason,
@@ -95,7 +122,15 @@ def write_quarantine_row(run_id: str, reason: str, raw_data: dict[str, Any] | No
     }
 
 
-def write_validation_result(run_id: str, entity_type: str, entity_id: str | None, check_name: str, severity: str, status: str, message: str | None) -> dict[str, Any]:
+def write_validation_result(
+    run_id: str,
+    entity_type: str,
+    entity_id: str | None,
+    check_name: str,
+    severity: str,
+    status: str,
+    message: str | None,
+) -> dict[str, Any]:
     return {
         "run_id": run_id,
         "entity_type": entity_type,
@@ -107,7 +142,13 @@ def write_validation_result(run_id: str, entity_type: str, entity_id: str | None
     }
 
 
-def write_retry_task(run_id: str, url: str, task_type: str, failure_reason: str, retryable: bool) -> dict[str, Any]:
+def write_retry_task(
+    run_id: str,
+    url: str,
+    task_type: str,
+    failure_reason: str,
+    retryable: bool,
+) -> dict[str, Any]:
     return {
         "run_id": run_id,
         "url": url,
@@ -119,9 +160,18 @@ def write_retry_task(run_id: str, url: str, task_type: str, failure_reason: str,
     }
 
 
-def validate_and_filter_records(parser_result: ParserResult, run_id: str) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    valid_records = []
-    quarantined_records = []
+def validate_and_filter_records(
+    parser_result: ParserResult, run_id: str
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Validate and filter parsed records, separating valid from quarantined.
+
+    Handles two validator signatures:
+    - list[str]: existing validators (nav, portfolio) — truthy = has errors
+    - tuple[bool, str]: new validators (scheme_master, amc) — bool=True means valid
+    """
+    valid_records: list[dict[str, Any]] = []
+    quarantined_records: list[dict[str, Any]] = []
+
     if parser_result.dataset_type == "nav_history":
         validate_fn = validate_nav_record
     elif parser_result.dataset_type == "portfolio_disclosure":
@@ -132,10 +182,26 @@ def validate_and_filter_records(parser_result: ParserResult, run_id: str) -> tup
         validate_fn = validate_amc_record
     else:
         validate_fn = lambda r: ["unknown_dataset_type"]
+
     for record in parser_result.records:
-        errors = validate_fn(record)
-        if errors:
-            quarantined_records.append(write_quarantine_row(run_id, "; ".join(errors), record, None, False))
+        result = validate_fn(record)
+        if isinstance(result, tuple):
+            # New-style validator: tuple[bool, str]
+            is_valid, reason = result
+            if is_valid:
+                valid_records.append(record)
+            else:
+                quarantined_records.append(
+                    write_quarantine_row(run_id, reason, record, None, False)
+                )
         else:
-            valid_records.append(record)
+            # Legacy-style validator: list[str] of errors
+            errors: list[str] = result
+            if errors:
+                quarantined_records.append(
+                    write_quarantine_row(run_id, "; ".join(errors), record, None, False)
+                )
+            else:
+                valid_records.append(record)
+
     return valid_records, quarantined_records

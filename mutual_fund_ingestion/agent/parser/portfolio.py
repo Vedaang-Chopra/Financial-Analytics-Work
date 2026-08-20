@@ -71,6 +71,9 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
 
             # Find header row: first row where >= 2 cells match known column aliases
             header_row_idx = 0
+            scheme_name = None
+            reporting_date = None
+            
             for i, row in raw_df.iterrows():
                 normalized_cells = [str(v).strip().lower() for v in row.values if str(v).strip() and str(v).strip().lower() != "nan"]
                 known_count = sum(
@@ -80,6 +83,21 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                 if known_count >= 2:
                     header_row_idx = int(i)
                     break
+                # Extract scheme_name and reporting_date from rows before header
+                for cell in row.values:
+                    if pd.notna(cell):
+                        cell_str = str(cell).strip()
+                        # Look for scheme name patterns
+                        if scheme_name is None and any(kw in cell_str.lower() for kw in ["portfolio", "fund", "scheme"]):
+                            scheme_name = cell_str
+                        # Look for date patterns
+                        if reporting_date is None:
+                            for fmt in ["%d-%b-%Y", "%b %Y", "%Y-%m-%d", "%d/%m/%Y", "%B %Y", "%d-%m-%Y"]:
+                                try:
+                                    reporting_date = datetime.strptime(cell_str, fmt).date().isoformat()
+                                    break
+                                except ValueError:
+                                    continue
 
             # Re-read with detected header row
             df = pd.read_excel(xlsx, sheet_name=sheet_name, header=header_row_idx, dtype=str)
@@ -106,6 +124,10 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                 isin = str(row.get(isin_col, "")).strip() if isin_col else ""
                 sector_col = next((k for k, v in col_map.items() if v == "sector"), None)
                 sector = str(row.get(sector_col, "")).strip() if sector_col else ""
+                
+                # Use sheet_name as scheme_name if not found
+                final_scheme_name = scheme_name or sheet_name
+                
                 records.append({
                     "security_name": security_name,
                     "isin": isin if isin and isin != "nan" else None,
@@ -114,6 +136,8 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                     "market_value": float(market_value) if pd.notna(market_value) else None,
                     "sheet_name": sheet_name,
                     "row_number": int(idx),
+                    "scheme_name": final_scheme_name,
+                    "reporting_date": reporting_date,
                 })
     except Exception as exc:
         errors.append("Portfolio parse error: %s" % exc)
