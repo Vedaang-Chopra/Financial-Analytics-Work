@@ -56,7 +56,7 @@ class ArtifactProcessor:
 
         if "error" in artifact_result:
             LOGGER.warning("Download failed for %s: %s", url, artifact_result.get("error"))
-            dataset_candidate.status = "download_failed"
+            dataset_candidate.status = "download_failed"  # type: ignore[assignment]
             self._add_retry_task(session, url, "download", artifact_result.get("reason", "download failed"), True)
             self.stats["retry_tasks"] = self.stats.get("retry_tasks", 0) + 1
             return
@@ -210,7 +210,7 @@ class ArtifactProcessor:
                     session.add(qr)
                     self.stats["rows_quarantined"] = self.stats.get("rows_quarantined", 0) + 1
 
-        # Upsert valid records to canonical tables
+        # Upsert valid records to canonical tables with provenance
         self.upsert_manager.upsert_canonical(
             session,
             valid_records,
@@ -218,6 +218,7 @@ class ArtifactProcessor:
             raw_artifact.id,
             url,
             self.stats,
+            checksum=raw_artifact.checksum,
         )
 
         dataset_candidate.status = "processed"

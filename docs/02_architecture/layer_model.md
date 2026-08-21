@@ -52,7 +52,7 @@ Layer 5 — Schemas / Utils
 
 | File | Issue | Priority | Task |
 |---|---|---|---|
-| `agent/runner.py` | 821 lines — mixes orchestration + core logic | High | REFACTOR_runner (not this session) |
+| None currently blocking notebook planning | `agent/runner.py` refactor completed by extracting `upserts.py` and `artifact_processor.py` | — | Continue story notebook work |
 
 ---
 

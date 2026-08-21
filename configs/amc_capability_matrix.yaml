@@ -1,0 +1,793 @@
+# AMC Capability Matrix
+# Machine-readable registry of what each AMC website publishes
+# Derived from: configs/amc_sources.yaml + data/raw/mutual_funds/provider_profiles/provider_profiles.latest.json
+# This is used by the ingestion system to determine extraction strategy per AMC per dataset
+
+matrix_version: "1.0"
+matrix_date: "2026-08-21"
+source_registry: "configs/amc_sources.yaml"
+provider_profiles: "data/raw/mutual_funds/provider_profiles/provider_profiles.latest.json"
+last_updated: "2026-08-21"
+
+# Default capabilities template - each AMC entry overrides/extends this
+default_capabilities:
+  portfolio_disclosure:
+    frequency: "monthly_fortnightly"
+    formats: ["xlsx", "xls", "csv", "zip"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "portfolio_excel_v1"
+    status: "not_profiled"
+  factsheet:
+    frequency: "monthly"
+    formats: ["pdf"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  nav:
+    frequency: "daily"
+    formats: ["text", "html"]
+    historical_availability: "unknown"
+    strategy: "amfi_primary"
+    parser: "nav_text_v1"
+    status: "via_amfi"
+  ter:
+    frequency: "monthly"
+    formats: ["pdf", "xlsx"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  aum:
+    frequency: "quarterly"
+    formats: ["pdf", "xlsx"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  riskometer:
+    frequency: "monthly"
+    formats: ["pdf"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  sid_kim_sai:
+    frequency: "as_needed"
+    formats: ["pdf"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  scheme_metadata:
+    frequency: "static"
+    formats: ["html", "pdf"]
+    historical_availability: "current"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  tracking_error_difference:
+    frequency: "quarterly"
+    formats: ["pdf", "xlsx"]
+    historical_availability: "unknown"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+  fund_manager_info:
+    frequency: "static"
+    formats: ["html", "pdf"]
+    historical_availability: "current"
+    strategy: "unknown"
+    parser: "not_implemented"
+    status: "not_profiled"
+
+amcs:
+
+  # ============================================================
+  # SUCCESSFULLY PROFILED - WORKING PROVIDERS (from targeted_portfolio_ingestion.py)
+  # ============================================================
+  
+  - amc_name: "PPFAS Mutual Fund"
+    amc_code: "PPFAS"
+    source_url: "https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/"
+    source_type: "provider_download_page"
+    provider_profile_status: "success"
+    detected_strategy: "static_html"
+    confidence: "high"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "monthly_fortnightly"
+        formats: ["xlsx", "xls"]
+        historical_availability: "2024-present"
+        strategy: "static_html"
+        parser: "portfolio_excel_v1"
+        status: "working"
+        seed_urls:
+          - "https://amc.ppfas.com/downloads/portfolio-disclosure/"
+          - "https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/"
+        discovered_urls: 13
+        download_links: 3
+        file_types: ["pdf"]
+        notes: "Clean static HTML with direct Excel links. Monthly + fortnightly debt portfolios."
+      factsheet:
+        frequency: "monthly"
+        formats: ["pdf"]
+        strategy: "static_html"
+        status: "discovered_not_tested"
+      scheme_metadata:
+        frequency: "static"
+        formats: ["html"]
+        strategy: "static_html"
+        status: "discovered_not_tested"
+    last_profile_run: "2026-06-07"
+    last_successful_ingestion: "2026-08-20"
+    holdings_ingested: 2327
+    schemes_covered: 7
+
+  - amc_name: "DSP Mutual Fund"
+    amc_code: "DSP"
+    source_url: "https://www.dspim.com/mandatory-disclosures/portfolio-disclosures"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "success"
+    detected_strategy: "static_html"
+    confidence: "high"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "fortnightly_debt"
+        formats: ["xlsx"]
+        historical_availability: "2024-present"
+        strategy: "static_html"
+        parser: "portfolio_excel_v1"
+        status: "working"
+        seed_urls:
+          - "https://www.dspim.com/mandatory-disclosures/portfolio-disclosures"
+        discovered_urls: 0  # Not yet profiled in provider_profiles
+        download_links: 0
+        notes: "Static HTML with fortnightly debt portfolio Excel links. Working in targeted ingestion."
+      factsheet:
+        status: "not_profiled"
+    last_profile_run: "2026-06-07"
+    last_successful_ingestion: "2026-08-20"
+    holdings_ingested: 1285
+    schemes_covered: 2
+
+  - amc_name: "Mirae Asset Mutual Fund"
+    amc_code: "MIRAE"
+    source_url: "https://www.miraeassetmf.co.in/downloads/portfolio"
+    source_type: "provider_download_page"
+    provider_profile_status: "partial"
+    detected_strategy: "playwright"  # Requires JS for tabs
+    confidence: "medium"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "monthly_fortnightly"
+        formats: ["xlsx"]
+        historical_availability: "2024-present"
+        strategy: "playwright"
+        parser: "portfolio_excel_v1"
+        status: "working"
+        seed_urls:
+          - "https://www.miraeassetmf.co.in/downloads/portfolio"
+        notes: "Requires Playwright for tab navigation (Monthly/Fortnightly). Working in targeted ingestion with custom navigator."
+      factsheet:
+        status: "not_profiled"
+    last_profile_run: "2026-06-07"
+    last_successful_ingestion: "2026-08-20"
+    notes: "Relative URL resolution issue in browser.py noted in MASTER_STATE.md"
+
+  - amc_name: "Invesco Mutual Fund"
+    amc_code: "INVESCO"
+    source_url: "https://www.invescomutualfund.com/literature-and-form?tab=Fortnightly"
+    source_type: "provider_download_page"
+    provider_profile_status: "success"
+    detected_strategy: "playwright"
+    confidence: "medium"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "fortnightly"
+        formats: ["xlsx"]
+        historical_availability: "2024-present"
+        strategy: "playwright"
+        parser: "portfolio_excel_v1"
+        status: "working"
+        seed_urls:
+          - "https://www.invescomutualfund.com/literature-and-form?tab=Fortnightly"
+        notes: "Requires Playwright for tab content. Working in targeted ingestion."
+      factsheet:
+        status: "not_profiled"
+    last_profile_run: "2026-06-07"
+    last_successful_ingestion: "2026-08-20"
+
+  - amc_name: "ICICI Prudential Mutual Fund"
+    amc_code: "ICICI"
+    source_url: "https://www.icicipruamc.com/media-center/downloads?currentTabFilter=OtherSchemeDisclosures&&subCatTabFilter=FortnightlyPortfolioDisclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "success"
+    detected_strategy: "network_api"  # Found API endpoint via Playwright
+    confidence: "high"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "fortnightly"
+        formats: ["zip"]
+        historical_availability: "2023-present"
+        strategy: "playwright_vlm"  # Complex React app with dropdowns
+        parser: "portfolio_zip_v1"
+        status: "working"
+        seed_urls:
+          - "https://www.icicipruamc.com/media-center/downloads?currentTabFilter=OtherSchemeDisclosures&&subCatTabFilter=FortnightlyPortfolioDisclosures"
+        financial_years: ["2026-2027", "2025-2026", "2024-2025", "2023-2024"]
+        notes: "React app with Financial Year dropdown. ZIP files containing Excel per scheme. Custom navigator (icici_navigator.py) working."
+      factsheet:
+        status: "not_profiled"
+    last_profile_run: "2026-06-23"
+    last_successful_ingestion: "2026-08-20"
+
+  - amc_name: "Groww Mutual Fund"
+    amc_code: "GROWW"
+    source_url: "https://growwmf.in/statutory-disclosure/portfolio"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "success"
+    detected_strategy: "static_html"
+    confidence: "high"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "monthly_fortnightly"
+        formats: ["xlsx"]
+        historical_availability: "Apr-Jul 2026"
+        strategy: "static_html"
+        parser: "portfolio_excel_v1"
+        status: "working"
+        seed_urls:
+          - "https://growwmf.in/statutory-disclosure/portfolio"
+        notes: "Static HTML with direct Excel links. Monthly + fortnightly. 35 schemes, 22K+ holdings."
+      factsheet:
+        status: "not_profiled"
+    last_profile_run: "2026-06-07"
+    last_successful_ingestion: "2026-08-20"
+    holdings_ingested: 22166
+    schemes_covered: 35
+
+  # ============================================================
+  # PARTIALLY PROFILED - NEED BROWSER/VLM
+  # ============================================================
+
+  - amc_name: "Aditya Birla Sun Life Mutual Fund"
+    amc_code: "ABSL"
+    source_url: "https://mutualfund.adityabirlacapital.com/forms-and-downloads/portfolio"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "success"
+    detected_strategy: "static_html"
+    confidence: "medium"
+    capabilities:
+      portfolio_disclosure:
+        frequency: "monthly_fortnightly"
+        formats: ["xlsx", "pdf"]
+        historical_availability: "unknown"
+        strategy: "playwright_vlm"  # Dynamic accordion content
+        parser: "portfolio_excel_v1"
+        status: "needs_browser_vlm"
+        seed_urls:
+          - "https://mutualfund.adityabirlacapital.com/forms-and-downloads/portfolio"
+        discovered_urls: 37
+        download_links: 3
+        file_types: ["pdf"]
+        notes: "Static HTML found 509 links, 37 candidates. Dynamic accordion needs browser/VLM. Listed in MASTER_STATE.md as needing browser+VLM."
+      factsheet:
+        frequency: "monthly"
+        formats: ["pdf"]
+        status: "discovered"
+      ter:
+        status: "discovered"
+      riskometer:
+        status: "discovered"
+      tracking_error_difference:
+        status: "discovered"
+    last_profile_run: "2026-06-07"
+    notes: "MASTER_STATE.md: Dynamic accordion content - needs Browser + VLM"
+
+  - amc_name: "Axis Mutual Fund"
+    amc_code: "AXIS"
+    source_url: "https://www.axismf.com/statutory-disclosures"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+      factsheet:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target in MASTER_STATE.md"
+
+  - amc_name: "HDFC Mutual Fund"
+    amc_code: "HDFC"
+    source_url: "https://www.hdfcfund.com/statutory-disclosure/portfolio/fortnightly-portfolio"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "failed"
+    detected_strategy: "manual_review"
+    confidence: "low"
+    capabilities:
+      portfolio_disclosure:
+        status: "failed"
+        notes: "404 on seed URL; Playwright sync/async issue"
+    last_profile_run: "2026-06-07"
+    failure_reason: "static_html: 404 Client Error; playwright: Sync API in asyncio loop"
+    notes: "MASTER_STATE.md: 403/JS/PDFs - needs Browser + VLM. Seed URL may be wrong."
+
+  - amc_name: "Kotak Mahindra Mutual Fund"
+    amc_code: "KOTAK"
+    source_url: "https://www.kotakmf.com/Information/forms-and-downloads"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target"
+
+  - amc_name: "LIC Mutual Fund"
+    amc_code: "LIC"
+    source_url: "https://www.licmf.com/downloads/monthly-portfolio"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target"
+
+  - amc_name: "SBI Mutual Fund"
+    amc_code: "SBI"
+    source_url: "https://www.sbimf.com/portfolios"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target"
+
+  - amc_name: "UTI Mutual Fund"
+    amc_code: "UTI"
+    source_url: "https://www.utimf.com/downloads/consolidate-debt-portfolio-disclosure"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target"
+
+  - amc_name: "Nippon India Mutual Fund"
+    amc_code: "NIPPON"
+    source_url: "https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+    detected_strategy: "unknown"
+    capabilities:
+      portfolio_disclosure:
+        status: "not_profiled"
+    notes: "Listed for 10-AMC target"
+
+  # ============================================================
+  # REMAINING AMCs FROM SOURCE REGISTRY (53 total)
+  # ============================================================
+  # These are from configs/amc_sources.yaml but not yet profiled
+  # Only listing those with notable source types
+
+  - amc_name: "360 ONE Mutual Fund"
+    amc_code: "360ONE"
+    source_url: "https://www.360one.com/asset-management/mutual-fund/downloads/"
+    source_type: "provider_download_page"
+    provider_profile_status: "failed"
+    detected_strategy: "manual_review"
+    capabilities:
+      portfolio_disclosure:
+        status: "failed"
+    notes: "No relevant disclosure evidence found"
+
+  - amc_name: "Abakkus Mutual Fund"
+    amc_code: "ABAKKUS"
+    source_url: "https://www.abakkusmf.com/statutory-disclosures.html"
+    source_type: "provider_homepage"
+    provider_profile_status: "failed"
+    detected_strategy: "manual_review"
+    capabilities:
+      portfolio_disclosure:
+        status: "failed"
+    failure_reason: "Connection timeout + Playwright sync issue"
+
+  - amc_name: "AlphaGrep Mutual Fund"
+    amc_code: "ALPHAGREP"
+    source_url: "https://alphagrepmf.com/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Angel One Mutual Fund"
+    amc_code: "ANGELONE"
+    source_url: "https://www.angelonemf.com/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "ASK Mutual Fund"
+    amc_code: "ASK"
+    source_url: "https://www.askfinancials.com/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Bajaj Finserv Mutual Fund"
+    amc_code: "BAJAJ"
+    source_url: "https://www.bajajamc.com/downloads?statutory-disclosures="
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Bandhan Mutual Fund"
+    amc_code: "BANDHAN"
+    source_url: "https://bandhanmutual.com/downloads/disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Bank of India Mutual Fund"
+    amc_code: "BOI"
+    source_url: "https://www.boimf.in/regulatory-reports"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Baroda BNP Paribas Mutual Fund"
+    amc_code: "BARODA"
+    source_url: "https://www.barodabnpparibasmf.in/downloads/midmonth-portfolio-scheme"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Canara Robeco Mutual Fund"
+    amc_code: "CANARA"
+    source_url: "https://www.canararobeco.com/documents/statutory-disclosures/fortnightly-portfolio-disclosure-debt/"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Capitalmind Mutual Fund"
+    amc_code: "CAPITALMIND"
+    source_url: "https://capitalmindmf.com/statutory-disclosures.html#"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Choice Mutual Fund"
+    amc_code: "CHOICE"
+    source_url: "https://choicemf.com/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Edelweiss Mutual Fund"
+    amc_code: "EDELWEISS"
+    source_url: "https://www.edelweissmf.com/statutory#Portfolio-of-Schemes"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Franklin Templeton Mutual Fund"
+    amc_code: "FRANKLIN"
+    source_url: "https://www.franklintempletonindia.com/investor/reports?firstFilter-10"
+    source_type: "provider_disclosure_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "HSBC Mutual Fund"
+    amc_code: "HSBC"
+    source_url: "https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources/information-library#&accordion1446811090=9"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Helios Mutual Fund"
+    amc_code: "HELIOS"
+    source_url: "https://www.heliosmf.in/portfolio-disclosure/"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "ITI Mutual Fund"
+    amc_code: "ITI"
+    source_url: "https://www.itiamc.com/statuory-disclosure"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "JioBlackRock Mutual Fund"
+    amc_code: "JIOBLACKROCK"
+    source_url: "https://www.jioblackrockamc.com/statutory-disclosure/disclosures/fortnightly-portfolio-disclosure"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "JM Financial Mutual Fund"
+    amc_code: "JMFINANCIAL"
+    source_url: "https://www.jmfinancialmf.com/downloads/Portfolio-Disclosure"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Mahindra Manulife Mutual Fund"
+    amc_code: "MAHINDRA"
+    source_url: "https://www.mahindramanulife.com/downloads#MANDATORY-DISCLOSURES-+-Fortnightly-Debt-Portfolio-Disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Motilal Oswal Mutual Fund"
+    amc_code: "MOTILAL"
+    source_url: "https://www.motilaloswalmf.com/downloads/scheme-portfolio-details"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Navi Mutual Fund"
+    amc_code: "NAVI"
+    source_url: "https://navi.com/mutual-fund/downloads/portfolio"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "NJ Mutual Fund"
+    amc_code: "NJ"
+    source_url: "https://downloads.njmutualfund.com/njmf_download.php?nme=415"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Old Bridge Mutual Fund"
+    amc_code: "OLDBRIDGE"
+    source_url: "https://www.oldbridgemf.com/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "PGIM India Mutual Fund"
+    amc_code: "PGIM"
+    source_url: "https://www.pgimindia.com/mutual-funds/disclosures/Portfolios/Fortnightly-portfolio"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Quant Mutual Fund"
+    amc_code: "QUANT"
+    source_url: "https://quantmutual.com/statutory-disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Quantum Mutual Fund"
+    amc_code: "QUANTUM"
+    source_url: "https://www.quantumamc.com/portfolio/combined/-1/1/0/0"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Samco Mutual Fund"
+    amc_code: "SAMCO"
+    source_url: "https://www.samcomf.com/StatutoryDisclosure"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Shriram Mutual Fund"
+    amc_code: "SHRIRAM"
+    source_url: "https://www.shriramamc.in/investor-statutory-disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Sundaram Mutual Fund"
+    amc_code: "SUNDARAM"
+    source_url: "https://www.sundarammutual.com/Monthly-Fortnightly-Adhoc-Portfolios"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Tata Mutual Fund"
+    amc_code: "TATA"
+    source_url: "https://www.tatamutualfund.com/schemes-related"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Taurus Mutual Fund"
+    amc_code: "TAURUS"
+    source_url: "https://www.taurusmutualfund.com/downloads"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "The Wealth Company Mutual Fund"
+    amc_code: "WEALTHCO"
+    source_url: "https://www.wealthcompanyamc.in/literature-forms/portfolio-documents/fortnightly/"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "TRUST Mutual Fund"
+    amc_code: "TRUST"
+    source_url: "https://www.trustmf.com/disclosures?activeTab=portfolio-disclosures"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Unifi Mutual Fund"
+    amc_code: "UNIFI"
+    source_url: "https://unifimf.com/statutorydocuments/#fortnightly-portfolio-disclosure"
+    source_type: "provider_homepage"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Union Mutual Fund"
+    amc_code: "UNION"
+    source_url: "https://unionmf.com/about-us/downloads/fortnightly-portfolio"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "WhiteOak Capital Mutual Fund"
+    amc_code: "WHITEOAK"
+    source_url: "https://mf.whiteoakamc.com/regulatory-disclosures/scheme-portfolios"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  - amc_name: "Zerodha Mutual Fund"
+    amc_code: "ZERODHA"
+    source_url: "https://www.zerodhafundhouse.com/resources/disclosures?source=footer"
+    source_type: "provider_download_page"
+    provider_profile_status: "not_run"
+
+  # ============================================================
+  # REFERENCE SOURCES (Secondary)
+  # ============================================================
+  
+  - amc_name: "AMFI"
+    amc_code: "AMFI"
+    source_url: "https://www.amfiindia.com/"
+    source_type: "industry_reference_portal"
+    source_role: "reference_index"
+    provider_profile_status: "not_applicable"
+    capabilities:
+      nav_history:
+        frequency: "daily"
+        strategy: "static_html_form"
+        status: "primary_source"
+      portfolio_disclosure:
+        frequency: "monthly_fortnightly"
+        strategy: "reference_index_only"
+        status: "index_to_providers"
+      scheme_master_monthly:
+        frequency: "monthly"
+        strategy: "static_html"
+        status: "primary_source"
+      aum_datasets:
+        frequency: "quarterly"
+        strategy: "static_html_form"
+        status: "primary_source"
+      ter_mf_schemes:
+        frequency: "monthly"
+        strategy: "static_html_form"
+        status: "primary_source"
+      amfi_monthly_data:
+        frequency: "monthly"
+        strategy: "static_html"
+        status: "primary_source"
+    notes: "Secondary reference index per Provider-First Principle. Use for discovery and validation only."
+
+  - amc_name: "SEBI"
+    amc_code: "SEBI"
+    source_url: "https://www.sebi.gov.in/"
+    source_type: "regulatory_reference_portal"
+    source_role: "reference_index"
+    provider_profile_status: "not_applicable"
+    notes: "Corroborative regulatory reference only"
+
+# ============================================================
+# STRATEGY PATTERNS OBSERVED (for reuse)
+# ============================================================
+
+strategy_patterns:
+  - pattern_id: "static_disclosure_page"
+    description: "Static HTML page with direct links to Excel/CSV/PDF files"
+    examples: ["PPFAS", "DSP", "Groww"]
+    extractor: "static_html"
+    parser: "portfolio_excel_v1"
+    reusable: true
+    
+  - pattern_id: "tabbed_portal"
+    description: "Tabbed interface (Monthly/Fortnightly/Quarterly) requiring JS to reveal content"
+    examples: ["Mirae Asset", "Invesco"]
+    extractor: "playwright"
+    parser: "portfolio_excel_v1"
+    reusable: true
+    
+  - pattern_id: "react_dropdown_filter"
+    description: "React app with dropdown filters (Financial Year, Document Type) triggering downloads"
+    examples: ["ICICI Prudential"]
+    extractor: "playwright_vlm"
+    parser: "portfolio_zip_v1"
+    reusable: true
+    
+  - pattern_id: "accordion_dynamic"
+    description: "Dynamic accordion/collapse sections loading content via JS"
+    examples: ["Aditya Birla"]
+    extractor: "playwright_vlm"
+    parser: "portfolio_excel_v1"
+    reusable: true
+    
+  - pattern_id: "amfi_form_download"
+    description: "AMFI form-based downloads with date/AMC/type filters"
+    examples: ["NAV History", "TER", "AUM"]
+    extractor: "static_html"  # Form POST
+    parser: "nav_text_v1"
+    reusable: true
+    
+  - pattern_id: "amfi_direct_links"
+    description: "AMFI yearly pages with direct monthly/quarterly Excel links"
+    examples: ["AMFI Monthly", "Scheme Master Monthly"]
+    extractor: "static_html"
+    parser: "scheme_master_excel_v1"
+    reusable: true
+
+# ============================================================
+# PARSER REGISTRY (what parsers exist vs needed)
+# ============================================================
+
+parser_registry:
+  implemented:
+    - name: "nav_text_v1"
+      dataset_types: ["nav_history"]
+      formats: ["text", "csv"]
+      status: "production"
+    - name: "nav_csv_v1"
+      dataset_types: ["nav_history"]
+      formats: ["csv"]
+      status: "production"
+    - name: "nav_html_v1"
+      dataset_types: ["nav_history"]
+      formats: ["html"]
+      status: "production"
+    - name: "portfolio_excel_v1"
+      dataset_types: ["portfolio_disclosure"]
+      formats: ["xlsx", "xls"]
+      status: "production"
+    - name: "portfolio_csv_v1"
+      dataset_types: ["portfolio_disclosure"]
+      formats: ["csv"]
+      status: "production"
+    - name: "portfolio_zip_v1"
+      dataset_types: ["portfolio_disclosure"]
+      formats: ["zip"]
+      status: "production"
+    - name: "scheme_master_csv_v1"
+      dataset_types: ["scheme_master"]
+      formats: ["csv"]
+      status: "production"
+    - name: "scheme_master_html_v1"
+      dataset_types: ["scheme_master"]
+      formats: ["html"]
+      status: "production"
+    - name: "amc_html_v1"
+      dataset_types: ["amc_provider_list"]
+      formats: ["html"]
+      status: "production"
+      
+  stubs_only:
+    - name: "parse_metadata_html"
+      dataset_types: ["factsheet", "sid", "kim", "ter", "aum"]
+      formats: ["html"]
+      status: "stub"
+    - name: "parse_metadata_pdf"
+      dataset_types: ["factsheet", "sid", "kim", "ter", "aum"]
+      formats: ["pdf"]
+      status: "stub"
+    - name: "parse_tabular_csv"
+      dataset_types: ["factsheet", "sid", "kim", "ter", "aum"]
+      formats: ["csv"]
+      status: "stub"
+      
+  needed:
+    - name: "scheme_master_excel_v1"
+      dataset_types: ["scheme_master_monthly", "amfi_monthly_data"]
+      formats: ["xls", "xlsx"]
+      priority: "high"
+    - name: "ter_excel_v1"
+      dataset_types: ["ter_mf_schemes"]
+      formats: ["xlsx"]
+      priority: "high"
+    - name: "aum_excel_v1"
+      dataset_types: ["aum_aaum_disclosure", "average_aum", "classified_average_aum"]
+      formats: ["xlsx"]
+      priority: "high"
+    - name: "factsheet_pdf_v1"
+      dataset_types: ["factsheet"]
+      formats: ["pdf"]
+      priority: "medium"
+    - name: "riskometer_pdf_v1"
+      dataset_types: ["riskometer"]
+      formats: ["pdf"]
+      priority: "medium"
+    - name: "sid_kim_pdf_v1"
+      dataset_types: ["sid", "kim", "sai"]
+      formats: ["pdf"]
+      priority: "medium"
+    - name: "tracking_error_excel_v1"
+      dataset_types: ["tracking_error_difference"]
+      formats: ["xlsx"]
+      priority: "low"

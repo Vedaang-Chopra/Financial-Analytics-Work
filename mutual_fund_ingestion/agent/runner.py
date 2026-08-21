@@ -15,7 +15,7 @@ from .browser import BrowserUnavailable, extract_with_browser
 from .extract import ArtifactCollector
 from .upserts import UpsertManager
 from .artifact_processor import ArtifactProcessor
-from .vlm import NullVLMClient, OllamaVLMClient
+from .vlm import NullVLMClient, OllamaVLMClient, OpenAIVLMClient
 from .db import (
     get_session_maker,
     IngestionRun,
@@ -72,8 +72,13 @@ class IngestionRunner:
         # Artifact collector
         self.collector = ArtifactCollector.from_config(config)
 
-        # VLM client
-        self.vlm = NullVLMClient() if not config.use_vlm else OllamaVLMClient(config.vlm_endpoint, config.vlm_model)
+        # VLM client - choose based on endpoint
+        if not config.use_vlm:
+            self.vlm = NullVLMClient()
+        elif "/v1" in config.vlm_endpoint:
+            self.vlm = OpenAIVLMClient(config.vlm_endpoint, config.vlm_model)
+        else:
+            self.vlm = OllamaVLMClient(config.vlm_endpoint, config.vlm_model)
 
         # Canonical upsert manager (Layer 4 logic extracted)
         self.upsert_manager = UpsertManager()

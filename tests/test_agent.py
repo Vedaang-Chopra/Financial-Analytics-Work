@@ -706,7 +706,7 @@ class BrowserAgentTests(unittest.TestCase):
         import unittest.mock as mock
         import sys
         
-        with mock.patch.dict("sys.modules", {"playwright": None, "playwright.sync_api": None}):
+        with mock.patch.dict("sys.modules", {"playwright": None, "playwright.sync_api": None, "playwright.async_api": None}):
             with self.assertRaises((BrowserUnavailable, ImportError)):
                 extract_with_browser("https://example.com", Path("/tmp/debug"), timeout_seconds=5)
 

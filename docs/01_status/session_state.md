@@ -1,11 +1,55 @@
 # Session State — 2026-06-27 (Documentation Consolidation)
 
+## Current Session Update (2026-06-29 — Story Notebook Planning)
+
+- Story notebook plan created: `docs/06_plans/active/STORY_NOTEBOOK_SERIES_PLAN.md`.
+- Batch task file created: `docs/06_plans/active/STORY_NOTEBOOK_SERIES_TASKS.md`.
+- Recommended first implementation microtask: `STORY-NB-003` — rewrite `notebooks/mutual_fund_ingestion/00_system_checkpoint.ipynb`.
+- Docs updated: `MASTER_STATE.md`, `codebase_map.md`, `CHECKPOINT_PLAN.md`, `SPRINT_CURRENT.md`, `MICROTASK_SPEC.md`, `EXECUTION_RESULT.md`, `GOAL_ALIGNMENT.md`, `system_overview.md`, `layer_model.md`, and related status handoff files.
+- Validation: `./financial_env/bin/python -m pytest tests/ -q --tb=no` -> `145 passed, 3 skipped`.
+- Notebook inventory verified with `find notebooks/mutual_fund_ingestion -maxdepth 1 -name "*.ipynb" | sort`.
+- Blockers: none for the first notebook rewrite. Public inspection helpers are optional gaps listed in the story plan and must not be implemented unless their microtask is approved.
+- Not done: no notebooks rewritten, no ingestion behavior changed, no data cleanup, no notebook deletion.
+
+## Current Session Update (2026-06-29 — STORY-NB-003)
+
+- Rewrote `notebooks/mutual_fund_ingestion/00_system_checkpoint.ipynb` as the first story notebook.
+- The notebook now covers repository context, public CLI surface, 17-table schema inventory, source registry snapshot, artifact inventory, notebook inventory, full pytest status, and a deliberate failure/debug case.
+- Live network remains off; the notebook does not run the agent pipeline or mutate ingestion data.
+- Next recommended task: `STORY-NB-004` — rewrite `notebooks/mutual_fund_ingestion/01a_phase_1_source_registry_review.ipynb`.
+
+## Current Session Update (2026-06-29 — Governance/Notebook Planning)
+
+- User approved these planning decisions:
+  - Use the numbered docs hierarchy for formal planning artifacts.
+  - Rewrite existing notebooks in place.
+  - Clear older generated data before the user reruns the system, but only through an explicit confirmation-gated cleanup task.
+- Canonical spec created: `docs/05_planned/system_governance_notebook_roadmap/001_system_governance_notebook_roadmap.md`.
+- Technical plan confirmed: `docs/06_plans/001_system_governance_notebook_roadmap_plan.md`.
+- Executable task breakdown drafted: `docs/06_plans/active/001_system_governance_notebook_tasks.md`.
+- Sequential execution prompt drafted: `docs/06_plans/active/001_system_governance_notebook_seq_exec_prompt.md`.
+- Live validation observed during planning: `./financial_env/bin/python -m pytest tests/ -q --tb=no` -> `145 passed, 3 skipped`.
+- Next required action: human approval of the task breakdown before executing Phase 1 Task 1.1.
+- Do not run destructive data cleanup until `docs/06_plans/active/001_data_cleanup_manifest.md` exists and the human confirms exact paths.
+
+## Current Session Update (2026-06-29)
+
+- Checkpoint 2 (Phase 2 Document Discovery) completed.
+- Seed AMC files written: `docs/06_plans/active/PHASE2_seed_amcs.md` and `docs/06_plans/active/PHASE2_discovery_log.md`.
+- Live limited run on Aditya Birla Sun Life Mutual Fund produced run ID `fd1040ef-2ede-4433-94e5-7f282ec3e392` and 1 `DatasetCandidate` row.
+- Review notebook created: `notebooks/mutual_fund_ingestion/03_phase2_discovery_review.ipynb`.
+- Validation: `./financial_env/bin/python -m pytest tests/ -q --tb=no` → 148 passed.
+- Fixed and verified `notebooks/mutual_fund_ingestion/00_system_checkpoint.ipynb` with `nbconvert --execute`.
+- Next likely task: Checkpoint 3 (real AMC document download).
+
 _Prior session summary preserved below the separator._
 
 ## Session Type
+
 Documentation consolidation — no Python changes, no test modifications
 
 ## Tests
+
 122 passed, 3 skipped
 Command: `./financial_env/bin/python -m pytest tests/ -q`
 No regressions introduced. Verified after every deletion batch.
@@ -15,20 +59,24 @@ No regressions introduced. Verified after every deletion batch.
 Completed cleanup of all orphaned/duplicate docs left by the prior restructure session.
 
 ### Batch 1 — plans/ directory
+
 Deleted all 10 files. Canonical copies already in `docs/09_historical/legacy/context_pack/`, `docs/06_plans/`, `docs/07_agent_rules/`.
 Read `CURRENT_CODEBASE_STATUS_AND_REFACTOR_PLAN.md` and `TESTING_STRATEGY_AND_FIXTURE_PLAN.md` — confirmed superseded by context_pack copies. No merge needed.
 
 ### Batch 2 — Root-level stale .md files
+
 Deleted 7 files: `CHATGPT_PROJECT_MEMORY.md`, `CLAUDE_CODE_MASTER_BRIEF.md`, `MISSION.md`, `NOTES.md`, `PLAN.md`, `RESOURCES.md`, `Task_List.md`.
 Copied `CLAUDE_CODE_MASTER_BRIEF.md` to `docs/09_historical/legacy/context_pack/` first (was not yet archived).
 `MISSION.md` was personal learning goals — no merge needed with `docs/00_project/brief.md`.
 Root now has only: `AGENTS.md`, `README.md`, `CONVENTIONS.md`.
 
 ### Batch 3 — docs/ root floaters
+
 Deleted 10 files from `docs/` root. All confirmed already in `docs/07_agent_rules/`, `docs/06_plans/`, `docs/01_status/`, or `docs/09_historical/legacy/context_pack/`.
 `docs/` root now has only `README.md` + numbered subdirs + `ZIp/` + `archive/`.
 
 ### Batch 4 — Old docs/ subdirectories
+
 Archived `docs/plans/009_demo_notebook.md` and `docs/tasks/009_demo_notebook.md` (unique unimplemented feature spec) to `docs/09_historical/legacy/context_pack/`.
 Archived `docs/handoff/handoff_financial_analytics_refactor_20260617_0230.md` to context_pack.
 Deleted via git rm: `docs/ai_context/`, `docs/design/`, `docs/handoff/`, `docs/plans/`, `docs/tasks/`.
@@ -36,11 +84,13 @@ Deleted via rm: `docs/agent_context/`, `docs/historical/`, `docs/specs/`, `docs/
 Note: `docs/ZIp/` (contains .zip archives) left untouched as planned.
 
 ### Batch 5 — learning-records/
+
 Archived both files to `docs/09_historical/`. Deleted `learning-records/` directory.
 Content was teaching session logs, not project architecture — no merge needed.
 `lessons/` directory retained (contains `0001-overview-codebase.html` — HTML artifact, out of scope).
 
 ### Batch 6 — AGENTS.md update
+
 Added §1 "Read These First" project-override table to `AGENTS.md` pointing to new doc paths.
 Fixed stale `docs/design/mutual_fund_ingestion/` reference → `docs/05_planned/` and `docs/03_implemented/`.
 
@@ -68,7 +118,7 @@ docs/archive/         — legacy experiments
 - `runner.py` (821 lines) — layer violation → `docs/04_in_progress/REFACTOR_runner.md`
 - `docs/02_architecture/system_overview.md` — not yet written (stub reference added to AGENTS.md)
 - `docs/02_architecture/database_schema.md` — not yet written
-- nbconvert not installed in financial_env — notebooks unverifiable via subprocess
+- nbconvert is installed in financial_env; notebook execution via subprocess works.
 
 ## Next Task for Pi
 
@@ -87,9 +137,11 @@ docs/archive/         — legacy experiments
 # Prior Session State (2026-06-27 Restructure)
 
 ## Session Type
+
 Restructure + Audit (no new features, no code changes)
 
 ## Tests
+
 122 passed, 3 skipped
 Command: `./financial_env/bin/python -m pytest tests/ -q`
 No regressions introduced.
@@ -138,6 +190,7 @@ docs/ fully restructured. Agent-governance skills wired in. Layer audit complete
 **Task ID:** TASK-B001
 **File:** `docs/06_plans/MICROTASK_SPEC.md`
 **First command:**
+
 ```bash
 grep -n "passing\|125\|118\|complete" PLAN.md | head -20
 ```

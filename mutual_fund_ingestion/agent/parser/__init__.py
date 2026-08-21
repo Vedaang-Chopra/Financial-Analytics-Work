@@ -23,6 +23,11 @@ PARSER_ROUTER: dict[tuple[str, str], str] = {
     ("portfolio_disclosure", "xlsx"): "portfolio_excel",
     ("portfolio_disclosure", "xls"): "portfolio_excel",
     ("portfolio_disclosure", "csv"): "portfolio_csv",
+    ("portfolio_disclosure", "zip"): "portfolio_zip",
+    ("statutory_disclosure", "xlsx"): "portfolio_excel",
+    ("statutory_disclosure", "xls"): "portfolio_excel",
+    ("statutory_disclosure", "csv"): "portfolio_csv",
+    ("statutory_disclosure", "zip"): "portfolio_zip",
     # Scheme master parsers
     ("scheme_master", "csv"): "scheme_master_csv",
     ("scheme_master", "html"): "scheme_master_html",
@@ -68,6 +73,9 @@ def parse_file(dataset_type: str, file_type: str | None, content: bytes | str, m
     elif parser_name == "portfolio_csv":
         from .portfolio import parse_portfolio_csv
         return parse_portfolio_csv(content, metadata)
+    elif parser_name == "portfolio_zip":
+        from .portfolio import parse_portfolio_zip
+        return parse_portfolio_zip(content, metadata)
     elif parser_name == "scheme_master_csv":
         from .scheme_master import parse_scheme_master_csv
         return parse_scheme_master_csv(content, metadata)

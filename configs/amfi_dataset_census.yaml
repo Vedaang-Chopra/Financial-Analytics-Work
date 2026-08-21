@@ -1,0 +1,585 @@
+# AMFI Dataset Census
+# Machine-readable catalog of all official AMFI mutual fund datasets
+# Discovered by inspecting https://www.amfiindia.com/
+# This is the primary source of truth for what AMFI provides
+
+census_version: "1.0"
+census_date: "2026-08-21"
+source: "https://www.amfiindia.com/"
+last_verified: "2026-08-21"
+
+datasets:
+
+  # ============================================================
+  # NAV DATASETS
+  # ============================================================
+  
+  - dataset_id: "nav_latest_open_ended"
+    name: "Latest NAV - Open Ended Schemes"
+    category: "nav"
+    subcategory: "latest"
+    description: "Current day NAV for all open-ended mutual fund schemes"
+    url: "https://www.amfiindia.com/net-asset-value/nav-download"
+    endpoint_type: "download_form"
+    file_format: "text"  # Semicolon-delimited .txt (NAVAll.txt)
+    reporting_frequency: "daily"
+    historical_availability: "90 days max per request via NAV History form"
+    date_parameters:
+      - name: "from_date"
+        required: true
+        format: "DD-MMM-YYYY"
+      - name: "to_date"
+        required: true
+        format: "DD-MMM-YYYY"
+      - name: "fund_type"
+        required: true
+        values: ["Open Ended", "Close Ended", "Interval Fund"]
+    scheme_identifiers: ["scheme_code", "isin_div_payout", "isin_div_reinvestment", "scheme_name", "plan", "option"]
+    amc_identifiers: ["scheme_name contains AMC name"]
+    pagination: false
+    requires_browser: false
+    sample_file: "NAVAll.txt (semicolon-delimited)"
+    parser_status: "implemented"
+    parser_name: "nav_text_v1"
+    known_limitations:
+      - "90-day limit per historical request"
+      - "No direct API, form-based download"
+      - "Must iterate by date ranges for full history"
+      - "Form uses POST with viewstate"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "nav_latest_close_ended"
+    name: "Latest NAV - Close Ended Schemes"
+    category: "nav"
+    subcategory: "latest"
+    description: "Current day NAV for all close-ended mutual fund schemes"
+    url: "https://www.amfiindia.com/net-asset-value/nav-download"
+    endpoint_type: "download_form"
+    file_format: "text"
+    reporting_frequency: "daily"
+    historical_availability: "90 days max per request"
+    date_parameters:
+      - name: "from_date"
+        required: true
+      - name: "to_date"
+        required: true
+      - name: "fund_type"
+        required: true
+        values: ["Close Ended"]
+    scheme_identifiers: ["scheme_code", "isin_div_payout", "isin_div_reinvestment", "scheme_name", "plan", "option"]
+    amc_identifiers: ["scheme_name contains AMC name"]
+    pagination: false
+    requires_browser: false
+    parser_status: "implemented"
+    parser_name: "nav_text_v1"
+    confidence: "high"
+    priority: "secondary"
+
+  - dataset_id: "nav_latest_interval_fund"
+    name: "Latest NAV - Interval Funds"
+    category: "nav"
+    subcategory: "latest"
+    description: "Current day NAV for all interval fund schemes"
+    url: "https://www.amfiindia.com/net-asset-value/nav-download"
+    endpoint_type: "download_form"
+    file_format: "text"
+    reporting_frequency: "daily"
+    historical_availability: "90 days max per request"
+    date_parameters:
+      - name: "from_date"
+        required: true
+      - name: "to_date"
+        required: true
+      - name: "fund_type"
+        required: true
+        values: ["Interval Fund"]
+    scheme_identifiers: ["scheme_code", "isin_div_payout", "isin_div_reinvestment", "scheme_name", "plan", "option"]
+    amc_identifiers: ["scheme_name contains AMC name"]
+    pagination: false
+    requires_browser: false
+    parser_status: "implemented"
+    parser_name: "nav_text_v1"
+    confidence: "high"
+    priority: "secondary"
+
+  - dataset_id: "nav_history"
+    name: "NAV History (Historical)"
+    category: "nav"
+    subcategory: "history"
+    description: "Historical NAV data with date range selection (max 90 days per request)"
+    url: "https://www.amfiindia.com/net-asset-value/nav-download"
+    endpoint_type: "download_form"
+    file_format: "text"
+    reporting_frequency: "daily"
+    historical_availability: "Full history available via iterative 90-day requests"
+    date_parameters:
+      - name: "from_date"
+        required: true
+        format: "DD-MMM-YYYY"
+      - name: "to_date"
+        required: true
+        format: "DD-MMM-YYYY"
+      - name: "fund_type"
+        required: true
+        values: ["Open Ended", "Close Ended", "Interval Fund"]
+      - name: "mutual_fund"
+        required: false
+        description: "Optional AMC filter"
+    scheme_identifiers: ["scheme_code", "isin_div_payout", "isin_div_reinvestment", "scheme_name", "plan", "option"]
+    amc_identifiers: ["mutual_fund dropdown", "scheme_name contains AMC name"]
+    pagination: true  # Must iterate date ranges
+    date_iteration_needed: true
+    max_days_per_request: 90
+    requires_browser: false
+    parser_status: "implemented"
+    parser_name: "nav_text_v1"
+    known_limitations:
+      - "90-day limit per request requires iteration for full history"
+      - "No single bulk download for all history"
+      - "Form may have viewstate/CSRF tokens"
+    confidence: "high"
+    priority: "primary"
+
+  # ============================================================
+  # PORTFOLIO DISCLOSURE DATASETS
+  # ============================================================
+  
+  - dataset_id: "portfolio_disclosure"
+    name: "Portfolio Disclosure (Monthly/Fortnightly)"
+    category: "portfolio"
+    subcategory: "disclosure"
+    description: "Scheme-wise portfolio holdings disclosure as per SEBI regulations"
+    url: "https://www.amfiindia.com/online-center/portfolio-disclosure"
+    endpoint_type: "form_dropdown"
+    file_format: "html"  # Links to AMC provider pages
+    reporting_frequency: "monthly_fortnightly"
+    historical_availability: "Current quarter + recent quarters via dropdown"
+    date_parameters:
+      - name: "disclosure_type"
+        required: true
+        values: ["Monthly Portfolio", "Fortnightly Portfolio", "Half Yearly Portfolio"]
+    scheme_identifiers: ["links to AMC provider pages"]
+    amc_identifiers: ["links to AMC provider pages"]
+    pagination: false
+    requires_browser: false
+    parser_status: "partial"
+    parser_name: "amfi_portfolio_index_v1"
+    known_limitations:
+      - "AMFI page is index only - redirects to AMC provider sites"
+      - "Actual portfolio files hosted on AMC websites"
+      - "Dropdown uses JavaScript"
+    confidence: "medium"
+    priority: "reference_index_only"
+
+  # ============================================================
+  # SCHEME METADATA DATASETS
+  # ============================================================
+  
+  - dataset_id: "scheme_master_monthly"
+    name: "Scheme Master Data (Monthly/Quarterly)"
+    category: "metadata"
+    subcategory: "scheme_master"
+    description: "Complete scheme metadata including scheme codes, names, categories, plans, options"
+    url: "https://www.amfiindia.com/research-information/amfi-monthly"
+    endpoint_type: "direct_links"
+    file_format: "excel"  # .xls/.xlsx files per month
+    reporting_frequency: "monthly"
+    historical_availability: "Full history back to 2005 (yearly pages with monthly links)"
+    date_parameters:
+      - name: "year"
+        required: true
+      - name: "month"
+        required: true
+    scheme_identifiers: ["scheme_code", "scheme_name", "plan", "option", "category", "sub_category", "isin"]
+    amc_identifiers: ["amc_name column"]
+    pagination: true  # Year pages with monthly links
+    requires_browser: false
+    sample_file: "AMFI Monthly - April 2026.xls"
+    parser_status: "not_implemented"
+    parser_name: "scheme_master_excel_v1"
+    known_limitations:
+      - "Old format (.xls) may need xlrd"
+      - "Schema may vary across years"
+      - "Monthly files - many to download for full history"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "scheme_wise_disclosure"
+    name: "Scheme Wise Disclosure (SEBI Circular Aug 2022)"
+    category: "metadata"
+    subcategory: "disclosure"
+    description: "Detailed scheme-wise investment disclosures per SEBI circular"
+    url: "https://www.amfiindia.com/otherdata/scheme-wise-disclosure"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "From Q3 2022 onwards"
+    date_parameters:
+      - name: "mutual_fund"
+        required: true
+      - name: "quarter"
+        required: true
+    scheme_identifiers: ["scheme_code", "scheme_name", "isin"]
+    amc_identifiers: ["mutual_fund dropdown"]
+    pagination: true  # Must select each AMC + quarter
+    requires_browser: false
+    parser_status: "not_implemented"
+    known_limitations:
+      - "Requires iterating all AMCs x all quarters"
+      - "Quarterly frequency only"
+    confidence: "high"
+    priority: "primary"
+
+  # ============================================================
+  # AUM / AAUM DATASETS
+  # ============================================================
+  
+  - dataset_id: "aum_aaum_disclosure"
+    name: "AUM - AAUM Disclosure (Category & Geography)"
+    category: "aum"
+    subcategory: "disclosure"
+    description: "Assets Under Management disclosure by category and geography"
+    url: "https://www.amfiindia.com/aum-data/aum-disclosure"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "Multiple financial years available"
+    date_parameters:
+      - name: "type"
+        required: true
+        values: ["Category Wise", "Geography Wise"]
+      - name: "financial_year"
+        required: true
+    scheme_identifiers: ["category", "geography"]
+    amc_identifiers: ["aggregated - no scheme level"]
+    pagination: true  # Type x Financial Year
+    requires_browser: false
+    parser_status: "not_implemented"
+    known_limitations:
+      - "Aggregated level only, not scheme-level"
+      - "Quarterly frequency"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "average_aum"
+    name: "Average AUM (Fund-wise & Scheme-wise)"
+    category: "aum"
+    subcategory: "average"
+    description: "Average AUM data by fund and scheme"
+    url: "https://www.amfiindia.com/aum-data/average-aum"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly (monthly before Dec 2010)"
+    historical_availability: "Full history, monthly before 2010, quarterly after"
+    date_parameters:
+      - name: "mutual_fund"
+        required: true
+      - name: "financial_year"
+        required: true
+    scheme_identifiers: ["scheme_code", "scheme_name"]
+    amc_identifiers: ["mutual_fund dropdown"]
+    pagination: true  # AMC x Financial Year
+    requires_browser: false
+    parser_status: "not_implemented"
+    known_limitations:
+      - "Frequency change in 2010 (monthly -> quarterly)"
+      - "Requires iterating all AMCs x all years"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "classified_average_aum"
+    name: "Classified Average AUM (Scheme/Category/State)"
+    category: "aum"
+    subcategory: "classified"
+    description: "Classified average AUM breakdowns"
+    url: "https://www.amfiindia.com/aum-data/classified-average-aum"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "Multiple financial years"
+    date_parameters:
+      - name: "classification"
+        required: true
+        values: ["Scheme Wise", "Category Wise", "State Wise"]
+      - name: "financial_year"
+        required: true
+    scheme_identifiers: ["scheme_code", "category", "state"]
+    amc_identifiers: ["aggregated"]
+    pagination: true
+    requires_browser: false
+    parser_status: "not_implemented"
+    confidence: "medium"
+    priority: "secondary"
+
+  - dataset_id: "aum_category_age_folio"
+    name: "AUM - Category / Age Wise & Folio Data"
+    category: "aum"
+    subcategory: "demographics"
+    description: "AUM breakdown by investor category, age, and folio counts"
+    url: "https://www.amfiindia.com/aum-data/category-age-wise-folio-data"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "From June 2019 (format changed per SEBI circular)"
+    date_parameters:
+      - name: "quarter"
+        required: true
+    scheme_identifiers: ["category", "age_group"]
+    amc_identifiers: ["aggregated"]
+    pagination: true
+    requires_browser: false
+    parser_status: "not_implemented"
+    confidence: "medium"
+    priority: "secondary"
+
+  - dataset_id: "bifurcation_aum_direct_plan"
+    name: "Bifurcation of AUM Under Direct Plan"
+    category: "aum"
+    subcategory: "direct_plan"
+    description: "AUM split between direct and regular plans"
+    url: "https://www.amfiindia.com/aum-data/bifurcation-direct-plan"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "Multiple financial years"
+    date_parameters:
+      - name: "financial_year"
+        required: true
+    scheme_identifiers: ["scheme_code", "plan_type"]
+    amc_identifiers: ["aggregated"]
+    pagination: true
+    requires_browser: false
+    parser_status: "not_implemented"
+    confidence: "medium"
+    priority: "secondary"
+
+  # ============================================================
+  # AMFI MONTHLY / QUARTERLY DATA
+  # ============================================================
+  
+  - dataset_id: "amfi_monthly_data"
+    name: "AMFI Monthly Data (Resource Mobilization)"
+    category: "industry_data"
+    subcategory: "monthly"
+    description: "Scheme-wise resource mobilization - inflows, outflows, net flows, AUM, AAUM, new schemes"
+    url: "https://www.amfiindia.com/research-information/amfi-monthly"
+    endpoint_type: "direct_links"
+    file_format: "excel"
+    reporting_frequency: "monthly"
+    historical_availability: "Full history back to 2005"
+    date_parameters:
+      - name: "year"
+        required: true
+      - name: "month"
+        required: true
+    scheme_identifiers: ["scheme_code", "scheme_name", "inflows", "outflows", "net_flows", "aum", "aaum"]
+    amc_identifiers: ["amc_name column"]
+    pagination: true  # Year pages with monthly links
+    requires_browser: false
+    parser_status: "not_implemented"
+    known_limitations:
+      - "Monthly files - large volume for full history"
+      - "Schema changes over time"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "amfi_quarterly_data"
+    name: "AMFI Quarterly Data (Resource Mobilization)"
+    category: "industry_data"
+    subcategory: "quarterly"
+    description: "Scheme-wise quarterly resource mobilization data"
+    url: "https://www.amfiindia.com/research-information/amfi-quarterly"
+    endpoint_type: "direct_links"
+    file_format: "excel"
+    reporting_frequency: "quarterly"
+    historical_availability: "Full history"
+    date_parameters:
+      - name: "year"
+        required: true
+      - name: "quarter"
+        required: true
+    scheme_identifiers: ["scheme_code", "scheme_name", "inflows", "outflows", "net_flows", "aum", "aaum"]
+    amc_identifiers: ["amc_name column"]
+    pagination: true
+    requires_browser: false
+    parser_status: "not_implemented"
+    confidence: "high"
+    priority: "primary"
+
+  - dataset_id: "amfi_monthly_note"
+    name: "AMFI Monthly Note"
+    category: "industry_data"
+    subcategory: "commentary"
+    description: "Monthly market commentary and analysis"
+    url: "https://www.amfiindia.com/otherdata/amfi-monthlynote"
+    endpoint_type: "direct_links"
+    file_format: "pdf"
+    reporting_frequency: "monthly"
+    historical_availability: "Recent years"
+    date_parameters:
+      - name: "year"
+        required: true
+      - name: "month"
+        required: true
+    scheme_identifiers: ["none - narrative"]
+    amc_identifiers: ["none"]
+    pagination: true
+    requires_browser: false
+    parser_status: "not_needed"
+    known_limitations:
+      - "PDF narrative, not structured data"
+    confidence: "low"
+    priority: "low"
+
+  # ============================================================
+  # TER DATASETS
+  # ============================================================
+  
+  - dataset_id: "ter_mf_schemes"
+    name: "Total Expense Ratio (TER) of MF Schemes"
+    category: "ter"
+    subcategory: "scheme_wise"
+    description: "Scheme-wise TER with BER, brokerage, transaction cost, statutory levies breakdown"
+    url: "https://www.amfiindia.com/ter-of-mf-schemes"
+    endpoint_type: "form_dropdown"
+    file_format: "excel"
+    reporting_frequency: "monthly"
+    historical_availability: "Current financial year + previous"
+    date_parameters:
+      - name: "financial_year"
+        required: true
+      - name: "month"
+        required: true
+      - name: "fund_type"
+        required: false
+      - name: "category"
+        required: false
+      - name: "mutual_fund"
+        required: false
+    scheme_identifiers: ["scheme_code", "scheme_name", "plan", "option", "ter_components"]
+    amc_identifiers: ["mutual_fund dropdown"]
+    pagination: true  # Month x optional filters
+    requires_browser: false
+    parser_status: "not_implemented"
+    known_limitations:
+      - "Monthly frequency - many files for history"
+      - "Complex TER breakdown (BER, brokerage, transaction, statutory)"
+    confidence: "high"
+    priority: "primary"
+
+  # ============================================================
+  # RISK PARAMETERS / NEW FUND OFFERS
+  # ============================================================
+  
+  - dataset_id: "risk_parameters_disclosure"
+    name: "Disclosure of Risk Parameters"
+    category: "risk"
+    subcategory: "parameters"
+    description: "Risk metrics disclosure for schemes"
+    url: "https://www.amfiindia.com/otherdata/risk-parameters"
+    endpoint_type: "unknown"
+    file_format: "unknown"
+    reporting_frequency: "unknown"
+    historical_availability: "unknown"
+    parser_status: "not_investigated"
+    confidence: "unknown"
+    priority: "needs_investigation"
+
+  - dataset_id: "new_fund_offers"
+    name: "New Fund Offers (NFO)"
+    category: "nfo"
+    subcategory: "announcements"
+    description: "New fund offer announcements and details"
+    url: "https://www.amfiindia.com/new-fund-offer"
+    endpoint_type: "listing_page"
+    file_format: "html"
+    reporting_frequency: "as_needed"
+    historical_availability: "Current NFOs"
+    parser_status: "not_implemented"
+    confidence: "medium"
+    priority: "secondary"
+
+  # ============================================================
+  # FACTSHEET INDEX
+  # ============================================================
+  
+  - dataset_id: "factsheet_index"
+    name: "Monthly Factsheet Index (AMC Links)"
+    category: "factsheet"
+    subcategory: "index"
+    description: "Index page linking to each AMC's factsheet download page"
+    url: "https://www.amfiindia.com/online-center/download-factsheets"
+    endpoint_type: "static_html"
+    file_format: "html"
+    reporting_frequency: "monthly"
+    historical_availability: "Current month only"
+    scheme_identifiers: ["links to AMC pages"]
+    amc_identifiers: ["AMC name list with links"]
+    pagination: false
+    requires_browser: false
+    parser_status: "partial"
+    parser_name: "amfi_factsheet_index_v1"
+    known_limitations:
+      - "Index only - actual factsheets on AMC websites"
+      - "Links may be relative or absolute"
+    confidence: "high"
+    priority: "reference_index_only"
+
+# ============================================================
+# EXTRACTION STRATEGIES BY DATASET TYPE
+# ============================================================
+
+extraction_strategies:
+  nav_history:
+    primary: "static_html"  # Form POST with date iteration
+    fallback: "playwright"  # If form has complex viewstate
+    rate_limit: "2s between requests"
+    backfill_approach: "iterate_90_day_windows"
+    incremental_approach: "daily_latest_only"
+
+  scheme_master_monthly:
+    primary: "static_html"  # Direct Excel links on yearly pages
+    fallback: "playwright"  # If JS-rendered
+    rate_limit: "2s between requests"
+    backfill_approach: "download_all_monthly_files"
+    incremental_approach: "latest_month_only"
+
+  aum_datasets:
+    primary: "static_html"  # Form submissions
+    fallback: "playwright"
+    rate_limit: "3s between requests"
+    backfill_approach: "iterate_financial_years"
+    incremental_approach: "latest_quarter"
+
+  ter_mf_schemes:
+    primary: "static_html"  # Form with multiple filters
+    fallback: "playwright"
+    rate_limit: "3s between requests"
+    backfill_approach: "iterate_months_with_filters"
+    incremental_approach: "latest_month_all_amcs"
+
+  amfi_monthly_data:
+    primary: "static_html"  # Direct links on yearly pages
+    fallback: "playwright"
+    rate_limit: "2s between requests"
+    backfill_approach: "download_all_monthly_files"
+    incremental_approach: "latest_month"
+
+  portfolio_disclosure:
+    primary: "reference_only"
+    note: "AMFI is index only; actual portfolios on AMC sites"
+    strategy: "use_provider_first_principle"
+
+# ============================================================
+# GLOBAL SETTINGS
+# ============================================================
+
+global_settings:
+  base_url: "https://www.amfiindia.com/"
+  user_agent: "Mozilla/5.0 (compatible; FinancialAnalyticsBot/1.0; +https://github.com/financial-analytics)"
+  default_timeout: 30
+  max_retries: 3
+  retry_backoff: 2
+  respect_robots_txt: true
+  polite_crawling: true

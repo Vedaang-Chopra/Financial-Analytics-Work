@@ -26,6 +26,69 @@ if TYPE_CHECKING:
 
 LOGGER = logging.getLogger(__name__)
 
+# Words that never identify an AMC on their own
+_AMC_STOP_WORDS = {
+    "mutual", "fund", "asset", "management", "company", "ltd", "limited",
+    "india", "the", "of", "and", "scheme", "plan", "direct", "regular",
+    "growth", "idcw", "dividend", "payout", "reinvestment", "re-investment",
+}
+
+# Brand aliases: token found in scheme name -> AMC normalized_name
+_AMC_BRAND_ALIASES = {
+    "parag": "ppfas",
+    "parikh": "ppfas",
+    "ppfas": "ppfas",
+    "reliance": "nippon india",
+    "absl": "aditya birla sun life",
+    "sun life": "aditya birla sun life",
+    "franklin": "franklin templeton",
+    "quantum": "quantum",
+}
+
+
+def _resolve_amc_for_scheme_name(session: Session, scheme_name: str) -> AMC | None:
+    """Resolve AMC for a scheme by matching AMC name tokens against the scheme name.
+
+    AMFI scheme names typically start with the AMC name (e.g.
+    "Aditya Birla Sun Life Banking & PSU Debt Fund" -> Aditya Birla Sun Life
+    Mutual Fund). Match the longest AMC normalized name contained in the
+    normalized scheme name; fall back to a leading-token match and finally
+    brand aliases (e.g. "Parag Parikh" -> PPFAS).
+    """
+    amcs_by_norm: dict[str, AMC] = {}
+    for amc in session.query(AMC).all():
+        if amc.normalized_name and amc.normalized_name not in ("amfi", "sebi"):
+            amcs_by_norm[amc.normalized_name] = amc
+
+    normalized_scheme = normalize_amc_name(scheme_name)
+
+    best: AMC | None = None
+    best_len = 0
+    for norm, amc in amcs_by_norm.items():
+        if norm in normalized_scheme and len(norm) > best_len:
+            best = amc
+            best_len = len(norm)
+
+    if best:
+        return best
+
+    # Fallback: match on distinctive leading tokens (e.g. "hdfc")
+    scheme_tokens = [
+        t for t in normalized_scheme.split()
+        if t not in _AMC_STOP_WORDS and len(t) > 2
+    ]
+    for token in scheme_tokens[:3]:
+        for norm, amc in amcs_by_norm.items():
+            if token in norm.split():
+                return amc
+
+    # Fallback: brand aliases ("parag parikh" -> ppfas)
+    for alias, target_norm in _AMC_BRAND_ALIASES.items():
+        if alias in normalized_scheme and target_norm in amcs_by_norm:
+            return amcs_by_norm[target_norm]
+
+    return None
+
 
 class UpsertManager:
     """Holds all canonical upsert methods.
@@ -42,6 +105,7 @@ class UpsertManager:
         raw_artifact_id: uuid.UUID,
         source_url: str,
         stats: dict[str, Any],
+        checksum: str | None = None,
     ) -> None:
         if dataset_type == "nav_history":
             self.upsert_nav_history(session, records, raw_artifact_id, source_url, stats)
@@ -85,15 +149,65 @@ class UpsertManager:
                 select(Scheme).where(Scheme.scheme_code == scheme_code)
             ).scalar_one_or_none()
 
+            record_scheme_name = record.get("scheme_name")
+            record_plan = record.get("plan")
+            record_option = record.get("option")
+            record_isin_payout = record.get("isin_div_payout")
+            record_isin_reinv = record.get("isin_div_reinvestment")
+
             if not scheme:
-                # Create scheme with minimal info
+                # Create scheme with real name and metadata from AMFI row
+                display_name = record_scheme_name or f"Scheme {scheme_code}"
+                extra_meta: dict[str, Any] = {}
+                if record_plan:
+                    extra_meta["plan"] = record_plan
+                if record_option:
+                    extra_meta["option"] = record_option
+                if record_isin_payout and record_isin_payout != "-":
+                    extra_meta["isin_div_payout"] = record_isin_payout
+                if record_isin_reinv and record_isin_reinv != "-":
+                    extra_meta["isin_div_reinvestment"] = record_isin_reinv
+
                 scheme = Scheme(
                     scheme_code=scheme_code,
-                    scheme_name=f"Scheme {scheme_code}",
-                    normalized_scheme_name=normalize_amc_name(f"Scheme {scheme_code}"),
+                    scheme_name=display_name,
+                    normalized_scheme_name=normalize_amc_name(display_name),
+                    metadata_json=extra_meta,
                 )
                 session.add(scheme)
                 session.flush()
+            else:
+                # Backfill missing identity fields on existing schemes (e.g. "Scheme 12345" placeholders)
+                needs_update = False
+                if record_scheme_name and (
+                    not scheme.scheme_name or scheme.scheme_name.startswith("Scheme ")
+                ):
+                    scheme.scheme_name = record_scheme_name
+                    scheme.normalized_scheme_name = normalize_amc_name(record_scheme_name)
+                    needs_update = True
+
+                meta = dict(scheme.metadata_json or {})
+                if record_plan and not meta.get("plan"):
+                    meta["plan"] = record_plan
+                    needs_update = True
+                if record_option and not meta.get("option"):
+                    meta["option"] = record_option
+                    needs_update = True
+                if record_isin_payout and record_isin_payout != "-" and not meta.get("isin_div_payout"):
+                    meta["isin_div_payout"] = record_isin_payout
+                    needs_update = True
+                if record_isin_reinv and record_isin_reinv != "-" and not meta.get("isin_div_reinvestment"):
+                    meta["isin_div_reinvestment"] = record_isin_reinv
+                    needs_update = True
+
+                if needs_update:
+                    scheme.metadata_json = meta
+
+            # Resolve AMC linkage from scheme name (once per scheme)
+            if scheme.amc_id is None and record_scheme_name:
+                amc = _resolve_amc_for_scheme_name(session, record_scheme_name)
+                if amc:
+                    scheme.amc_id = amc.id
 
             stmt = insert(NAVHistory).values(
                 scheme_id=scheme.id,
@@ -205,11 +319,20 @@ class UpsertManager:
         raw_artifact_id: uuid.UUID,
         source_url: str,
         stats: dict[str, Any],
+        checksum: str | None = None,
     ) -> None:
         """Upsert portfolio records to ``portfolio_snapshots`` and ``portfolio_holdings``."""
         from collections import defaultdict
 
-        from .db import Document, Instrument
+        from .db import Document, Instrument, RawArtifact
+
+            # Get checksum from raw_artifact if not provided
+        if checksum is None:
+            raw_artifact = session.get(RawArtifact, raw_artifact_id)
+            if raw_artifact is not None:
+                cs = getattr(raw_artifact, 'checksum', None)
+                if cs:
+                    checksum = str(cs)
 
         # Group by scheme + date to create snapshots
         snapshots: dict[tuple, list[dict[str, Any]]] = defaultdict(list)
@@ -228,15 +351,15 @@ class UpsertManager:
             except ValueError:
                 reporting_date = date.today()
 
-            # Resolve or create scheme
+            # Resolve or create scheme (first() - multiple schemes may share a name)
             scheme = session.execute(
                 select(Scheme).where(Scheme.normalized_scheme_name == normalize_amc_name(scheme_name))
-            ).scalar_one_or_none()
+            ).scalars().first()
 
             if not scheme:
                 scheme = session.execute(
                     select(Scheme).where(Scheme.scheme_name.ilike(f"%{scheme_name}%"))
-                ).scalar_one_or_none()
+                ).scalars().first()
 
             if not scheme:
                 # Create scheme with minimal info
@@ -251,31 +374,54 @@ class UpsertManager:
             snapshots[key].append(record)
 
         for (scheme_id, reporting_date), holdings in snapshots.items():
-            # Create portfolio snapshot
-            snapshot = PortfolioSnapshot(
+            # Upsert portfolio snapshot (on conflict: update source_url, parser_version, validation_status)
+            stmt = insert(PortfolioSnapshot).values(
                 scheme_id=scheme_id,
                 reporting_date=reporting_date,
                 source_url=source_url,
                 parser_version="portfolio_excel_v1",
                 validation_status="validated",
             )
-            session.add(snapshot)
-            session.flush()
+            stmt = stmt.on_conflict_do_update(
+                index_elements=["scheme_id", "reporting_date"],
+                set_={
+                    "source_url": stmt.excluded.source_url,
+                    "parser_version": stmt.excluded.parser_version,
+                    "validation_status": stmt.excluded.validation_status,
+                },
+            ).returning(PortfolioSnapshot.id)
+            result = session.execute(stmt)
+            snapshot_id = result.scalar_one()
 
-            # Create document record
-            doc = Document(
+            # Upsert document record with provenance linkage
+            doc_stmt = insert(Document).values(
                 document_type="portfolio_disclosure",
                 scheme_id=scheme_id,
                 reporting_date=reporting_date,
                 source_url=source_url,
                 file_type="xlsx",
+                raw_artifact_id=raw_artifact_id,
+                checksum=checksum,
             )
-            session.add(doc)
-            session.flush()
+            doc_stmt = doc_stmt.on_conflict_do_update(
+                index_elements=["scheme_id", "reporting_date", "document_type", "source_url"],
+                set_={
+                    "file_type": doc_stmt.excluded.file_type,
+                    "raw_artifact_id": doc_stmt.excluded.raw_artifact_id,
+                    "checksum": doc_stmt.excluded.checksum,
+                },
+            ).returning(Document.id)
+            doc_result = session.execute(doc_stmt)
+            doc_id = doc_result.scalar_one()
 
-            snapshot.document_id = doc.id
+            # Update snapshot with document_id
+            session.execute(
+                PortfolioSnapshot.__table__.update()
+                .where(PortfolioSnapshot.id == snapshot_id)
+                .values(document_id=doc_id)
+            )
 
-            # Create holdings
+            # Create holdings (upsert on snapshot_id + security_name + isin)
             for holding in holdings:
                 security_name = holding.get("security_name")
                 if not security_name:
@@ -283,12 +429,13 @@ class UpsertManager:
 
                 isin = holding.get("isin")
                 sector = holding.get("sector")
+                rating = holding.get("rating")
 
                 # Resolve or create instrument
                 if isin:
                     instrument = session.execute(
                         select(Instrument).where(Instrument.isin == isin)
-                    ).scalar_one_or_none()
+                    ).scalars().first()
                 else:
                     instrument = None
 
@@ -302,19 +449,36 @@ class UpsertManager:
                     session.add(instrument)
                     session.flush()
 
-                # Create holding
-                portfolio_holding = PortfolioHolding(
-                    snapshot_id=snapshot.id,
+                # Upsert holding (on conflict: update fields)
+                holding_stmt = insert(PortfolioHolding).values(
+                    snapshot_id=snapshot_id,
                     instrument_id=instrument.id,
                     security_name=security_name,
                     isin=isin,
                     sector=sector,
+                    rating=rating,
                     asset_class=holding.get("asset_class"),
                     quantity=holding.get("quantity"),
                     market_value=holding.get("market_value"),
                     percentage_to_nav=holding.get("percentage_to_nav"),
+                    coupon=holding.get("coupon"),
+                    maturity_date=holding.get("maturity_date"),
                 )
-                session.add(portfolio_holding)
+                holding_stmt = holding_stmt.on_conflict_do_update(
+                    index_elements=["snapshot_id", "security_name", "isin"],
+                    set_={
+                        "instrument_id": holding_stmt.excluded.instrument_id,
+                        "sector": holding_stmt.excluded.sector,
+                        "rating": holding_stmt.excluded.rating,
+                        "asset_class": holding_stmt.excluded.asset_class,
+                        "quantity": holding_stmt.excluded.quantity,
+                        "market_value": holding_stmt.excluded.market_value,
+                        "percentage_to_nav": holding_stmt.excluded.percentage_to_nav,
+                        "coupon": holding_stmt.excluded.coupon,
+                        "maturity_date": holding_stmt.excluded.maturity_date,
+                    },
+                )
+                session.execute(holding_stmt)
                 stats["rows_inserted"] = stats.get("rows_inserted", 0) + 1
 
             stats["rows_inserted"] = stats.get("rows_inserted", 0) + 1  # snapshot

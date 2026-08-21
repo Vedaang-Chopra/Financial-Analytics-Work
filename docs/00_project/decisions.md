@@ -58,4 +58,4 @@ _Stable. Update only when a major design decision is made or reversed._
 
 **Decision**: Every module follows the Layer 1–5 model defined in `docs/07_agent_rules/skills/design_layered_module.md`.
 
-**Impact**: `runner.py` is currently a layer violation (821 lines mixing orchestration + core logic). Flagged for refactor; not addressed in this session.
+**Impact**: `runner.py` was refactored by extracting upsert and artifact-processing logic into dedicated agent modules. Future work should keep notebooks in Layer 1 and use public entry points instead of duplicating production logic.

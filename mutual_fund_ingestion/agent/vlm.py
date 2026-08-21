@@ -61,6 +61,7 @@ class NullVLMClient(VLMClient):
 
 
 class OllamaVLMClient(VLMClient):
+    """Ollama VLM client (uses /api/generate endpoint)."""
     def __init__(self, endpoint: str = "http://localhost:11434", model: str | None = None, timeout: float = 60.0):
         self.endpoint = endpoint.rstrip("/")
         self.model = model
@@ -78,6 +79,73 @@ class OllamaVLMClient(VLMClient):
             response.raise_for_status()
             data = response.json()
             raw = data.get("response", "")
+            return self._parse_response(raw)
+        except requests.RequestException as exc:
+            LOGGER.warning("VLM request failed: %s", exc)
+            return None
+
+    def _build_prompt(self, payload: PageAnalysisPayload) -> str:
+        return (
+            "You are a financial data extraction assistant. Analyze this page:\n"
+            f"URL: {payload.current_url}\n"
+            f"Title: {payload.page_title}\n"
+            f"Objective: {payload.objective}\n"
+            f"Links: {json.dumps(payload.links[:10])}\n"
+            f"Text: {payload.visible_text_excerpt[:300]}\n\n"
+            "Return JSON with: page_relevance (high/medium/low/irrelevant), "
+            "dataset_hints (array), recommended_action (click/select/download/skip), "
+            "target_text (string or null), avoid_targets (array), reason (string), confidence (0-1)"
+        )
+
+    def _parse_response(self, raw: str) -> PageAnalysisDecision | None:
+        try:
+            json_start = raw.find("{")
+            json_end = raw.rfind("}") + 1
+            if json_start >= 0 and json_end > json_start:
+                data = json.loads(raw[json_start:json_end])
+                return PageAnalysisDecision(
+                    page_relevance=data.get("page_relevance", "unknown"),
+                    dataset_hints=data.get("dataset_hints", []),
+                    recommended_action=data.get("recommended_action", "skip"),
+                    target_text=data.get("target_text"),
+                    form_values=data.get("form_values", {}),
+                    avoid_targets=data.get("avoid_targets", []),
+                    reason=data.get("reason", ""),
+                    confidence=float(data.get("confidence", 0.5)),
+                )
+        except (json.JSONDecodeError, ValueError, KeyError) as exc:
+            LOGGER.warning("VLM response parse failed: %s", exc)
+        return None
+
+
+class OpenAIVLMClient(VLMClient):
+    """OpenAI-compatible VLM client (uses /v1/chat/completions endpoint) for LM Studio, vLLM, etc."""
+    def __init__(self, endpoint: str = "http://localhost:1234/v1", model: str | None = None, timeout: float = 60.0):
+        self.endpoint = endpoint.rstrip("/")
+        self.model = model
+        self.timeout = timeout
+
+    def analyze_page(self, payload: PageAnalysisPayload) -> PageAnalysisDecision | None:
+        model = self.model or "llava"
+        prompt = self._build_prompt(payload)
+        try:
+            response = requests.post(
+                f"{self.endpoint}/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": "You are a financial data extraction assistant. Return only valid JSON."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": 0.1,
+                    "max_tokens": 500,
+                    "stream": False,
+                },
+                timeout=self.timeout,
+            )
+            response.raise_for_status()
+            data = response.json()
+            raw = data.get("choices", [{}])[0].get("message", {}).get("content", "")
             return self._parse_response(raw)
         except requests.RequestException as exc:
             LOGGER.warning("VLM request failed: %s", exc)

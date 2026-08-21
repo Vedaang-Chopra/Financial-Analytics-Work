@@ -1,7 +1,12 @@
 # Checkpoint Plan — Financial Analytics Mutual Fund Ingestion
+
 # Covers: Current state → Milestone 3 (real AMC documents downloaded)
+
 # Designed: 2026-06-27
+
 # Test baseline at design time: 125 passed, 0 skipped
+
+> Current validation baseline (2026-06-29): `145 passed, 3 skipped`. Earlier checkpoint sections preserve their original expected counts as historical task context.
 
 ---
 
@@ -9,12 +14,13 @@
 
 | Checkpoint | Name | Tests | Status |
 |---|---|---|---|
-| 0 | System Foundation | 125 | ACTIVE |
-| 1.1 | Validation Coverage (Epic G) | ~131 | blocked on CP0 |
-| 1.2 | Discovery Tests (Epics H, I, J) | ~140 | blocked on CP1.1 |
-| 1.3 | Portfolio + NAV Coverage (Epics P, N, L) | ≥145 | blocked on CP1.2 |
-| 2 | Phase 2 Document Discovery | 145+ | blocked on CP1.3 |
-| 3 | Real AMC Documents Downloaded | 145+ | blocked on CP2 |
+| 0 | System Foundation | 125 | COMPLETE |
+| 1.1 | Validation Coverage (Epic G) | ~131 | COMPLETE |
+| 1.2 | Discovery Tests (Epics H, I, J) | ~140 | ✅ COMPLETE (2026-06-29) |
+| 1.3 | Portfolio + NAV Coverage (Epics P, N, L) | 145 | ✅ COMPLETE (2026-06-29) |
+| 2 | Phase 2 Document Discovery | 145+ | ✅ COMPLETE (2026-06-29) |
+| Story NB | Story Notebook Series | 145+ | ACTIVE — inspectability before CP3 |
+| 3 | Real AMC Documents Downloaded | 145+ | READY after Story NB |
 | 4 | Canonical Tables (placeholder) | TBD | blocked on CP3 |
 | 5 | Analytics Layer (placeholder) | TBD | blocked on CP4 |
 
@@ -33,7 +39,7 @@ None. This is the entry point.
 TASK-C001: Refactor runner.py — extract upserts.py and artifact_processor.py
   Per docs/04_in_progress/REFACTOR_runner.md exactly.
   Extract all _upsert_* methods and _write_validation_result to agent/upserts.py.
-  Extract _download_and_process_artifact to agent/artifact_processor.py.
+  Extract_download_and_process_artifact to agent/artifact_processor.py.
   runner.py must shrink from 821 → ~300 lines.
   All 125 tests must pass after.
 
@@ -70,6 +76,7 @@ TASK-C006: Update MASTER_STATE.md
   Add "Checkpoint 0 complete" status line.
 
 **Exit Condition**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/ -q --tb=no
 # Expected: 125 passed
@@ -78,6 +85,7 @@ ls mutual_fund_ingestion/agent/upserts.py mutual_fund_ingestion/agent/artifact_p
 ```
 
 **Demonstrable Output**
+
 ```bash
 open notebooks/mutual_fund_ingestion/00_system_checkpoint.ipynb
 # Shows: 125 tests passing, 17 tables, 53 AMC sources, DB connected
@@ -118,6 +126,7 @@ TASK-G006: Add test for quarantine reason propagation
   Per docs/06_plans/active/BATCH_E_validation.md TASK-G006 exactly.
 
 **Exit Condition**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/ -q --tb=no
 # Expected: ≥131 passed
@@ -126,6 +135,7 @@ TASK-G006: Add test for quarantine reason propagation
 ```
 
 **Demonstrable Output**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/test_agent.py -k "validation" -v
 ```
@@ -171,6 +181,7 @@ TASK-J001: Test discovery engine handles HTTP errors gracefully
   Per docs/06_plans/active/BATCH_G_browser_vlm.md TASK-J001 exactly.
 
 **Exit Condition**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/ -q --tb=no
 # Expected: ≥139 passed
@@ -179,6 +190,7 @@ TASK-J001: Test discovery engine handles HTTP errors gracefully
 ```
 
 **Demonstrable Output**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/test_agent.py -k "discovery or relevance" -v 2>&1 | tail -20
 ```
@@ -225,6 +237,7 @@ TASK-CP1-GATE: Update docs + run final test count verification
   Confirm: ≥145 passed.
 
 **Exit Condition**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/ -q --tb=no
 # Expected: ≥145 passed
@@ -233,6 +246,7 @@ grep "Done: \[x\]" docs/06_plans/SPRINT_CURRENT.md | wc -l
 ```
 
 **Demonstrable Output**
+
 ```bash
 ./financial_env/bin/python -m pytest tests/ -v 2>&1 | tail -20
 # Shows 145+ passing
@@ -246,6 +260,9 @@ Answers: Is count ≥145? Are Epics G, H, P, N all marked done? Is the Phase 2 g
 
 ## Checkpoint 2 — Phase 2 Document Discovery
 
+**Status**
+Complete (2026-06-29)
+
 **Goal**
 Run the discovery pipeline against at least 3 real AMC provider profiles. Produce a review notebook.
 
@@ -257,7 +274,7 @@ DATABASE_URL documented and verified (verified in CP0).
 **Tasks (in order)**
 
 TASK-D001: Read provider_profiles.latest.json — select 3 seed AMCs
-  Load profiles, pick 3 with confirmed_disclosure_url set.
+  Load profiles, pick 3 successful profiles with candidate links (the current schema does not expose confirmed_disclosure_url).
   Write selected 3 to docs/06_plans/active/PHASE2_seed_amcs.md.
 
 TASK-D002: Run discovery pipeline against seed AMC 1 (dry-run mode)
@@ -269,7 +286,7 @@ TASK-D003: Run discovery pipeline against seed AMCs 2 and 3 (dry-run mode)
   Append to PHASE2_discovery_log.md.
 
 TASK-D004: Run live discovery against seed AMC 1 (non dry-run, limited)
-  --max-pages 10, --max-downloads 3
+  --max-pages 10, --max-files 3
   Record discovered candidate URLs in DB.
 
 TASK-D005: Inspect discovered candidates in DB
@@ -284,6 +301,7 @@ TASK-D007: Update docs/01_status/MASTER_STATE.md with Phase 2 results
   Add "Phase 2 Discovery" section: which AMCs discovered, how many candidates, date.
 
 **Exit Condition**
+
 ```bash
 ls data/raw/mutual_funds/ 2>/dev/null | head -5
 # Expected: at least 0 files (discovery may produce 0 downloads in dry-run — candidates in DB is sufficient)
@@ -294,6 +312,7 @@ ls notebooks/mutual_fund_ingestion/03_phase2_discovery_review.ipynb
 ```
 
 **Demonstrable Output**
+
 ```bash
 open notebooks/mutual_fund_ingestion/03_phase2_discovery_review.ipynb
 ```
@@ -301,6 +320,37 @@ open notebooks/mutual_fund_ingestion/03_phase2_discovery_review.ipynb
 **Verification Prompt**
 Verifier reads: PHASE2_discovery_log.md, 03_phase2_discovery_review.ipynb, MASTER_STATE.md Phase 2 section, pytest output.
 Answers: Were 3 AMCs discovered? Did the pipeline run without crashing? Is the notebook renderable?
+
+---
+
+## Story Notebook Series — Inspection Before Checkpoint 3
+
+**Status**
+Active planning/readability task (2026-06-29)
+
+**Goal**
+Rewrite the notebook layer into a story-first inspection series that explains the working system from source discovery to database persistence.
+
+**Plan**
+`docs/06_plans/active/STORY_NOTEBOOK_SERIES_PLAN.md`
+
+**Tasks**
+`docs/06_plans/active/STORY_NOTEBOOK_SERIES_TASKS.md`
+
+**Relationship to Checkpoint 3**
+This does not change ingestion behavior already implemented for Checkpoint 2. It is an inspection/readability task before Checkpoint 3 so the user can verify source registry, provider profiling, discovery, raw artifacts, parsing, validation, quarantine, and canonical DB persistence through notebooks.
+
+**Exit Condition**
+
+```bash
+./financial_env/bin/python -m pytest tests/ -q --tb=no
+# Expected: current baseline passes
+find notebooks/mutual_fund_ingestion -maxdepth 1 -name "*.ipynb" | sort
+# Expected: story notebooks and compatibility notebooks are accounted for
+```
+
+**Hard stop**
+Do not implement Phase 3, Phase 4, analytics, or investment recommendations as part of this checkpoint.
 
 ---
 
@@ -316,7 +366,7 @@ Checkpoint 2 exit condition passed. At least 1 real DatasetCandidate URL identif
 
 TASK-R001: Run full pipeline against best candidate URL (portfolio Excel or NAV text)
   Use a URL from CP2 discovery that has high relevance score.
-  Run without --dry-run. max-pages 1, max-downloads 1.
+  Run without --dry-run. max-pages 1, max-files 1.
   Record: SHA256, file size, download path.
 
 TASK-R002: Verify metadata sidecar written
@@ -339,6 +389,7 @@ TASK-R006: Update MASTER_STATE.md with Phase 3 entry
   Add "First Real Document" entry: AMC name, file type, records, DB rows, date.
 
 **Exit Condition**
+
 ```bash
 ls data/raw/mutual_funds/
 # Expected: ≥1 file downloaded + ≥1 .json sidecar
@@ -349,6 +400,7 @@ ls notebooks/mutual_fund_ingestion/04_phase3_real_data_review.ipynb
 ```
 
 **Demonstrable Output**
+
 ```bash
 open notebooks/mutual_fund_ingestion/04_phase3_real_data_review.ipynb
 # Shows: real downloaded file, parse results, DB record count

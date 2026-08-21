@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import uuid
+from datetime import date
 from typing import Any
 
 from sqlalchemy import (
@@ -18,6 +19,7 @@ from sqlalchemy import (
     JSON,
     Numeric,
     Text,
+    UniqueConstraint,
     create_engine,
     func,
 )
@@ -320,6 +322,204 @@ class RetryQueue(Base):
     updated_at = Column(DateTime(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
 
     __table_args__ = (Index("ix_retry_queue_status", "status"),)
+
+
+class CoverageSnapshot(Base):
+    __tablename__ = "coverage_snapshots"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    snapshot_date = Column(Date, nullable=False, default=lambda: date.today())
+    dataset_type = Column(Text, nullable=False)  # nav_history, portfolio_disclosure
+    amc_id = Column(UUID(as_uuid=True), ForeignKey("amcs.id"), nullable=True)
+    scheme_id = Column(UUID(as_uuid=True), ForeignKey("schemes.id"), nullable=True)
+
+    # Coverage metrics
+    expected_count = Column(Integer, nullable=False, default=0)
+    actual_count = Column(Integer, nullable=False, default=0)
+    missing_count = Column(Integer, nullable=False, default=0)
+    coverage_pct = Column(Float, nullable=False, default=0.0)
+
+    # Date range info
+    earliest_date = Column(Date, nullable=True)
+    latest_date = Column(Date, nullable=True)
+    expected_start = Column(Date, nullable=True)
+    expected_end = Column(Date, nullable=True)
+
+    # Metadata
+    metadata_json = Column(JSON, nullable=False, default=dict)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("snapshot_date", "dataset_type", "amc_id", "scheme_id", name="uq_coverage_snapshot"),
+        Index("ix_coverage_snapshot_date_type", "snapshot_date", "dataset_type"),
+        Index("ix_coverage_snapshot_amc", "amc_id"),
+        Index("ix_coverage_snapshot_scheme", "scheme_id"),
+    )
+
+
+class SchemeCoverage(Base):
+    __tablename__ = "scheme_coverage"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    scheme_id = Column(UUID(as_uuid=True), ForeignKey("schemes.id"), nullable=False, unique=True)
+    dataset_type = Column(Text, nullable=False)  # nav_history, portfolio_disclosure
+
+    # Date range
+    earliest_source_date = Column(Date, nullable=True)
+    latest_source_date = Column(Date, nullable=True)
+    earliest_stored_date = Column(Date, nullable=True)
+    latest_stored_date = Column(Date, nullable=True)
+
+    # Counts
+    expected_observations = Column(Integer, nullable=False, default=0)
+    stored_observations = Column(Integer, nullable=False, default=0)
+    missing_observations = Column(Integer, nullable=False, default=0)
+    coverage_pct = Column(Float, nullable=False, default=0.0)
+
+    # Gap details
+    missing_periods_json = Column(JSON, nullable=False, default=list)
+    last_gap_check = Column(DateTime(timezone=True), nullable=True)
+
+    # Status
+    status = Column(Text, nullable=False, default="active")  # active, discontinued, merged, missing
+    last_updated = Column(DateTime(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("scheme_id", "dataset_type", name="uq_scheme_coverage"),
+        Index("ix_scheme_coverage_status", "status"),
+        Index("ix_scheme_coverage_pct", "coverage_pct"),
+    )
+
+
+class AMCoverage(Base):
+    __tablename__ = "amc_coverage"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    amc_id = Column(UUID(as_uuid=True), ForeignKey("amcs.id"), nullable=False, unique=True)
+    dataset_type = Column(Text, nullable=False)
+
+    # Aggregated counts
+    total_schemes = Column(Integer, nullable=False, default=0)
+    schemes_with_data = Column(Integer, nullable=False, default=0)
+    total_expected = Column(Integer, nullable=False, default=0)
+    total_stored = Column(Integer, nullable=False, default=0)
+    total_missing = Column(Integer, nullable=False, default=0)
+    coverage_pct = Column(Float, nullable=False, default=0.0)
+
+    # Date range
+    earliest_date = Column(Date, nullable=True)
+    latest_date = Column(Date, nullable=True)
+
+    last_updated = Column(DateTime(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("amc_id", "dataset_type", name="uq_amc_coverage"),
+        Index("ix_amc_coverage_pct", "coverage_pct"),
+    )
+
+
+class DatasetCoverage(Base):
+    __tablename__ = "dataset_coverage"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    dataset_type = Column(Text, nullable=False, unique=True)  # nav_history, portfolio_disclosure, etc.
+
+    # Global counts
+    total_amcs = Column(Integer, nullable=False, default=0)
+    total_schemes = Column(Integer, nullable=False, default=0)
+    total_expected = Column(Integer, nullable=False, default=0)
+    total_stored = Column(Integer, nullable=False, default=0)
+    total_missing = Column(Integer, nullable=False, default=0)
+    coverage_pct = Column(Float, nullable=False, default=0.0)
+
+    # Date range
+    global_earliest = Column(Date, nullable=True)
+    global_latest = Column(Date, nullable=True)
+
+    # Quality metrics
+    amcs_complete = Column(Integer, nullable=False, default=0)  # 100% coverage
+    amcs_partial = Column(Integer, nullable=False, default=0)   # 50-99%
+    amcs_minimal = Column(Integer, nullable=False, default=0)   # 1-49%
+    amcs_empty = Column(Integer, nullable=False, default=0)     # 0%
+
+    last_updated = Column(DateTime(timezone=True), nullable=False, default=func.now(), onupdate=func.now())
+
+    __table_args__ = (Index("ix_dataset_coverage_pct", "coverage_pct"),)
+
+
+class CoverageAlert(Base):
+    __tablename__ = "coverage_alerts"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    alert_type = Column(Text, nullable=False)  # gap_detected, coverage_drop, new_scheme_missing, stale_data
+    severity = Column(Text, nullable=False)  # info, warning, critical
+
+    # Scope
+    dataset_type = Column(Text, nullable=False)
+    amc_id = Column(UUID(as_uuid=True), ForeignKey("amcs.id"), nullable=True)
+    scheme_id = Column(UUID(as_uuid=True), ForeignKey("schemes.id"), nullable=True)
+
+    # Details
+    message = Column(Text, nullable=False)
+    details_json = Column(JSON, nullable=False, default=dict)
+
+    # Status
+    status = Column(Text, nullable=False, default="open")  # open, acknowledged, resolved
+    acknowledged_by = Column(Text, nullable=True)
+    acknowledged_at = Column(DateTime(timezone=True), nullable=True)
+    resolved_at = Column(DateTime(timezone=True), nullable=True)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        Index("ix_coverage_alert_status", "status"),
+        Index("ix_coverage_alert_type", "alert_type"),
+        Index("ix_coverage_alert_scheme", "scheme_id"),
+    )
+
+
+class IngestionQualityMetrics(Base):
+    __tablename__ = "ingestion_quality_metrics"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    run_id = Column(UUID(as_uuid=True), ForeignKey("ingestion_runs.id"), nullable=False, unique=True)
+    dataset_type = Column(Text, nullable=False)
+
+    # Input metrics
+    sources_discovered = Column(Integer, nullable=False, default=0)
+    files_discovered = Column(Integer, nullable=False, default=0)
+    files_downloaded = Column(Integer, nullable=False, default=0)
+    files_skipped_duplicate = Column(Integer, nullable=False, default=0)
+    files_failed = Column(Integer, nullable=False, default=0)
+
+    # Processing metrics
+    artifacts_parsed = Column(Integer, nullable=False, default=0)
+    rows_parsed = Column(Integer, nullable=False, default=0)
+    rows_valid = Column(Integer, nullable=False, default=0)
+    rows_quarantined = Column(Integer, nullable=False, default=0)
+    rows_upserted = Column(Integer, nullable=False, default=0)
+    rows_updated = Column(Integer, nullable=False, default=0)
+
+    # Quality ratios
+    parse_success_rate = Column(Float, nullable=True)
+    validation_pass_rate = Column(Float, nullable=True)
+    upsert_success_rate = Column(Float, nullable=True)
+
+    # Error breakdown
+    errors_by_type = Column(JSON, nullable=False, default=dict)
+    errors_by_provider = Column(JSON, nullable=False, default=dict)
+
+    # Timing
+    started_at = Column(DateTime(timezone=True), nullable=True)
+    finished_at = Column(DateTime(timezone=True), nullable=True)
+    duration_seconds = Column(Float, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        Index("ix_quality_metrics_run", "run_id"),
+        Index("ix_quality_metrics_dataset", "dataset_type"),
+    )
 
 
 def create_tables(database_url: str) -> None:

@@ -36,9 +36,15 @@ Referenced by `AGENTS.md` §1 and §3. Update whenever module structure changes.
 | `mutual_fund_ingestion/agent/parser/portfolio.py` | 4 | Excel/CSV portfolio disclosure parser → `portfolio_holdings` rows. **FIXED: header row detection works for real AMFI Excel files.** | `parse_portfolio_excel()`, `parse_portfolio_csv()` |
 | `mutual_fund_ingestion/agent/validate.py` | 4 | NAV/portfolio/scheme_master/amc validation, quarantine writer, retry queue | `validate_nav_record()`, `validate_portfolio_record()`, `validate_scheme_master_record()`, `validate_amc_record()`, `validate_and_filter_records()` |
 | `mutual_fund_ingestion/agent/vlm.py` | 4 | Pluggable VLM client — null backend (default) + Ollama backend. **analyze_page() IS called in runner.py (lines 179–195) when use_vlm=True. TASK-K004 complete.** | `VLMClient`, `NullVLMClient`, `OllamaVLMClient`, `PageAnalysisPayload`, `PageAnalysisDecision` |
-| `mutual_fund_ingestion/agent/db.py` | 5 | SQLAlchemy models for all 17 tables + schema creation | 17 table classes, `create_tables()`, `get_session_maker()` |
+| `mutual_fund_ingestion/agent/db.py` | 5 | SQLAlchemy models for all 23 tables + schema creation | 23 table classes, `create_tables()`, `get_session_maker()` |
 | `mutual_fund_ingestion/agent/models.py` | 5 | Runtime dataclasses — `AgentResult`, `ParserResult`, record types | `AgentResult`, `ParserResult`, `SourcePageRecord`, `DiscoveredLinkRecord`, `DatasetCandidateRecord`, `RawArtifactRecord` |
 | `mutual_fund_ingestion/agent/config.py` | 5 | Agent configuration from CLI args | `AgentConfig` |
+| `mutual_fund_ingestion/agent/nav_pipeline.py` | 2 | **NEW** Dedicated NAV ingestion pipeline — backfill, incremental, gap detection, coverage | `NAVPipeline` |
+| `mutual_fund_ingestion/agent/portfolio_pipeline.py` | 2 | **NEW** Dedicated Portfolio ingestion pipeline — strategy-aware, multi-AMC | `PortfolioPipeline` |
+| `mutual_fund_ingestion/agent/scheme_identity.py` | 2 | **NEW** Scheme identity resolution — AMFI code, ISIN, fuzzy name, plan/option | `SchemeIdentityResolver`, `SchemeMappingManager` |
+| `mutual_fund_ingestion/agent/coverage.py` | 2 | **NEW** Coverage & quality monitoring — 6 tables, calculator, alerts | `CoverageCalculator`, `get_coverage_report()` |
+| `mutual_fund_ingestion/agent/artifact_storage.py` | 3 | **NEW** Raw artifact storage abstraction — Local/S3 backends, tiered retention | `ArtifactStorageManager`, `StorageBackend` |
+| `mutual_fund_ingestion/agent/source_registry.py` | 2 | **NEW** Unified source capability registry — loads AMFI census + AMC matrix | `SourceCapabilityRegistry`, `get_registry()` |
 | `utils/__init__.py` | — | Shared utilities package marker | — |
 | `utils/http.py` | 5 | Shared HTTP session — HttpSettings + build_session (consolidated) | `HttpSettings`, `build_session()`, `DEFAULT_USER_AGENT` |
 | `utils/url_utils.py` | 5 | URL/text utilities — canonical_url, file_type_from_url, safe_name, slugify (consolidated) | `canonical_url()`, `file_type_from_url()`, `safe_name()`, `slugify()` |
@@ -48,11 +54,17 @@ Referenced by `AGENTS.md` §1 and §3. Update whenever module structure changes.
 
 ## Notebooks
 
-| Notebook | Phase | Purpose |
+**Current plan:** `docs/06_plans/active/STORY_NOTEBOOK_SERIES_PLAN.md`
+
+| Notebook | Status | Purpose |
 |---|---|---|
-| `notebooks/mutual_fund_ingestion/01_phase_1_provider_profiling_review.ipynb` | index | Index to 01A and 01B; artifact availability check |
-| `notebooks/mutual_fund_ingestion/01a_phase_1_source_registry_review.ipynb` | 1A | Source registry inputs, provenance, quality checks, Phase 1B readiness |
-| `notebooks/mutual_fund_ingestion/01b_phase_1_provider_profiling_review.ipynb` | 1B | Provider profiles, strategies, candidate links, debug evidence, Phase 1.5 readiness |
+| `notebooks/mutual_fund_ingestion/00_system_checkpoint.ipynb` | Story rewrite complete | System health, test baseline, artifact inventory, DB table inventory, notebook inventory |
+| `notebooks/mutual_fund_ingestion/01_phase_1_provider_profiling_review.ipynb` | Stale index; replace with pointer or archive later | Current thin index to 01A/01B; not a story notebook |
+| `notebooks/mutual_fund_ingestion/01a_phase_1_source_registry_review.ipynb` | Rewrite planned | Source registry inputs, provenance, AMFI/SEBI reference entries, provider readiness |
+| `notebooks/mutual_fund_ingestion/01b_phase_1_provider_profiling_review.ipynb` | Rewrite planned | Provider profiles, strategies, candidate links, debug evidence |
+| `notebooks/mutual_fund_ingestion/02_agent_pipeline_inspection.ipynb` | Keep/rewrite as canonical | DB-backed agent pipeline inspection |
+| `notebooks/mutual_fund_ingestion/02_task_url_ingestion_agent_inspection.ipynb` | Duplicate/stale; merge or replace with pointer later | Older component walkthrough with stale docs reference |
+| `notebooks/mutual_fund_ingestion/03_phase2_discovery_review.ipynb` | Rewrite planned | Discovery/candidate review from DB and runtime artifacts |
 
 ---
 
@@ -106,8 +118,17 @@ Referenced by `AGENTS.md` §1 and §3. Update whenever module structure changes.
 |---|---|---|
 | Phase 1A | Implemented | `profiling/source_discovery.py`, `profiling/source_registry.py`, `profiling/registry.py` |
 | Phase 1B | Implemented | `profiling/profiler.py`, `profiling/extract.py`, `profiling/browser.py`, `profiling/http.py`, `profiling/artifacts.py`, `profiling/reports.py` |
-| Task-URL Agent | Implemented | `agent/runner.py`, `agent/discovery.py`, `agent/browser.py`, `agent/extract.py`, `agent/parser/`, `agent/validate.py`, `agent/vlm.py`, `agent/db.py` |
-| Phase 2+ | Not yet implemented | — |
+| **Dataset Census** | ✅ **Implemented** | `configs/amfi_dataset_census.yaml`, `configs/amc_capability_matrix.yaml`, `agent/source_registry.py` |
+| **Scheme Identity** | ✅ **Implemented** | `agent/scheme_identity.py` |
+| **NAV Pipeline** | ✅ **Implemented** | `agent/nav_pipeline.py` |
+| **Portfolio Pipeline** | ✅ **Implemented** | `agent/portfolio_pipeline.py` |
+| **Artifact Storage** | ✅ **Implemented** | `agent/artifact_storage.py` |
+| **Coverage & Quality** | ✅ **Implemented** | `agent/coverage.py` |
+| Task-URL Agent (Phase 2 vertical slice) | ✅ Implemented | `agent/runner.py`, `agent/discovery.py`, `agent/browser.py`, `agent/extract.py`, `agent/parser/`, `agent/validate.py`, `agent/vlm.py`, `agent/db.py`, `agent/upserts.py`, `agent/artifact_processor.py` |
+| Phase 2+ | In progress (7/10 AMCs) | — |
+| Phase 3: document classification | Not started | — |
+| Phase 4: parsing | Partially (parsers exist, pipelines use them) | — |
+| Phase 5+: validation, quarantine, canonical PostgreSQL | ✅ Implemented (extended with coverage) | — |
 
 ---
 

@@ -22,9 +22,10 @@ This is a financial transparency and research system. Not investment advice.
 
 ```
 MILESTONE 1 — System is testable (CURRENT FOCUS)
-  The user can run 00_system_checkpoint.ipynb and see system health at a glance.
-  The user can run 02_agent_pipeline_inspection.ipynb and see a real pipeline run.
-  125+ tests pass, no silent failures in any pipeline path.
+  The user can run a story notebook series and see source discovery, provider
+  profiling, discovery, raw artifact download, parsing, validation, quarantine,
+  and canonical DB persistence.
+  Current baseline: 145 passed, 3 skipped.
 
 MILESTONE 2 — Pipeline is fully tested
   ≥145 tests passing.
@@ -54,8 +55,8 @@ MILESTONE 5 — Analytics layer exists
 
 ### SUB-GOAL 1: Make the system inspectable
 **Why:** The user cannot evaluate progress without being able to see what the system has done.
-**Done when:** Milestone 1 complete.
-**Tasks that serve this:** Notebook creation (00, 02), session_state.md updates.
+**Done when:** The story notebook series is implemented and validated.
+**Tasks that serve this:** `STORY-NB-*` notebook tasks, session_state.md updates.
 
 ### SUB-GOAL 2: Ensure the pipeline is verifiably correct
 **Why:** Phase 2 will build on the agent pipeline. Silent bugs now become compounding failures later.

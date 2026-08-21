@@ -3,6 +3,8 @@
 # Copy the entire prompt block and paste it to start a Pi session.
 # Do not edit the prompts — the file paths and task IDs are exact.
 
+> Historical note (2026-06-29): the checkpoint prompts below preserve older CP0/CP1 execution text and may include stale expected counts such as `125 passed`. Current work should start from `docs/06_plans/MICROTASK_SPEC.md`; current validation baseline is `145 passed, 3 skipped`.
+
 ---
 
 ## Checkpoint 0 — System Foundation

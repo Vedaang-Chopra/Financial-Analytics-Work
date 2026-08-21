@@ -17,7 +17,7 @@ from utils.url_utils import canonical_url, file_type_from_url
 LOGGER = logging.getLogger(__name__)
 
 DATASET_TYPE_HINTS = {
-    "portfolio_disclosure": ["portfolio", "holding", "monthly portfolio"],
+    "portfolio_disclosure": ["portfolio", "holding", "monthly portfolio", "fortnightly portfolio", "dashboard", "monthly dashboard"],
     "factsheet": ["factsheet", "fact sheet"],
     "nav_history": ["nav", "net asset value", "historical nav", "navall"],
     "ter": ["total expense ratio", "ter"],

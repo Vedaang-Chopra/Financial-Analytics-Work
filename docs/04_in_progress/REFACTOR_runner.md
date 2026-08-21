@@ -1,13 +1,15 @@
 # Refactor Candidate: agent/runner.py
 
 _Created: 2026-06-26. Per CLAUDE_CODE_MASTER_BRIEF.md Part 2A._
-_Do NOT execute this refactor in the test-coverage session. Must happen before Phase 2._
+_Status update 2026-06-29: resolved. This document is historical and should not be executed._
 
 ---
 
 ## Violation
 
-`agent/runner.py` is 821 lines and mixes Layer 3 (orchestration) with Layer 4 (core data logic).
+Resolved by extracting upsert logic to `mutual_fund_ingestion/agent/upserts.py` and artifact processing to `mutual_fund_ingestion/agent/artifact_processor.py`.
+
+Original issue: `agent/runner.py` was 821 lines and mixed Layer 3 (orchestration) with Layer 4 (core data logic).
 
 ### Embedded Layer 4 logic (should be in separate module):
 
@@ -47,9 +49,9 @@ _Do NOT execute this refactor in the test-coverage session. Must happen before P
 
 ## Gate
 
-This refactor is a prerequisite for Phase 2 implementation.
+This refactor is complete and no longer gates Phase 2 or story notebook work.
 
-**Do not start Phase 2 implementation until this refactor is complete.**
+**Do not execute this document as a current task.**
 
 Reason: Phase 2 will add discovery-from-profiles orchestration to runner.py. If runner.py already violates layer separation, Phase 2 will make it significantly worse and harder to refactor later.
 
