@@ -157,7 +157,10 @@ class PeerRow(Base):
 
 
 class PricePoint(Base):
-    """Weekly price history from screener's chart endpoint (Price/DMA50/DMA200/Volume)."""
+    """Price history. Two sources share this table:
+    - series='price'/'dma50'/'dma200'/'volume' — weekly, from screener's chart endpoint
+    - series='daily' — daily OHLC from Yahoo Finance (deep back-history)
+    """
 
     __tablename__ = "price_points"
     __table_args__ = (
@@ -167,10 +170,14 @@ class PricePoint(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     stock_id: Mapped[int] = mapped_column(ForeignKey("stocks.id"), index=True)
     point_date: Mapped[Date] = mapped_column(Date)
-    series: Mapped[str] = mapped_column(String(16))  # price | dma50 | dma200 | volume
-    close: Mapped[float | None] = mapped_column(Numeric)  # price/dma value
+    series: Mapped[str] = mapped_column(String(16))  # price|dma50|dma200|volume|daily
+    close: Mapped[float | None] = mapped_column(Numeric)  # price/dma/daily close
     volume: Mapped[int | None] = mapped_column(Numeric)  # bigint-scale volumes (e.g. Adani Power)
-    delivery_pct: Mapped[float | None] = mapped_column(Numeric)  # volume meta
+    delivery_pct: Mapped[float | None] = mapped_column(Numeric)  # screener volume meta
+    open: Mapped[float | None] = mapped_column(Numeric)  # daily only (yahoo)
+    high: Mapped[float | None] = mapped_column(Numeric)  # daily only
+    low: Mapped[float | None] = mapped_column(Numeric)  # daily only
+    adj_close: Mapped[float | None] = mapped_column(Numeric)  # split/div-adjusted (yahoo)
     fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
 
@@ -375,11 +382,17 @@ def save_payload(database_url: str, payload: dict, peers: list[dict] | None = No
                 existing.close = pt.get("close")
                 existing.volume = pt.get("volume")
                 existing.delivery_pct = pt.get("delivery_pct")
+                existing.open = pt.get("open")
+                existing.high = pt.get("high")
+                existing.low = pt.get("low")
+                existing.adj_close = pt.get("adj_close")
             else:
                 session.add(PricePoint(
                     stock_id=stock.id, point_date=pt["point_date"], series=pt["series"],
                     close=pt.get("close"), volume=pt.get("volume"),
                     delivery_pct=pt.get("delivery_pct"),
+                    open=pt.get("open"), high=pt.get("high"), low=pt.get("low"),
+                    adj_close=pt.get("adj_close"),
                 ))
             ph_count += 1
         counts["price_points"] = ph_count

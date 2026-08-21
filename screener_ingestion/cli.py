@@ -27,7 +27,7 @@ def cmd_init_db(args) -> int:
 
 def ingest_one(slug: str, database_url: str, consolidated: bool = True,
                with_peers: bool = True, with_chart: bool = True,
-               chart_days: int = 3652) -> dict:
+               chart_days: int = 3652, with_daily: bool = True) -> dict:
     """Fetch → parse → save one stock. Returns run summary."""
     html = fetch.fetch_company(slug, consolidated=consolidated)
     payload = parse.parse_company_page(html)
@@ -51,9 +51,22 @@ def ingest_one(slug: str, database_url: str, consolidated: bool = True,
         except Exception as exc:  # chart must never fail the run
             logging.getLogger(__name__).warning("Chart fetch failed for %s: %s", slug, exc)
 
+    daily_history = []
+    if with_daily:
+        try:
+            from . import yahoo
+            ysym = yahoo.yahoo_symbol(slug, payload.get("nse_code"))
+            rows, ymeta = yahoo.parse_daily(yahoo.fetch_daily(ysym))
+            daily_history = rows
+            logging.getLogger(__name__).info("Yahoo daily for %s (%s): %d rows %s..%s",
+                                             slug, ysym, ymeta["count"],
+                                             ymeta["first_date"], ymeta["last_date"])
+        except Exception as exc:  # daily backfill must never fail the run
+            logging.getLogger(__name__).warning("Yahoo daily failed for %s: %s", slug, exc)
+
     raw_path = str(fetch.latest_cached(slug) or "")
     run_uuid = db.save_payload(database_url, payload, peers=peers, raw_path=raw_path,
-                               price_history=price_history)
+                               price_history=price_history + daily_history)
     all_statements = {**(payload.get("financials") or {}), **(payload.get("shareholding") or {})}
     line_items = sum(_count_items(x) for x in all_statements.values())
     return {
@@ -63,6 +76,7 @@ def ingest_one(slug: str, database_url: str, consolidated: bool = True,
         "line_items": line_items,
         "peers": len(peers),
         "price_points": len(price_history),
+        "daily_points": len(daily_history),
         "documents": len(payload.get("documents") or []),
         "top_ratios": payload.get("top_ratios") or {},
     }
