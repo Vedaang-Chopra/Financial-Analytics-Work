@@ -167,13 +167,16 @@ class ArtifactProcessor:
         session.flush()
 
         # Validate and filter
-        valid_records, quarantined_records = validate_and_filter_records(parser_result, self.run_id)
+        valid_records, quarantined_records, snapshot_warnings = validate_and_filter_records(
+            parser_result, self.run_id, return_warnings=True
+        )
 
         LOGGER.info(
-            "Validation for %s: %d valid, %d quarantined",
+            "Validation for %s: %d valid, %d quarantined, %d snapshot warnings",
             url,
             len(valid_records),
             len(quarantined_records),
+            len(snapshot_warnings),
         )
 
         # Write validation results + quarantine rows
