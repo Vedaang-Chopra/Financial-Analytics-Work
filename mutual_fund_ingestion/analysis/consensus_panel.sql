@@ -44,6 +44,8 @@ WITH dated_holdings AS (
         ph.isin                                   AS isin,
         date_trunc('quarter', ps.reporting_date)  AS qtr_ts,
         ps.scheme_id                              AS scheme_id,
+        s.id                                      AS scheme_pk,
+        s.fund_id                                 AS fund_id,
         s.category                                AS category,
         ph.percentage_to_nav                      AS percentage_to_nav,
         (
@@ -66,34 +68,53 @@ WITH dated_holdings AS (
 scheme_level AS (
     -- collapse duplicate rows within one scheme-quarter (e.g. partial disclosures)
     SELECT DISTINCT
-        isin,
-        qtr_ts,
-        scheme_id,
-        category,
-        latest_aum_cr,
-        max(percentage_to_nav) AS pct_to_nav
-    FROM dated_holdings
-    GROUP BY isin, qtr_ts, scheme_id, category, latest_aum_cr
+        dh.isin,
+        dh.qtr_ts,
+        dh.scheme_id,
+        -- E1 fund-level rollup: Direct/Regular plan variants of one fund share
+        -- a fund_id; counting DISTINCT funds (falling back to scheme_id where
+        -- unlinked) stops dual-plan double-counting of consensus.
+        COALESCE(dh.fund_id, dh.scheme_pk)                        AS holder_entity_id,
+        -- fund category = mode of member schemes' categories; falls back to the
+        -- scheme's own category when unlinked or no member has a category.
+        -- (dh. prefix is REQUIRED: inside the subquery an unqualified fund_id
+        --  would resolve to s2.fund_id and match every scheme.)
+        COALESCE(
+            (SELECT fcat.category FROM (
+                SELECT s2.category AS category, count(*) AS n
+                FROM schemes s2
+                WHERE s2.fund_id = dh.fund_id AND s2.category IS NOT NULL
+                GROUP BY s2.category
+                ORDER BY n DESC, s2.category
+                LIMIT 1
+            ) fcat),
+            dh.category
+        )                                                          AS category,
+        dh.latest_aum_cr,
+        max(dh.percentage_to_nav) AS pct_to_nav
+    FROM dated_holdings dh
+    GROUP BY dh.isin, dh.qtr_ts, dh.scheme_id, dh.scheme_pk, dh.fund_id, dh.category,
+             dh.latest_aum_cr
 )
 SELECT
     sl.isin::text                                                    AS isin,
     sl.qtr_ts::date                                                  AS qtr,
     i.name                                                           AS instrument_name,
-    count(DISTINCT sl.scheme_id)                                     AS holders_total,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)                              AS holders_total,
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%small%')                   AS holders_smallcap,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%large%')                   AS holders_largecap,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%mid%')                     AS holders_midcap,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%flexi%'
              OR sl.category ILIKE '%multi%')                         AS holders_flexicap,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%elss%')                    AS holders_elss,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category ILIKE '%index%')                   AS holders_index,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.category IS NOT NULL
                  AND sl.category NOT ILIKE '%small%'
                  AND sl.category NOT ILIKE '%large%'
@@ -104,7 +125,7 @@ SELECT
                  AND sl.category NOT ILIKE '%index%')                AS holders_other_category,
     round(avg(sl.pct_to_nav), 6)                                     AS avg_pct_to_nav,
     max(sl.pct_to_nav)                                               AS max_pct_to_nav,
-    count(DISTINCT sl.scheme_id)
+    count(DISTINCT sl.holder_entity_id)
         FILTER (WHERE sl.latest_aum_cr IS NOT NULL)                  AS latest_aum_cr_basis,
     round(sum(sl.pct_to_nav * sl.latest_aum_cr / 100.0)::numeric, 4) AS total_aum_weighted_exposure_cr
 FROM scheme_level sl

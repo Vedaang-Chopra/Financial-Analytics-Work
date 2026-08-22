@@ -152,10 +152,32 @@ class AMC(Base):
     __table_args__ = (Index("ix_amcs_normalized_name", "normalized_name"),)
 
 
+class Fund(Base):
+    """Fund-level entity: groups AMFI plan-level scheme rows of one fund (E1).
+
+    Direct-Growth / Regular-IDCW variants of the same portfolio share one Fund
+    row so consensus counts distinct funds, not plans. Linking is additive:
+    schemes keep their own rows and history.
+    """
+
+    __tablename__ = "funds"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    amc_id = Column(UUID(as_uuid=True), ForeignKey("amcs.id"), nullable=True)
+    base_name = Column(Text, nullable=False)
+    normalized_base_name = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("amc_id", "normalized_base_name", name="uq_funds_amc_normbase"),
+        Index("ix_funds_normalized_base", "normalized_base_name"),
+    )
+
+
 class Scheme(Base):
     __tablename__ = "schemes"
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     amc_id = Column(UUID(as_uuid=True), ForeignKey("amcs.id"), nullable=True)
+    fund_id = Column(UUID(as_uuid=True), ForeignKey("funds.id"), nullable=True)
     scheme_code = Column(Text, nullable=True, unique=True)
     scheme_name = Column(Text, nullable=False)
     normalized_scheme_name = Column(Text, nullable=False)

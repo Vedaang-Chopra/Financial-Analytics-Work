@@ -13,6 +13,7 @@ from sqlalchemy.dialects.postgresql import insert
 
 from .db import (
     AMC,
+    Fund,
     NAVHistory,
     PortfolioHolding,
     PortfolioSnapshot,
@@ -20,6 +21,39 @@ from .db import (
     ValidationResult,
 )
 from utils.text_utils import normalize_amc_name
+
+
+def _resolve_or_create_fund(session: "Session", amc_id: Any, scheme_name: str):
+    """E1: resolve-or-create the fund-level entity for a scheme (additive).
+
+    Groups plan variants (Direct/Regular x Growth/IDCW) of one portfolio under
+    a single Fund row so consensus counts distinct funds, not plans.
+    """
+    from .fund_rollup import base_display_name, normalize_base_name
+
+    if amc_id is None:
+        return None  # never group across unknown AMC boundaries
+    key = normalize_base_name(scheme_name)
+    if not key:
+        return None
+    fund = session.execute(
+        select(Fund).where(Fund.amc_id == amc_id, Fund.normalized_base_name == key)
+    ).scalar_one_or_none()
+    if fund is None:
+        fund = Fund(
+            amc_id=amc_id,
+            base_name=base_display_name(scheme_name),
+            normalized_base_name=key,
+        )
+        session.add(fund)
+        try:
+            session.flush()
+        except Exception:
+            session.rollback()
+            fund = session.execute(
+                select(Fund).where(Fund.amc_id == amc_id, Fund.normalized_base_name == key)
+            ).scalar_one_or_none()
+    return fund
 
 
 if TYPE_CHECKING:
@@ -511,6 +545,12 @@ class UpsertManager:
                 session.flush()
             elif scheme.amc_id is None and amc is not None:
                 scheme.amc_id = amc.id
+
+            # E1: link the fund-level entity (additive; plan variants share it)
+            if scheme.fund_id is None and scheme.amc_id is not None:
+                fund = _resolve_or_create_fund(session, scheme.amc_id, scheme.scheme_name)
+                if fund is not None:
+                    scheme.fund_id = fund.id
 
             key = (scheme.id, reporting_date)
             snapshots[key].append(record)

@@ -90,9 +90,17 @@ def test_sql_structure():
 # ---------------------------------------------------------------- layer 2 ----
 
 DUMMY_SCHEMA_SQL = """
+CREATE TABLE funds (
+    id text PRIMARY KEY,
+    amc_id text,
+    base_name text,
+    normalized_base_name text,
+    created_at timestamptz DEFAULT now()
+);
 CREATE TABLE schemes (
     id text PRIMARY KEY,
     amc_id text,
+    fund_id text REFERENCES funds(id),
     scheme_code text,
     scheme_name text,
     normalized_scheme_name text,
@@ -246,6 +254,62 @@ def test_applies_to_scratch_schema():
               AND indexname LIKE 'ux%%'
         """, (schema,))
         assert cur.fetchone() is not None  # unique (isin, qtr) index exists
+    finally:
+        conn.rollback()
+        with conn.cursor() as cur:
+            cur.execute(f'DROP SCHEMA IF EXISTS "{schema}" CASCADE')
+        conn.commit()
+        conn.close()
+
+
+@pytest.mark.skipif(not _pg_reachable(), reason="PostgreSQL or psycopg2 unavailable")
+def test_fund_rollup_dedupes_dual_plan_holders():
+    """E1 regression: Direct + Regular plans of ONE fund must count as ONE holder.
+
+    Two plan-variant schemes share fund 'f-1' and both hold ISIN Y in the same
+    quarter -> holders_total for that cell counts 1, not 2. An unlinked scheme
+    holding the same ISIN still counts separately (fallback to scheme id).
+    """
+    conn = psycopg2.connect(DSN)
+    schema = f"consensus_panel_test_{uuid.uuid4().hex[:8]}"
+    try:
+        cur = conn.cursor()
+        cur.execute(f'CREATE SCHEMA "{schema}"')
+        cur.execute(f'SET search_path TO "{schema}"')
+        conn.commit()
+
+        cur.execute(DUMMY_SCHEMA_SQL)
+        cur.execute("""
+            INSERT INTO funds (id, base_name) VALUES ('f-1', 'Some Fund');
+            INSERT INTO schemes (id, fund_id, scheme_name, category) VALUES
+                ('d-1', 'f-1', 'Fund Direct Growth', 'Equity Scheme - Small Cap Fund'),
+                ('r-1', 'f-1', 'Fund Regular IDCW',  'Equity Scheme - Small Cap Fund'),
+                ('u-1', NULL,   'Unlinked Fund',     'Equity Scheme - Flexi Cap Fund');
+            INSERT INTO portfolio_snapshots (id, scheme_id, reporting_date) VALUES
+                ('sd-1', 'd-1', '2025-03-31'),
+                ('sr-1', 'r-1', '2025-03-31'),
+                ('su-1', 'u-1', '2025-03-31');
+            INSERT INTO portfolio_holdings (snapshot_id, isin, percentage_to_nav) VALUES
+                ('sd-1', 'INE000DUAL02', 3.0),
+                ('sr-1', 'INE000DUAL02', 2.5),
+                ('su-1', 'INE000DUAL02', 1.0);
+        """)
+        conn.commit()
+
+        cur.execute(SQL_PATH.read_text())
+        conn.commit()
+
+        cur.execute("""
+            SELECT holders_total, holders_smallcap, holders_flexicap,
+                   avg_pct_to_nav
+            FROM consensus_panel WHERE isin = 'INE000DUAL02'
+        """)
+        total, small, flexi, avgpct = cur.fetchone()
+        assert total == 2      # fund f-1 (2 plans) + unlinked u-1 = TWO holders
+        assert small == 1      # f-1's mode category = small cap; counted once
+        assert flexi == 1
+        # avg over distinct scheme-quarters in scheme_level (3.0, 2.5, 1.0)
+        assert float(avgpct) == pytest.approx(2.1667, abs=1e-3)
     finally:
         conn.rollback()
         with conn.cursor() as cur:
