@@ -462,10 +462,28 @@ class UpsertManager:
             except ValueError:
                 reporting_date = date.today()
 
-            # Resolve or create scheme (first() - multiple schemes may share a name)
-            scheme = session.execute(
-                select(Scheme).where(Scheme.normalized_scheme_name == normalize_amc_name(scheme_name))
-            ).scalars().first()
+            # Resolve or create scheme. Prefer an AMC-scoped scheme row: the
+            # same normalized name can exist under several AMCs, and an
+            # unscoped match would file holdings under the wrong fund.
+            scheme = None
+            hint_early = record.get("amc_hint")
+            hint_amc_early = None
+            if hint_early:
+                hint_amc_early = session.execute(
+                    select(AMC).where(AMC.normalized_name == normalize_amc_name(hint_early))
+                ).scalar_one_or_none()
+            if hint_amc_early is not None:
+                scheme = session.execute(
+                    select(Scheme)
+                    .where(
+                        Scheme.normalized_scheme_name == normalize_amc_name(scheme_name),
+                        Scheme.amc_id == hint_amc_early.id,
+                    )
+                ).scalars().first()
+            if scheme is None:
+                scheme = session.execute(
+                    select(Scheme).where(Scheme.normalized_scheme_name == normalize_amc_name(scheme_name))
+                ).scalars().first()
 
             if not scheme:
                 scheme = session.execute(
