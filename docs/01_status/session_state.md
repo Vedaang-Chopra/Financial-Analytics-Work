@@ -1,6 +1,27 @@
 # Session State — 2026-06-27 (Documentation Consolidation)
 
-## Current Session Update (2026-06-29 — Story Notebook Planning)
+## Current Session Update (2026-08-22 — AMC breadth wave, analysis refresh, cleanup)
+
+- **Step 1 (AMC breadth):** Built `scripts/playwright_amc_discovery.py` — generic
+  static_html → Playwright discovery + polite ingestion over all 53 sources in
+  `configs/amc_sources.yaml`. Reuses `download_and_parse` from
+  `scripts/targeted_portfolio_ingestion.py` (validate_and_filter_records →
+  quarantine_rows → upsert_canonical; never bare upsert). Smoke-tested on 3 AMCs
+  before full run. Results: snapshots 3,090→8,050; holdings 164.6K→363.6K;
+  AMCs covered 23→33. Fixed a parser-killing bug en route: inline `import re`
+  shadowed module-level `re` in `parse_portfolio_excel` (every sheet failed with
+  UnboundLocalError after the SBI date-pattern addition).
+- **Step 2 (refresh):** `create_consensus_view.py --refresh` + `compute_scheme_overlap.py --force`
+  → consensus_panel 18,251→55,602 rows (53 qtrs / 18,662 ISINs); scheme_overlap
+  45,688→346,873 pairs. Restored lost `scripts/db_config.py` dependency.
+- **Step 3 (cleanup):** dropped scratch DBs `scratch_c3_test`, `scratch_c3_verify`.
+- **Commits:** `dda9dde` (discovery+ingestion), `d711e94` (db_config restore).
+- **Tests:** 332 passed / 6 pre-existing failures (4× test_agent_db dry-run fixtures,
+  2× test_smoke live network) — unchanged from documented baseline.
+- **Next:** debt/G-Sec/repo ISIN filter + backtest re-run (step 5 of the queue);
+  then depth passes for HSBC/JioBlackRock/Zerodha (`--max-files-per-amc` up).
+
+## Prior Session Update (2026-06-29 — Story Notebook Planning)
 
 - Story notebook plan created: `docs/06_plans/active/STORY_NOTEBOOK_SERIES_PLAN.md`.
 - Batch task file created: `docs/06_plans/active/STORY_NOTEBOOK_SERIES_TASKS.md`.

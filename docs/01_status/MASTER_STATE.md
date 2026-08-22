@@ -379,10 +379,12 @@ _Verified against live DB 2026-08-22 (full-portfolio-backfill mission: Phases A�
 | Metric | Value |
 |---|---|
 | AMCs in source registry | 53 + AMFI + SEBI |
-| AMCs with portfolio data in DB | 25 (DSP, Axis, ICICI, Angel One, LIC, Groww, PPFAS, ABSL, Nippon India, Shriram, Baroda BNP, UTI, Quantum, HDFC, Franklin Templeton, Mirae, Old Bridge, IL&FS IDF, Quant, NJ, Sundaram, Unifi, ITI, Invesco, Samco) |
-| Portfolio holdings ingested | ~280,800 (up from ~19,100 at mission start) |
-| Portfolio snapshots | ~3,250+ |
-| Deepest archives | DSP 138 dates (2020-09→2026-08); Axis 118 dates (2020-10→2026-08) |
+| AMCs with portfolio data in DB | 33 (verified live 2026-08-22 post-breadth-wave) |
+| Portfolio holdings ingested | ~363,600 (up from ~19,100 at mission start) |
+| Portfolio snapshots | ~8,050 |
+| consensus_panel rows | 55,602 (53 quarters, 18,662 ISINs) — refreshed 2026-08-22 |
+| scheme_overlap pairs | 346,873 (907 schemes) — rebuilt 2026-08-22 |
+| Deepest archives | DSP 138 dates (2020-09→2026-08); Axis 118 dates (2020-10→2026-08); PPFAS 369 snapshots (2013→2026) |
 | Schemes with NULL amc_id | 2,528 — all defunct-AMC history (ABN AMRO/ING/Fortis…), verified referenced by documents/nav_history, intentionally kept |
 | AMFI datasets cataloged | 20 |
 | Strategy patterns identified | 6 (reusable) |
@@ -399,3 +401,28 @@ _Verified against live DB 2026-08-22 (full-portfolio-backfill mission: Phases A�
   headers filtered; Reverse Repo rows are real holdings for overnight funds;
   AMC-scoped scheme matching prevents cross-AMC snapshot collisions.
 - Idempotency proven: identical re-runs insert 0 new rows / 0 new quarantine.
+
+### AMC breadth wave + analysis refresh (2026-08-22, later session)
+
+- **Generic discovery+ingestion:** `scripts/playwright_amc_discovery.py` (deterministic
+  strategy order per AGENTS.md: static_html → playwright; polite sequential, ≥1s sleep,
+  real UA). Discovery artifacts in `data/raw/mutual_funds/discovered_links/`.
+- **Coverage result:** snapshots 3,090 → **8,050**; holdings ~164.6K → **~363.6K**;
+  AMCs with snapshots 23 → **33**. Biggest new sources: Motilal Oswal (~20.6K holdings),
+  Angel One (~28.6K), Groww fortnightly expansion (~16.9K), Quantum monthly archive
+  (~5.5K), NJ deepened to 227 snapshots (2021→2026).
+- **Parser fix:** inline `import re` statements shadowed the module-level `re` in
+  `parse_portfolio_excel`, causing UnboundLocalError on every sheet once the SBI
+  date pattern was added — all sheets silently failed. Removed the inline imports.
+- **Date fallback:** `fallback_reporting_date` metadata honored by portfolio_excel
+  when the workbook itself carries no parseable date (e.g. Quantum month-labeled files).
+- **Analysis layer refreshed:** `consensus_panel` 18,251 → **55,602 rows**
+  (21 → 53 quarters; 7,730 → 18,662 ISINs); `scheme_overlap` 45,688 → **346,873 pairs**
+  (907 schemes). Overlap pair-guard needed `--force` (381,802 expected > 200K default) — legitimate growth.
+- `scripts/db_config.py` restored (lost in Leg-D cleanup) — DSN helper used by
+  create_consensus_view.py / compute_scheme_overlap.py.
+- **Known gaps:** Kotak behind hCaptcha (manual_review per policy); JM Financial
+  serves HTML to non-browser downloads; HSBC/JioBlackRock/Zerodha ingest only newest
+  12 files so far (raise --max-files-per-amc for depth); Edelweiss/PGIM/TRUST/Union/
+  WhiteOak/Bandhan/360ONE/ASK/Mahindra Manulife found no direct file links.
+- Scratch DBs `scratch_c3_test` / `scratch_c3_verify` dropped.
