@@ -223,6 +223,7 @@ def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upse
                 raw_artifact.id,
                 url,
                 stats,
+                amc_name=amc_name,
             )
             
             session.commit()
