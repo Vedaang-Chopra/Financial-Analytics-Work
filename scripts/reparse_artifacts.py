@@ -57,6 +57,8 @@ def main() -> int:
     ap.add_argument("--max-files", type=int, default=0, help="0 = all")
     ap.add_argument("--dry-run", action="store_true", help="report only, fetch nothing")
     ap.add_argument("--delay", type=float, default=2.0, help="seconds between requests")
+    ap.add_argument("--force", action="store_true",
+                    help="ignore checksum dedup (re-parse with newer parser)")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
@@ -91,6 +93,9 @@ def main() -> int:
     # checksums that already produced documents (idempotency guard)
     known = {c for (c,) in session.query(Document.checksum).filter(
         Document.checksum.isnot(None)).all() if c}
+
+    if args.force:
+        known = set()  # re-parse everything with the current parser
 
     for art in artifacts:
         url = art.source_url

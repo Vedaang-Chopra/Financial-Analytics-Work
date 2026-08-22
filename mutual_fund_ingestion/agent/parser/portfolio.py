@@ -72,7 +72,8 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^certificate of deposit$',
     r'^money market instruments?$',
     r'^debt instruments?$',
-    r'^securitised debt$',
+    r'^securiti[sz]ed debt(?: instruments)?$',  # "Securitised Debt" / "Securitized Debt Instruments"
+
     r'^ytm.*$',
     r'^yield to maturity$',
     r'^ytc[- ]yield to call$',
