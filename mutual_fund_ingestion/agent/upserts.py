@@ -370,15 +370,46 @@ class UpsertManager:
                 sub_category=sub_category,
             )
             conflict_elements = ["scheme_code"] if scheme_code else ["normalized_scheme_name"]
-            # amc_id is intentionally absent from set_: never wipe an existing link
-            stmt = stmt.on_conflict_do_update(
-                index_elements=conflict_elements,
-                set_={
+            # Task B1: merge scheme-master enrichment fields (launch date, ISINs,
+            # closure date) into metadata_json without wiping existing keys.
+            meta_update: dict[str, Any] = {}
+            for key in ("launch_date", "closure_date", "isin_div_payout", "isin_div_reinvestment"):
+                value = record.get(key)
+                if value:
+                    meta_update[key] = value
+            if meta_update:
+                existing = None
+                if scheme_code:
+                    existing = session.execute(
+                        select(Scheme).where(Scheme.scheme_code == scheme_code)
+                    ).scalar_one_or_none()
+                if existing is None and conflict_elements == ["normalized_scheme_name"]:
+                    existing = session.execute(
+                        select(Scheme).where(Scheme.normalized_scheme_name == normalized)
+                    ).scalar_one_or_none()
+                merged_meta: dict[str, Any] = dict(existing.metadata_json or {}) if existing else {}
+                for key, value in meta_update.items():
+                    if existing is not None and merged_meta.get(key) and key != "launch_date":
+                        continue  # never clobber an existing non-launch metadata key
+                    merged_meta[key] = value
+                stmt_values = {
                     "scheme_name": stmt.excluded.scheme_name,
                     "normalized_scheme_name": stmt.excluded.normalized_scheme_name,
                     "category": stmt.excluded.category,
                     "sub_category": stmt.excluded.sub_category,
-                },
+                    "metadata_json": merged_meta,
+                }
+            else:
+                stmt_values = {
+                    "scheme_name": stmt.excluded.scheme_name,
+                    "normalized_scheme_name": stmt.excluded.normalized_scheme_name,
+                    "category": stmt.excluded.category,
+                    "sub_category": stmt.excluded.sub_category,
+                }
+            # amc_id is intentionally absent from set_: never wipe an existing link
+            stmt = stmt.on_conflict_do_update(
+                index_elements=conflict_elements,
+                set_=stmt_values,
             )
             session.execute(stmt)
             stats["rows_inserted"] = stats.get("rows_inserted", 0) + 1

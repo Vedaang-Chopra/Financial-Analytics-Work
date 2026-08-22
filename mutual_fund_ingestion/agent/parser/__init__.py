@@ -28,9 +28,14 @@ PARSER_ROUTER: dict[tuple[str, str], str] = {
     ("statutory_disclosure", "xls"): "portfolio_excel",
     ("statutory_disclosure", "csv"): "portfolio_csv",
     ("statutory_disclosure", "zip"): "portfolio_zip",
+    # AMFI monthly portfolio disclosure workbooks (multi-sheet-per-scheme)
+    ("portfolio_disclosure", "amfi_monthly_xlsx"): "portfolio_monthly_amfi",
+    ("portfolio_disclosure", "amfi_monthly_xls"): "portfolio_monthly_amfi",
     # Scheme master parsers
     ("scheme_master", "csv"): "scheme_master_csv",
     ("scheme_master", "html"): "scheme_master_html",
+    ("scheme_master", "xlsx"): "scheme_master_excel",
+    ("scheme_master", "xls"): "scheme_master_excel",
     # Metadata parsers (Q001)
     ("factsheet", "html"): "metadata_html",
     ("factsheet", "pdf"): "metadata_pdf",
@@ -76,12 +81,18 @@ def parse_file(dataset_type: str, file_type: str | None, content: bytes | str, m
     elif parser_name == "portfolio_zip":
         from .portfolio import parse_portfolio_zip
         return parse_portfolio_zip(content, metadata)
+    elif parser_name == "portfolio_monthly_amfi":
+        from .portfolio_monthly_amfi import parse_portfolio_monthly_amfi
+        return parse_portfolio_monthly_amfi(content, metadata)
     elif parser_name == "scheme_master_csv":
         from .scheme_master import parse_scheme_master_csv
         return parse_scheme_master_csv(content, metadata)
     elif parser_name == "scheme_master_html":
         from .scheme_master import parse_scheme_master_html
         return parse_scheme_master_html(content, metadata)
+    elif parser_name == "scheme_master_excel":
+        from .scheme_master_excel import parse_scheme_master_excel
+        return parse_scheme_master_excel(content, metadata)
     elif parser_name in ("metadata_html", "metadata_pdf"):
         from .metadata import parse_metadata_html, parse_metadata_pdf
         if parser_name == "metadata_html":
