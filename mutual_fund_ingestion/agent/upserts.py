@@ -431,13 +431,27 @@ class UpsertManager:
                 sector = holding.get("sector")
                 rating = holding.get("rating")
 
-                # Resolve or create instrument
+                # Resolve or create instrument.
+                # Valid ISIN: look up by ISIN first (existing behavior).
+                instrument = None
                 if isin:
                     instrument = session.execute(
                         select(Instrument).where(Instrument.isin == isin)
                     ).scalars().first()
-                else:
-                    instrument = None
+
+                if not instrument and not isin:
+                    # Missing ISIN: resolve by normalized_name fallback instead
+                    # of blind-inserting a duplicate NULL-ISIN row every time.
+                    normalized_name = normalize_amc_name(security_name)
+                    instrument = session.execute(
+                        select(Instrument)
+                        .where(
+                            Instrument.isin.is_(None),
+                            Instrument.normalized_name == normalized_name,
+                        )
+                        .order_by(Instrument.created_at)
+                        .limit(1)
+                    ).scalars().first()
 
                 if not instrument:
                     instrument = Instrument(
