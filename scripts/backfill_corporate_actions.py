@@ -49,8 +49,22 @@ SLEEP_SECONDS = 1.2
 
 # ratio patterns: prefer explicit share ratios ("Bonus 1:1", "Split 10:5")
 RATIO_RE = re.compile(r"(?:split|bonus|rights|fsp)[^:]*?(\d+)\s*:\s*(\d+)", re.IGNORECASE)
-# face-value split form: "Rs.10/- to Rs.2/-"
-FV_RE = re.compile(r"[rR]s\.?\s*([\d.]+)\s*/?-?\s*(?:to|-)\s*[rR]s\.?\s*([\d.]+)")
+# face-value split forms: "Rs.10/- to Rs.2/-" and
+# "From Rs 10/- per share to Rs 2/- per share" (NSE "Face Value Split (Sub-Division)")
+FV_RE = re.compile(
+    r"(?:rs\.?\s*([\d.]+)\s*/?-?\s*(?:to|-)\s*rs\.?\s*([\d.]+))"
+    r"|(?:from\s+rs\.?\s*([\d.]+).{0,30}?to\s+rs\.?\s*([\d.]+))",
+    re.IGNORECASE,
+)
+
+
+def _fv_groups(m: re.Match) -> tuple[str, str] | None:
+    g = m.groups()
+    if g[0] is not None:
+        return g[0], g[1]
+    if g[2] is not None:
+        return g[2], g[3]
+    return None
 
 
 def parse_subject(subject: str) -> tuple[str, float] | None:
@@ -62,8 +76,10 @@ def parse_subject(subject: str) -> tuple[str, float] | None:
         if m:
             return "split", float(m.group(1)) / float(m.group(2))
         m = FV_RE.search(s)
-        if m and float(m.group(2)) > 0:
-            return "split", float(m.group(1)) / float(m.group(2))
+        if m:
+            fv = _fv_groups(m)
+            if fv and float(fv[1]) > 0:
+                return "split", float(fv[0]) / float(fv[1])
         return None
     if "bonus" in low:
         m = RATIO_RE.search(s)
