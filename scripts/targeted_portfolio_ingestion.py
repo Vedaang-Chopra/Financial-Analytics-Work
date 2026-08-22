@@ -264,10 +264,10 @@ def ingest_amc(amc_key: str, config: dict, session_maker, upsert_manager: Upsert
         all_urls = []
         for year_urls in urls.values():
             all_urls.extend(year_urls)
-        urls = all_urls[:max_files]
+        urls = sorted(all_urls)[:max_files]  # sort: deterministic sampling
     elif amc_key in AMC_NAVIGATORS and AMC_NAVIGATORS[amc_key] is not None:
         navigator = AMC_NAVIGATORS[amc_key]
-        urls = navigator()[:max_files]
+        urls = sorted(navigator())[:max_files]  # sort: deterministic sampling
     else:
         LOGGER.warning("Unknown AMC: %s", amc_key)
         return stats
