@@ -40,7 +40,9 @@ from mutual_fund_ingestion.agent.db import get_session_maker  # noqa: E402
 
 LOGGER = logging.getLogger(__name__)
 
-DEFAULT_DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DEFAULT_DATABASE_URL = mutual_funds_url()
 RUNTIME_DIR = REPO_ROOT / "data/tmp/mutual_funds/runtime"
 BACKUP_DIR = REPO_ROOT / "data/tmp"
 
@@ -173,11 +175,19 @@ def main(argv: list[str] | None = None) -> int:
     before_counts = canonical_counts(session)
     print(f"Canonical counts BEFORE: {before_counts}")
 
-    persisted = check_persistence_gate(session)
-    print(f"Persistence gate: {len(persisted)} checksums confirmed in canonical tables")
+    gate = check_persistence_gate(session)
+    if isinstance(gate, tuple):
+        persisted, persisted_urls = gate
+    else:  # older signature returned checksums only
+        persisted, persisted_urls = gate, set()
+    print(
+        f"Persistence gate: {len(persisted)} checksums + {len(persisted_urls)} "
+        "source-urls confirmed in canonical tables"
+    )
 
     candidates = load_retention_candidates(
-        session, persisted_checksums=persisted, finished_before=cutoff, min_age=min_age
+        session, persisted_checksums=persisted, finished_before=cutoff,
+        min_age=min_age, persisted_urls=persisted_urls
     )
     eligible = [c for c in candidates if c["local_path"] and not c["blocked_reasons"]]
     eligible = [c for c in eligible if Path(c["local_path"]).exists()]
@@ -192,6 +202,19 @@ def main(argv: list[str] | None = None) -> int:
         for reason in c["blocked_reasons"]:
             reason_totals[reason] = reason_totals.get(reason, 0) + 1
     print("Blocked reasons:", reason_totals or "none")
+
+    # --- non-disclosure scratch (crawler bycatch: PDFs, notices, screenshots) ---
+    scratch = [
+        c for c in candidates
+        if c["blocked_reasons"] and c["local_path"] and Path(c["local_path"]).exists()
+        and c.get("source_url")
+        and not any(k in str(c["source_url"]).lower() for k in ("portfolio", "disclosure"))
+        and "file_missing_on_disk" not in c["blocked_reasons"]
+        and "run_still_running_or_unfinished" not in c["blocked_reasons"]
+        and "run_finished_after_cutoff" not in c["blocked_reasons"]
+    ]
+    scratch_bytes = sum(Path(c["local_path"]).stat().st_size for c in scratch if Path(c["local_path"]).exists())
+    print(f"\nNon-disclosure scratch (never parsed, not needed): {len(scratch)} files ({human(scratch_bytes)})")
 
     # --- test db litter -----------------------------------------------------
     test_deletable, test_ref_blocked, test_young_blocked = ([], [], [])
@@ -211,6 +234,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  DEL {human(c.get('disk_size_bytes', 0)):>9}  {c['local_path']}")
         for p in test_deletable:
             print(f"  DEL {human(p.stat().st_size):>9}  {p.name} (repo-root sqlite litter)")
+        for c in scratch:
+            print(f"  DEL {human(Path(c['local_path']).stat().st_size):>9}  {c['local_path']} (non-disclosure scratch)")
         runtime_before = du_bytes(args.runtime_dir)
         data_before = du_bytes(REPO_ROOT / "data")
         print(f"\ndata/tmp/mutual_funds/runtime currently {human(runtime_before)}; data/ {human(data_before)}")
@@ -232,6 +257,11 @@ def main(argv: list[str] | None = None) -> int:
             "run_finished_at": str(c["run_finished_at"]),
         }
         for c in eligible
+    ] + [
+        {"category": "non_disclosure_scratch", "path": c["local_path"], "checksum": c.get("checksum") or "",
+         "size_bytes": Path(c["local_path"]).stat().st_size if Path(c["local_path"]).exists() else 0,
+         "raw_artifact_id": str(c["id"]), "run_finished_at": str(c["run_finished_at"])}
+        for c in scratch
     ] + [
         {"category": "repo_root_sqlite_litter", "path": str(p), "checksum": "",
          "size_bytes": p.stat().st_size, "raw_artifact_id": "", "run_finished_at": ""}
@@ -262,7 +292,26 @@ def main(argv: list[str] | None = None) -> int:
         except OSError as exc:
             session.rollback()
             LOGGER.warning("Failed to delete %s: %s", path, exc)
+
+    scratch_files, scratch_deleted_bytes = 0, 0
+    for c in scratch:
+        path = Path(c["local_path"])
+        try:
+            size = path.stat().st_size
+            path.unlink()
+            from sqlalchemy import text as _text
+            session.execute(
+                _text("UPDATE raw_artifacts SET retained = FALSE WHERE id = CAST(:aid AS uuid)"),
+                {"aid": str(c["id"])},
+            )
+            session.commit()
+            scratch_files += 1
+            scratch_deleted_bytes += size
+        except OSError as exc:
+            session.rollback()
+            LOGGER.warning("Failed to delete scratch %s: %s", path, exc)
     print(f"Deleted artifact files: {deleted_files} ({human(deleted_bytes)})")
+    print(f"Deleted non-disclosure scratch: {scratch_files} ({human(scratch_deleted_bytes)})")
 
     pruned = prune_empty_dirs(args.runtime_dir)
     print(f"Pruned empty run dirs: {len(pruned)}")

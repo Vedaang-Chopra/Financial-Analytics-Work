@@ -752,7 +752,26 @@ def check_persistence_gate(session) -> set[str]:
             {"ids": chunk},
         )
         checksums.update(row[0] for row in rows)
-    return checksums
+
+    # URL-level persistence: a file whose source_url's data reached canonical
+    # tables under a DIFFERENT artifact row (dedup re-downloads share URLs but
+    # may differ in bytes/checksum). Return (checksum -> sentinel) via a second
+    # set consumed by load_retention_candidates through persisted_urls param.
+    persisted_urls = set(
+        row[0]
+        for row in session.execute(
+            text(
+                """
+                SELECT DISTINCT d.source_url
+                FROM portfolio_snapshots ps
+                JOIN documents d ON d.id = ps.document_id
+                JOIN portfolio_holdings ph ON ph.snapshot_id = ps.id
+                WHERE d.source_url IS NOT NULL
+                """
+            )
+        )
+    )
+    return checksums, persisted_urls
 
 
 def load_retention_candidates(
@@ -761,6 +780,7 @@ def load_retention_candidates(
     persisted_checksums: set[str],
     finished_before: datetime,
     min_age: timedelta,
+    persisted_urls: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     """List local artifact files eligible for delete-after-ingest cleanup.
 
@@ -791,9 +811,10 @@ def load_retention_candidates(
         entry = dict(row)
         reasons: list[str] = []
         local_path = entry["local_path"]
-        if not entry["checksum"]:
+        url_persisted = bool(persisted_urls) and entry.get("source_url") in persisted_urls
+        if not entry["checksum"] and not url_persisted:
             reasons.append("no_checksum")
-        elif entry["checksum"] not in persisted_checksums:
+        elif not url_persisted and entry["checksum"] not in persisted_checksums:
             reasons.append("rows_not_in_canonical_tables")
         if entry["run_status"] == "running" or entry["run_finished_at"] is None:
             reasons.append("run_still_running_or_unfinished")
