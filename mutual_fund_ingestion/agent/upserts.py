@@ -106,6 +106,7 @@ class UpsertManager:
         source_url: str,
         stats: dict[str, Any],
         checksum: str | None = None,
+        amc_name: str | None = None,
     ) -> None:
         if dataset_type == "nav_history":
             self.upsert_nav_history(session, records, raw_artifact_id, source_url, stats)
@@ -114,7 +115,10 @@ class UpsertManager:
         elif dataset_type == "scheme_master":
             self.upsert_schemes(session, records, raw_artifact_id, source_url, stats)
         elif dataset_type == "portfolio_disclosure":
-            self.upsert_portfolio(session, records, raw_artifact_id, source_url, stats)
+            self.upsert_portfolio(
+                session, records, raw_artifact_id, source_url, stats,
+                checksum=checksum, amc_name=amc_name,
+            )
         # Add more dataset types as needed
 
     def upsert_nav_history(
@@ -282,7 +286,7 @@ class UpsertManager:
 
             normalized = normalize_amc_name(scheme_name)
 
-            # Resolve AMC FK if amc_name provided
+            # Resolve AMC FK: explicit amc_name, then amc_hint metadata, then scheme-name pattern
             amc_id = None
             if amc_name:
                 amc = session.execute(
@@ -290,6 +294,14 @@ class UpsertManager:
                 ).scalar_one_or_none()
                 if amc:
                     amc_id = amc.id
+            if amc_id is None:
+                hint = record.get("amc_hint") or record.get("amc_name")
+                if hint:
+                    amc = session.execute(
+                        select(AMC).where(AMC.normalized_name == normalize_amc_name(hint))
+                    ).scalar_one_or_none()
+                    if amc:
+                        amc_id = amc.id
 
             stmt = insert(Scheme).values(
                 amc_id=amc_id,
@@ -300,6 +312,7 @@ class UpsertManager:
                 sub_category=sub_category,
             )
             conflict_elements = ["scheme_code"] if scheme_code else ["normalized_scheme_name"]
+            # amc_id is intentionally absent from set_: never wipe an existing link
             stmt = stmt.on_conflict_do_update(
                 index_elements=conflict_elements,
                 set_={
@@ -320,13 +333,22 @@ class UpsertManager:
         source_url: str,
         stats: dict[str, Any],
         checksum: str | None = None,
+        amc_name: str | None = None,
     ) -> None:
-        """Upsert portfolio records to ``portfolio_snapshots`` and ``portfolio_holdings``."""
+        """Upsert portfolio records to ``portfolio_snapshots`` and ``portfolio_holdings``.
+
+        ``amc_name`` (from the ingestion layer) is stamped onto every record as
+        ``amc_hint`` so schemes created or matched here get linked to their AMC.
+        """
         from collections import defaultdict
 
         from .db import Document, Instrument, RawArtifact
 
-            # Get checksum from raw_artifact if not provided
+        if amc_name:
+            for record in records:
+                record.setdefault("amc_hint", amc_name)
+
+        # Get checksum from raw_artifact if not provided
         if checksum is None:
             raw_artifact = session.get(RawArtifact, raw_artifact_id)
             if raw_artifact is not None:
@@ -361,14 +383,27 @@ class UpsertManager:
                     select(Scheme).where(Scheme.scheme_name.ilike(f"%{scheme_name}%"))
                 ).scalars().first()
 
+            # AMC linkage: hint metadata, then name-pattern resolution
+            amc = None
+            hint = record.get("amc_hint")
+            if hint:
+                amc = session.execute(
+                    select(AMC).where(AMC.normalized_name == normalize_amc_name(hint))
+                ).scalar_one_or_none()
+            if amc is None and scheme and scheme.amc_id is None:
+                amc = _resolve_amc_for_scheme_name(session, scheme_name)
+
             if not scheme:
-                # Create scheme with minimal info
+                # Create scheme with minimal info (AMC-linked when resolvable)
                 scheme = Scheme(
                     scheme_name=scheme_name,
                     normalized_scheme_name=normalize_amc_name(scheme_name),
+                    amc_id=amc.id if amc is not None else None,
                 )
                 session.add(scheme)
                 session.flush()
+            elif scheme.amc_id is None and amc is not None:
+                scheme.amc_id = amc.id
 
             key = (scheme.id, reporting_date)
             snapshots[key].append(record)
