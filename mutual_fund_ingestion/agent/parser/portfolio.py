@@ -85,7 +85,9 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^cash & cash equivalents$',
     r'^foreign holdings$',
     r'^treasury bills?$',
-    r'^reverse repo$',
+    # NOTE: 'reverse repo' rows are REAL holdings in ICICI overnight-fund
+    # sheets (85%+ of NAV) — not filtered as headers.
+
     r'^triparty repo$',
     r'^total (?:debt|equity|investments|assets|liabilities).*$',
     r'^grand total$',
