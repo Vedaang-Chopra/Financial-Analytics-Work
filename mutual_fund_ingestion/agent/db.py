@@ -207,6 +207,20 @@ class Document(Base):
     metadata_json = Column(JSON, nullable=False, default=dict)
     created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
 
+    # Mirrors live Postgres constraint "documents_scheme_date_type_url_key"
+    # (default NULLS DISTINCT, not deferrable). The Document upsert in
+    # upserts.py relies on ON CONFLICT (scheme_id, reporting_date,
+    # document_type, source_url).
+    __table_args__ = (
+        UniqueConstraint(
+            "scheme_id",
+            "reporting_date",
+            "document_type",
+            "source_url",
+            name="documents_scheme_date_type_url_key",
+        ),
+    )
+
 
 class Instrument(Base):
     __tablename__ = "instruments"

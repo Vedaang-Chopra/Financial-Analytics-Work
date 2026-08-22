@@ -4,6 +4,7 @@ from __future__ import annotations
 import os
 import tempfile
 import unittest
+from datetime import date
 from pathlib import Path
 from typing import Any, cast
 
@@ -869,6 +870,60 @@ class DatabaseSchemaTests(unittest.TestCase):
             
             amc2 = AMC(name="Example Fund 2", normalized_name="example_fund", source_url="http://b.com")
             session.add(amc2)
+            with self.assertRaises(IntegrityError):
+                session.flush()
+        finally:
+            session.close()
+
+    def test_document_unique_constraint_in_model_metadata(self):
+        """F00x: Document model declares unique constraint matching live Postgres
+        documents_scheme_date_type_url_key (scheme_id, reporting_date,
+        document_type, source_url) — required by the ON CONFLICT upsert."""
+        from sqlalchemy import UniqueConstraint
+        from mutual_fund_ingestion.agent.db import Document
+
+        ucs = [
+            c
+            for c in Document.__table__.constraints
+            if isinstance(c, UniqueConstraint)
+            and set(col.name for col in c.columns)
+            == {"scheme_id", "reporting_date", "document_type", "source_url"}
+        ]
+        self.assertEqual(len(ucs), 1, "Document must have exactly one unique constraint on "
+                                      "(scheme_id, reporting_date, document_type, source_url)")
+        self.assertEqual(ucs[0].name, "documents_scheme_date_type_url_key")
+
+    def test_document_unique_constraint_enforced_on_duplicate(self):
+        """F00x: Duplicate (scheme_id, reporting_date, document_type, source_url)
+        document rows are rejected — proves the constraint is live in the DB."""
+        from sqlalchemy.exc import IntegrityError
+        from mutual_fund_ingestion.agent.db import AMC, Document, Scheme
+
+        session = self.session_maker()
+        try:
+            amc = AMC(name="Test AMC", normalized_name="test_amc", source_url="http://a.com")
+            session.add(amc)
+            session.flush()
+            scheme = Scheme(scheme_name="Test Scheme", normalized_scheme_name="test_scheme", amc_id=amc.id)
+            session.add(scheme)
+            session.flush()
+
+            doc1 = Document(
+                document_type="portfolio_disclosure",
+                scheme_id=scheme.id,
+                reporting_date=date(2025, 6, 30),
+                source_url="http://example.com/doc.xlsx",
+            )
+            session.add(doc1)
+            session.flush()
+
+            doc2 = Document(
+                document_type="portfolio_disclosure",
+                scheme_id=scheme.id,
+                reporting_date=date(2025, 6, 30),
+                source_url="http://example.com/doc.xlsx",
+            )
+            session.add(doc2)
             with self.assertRaises(IntegrityError):
                 session.flush()
         finally:
