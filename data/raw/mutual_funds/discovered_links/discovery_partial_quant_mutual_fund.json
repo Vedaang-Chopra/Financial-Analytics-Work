@@ -1,0 +1,51 @@
+{
+  "amc_name": "Quant Mutual Fund",
+  "seed_url": "https://quantmutual.com/statutory-disclosures",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/Disclosure_of_commission_paid_to_Distributor_FY_24-25.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2024-2025"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/Disclosure_of_Commission_Paid_to_the_Distributor_for_F_Y_2023-2024.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2023-2024"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/qMF_Data_on_Commission_2018_19.xls",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2018-2019"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/QMF_Data_on_Commission_FY_2017-18.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2017-2018"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/quantMF_Comission_Disclosure_for_FY_2020-21_final.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2020-2021"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/quantMF_Commission_Disclosure_2019-20.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2019-2020"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/quantMF_Disclosure_of_Commission_paid_to_Distributors_for_FY_2021-22_Upload.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2021-2022"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/quantMF_Disclosure_of_Commission_paid_to_Distributors_for_FY_2022-23_Upload.xlsx",
+      "context": "Disclosure of Commission Paid to the Distributor FY 2022-2023"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/Dividend_data_IDCW.xlsx",
+      "context": "Disclosure of Dividend Distribution"
+    },
+    {
+      "url": "https://quantmutual.com/Admin/disclouser/SchemeDashboard.xls",
+      "context": "SchemeDashboard"
+    }
+  ],
+  "notes": [
+    "harvested 10 unique file links after render+expand"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "amc_name": "Sundaram Mutual Fund",
+  "seed_url": "https://www.sundarammutual.com/Monthly-Fortnightly-Adhoc-Portfolios",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://www.sundarammutual.com/pdf2/2024/LIVE_BANK_LIST_UPDATED_Aug_2024.xlsx",
+      "context": "NPCI Bank List for OTM"
+    }
+  ],
+  "notes": [
+    "harvested 1 unique file links after render+expand"
+  ]
+}

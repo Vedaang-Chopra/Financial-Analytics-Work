@@ -57,6 +57,12 @@ MONTH_YEAR_RE = re.compile(
     r"aug(ust)?|sep(t(ember)?)?|oct(ober)?|nov(ember)?|dec(ember)?)\s*,?\s*20\d{2}\b",
     re.I,
 )
+# Full date in anchor text/URL: "31 July 2026", "31-jul-2026"
+DAY_MONTH_YEAR_RE = re.compile(
+    r"\b(\d{1,2})[\s\-](jan(uary)?|feb(ruary)?|mar(ch)?|apr(il)?|may|jun(e)?|"
+    r"jul(y)?|aug(ust)?|sep(t(ember)?)?|oct(ober)?|nov(ember)?|dec(ember)?)\s*,?\s*(20\d{2})\b",
+    re.I,
+)
 MONTH_FULL = {
     "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
     "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
@@ -243,9 +249,17 @@ def classify_relevance(links: list[dict]) -> tuple[list[dict], list[dict]]:
 
 
 def month_year_from_context(context: str | None) -> str | None:
-    """'June 2026 - All Funds' -> '2026-06-01' (ISO), else None."""
+    """'31 July 2026' -> '2026-07-31'; 'June 2026 - All Funds' -> '2026-06-01'."""
     if not context:
         return None
+    full = DAY_MONTH_YEAR_RE.search(context)
+    if full:
+        parts = full.groups()
+        day = int(parts[0])
+        month_text = parts[1].lower()
+        year = int(parts[-1])  # year is always the final group
+        month = next(v for k, v in MONTH_FULL.items() if month_text.startswith(k))
+        return f"{year:04d}-{month:02d}-{day:02d}"
     match = MONTH_YEAR_RE.search(context)
     if not match:
         return None
@@ -282,10 +296,25 @@ def discover(sources: list[dict], include_covered: bool = False,
 
         def _finalize(links: list[dict], strategy: str) -> None:
             rel, oth = classify_relevance(links)
+            today_iso = datetime.now(timezone.utc).date().isoformat()
+            seen_ctx: set[str] = set()
+            kept: list[dict] = []
             for link in rel:
-                link["reporting_date_hint"] = month_year_from_context(link.get("context"))
+                # Fund names can embed maturity dates ("... SDL Apr 2028
+                # Index Fund"); a real reporting date is never in the future.
+                hint = month_year_from_context(link.get("context"))
+                if hint and hint > today_iso:
+                    hint = None
+                link["reporting_date_hint"] = hint
+                # One file per distinct anchor label (per-scheme archives
+                # repeat the same fund label across months).
+                ctx_key = (link.get("context") or link["url"]).strip().lower()
+                if ctx_key in seen_ctx:
+                    continue
+                seen_ctx.add(ctx_key)
+                kept.append(link)
             entry["strategy"] = strategy
-            entry["portfolio_links"], entry["other_links"] = rel, oth
+            entry["portfolio_links"], entry["other_links"] = kept, oth
 
         # Step 1: static_html
         links = harvest_links_static(session, seed)
@@ -382,11 +411,19 @@ def ingest_from_artifact(artifact_path: Path, database_url: str, max_files_per_a
         urls = [l["url"] for l in entry.get("portfolio_links", [])]
         if not urls:
             continue
-        # Sort by parsed month descending (newest first) then cap per-AMC.
+        # Keyword hits first (real portfolio docs over dashboards/index
+        # funds that merely carry a month-year label), then newest first.
+        # Two stable passes: date desc, then keyword-tier asc.
+        def _kw_tier(link: dict) -> int:
+            hay = ((link.get("context") or "") + " " + link["url"]).lower()
+            return 0 if any(h in hay for h in PORTFOLIO_HINTS) else 1
+
         links_sorted = sorted(
             entry.get("portfolio_links", []),
-            key=lambda l: l.get("reporting_date_hint") or "", reverse=True,
+            key=lambda l: l.get("reporting_date_hint") or "",
+            reverse=True,
         )
+        links_sorted.sort(key=_kw_tier)
         links_sorted = links_sorted[:max_files_per_amc]
         LOGGER.info("Ingesting %d files for %s", len(links_sorted), amc)
         stats: dict = {}

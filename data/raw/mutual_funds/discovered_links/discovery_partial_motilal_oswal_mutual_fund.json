@@ -1,0 +1,1591 @@
+{
+  "amc_name": "Motilal Oswal Mutual Fund",
+  "seed_url": "https://www.motilaloswalmf.com/downloads/scheme-portfolio-details",
+  "strategy": "playwright",
+  "portfolio_links": [
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/aug/Monthly Portfolio 31-07-2026-Final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jul/Fortnightly Portfolio Report -15th July 2026.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jul/Scheme Portfolio Details June 20261.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jul/Fortnightly Portfolio Report -30th June 2026.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jun/15062026_Motilal Oswal MF_Fortnightly Disclosure_New Format updated.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jun/Scheme Portfolio Details 31-05-2026.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/may/Fortnightly Portfolio Report -31st May 2026.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/may/ForthNightly report for 15th May 2026.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/may/Motilal Portfolio 30 April 2026 - Final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/may/Copy of 30042026_Motilal Oswal MF_Fortnightly Disclosure_New Format updated.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/apr/15042026_Motilal Oswal MF_Fortnightly Disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/apr/Motilal HY Portfolio Mar 2026 - Final- Client.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/apr/IN_MF_MOTILAL_FACTSHEET_31.03.2026_Final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/apr/Copy of 31032026_Motilal Oswal MF_Fortnightly Disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/mar/c6c3d-copy-of-15032026_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/mar/8c1a9-scheme-portfolio-details-february-26.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/mar/28022026_Motilal Oswal MF_Fortnightly Disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/feb/e6237-copy-of-15022026_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/feb/b5209-scheme-portfolio-details-january-2026-2-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/feb/1a197-copy-of-31012026_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jan/6c795-copy-of-copy-of-15012026_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jan/db566-scheme-portfolio-details-december-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2026/jan/93bdc-copy-of-31122025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/dec/8ec2c-copy-of-15122025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/dec/966d5-scheme-portfolio-details-november-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/dec/e145d-copy-of-30112025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/nov/42a7b-fortnightly-portfolio-report-15th-nov-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/nov/8082a-motilal-oswal-performance-direct-plan-october-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/nov/9ec4e-scheme-portfolio-details-october-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/nov/f1801-motilal-oswal-performance-regular-plan-october-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/nov/d1786-copy-of-31102025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/oct/0cb06-copy-of-15102025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/oct/e2816-motilal-oswal-performance-regular-plan-september-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/oct/0002f-motilal-oswal-performance-direct-plan-september-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/oct/6abd7-scheme-portfolio-details-october-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/oct/ade61-copy-of-30092025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/sep/2c240-copy-of-copy-of-15092025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/sep/deebc-scheme-portfolio-details-aug-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/sep/b4559-copy-of-31082025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/sep/38dde-copy-of-motilal-performance-reg-plans-aug25.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/sep/744d2-copy-of-motilal-performance-dir-plans-aug25.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/aug/9cad5-copy-of-15082025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/aug/09555-scheme-portfolio-details-july-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/aug/67f6e-copy-of-31072025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jul/73430-copy-of-15072025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jul/bc9a7-month-end-portfolio-june-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jul/3e4c9-fortnightly-portfolio-report-30th-jun-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jun/e00da-copy-of-15062025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jun/27945-month-end-portfolio-may-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jun/74ee5-copy-of-31052025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/may/0e309-copy-of-copy-of-15052025_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/may/32d91-month-end-portfolio-april-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/may/e2491-copy-of-copy-of-30042025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/may/e0262-copy-of-portfolioholding_april-30-2025-002-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/apr/9f5df-fortnightly-portfolio-report-15th-april-2025.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/apr/b6331-copy-of-31032025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/apr/3a234-month-end-portfolio-march-2025.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/mar/da4d5-copy-of-15032025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/mar/5a466-month-end-portfolio-february-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/mar/07304-copy-of-28022025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/feb/9617e-copy-of-copy-of-15022025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/feb/b1185-month-end-portfolio-january-2025.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/feb/da7fc-copy-of-copy-of-31012025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jan/32868-copy-of-15012025_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jan/b4801-month-end-portfolio-december-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2025/jan/812cc-31122024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/dec/000a6-copy-of-15122024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/dec/c9f2c-month-end-portfolio-november-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/dec/ed0ba-copy-of-30112024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/nov/8aa3b-copy-of-15112024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/nov/6f698-month-end-portfolio-october-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/nov/a4fe3-copy-of-31102024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/oct/6664b-copy-of-15102024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/oct/6afc0-month-end-portfolio-sept-24.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/oct/afeb5-copy-of-30092024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/sep/46c37-copy-of-copy-of-15092024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/sep/557e2-month-end-portfolio-august-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/sep/ecb5e-copy-of-copy-of-31082024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/aug/93207-copy-of-copy-of-15082024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/aug/3d79f-month-end-portfolio-july-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/aug/453f9-copy-of-31072024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jul/7f1d0-copy-of-copy-of-15072024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jul/b9860-month-end-portfolio-june-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jul/1f9c8-fortnightly-portfolio-report-30th-jun-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jun/e1629-copy-of-15062024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jun/936db-month-end-portfolio-may-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jun/d9aad-copy-of-31052024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/may/a8941-copy-of-15052024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/may/685c5-month-end-portfolio-april-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/may/253b8-copy-of-30042024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/apr/26836-copy-of-15042024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/apr/8199d-month-end-portfolio-march-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/apr/a323a-copy-of-31032024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/mar/39e92-copy-of-15032024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/mar/c09fa-month-end-portfolio-february-2024.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/mar/8e6bc-copy-of-29022024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/feb/b18a9-copy-of-15022024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/feb/e73a3-month-end-portfolio-january-2024.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/feb/e4c16-copy-of-31012024_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jan/959d0-copy-of-15012024_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jan/98e4f-month-end-portfolio-december-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2024/jan/dab79-copy-of-31122023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/dec/97ea0-copy-of-15122023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/dec/a4174-1d69f-month-end-portfolio-november-2023-3-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/dec/457db-copy-of-30112023_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/nov/df128-copy-of-15112023_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/nov/b7266-month-end-portfolio-october-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/nov/371b2-copy-of-31102023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/oct/50ae3-copy-of-copy-of-15102023_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/oct/94df4-month-end-portfolio-september-2023.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/oct/1e143-copy-of-copy-of-30092023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/sep/09c91-copy-of-copy-of-15092023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/sep/f1cf0-month-end-portfolio-august-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/sep/aaa8e-copy-of-31082023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/aug/37c3d-copy-of-copy-of-15082023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/aug/d4eb4-month-end-portfolio-july-2023-2-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/aug/b4978-copy-of-31072023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jul/39dbc-copy-of-15072023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jul/eb953-month-end-portfolio-for-july-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jun/b9940-motilal-oswal-mf_fortnightly-disclosure-30june-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jun/602d3-copy-of-15062023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jun/8e61a-month-end-portfolio-may-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jun/a7816-copy-of-31052023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/may/cab29-copy-of-15052023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/may/a853f-month-end-portfolio-april-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/may/c6c02-copy-of-30042023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/apr/2a7d7-15042023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/apr/06d94-21b6d-copy-of-in_mf_motilal_factsheet_31_march_2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/mar/cde09-copy-of-15032023_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/mar/4a97f-month-end-portfolio-february-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/mar/bd8af-copy-of-28022023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/feb/9cf35-15022023_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/feb/4adca-motilal-oswal-month-end-portfolio-january-2023.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jan/a1c87-copy-of-motilal-oswal-mf_fortnightly-disclosure_31012023.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jan/a3113-copy-of-15012023_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2023/jan/8b185-month-end-portfolio-december-2022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/dec/4e94d-copy-of-31122022_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/dec/b103e-copy-of-15122022_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/dec/2640c-copy-of-in_mf_motilal_factsheet_30-11-2022_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/nov/18818-copy-of-motilal-oswal-mf_fortnightly-disclosure_30112022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/nov/4be75-copy-of-15112022_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/nov/504f9-in_mf_motilal_factsheet_31-10-2022_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/nov/a63e2-copy-of-motilal-oswal-mf_fortnightly-disclosure_31102022-2-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/oct/ad6fa-copy-of-motilal-oswal-mf_fortnightly-disclosure_15102022.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/oct/1acb5-motilal-oswal-mf-portfolio-sep-22.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/oct/7aa04-copy-of-motilal-oswal-mf_fortnightly-disclosure_30092022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/sep/a7220-copy-of-motilal-oswal-mf_fortnightly-disclosure_15092022.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/sep/d7009-copy-of-in_mf_motilal_factsheet_31-08-2022_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/sep/7454f-copy-of-motilal-oswal-mf_fortnightly-disclosure_31082022.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/aug/a65fd-copy-of-motilal-oswal-mf-fortnightly-disclosure-150822.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/aug/8ad60-copy-of-motilal-oswal-month-end-portfolio-31st-july-22-4-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/aug/d749b-copy-of-motilal-oswal-mf-fortnightly-disclosure-310722.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jul/b4081-copy-of-motilal-oswal-mf-fortnightly-disclosure-150722.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jul/b8357-in_mf_motilal_factsheet_30062022_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jul/b4105-copy-of-motilal-oswal-mf_fortnightly-disclosure_30062022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jun/31339-copy-of-15062022_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jun/67ddd-copy-of-in_mf_motilal_factsheet_31-05-2022_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jun/e003b-copy-of-dd9e2-copy-of-motilal-oswal-mf_fortnightly-disclosure_31052022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/may/f1160-15052022_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/may/6b283-6447c-in_mf_motilal_factsheet.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/may/5c296-30042022_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/apr/23d3e-copy-of-15042022_motilal-oswal-mf_fortnightly-disclosure.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/apr/afe77-copy-of-in_mf_motilal_factsheet_final_31-03-22-2-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/apr/4a686-copy-of-motilal-oswal-mf_fortnightly-disclosure_31032022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/mar/f1a8f-copy-of-15032022_motilal-oswal-mf_fortnightly-disclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/mar/39093-copy-of-in_mf_motilal_factsheet_final_28-02-2022-2-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/mar/ed131-copy-of-motilal-oswal-mf_fortnightlydisclosure-28022022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/feb/caca3-copy-of-motilal-oswal-mf_fortnightlydisclosure_15022022.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/feb/02dc7-copy-of-in_mf_motilal_factsheet_31-01-22-m_final-1-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/feb/339e6-copy-of-motilal-oswal-mf_fortnightlydisclosure-31-1-22.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jan/071ba-copy-of-15012022_motilal-oswal-mf_fortnightlydisclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2022/jan/c0385-monthend-portfolio-december-2021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/dec/c8d35-motilal-oswal-mf_fortnightlydisclosure_31122021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/dec/0626e-1012800103motilal-oswal-mf_fortnightlydisclosure_15122021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/dec/6d5a7-1067801426in_mf_motilal_factsheet_30-11-2021_final-2-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/dec/b4108-1455084124motilal-oswal-mf_fortnightlydisclosure_30112021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/nov/b7d1e-1455084124motilal-oswal-mf_fortnightlydisclosure_30112021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/nov/ca0ca-1067801426in_mf_motilal_factsheet_30-11-2021_final-3-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/nov/233c3-776985076copy-of-motilal-oswal-mf_fortnightlydisclosure_15112021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/nov/17904-1015350826in_mf_motilal_factsheet_31-10-21_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/nov/4781b-1311829554motilal-oswal-mf_fortnightly-portfolio-disclosure-15-oct-2021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/oct/8670f-1864792921motilal-oswal-mf_fortnightly-portfolio-disclosure-15-oct-2021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/oct/37683-384882114copy-of-motilal-oswal-mf_fortnightlydisclosure_30-sept-2021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/oct/4518c-in_mf_motilal_factsheet_30-09-21_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/sep/68762-1929724818copy-of-motilal-oswal-mf_fortnightlydisclosure_15092021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/sep/c2de5-in_mf_motilal_factsheet_31-08-2021_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/sep/4b9d2-2065142094copy-of-motilal-oswal-mf_fortnightlydisclosure_31082021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/aug/1af6f-1293622760copy-of-motilal-oswal-mf_fortnightlydisclosure-15082021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/aug/60062-in_mf_motilal_factsheet_31-07-2021_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/aug/2c287-1348009687copy-of-motilal-oswal-mf_fortnightlydisclosure_31072021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jul/4a139-1901333017motilal-oswal-mf_fortnightlydisclosure-15072021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jul/0eade-1661361798in_mf_motilal_factsheet_30-06-2021_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jul/002dc-1500358569copy-of-motilal-oswal-mf_fortnightlydisclosure-30062021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jun/09d91-1467719612copy-of-motilal-oswal-mf_fortnightlydisclosure-15062021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jun/45b12-1203626445copy-of-in_mf_motilal_factsheet_31-05-21_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jun/eb5a9-1286675835copy-of-motilal-oswal-mf_fortnightlydisclosure_31052021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/may/686c3-1708806503copy-of-motilal-oswal-mf_fortnightlydisclosure-15052021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/may/a233d-124734599copy-of-in_mf_motilal_factsheet_30-04-2021_final.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/may/7036d-1851491972motilal-oswal-mf_fortnightlydisclosure-30042021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/apr/8a001-1403523234copy-of-motilal-oswal-mf_fortnightlydisclosure-15042021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/apr/4b346-56688933in_mf_motilal_factsheet_31-03-21_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/apr/1a1b2-1863206016copy-of-motilal-oswal-mf_fortnightlydisclosure-31032021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/mar/cfad5-993870386copy-of-motilal-oswal-mf_fortnightlydisclosure-15032021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/mar/3e621-569533262copy-of-in_mf_motilal_factsheet-feb-2021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/mar/3d41e-1917504583copy-of-motilal-oswal-mf_fortnightlydisclosure-28022021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/feb/49fd6-763809091copy-of-motilal-oswal-mf_fortnightlydisclosure-15022021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/feb/d1c65-1173649781copy-of-in_mf_motilal_factsheet_31-01-2021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/feb/a67c4-1557999539copy-of-motilal-oswal-mf_fortnightlydisclosure_31012021.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jan/56109-1042009734copy-of-motilal-oswal-mf_fortnightlydisclosure-15012021.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jan/8075a-1556424945in_mf_motilal_factsheet_31-12-2020_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2021/jan/63e7a-1640791603motilal-oswal-mf_fortnightlydisclosure-31122020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/dec/3e8af-108932691motilal-oswal-mf_fortnightlydisclosure-15122020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/dec/0309b-1404895019in_mf_motilal_factsheet_30-11.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/dec/5b925-377825899copy-of-motilal-oswal-mf_fortnightlydisclosure-30112020.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/nov/c8492-1110405471motilal-oswal-mf_fortnightlydisclosure-15112020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/nov/e143e-793816474fact_sheet_motilal_oct-2020_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/nov/ebe9f-1207720672motilal-oswal-mf_fortnightlydisclosure-31102020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/oct/c8d17-388905989motilal-oswal-mf_fortnightlydisclosure-15102020.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/oct/d7e9f-5184402991536906516fact_sheet_motilal_sep-2020_final-1-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/oct/969c7-20517410568092308motilal-oswal-mf_fortnightlydisclosure.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/sep/90d6d-856707965656704340fact_sheet_motilal_aug-2020_final.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/aug/56b14-1171142361100043634maf-portfolio_11082020.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/aug/e4ac5-17290996131184194905fact_sheet_motilal_july-2020.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/jul/af278-15688165001238209493fact_sheet_motilal_june-2020-5-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/jun/37b60-1266839972fact_sheet_motilal_mayend-2020.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/may/d6f10-749644317fact_sheet_motilal_april-2020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/apr/b126b-1400112200portfoliomf_mar-2020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/mar/ddcd5-1578587231mf-portfolio-feb-2020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/feb/0825f-1852934196fact_sheet_motilal_jan-2020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2020/jan/0f0aa-1339946811motilal_dec-2019_portfolio.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/dec/6ab3c-1229073929mf_monthend_portfolio_nov_2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/nov/6454f-762159385mf-monthend-portfolios-oct-2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/oct/ed1cd-1792165306fact_sheet_motilal_oct-2019-website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/sep/033ef-936535077fact_sheet_motilal_aug-2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/aug/30461-909223574monthendportfolio_july-2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/jul/af41d-409656517monthendportfolio_june2019.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/jun/ef5c7-617446315mf-month-end-portfolio_may-2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/may/e23e4-1852934196fact_sheet_motilal_jan-2020.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/apr/7ab9d-1641897489fact_sheet_motilal_mar-2019.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/mar/cce06-1619820310fact_sheet_motilal_feb-2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/feb/e4a36-662303898factsheet_motilal_jan_2019.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2019/jan/4312e-1039766580factsheet_motilal_dec2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/dec/6a562-1076945727factsheet_motilal_nov2018_portfolio.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/nov/cf0c7-1709097210motilal_oswal_monthendportfolio_oct2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/oct/7b406-1846465868month-end-portfolios_sept_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/sep/53922-2141516483month_end_portfolio_sept_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/aug/c669e-857461676factsheet_motilal_aug2018-website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/jul/7a809-2054894667month_end_portfolio_july_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/jun/41419-1735448558factsheet_motilal_website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/may/83b6f-1501677308month_end_portfolio_april_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/apr/329c3-1896086399mf_holdings_april_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/mar/79638-1792381603factsheet_motilal_march_2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/feb/e4caf-381141878motilal_mf_jan-2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2018/jan/0eba7-1311514086month-end-portfolio_motilal_jan2018.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/dec/56950-606840868factsheet_motilal_dec_2017.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/nov/71ae2-1120394022factsheet_motilal.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/nov/b16bc-1640325882copy-of-factsheet_motilal_november-2017.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/oct/04f9f-940229248mf_motilal_october.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/sep/829e0-226364721holding_motilal.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/aug/b4079-2134167901motilalwebsite-holdings.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/jul/d619a-304505160motilal-oswal-website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/jun/9e012-354881155website-portfolio.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/may/b46be-1423282482monthend-portfolio-apr-2017.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/apr/a29fb-931069213factsheet_motilal_april.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/mar/628db-80623996factsheet_motilal_march-2017website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2017/feb/74c48-890929613factsheet_motilal_newwebsite.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/dec/60579-71516606factsheet.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/nov/66ddd-1721363647factsheet_motilal_new_novv-2-.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/oct/e03ab-1149959520month_end_portfolio-website.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/sep/82597-734035093most_portfolios_aug_2016.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/aug/6adb3-232175338monthly-portfolio-disclosure-july-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/jul/179b1-952664354monthly-portfolio-disclosure-june-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/jun/2f684-1874585798monthly-portfolio-disclosure-may-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/may/e10ab-2064268379monthly-portfolio-disclosure-april-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/apr/6188d-380446928monthly-portfolio-disclosure-march-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/mar/ebd4e-1569323018monthly-portfolio-disclosure-february-16.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/feb/e6309-2024581566monthly-portfolio-disclosure-january-2016.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2016/jan/84757-757127488month_end_portfolio_report_december_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/dec/829e0-619375447monthly-portfolio-disclosure-november-15.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/nov/4138d-1921384268month_end_portfolio_report_nov_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/oct/cb5ae-223931281month_end_portfolio_report_oct_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/sep/4d915-377686321month_end_portfolio_report_sep_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/aug/ef9ee-1248117972month_end_portfolio_report_aug_2015-1-.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/jul/0ef48-941593595month_end_portfolio_report_june_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/jun/c8964-37274990month_end_portfolio_report_may_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/may/779c3-1228183407month_end_portfolio_report_apr_2015.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/apr/7a5e4-1124350088month_end_portfolio_report_mar_2015.xlsx",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/feb/21a66-233616455month_end_portfolio_report_feb_2015.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2015/jan/5ba00-1129571863monthly_portfolio_disclosure_jan_15.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/dec/db2e3-124378126month_end_portfolio_report_dec_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/nov/0a0ab-820423859month_end_portfolio_report_nov_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/oct/21cd6-868997264month_end_portfolio_report_oct-_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/sep/89a80-11065544month_end_portfolio_report_sept-_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/aug/c379d-1247271655month_end_portfolio_report_aug-_2014_.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/jul/ebf28-794837833monthly_portfolio_disclosure_-_july14.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/jun/d3822-437978587monthly_portfolio_disclosure_-_jun14.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/may/af2d5-683314120month_end_portfolio_report_may_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/apr/4beca-1969424025month_end_portfolio_report_apr_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/mar/142d4-326247985month_end_portfolio_report_march_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/feb/d3c28-1768091153month_end_portfolio_report_feb_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2014/jan/92494-2034966748month_end_portfolio_report_jan_2014.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/dec/5ab53-462967301month_end_portfolio_report_dec_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/nov/0f0d1-350581425month_end_portfolio_report_november_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/oct/9ca93-1648681348month_end_portfolio_report_october_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/sep/7cb65-1315610217month_end_portfolio_report_september_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/aug/e7496-2138960234month_end_portfolio_report_august_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/jul/98aee-1439412809month_end_portfolio_report_july_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/jun/53ec9-469875404month_end_portfolio_report_june_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/may/6d3e9-1034035659month_end_portfolio_report_may-_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/apr/1564f-1100772351month_end_portfolio_report_apr-_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/mar/6d3ed-397248378month_end_portfolio_report_mar-_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/feb/3368a-1310980856month_end_portfolio_report_feb-_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2013/jan/e9348-321179330month_end_portfolio_report_jan-_2013.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2012/dec/7a181-989112922monthly_portfolio_disclosure_-_dec12.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2012/nov/da69e-206797696monthly-portfolio-disclosure-nov12.xls",
+      "context": "",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://www.motilaloswalmf.com/content/dam/motilal-mf/downloads/mf/month-end-portfolio/2012/oct/24412-577981154monthly_portfolio_disclosure_-_oct12.xls",
+      "context": "",
+      "reporting_date_hint": null
+    }
+  ],
+  "other_links": [],
+  "notes": [
+    "harvested 316 unique file links after render+expand"
+  ]
+}

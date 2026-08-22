@@ -1,0 +1,16 @@
+{
+  "amc_name": "Taurus Mutual Fund",
+  "seed_url": "https://www.taurusmutualfund.com/downloads",
+  "strategy": "playwright",
+  "portfolio_links": [
+    {
+      "url": "https://www.taurusmutualfund.com/sites/default/files/2025-11/top_ten_holdings_as_on_oct_2025.xlsx",
+      "context": "Top Ten Holdings \u2013 As on October 2025",
+      "reporting_date_hint": "2025-10-01"
+    }
+  ],
+  "other_links": [],
+  "notes": [
+    "harvested 1 unique file links after render+expand"
+  ]
+}

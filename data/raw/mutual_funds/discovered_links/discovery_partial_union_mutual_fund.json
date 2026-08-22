@@ -1,0 +1,13 @@
+{
+  "amc_name": "Union Mutual Fund",
+  "seed_url": "https://unionmf.com/about-us/downloads/fortnightly-portfolio",
+  "strategy": "no_files_found",
+  "portfolio_links": [],
+  "other_links": [],
+  "notes": [
+    "goto failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://unionmf.com/about-us/downloads/fortnightly-portfolio",
+    "harvested 0 unique file links after render+expand",
+    "screenshot saved: union_mutual_fund_nolinks.png",
+    "manual_review candidate"
+  ]
+}

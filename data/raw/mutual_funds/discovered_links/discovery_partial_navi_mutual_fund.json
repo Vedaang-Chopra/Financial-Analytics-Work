@@ -1,0 +1,35 @@
+{
+  "amc_name": "Navi Mutual Fund",
+  "seed_url": "https://navi.com/mutual-fund/downloads/portfolio",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Navi_mutual_fund_Proxy_Voting_Report_Q1_FY27_20260703165008.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/IAPScheduleNavi_20260313121837.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/IAPSchedule_2_2_20260313121837.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Scheme%20Constituents_30th%20September_20251013183725.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Change%20in%20Constituents_Sep-25_20251013183724.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/DISCLOSURE_OF_EMPANELMENT_DETAILS_OF_MUTUAL_FUND_DISTRIBUTORS_DTD_14TH_AUG_2026_FINAL_20260814194400.XLSX",
+      "context": "Download"
+    }
+  ],
+  "notes": [
+    "harvested 6 unique file links after render+expand"
+  ]
+}

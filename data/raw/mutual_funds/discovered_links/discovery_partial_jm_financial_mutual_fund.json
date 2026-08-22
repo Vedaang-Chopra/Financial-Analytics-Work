@@ -1,0 +1,21 @@
+{
+  "amc_name": "JM Financial Mutual Fund",
+  "seed_url": "https://www.jmfinancialmf.com/downloads/Portfolio-Disclosure",
+  "strategy": "playwright",
+  "portfolio_links": [
+    {
+      "url": "https://www.jmfinancialmf.com/downloads/CMS/downloads/Portfolio Disclosure/Fortnightly Portfolio of Schemes/Fortnightly Portfolio- JM Overnight Fund -   Aug 15, 2026.xlsx",
+      "context": "View",
+      "reporting_date_hint": null
+    }
+  ],
+  "other_links": [
+    {
+      "url": "https://www.jmfinancialmf.com/CMS/downloads/Investor Awareness Program/IAP Schedule/IAPSchedule16.xlsx",
+      "context": "IAP Schedule"
+    }
+  ],
+  "notes": [
+    "harvested 6 unique file links after render+expand"
+  ]
+}
