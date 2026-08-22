@@ -536,6 +536,40 @@ class IngestionQualityMetrics(Base):
     )
 
 
+class IndexPrice(Base):
+    __tablename__ = "index_prices"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4,
+                server_default=func.gen_random_uuid())
+    index_symbol = Column(Text, nullable=False)
+    trade_date = Column(Date, nullable=False)
+    close = Column(Numeric, nullable=False)
+    source_url = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("index_symbol", "trade_date", name="uq_index_prices_symbol_date"),
+        Index("ix_index_prices_symbol_date", "index_symbol", "trade_date"),
+    )
+
+
+class SecurityPrice(Base):
+    """Daily closing price/volume for one security (NSE bhavcopy)."""
+
+    __tablename__ = "security_prices"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    isin = Column(Text, nullable=False)
+    trade_date = Column(Date, nullable=False)
+    close = Column(Numeric, nullable=False)
+    volume = Column(BigInteger, nullable=True)
+    source_url = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("isin", "trade_date", name="uq_security_prices_isin_trade_date"),
+        Index("ix_security_prices_isin_date", "isin", "trade_date"),
+    )
+
+
 def create_tables(database_url: str) -> None:
     engine = create_engine(database_url)
     Base.metadata.create_all(engine)
