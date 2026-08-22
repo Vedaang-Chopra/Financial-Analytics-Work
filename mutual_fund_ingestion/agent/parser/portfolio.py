@@ -90,6 +90,34 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^grand total$',
     r'^derivative(s)?.*$',
     r'^[=\-_]{3,}$',                           # separator rows
+    # --- Observed canonical-data leaks (Task A6) ---
+    r'^treps\b.*$',                            # TREPS / reverse-repo cash rows (all variants)
+    r'^commercial papers?$',                   # section header (singular + plural)
+    r'^certificates? of deposits?$',           # section header
+    r'^government securities(?: \((?:central/state|state)\))?$',  # header + qualified variant
+    r'^net current assets?\*?$',               # subtotal row
+    r'^total net assets$',                     # subtotal row
+    r'^cash & cash equivalent$',               # singular variant of existing plural pattern
+    r'^grand total \(aum\)$',
+    r'^bond & ncd.?s?$',                       # "BOND & NCD's" grouping
+    r'^equity & equity related(?: foreign investments)?$',  # equity grouping headers
+    r'^market value includes accrued interest$',
+    r'^scheme name:?$',                        # disclosure metadata labels
+    r'^as on \(date\)$',
+    r'^scheme riskometer$',
+    r'^macaulay duration$',                    # duration stats leaked into ISIN column
+    r'^residual maturity$',
+    r'^description \(if any\)$',
+    r'^annualised portfolio ytm\*?:?$',
+    r'^benchmark riskometer:.*$',              # "Benchmark Riskometer: <index>" footnotes
+    r'^sbi funds management pvt (?:ltd|limited)/fund parent$',
+    r'^notes\b.*$',                            # "Notes:", "Notes & symbols :-"
+    r'^~.*$',                                  # "~ yield to maturity ...", footnote markers
+    r'^\*+.*$',                                # "* in case of semi-annual ytm...", "** non traded..."
+    r'^\(\d+\)\s',                             # numbered footnotes "(2) total value ..."
+    r'^\d+\.\s+(?:total|net assets)',          # "1.  total value provided ..."
+    r'^\^?\s*pursuant to amfi circular.*$',    # YTC footnote rows
+    r'^.*aggregate investments by (?:other |the )?schemes',  # inter-scheme footnotes
 ]
 
 SECTION_HEADER_REGEX = re.compile('|'.join(JUNK_ROW_PATTERNS), re.IGNORECASE)
