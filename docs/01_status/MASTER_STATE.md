@@ -374,14 +374,27 @@ python -m amfi_disclosure run
 
 ## Key Metrics
 
+_Verified against live DB 2026-08-22 (Phase A of full-portfolio-backfill plan complete; Legs B/C/D in flight)._
+
 | Metric | Value |
 |---|---|
 | AMCs in source registry | 53 + AMFI + SEBI |
-| AMCs with working portfolio ingestion | 6 (PPFAS, DSP, Mirae, Invesco, ICICI, Groww) |
-| Portfolio holdings ingested | ~25,778 |
-| Schemes covered | 44 |
+| AMCs with portfolio data in DB | 18 (ICICI, DSP, Groww, Axis, ABSL, PPFAS, Angel One, Shriram, Baroda BNP, Mirae, Old Bridge, IL&FS IDF, NJ, Unifi, Quant, Invesco, LIC, Samco) |
+| Portfolio holdings ingested | ~87,300 |
+| Portfolio snapshots | ~1,544 |
+| Schemes with NULL amc_id | 2,528 — all defunct-AMC history (ABN AMRO/ING/Fortis…), verified referenced by documents/nav_history, intentionally kept |
 | AMFI datasets cataloged | 20 |
 | Strategy patterns identified | 6 (reusable) |
 | Coverage tables | 6 new |
 | Storage backends | 2 (Local, S3) |
 | Retention tiers | 4 (hot, warm, cold, archived) |
+
+### Phase A completion notes (2026-08-22)
+
+- Scheme→AMC auto-linking on upsert (`amc_hint`), one-time backfill committed
+- ICICI fully onboarded via `scripts/reparse_artifacts.py`: 592 snapshots, 20 dates
+  (2025-10-31 → 2026-08-15), 41K holdings. Parser fixes en route: header rows with
+  valid ISINs are real holdings; NCD/Zero-Coupon/Securitized/REIT/Equity grouping
+  headers filtered; Reverse Repo rows are real holdings for overnight funds;
+  AMC-scoped scheme matching prevents cross-AMC snapshot collisions.
+- Idempotency proven: identical re-runs insert 0 new rows / 0 new quarantine.
