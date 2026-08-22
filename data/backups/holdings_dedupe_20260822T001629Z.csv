@@ -1,0 +1,19 @@
+id,snapshot_id,instrument_id,security_name,isin,sector,asset_class,quantity,market_value,market_value_currency,percentage_to_nav,coupon,maturity_date,rating,metadata_json,created_at,dup_rank,planned_action
+c508b8de-2df4-40f5-9932-dc39eebce108,e52aceb7-9bc0-403c-a7ee-524034694c23,18b83467-dedf-4e7d-b406-8a867b8b103b,5.10% HDFC Bank Ltd. (Duration 365 Days),,,,,200.0,INR,0.16,,,,{},2026-08-22 00:02:40.944932+00:00,1,keep
+559dc037-7abb-42ca-b783-7bc6520789c5,e52aceb7-9bc0-403c-a7ee-524034694c23,d19e7314-1833-43fc-ad1c-a04dbeb54c58,5.10% HDFC Bank Ltd. (Duration 365 Days),,,,,100.0,INR,0.1,,,,{},2026-08-21 22:27:38.662887+00:00,2,delete
+30e017a7-71dd-4192-8752-9f0eacaf1ad5,e52aceb7-9bc0-403c-a7ee-524034694c23,d19e7314-1833-43fc-ad1c-a04dbeb54c58,5.10% HDFC Bank Ltd. (Duration 365 Days),,,,,100.0,INR,0.1,,,,{},2026-08-21 22:27:38.662887+00:00,3,delete
+af396bf7-4328-44c0-b97e-ee27c52b5280,50567ad2-bb29-4f0f-bec2-bde0ebc78001,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,14999.36,INR,0.58,,,,{},2026-08-21 22:50:10.663499+00:00,1,keep
+8338bfd1-1f34-4bb7-b10a-83e6ce250d97,56d8051a-55f8-4e5b-8e74-679f6221cd59,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,179295.23,INR,7.37,,,,{},2026-08-21 22:49:47.767983+00:00,1,keep
+3eb922a8-34fa-4280-8120-6fa976d4ba9b,f343c820-bd1a-4306-a46e-299e154997d3,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,731825.41,INR,94.03,,,,{},2026-08-21 22:49:58.891566+00:00,1,keep
+fe1f3a4c-86c9-4b0c-81f3-693bd535cd23,9611579b-69f3-45e4-a964-8bad1b87e2b2,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,178092.46,INR,23.09,,,,{},2026-08-21 22:50:10.663499+00:00,1,keep
+8fd103ea-ad85-4d6c-a90b-4b26249ee39a,50567ad2-bb29-4f0f-bec2-bde0ebc78001,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,207893.32,INR,8.02,,,,{},2026-08-21 22:50:10.663499+00:00,2,delete
+6f04ade2-f0e6-4093-91cb-2694bb94d858,56d8051a-55f8-4e5b-8e74-679f6221cd59,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,158946.15,INR,6.54,,,,{},2026-08-21 22:49:47.767983+00:00,2,delete
+1715cbda-57ba-4acb-b738-74e21cfecdd6,f343c820-bd1a-4306-a46e-299e154997d3,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,41786.61,INR,5.37,,,,{},2026-08-21 22:49:58.891566+00:00,2,delete
+2db410ca-f6d1-4db7-924a-0e73fef7e9d4,9611579b-69f3-45e4-a964-8bad1b87e2b2,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,198201.7,INR,25.7,,,,{},2026-08-21 22:50:10.663499+00:00,2,delete
+245db164-130a-432e-b6e8-114a9c5f5bf3,9611579b-69f3-45e4-a964-8bad1b87e2b2,462af3f1-ca5c-49ca-bf67-016ba800306e,Clearing Corporation of India Ltd,,,,,388185.64,INR,50.33,,,,{},2026-08-21 22:50:10.663499+00:00,3,delete
+97a9dc49-3b5f-4f0e-94ce-9b3e4afe6ee7,ea8b2bcf-25d0-4336-b27f-beecbc4cc045,b7252df0-40d7-4010-96de-bbb24bd64734,GOLD,,,,628.0,44941.56,INR,97.38,,,,{},2026-08-21 22:48:03.398021+00:00,1,keep
+7cfe6d0e-2789-4a3b-90fb-b9ed3bc834c4,640093d6-8321-4eeb-917b-9f208df0b555,b7252df0-40d7-4010-96de-bbb24bd64734,GOLD,,,,0.5,29.76,INR,7.37,,,,{},2026-08-21 22:42:38.563884+00:00,1,keep
+19c68f73-3da5-4706-9228-7a6c26fb8c04,640093d6-8321-4eeb-917b-9f208df0b555,b7252df0-40d7-4010-96de-bbb24bd64734,GOLD,,,,6.0,355.7,INR,88.02,,,,{},2026-08-21 22:42:38.563884+00:00,2,delete
+8bf7abbf-b0a6-44ba-b449-51df72e9bb64,ea8b2bcf-25d0-4336-b27f-beecbc4cc045,b7252df0-40d7-4010-96de-bbb24bd64734,GOLD,,,,0.3,21.56,INR,0.05,,,,{},2026-08-21 22:48:03.398021+00:00,2,delete
+14fbbf29-6589-45c7-8e0e-fdbe9153f485,16e863c6-88c5-4567-9b1e-f6f573629c3f,275971a8-f6ea-4a9b-8e22-7bdfd5fa0b65,Image not available,,,,,,INR,,,,,{},2026-08-21 22:27:43.322310+00:00,1,keep
+02f67b71-ff00-4f23-8e45-76700b77f5f7,16e863c6-88c5-4567-9b1e-f6f573629c3f,275971a8-f6ea-4a9b-8e22-7bdfd5fa0b65,Image not available,,,,,,INR,,,,,{},2026-08-21 22:27:43.322310+00:00,2,delete

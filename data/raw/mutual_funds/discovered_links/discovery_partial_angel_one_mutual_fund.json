@@ -1,0 +1,1117 @@
+{
+  "amc_name": "Angel One Mutual Fund",
+  "seed_url": "https://www.angelonemf.com/",
+  "strategy": "playwright",
+  "portfolio_links": [
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-July-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-June-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-May-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-April-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-March-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Feb-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Jan-2026.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Dec-2025.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Nov-2025.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Oct-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Sep-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Aug-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-July-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-June-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-May-2025-1-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-April-2025-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Mar-2025-1-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-AAUM-Feb-2025-1-1.xls",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Silver-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Silver-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-July-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Silver-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Silver-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-June-2026-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Silver-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Silver-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-May-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Silver-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Silver-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-Growth-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-50-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Gold-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Silver-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Silver-ETF-FOF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Mar-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-Growth.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Silver-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Feb-2026-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-Growth-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-50-ETF-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-50-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Gold-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Gold-ETF-FOF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Jan-2025-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Dec-2025-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Gold-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Gold-ETF-FOF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Nov-2025-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Nifty-50-ETF-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Nifty-50-Index-Fund-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Gold-ETF-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Gold-ETF-FOF-1-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Nifty-Total-Market-Index-Fund-2-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Oct-2025-Angel-One-Nifty-Total-Market-ETF-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Nifty-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Nifty-50-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Gold-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Gold-ETF-FOF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Nifty-Total-Market-Index-Fund-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Sep-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Aug-2025-AngelOne-Nifty-1D-Rate-Liquid-ETF-GROWTH-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Aug-2025-Angel-One-Nifty-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Aug-2025-Angel-One-Nifty-50-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Aug-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-Aug-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-July-2025-AngelOne-Nifty-1D-Rate-Liquid-ETF-GROWTH-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-July-2025-Angel-One-Nifty-50-ETF-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-July-2025-Angel-One-Nifty-50-Index-Fund-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-July-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-July-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-June-2025-AngelOne-Nifty-1D-Rate-Liquid-ETF-GROWTH-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-June-2025-Angel-One-Nifty-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-June-2025-Angel-One-Nifty-50-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-June-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-June-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-May-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-Growth-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-May-2025-Angel-One-Nifty-50-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-May-2025-Angel-One-Nifty-50-Index-Fund-2.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-May-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-portfolio-May-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-1D-Rate-Liquid-ETF-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-Total-Market-Index-Fund-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-April-2025-Angel-One-Nifty-Total-Market-ETF-1-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Index-Fund.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Mar-2026-Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Sep-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-Portfolio-Sep-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-March-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-March-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Monthly-Portfolio-March-2025-Angel-One-Nifty-1D-rate-Liquid-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-portfolio-March-2025-Angel-One-Nifty-Total-Market-Index-Fund-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Half-Yearly-portfolio-March-2025-Angel-One-Nifty-Total-Market-ETF-1.xlsx",
+      "context": "Download",
+      "reporting_date_hint": null
+    }
+  ],
+  "other_links": [
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Tracking-Error-20261708-Tracking-Diff-20260731.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Empanelled-Distributor-list-5.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2026-8.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Dec-2025-2.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Sept-2025-2.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2025-14.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2025-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-MF-HY-Unaudited-Financials-March-2026.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-MF-HY-Unaudited-Financials-30-September-2025-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Mutual-Fund-Half-Yearly-Unaudited-Financials-31st-March-2025-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Quarterly-AAUM-June-2026.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Quarterly-AAUM-March-2026.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Quarterly-AAUM-December-2025.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Quarterly-AAUM-September-2025.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Quarterly-AAUM-June-2025.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Qtrly-AAUM-March-2025-2-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-Total-Market-Index-Fund-xlsx-2.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-Total-Market-ETF-xlsx-2.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-1D-Rate-Liquid-ETF-Growth-xls-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-50-Index-Fund-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-50-ETF-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Gold-ETF-1-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Gold-ETF-FOF-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-Total-Market-Momentum-Quality-50-Index-fund-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Nifty-Total-Market-Momentum-Quality-50-ETF-1.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Silver-ETF.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Angel-One-Silver-ETF-FOF.xls",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/July-2026-5.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2026-5.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/May-2026-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/April-2026-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2026-7.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/February-2026-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/January-2026-7.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/December-2025-8.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/November-2025-7.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/October-2025-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/September-2025-8.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/August-2025-8-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/July-2025-6-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2025-10-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/May-2025-5-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/April-2025-5-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2025-3-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/February-2025-2-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/August-2026-2.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/July-2026-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2026-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/May-2026-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/April-2026-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2026-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/February-2026-3.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/January-2026-3.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/December-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/November-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/October-2025-3.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/September-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/August-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/July-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2025-5.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/May-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/April-2025-4.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2025-1-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2026-7.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2026-6.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/December-2025-7.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/September-2025-9.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/June-2025-13.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Proxy-Voting-Disclosure-FY-25-26.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/March-2025-7-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Proxy-Voting-Disclosure-FY-24-25-1-1.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Daily-TER-2026-27-134.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Daily-TER-2025-26.xlsx",
+      "context": "Download"
+    },
+    {
+      "url": "https://cms.angelonemf.com/amc-cms/wp-content/uploads/formidable/20/Daily-TER-2024-25.xlsx",
+      "context": "Download"
+    }
+  ],
+  "notes": [
+    "harvested 236 unique file links after render+expand"
+  ]
+}

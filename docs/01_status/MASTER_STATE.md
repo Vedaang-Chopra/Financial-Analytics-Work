@@ -374,14 +374,15 @@ python -m amfi_disclosure run
 
 ## Key Metrics
 
-_Verified against live DB 2026-08-22 (Phase A of full-portfolio-backfill plan complete; Legs B/C/D in flight)._
+_Verified against live DB 2026-08-22 (full-portfolio-backfill mission: Phases A–D executed)._
 
 | Metric | Value |
 |---|---|
 | AMCs in source registry | 53 + AMFI + SEBI |
-| AMCs with portfolio data in DB | 18 (ICICI, DSP, Groww, Axis, ABSL, PPFAS, Angel One, Shriram, Baroda BNP, Mirae, Old Bridge, IL&FS IDF, NJ, Unifi, Quant, Invesco, LIC, Samco) |
-| Portfolio holdings ingested | ~87,300 |
-| Portfolio snapshots | ~1,544 |
+| AMCs with portfolio data in DB | 25 (DSP, Axis, ICICI, Angel One, LIC, Groww, PPFAS, ABSL, Nippon India, Shriram, Baroda BNP, UTI, Quantum, HDFC, Franklin Templeton, Mirae, Old Bridge, IL&FS IDF, Quant, NJ, Sundaram, Unifi, ITI, Invesco, Samco) |
+| Portfolio holdings ingested | ~280,800 (up from ~19,100 at mission start) |
+| Portfolio snapshots | ~3,250+ |
+| Deepest archives | DSP 138 dates (2020-09→2026-08); Axis 118 dates (2020-10→2026-08) |
 | Schemes with NULL amc_id | 2,528 — all defunct-AMC history (ABN AMRO/ING/Fortis…), verified referenced by documents/nav_history, intentionally kept |
 | AMFI datasets cataloged | 20 |
 | Strategy patterns identified | 6 (reusable) |

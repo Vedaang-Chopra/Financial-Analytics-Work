@@ -29,7 +29,9 @@ from sqlalchemy import create_engine, text  # noqa: E402
 
 from market_data.bhavcopy import BhavcopyClient, trading_days, upsert_prices  # noqa: E402
 
-DEFAULT_DB = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DEFAULT_DB = mutual_funds_url()
 
 logging.basicConfig(
     level=logging.INFO,

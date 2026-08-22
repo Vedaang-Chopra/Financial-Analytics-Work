@@ -12,8 +12,8 @@ Usage:
     python scripts/create_consensus_view.py --refresh --concurrently
 
 Environment:
-    MF_DATABASE_URL  optional override; defaults to
-                     postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds
+    MF_DATABASE_URL  optional override; see db_config.py for the full
+                     resolution order (env var > api.env > local default)
 """
 from __future__ import annotations
 
@@ -27,7 +27,9 @@ import psycopg2
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SQL_PATH = REPO_ROOT / "mutual_fund_ingestion" / "analysis" / "consensus_panel.sql"
 
-DEFAULT_DSN = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DEFAULT_DSN = mutual_funds_url()
 
 
 def apply(conn) -> None:

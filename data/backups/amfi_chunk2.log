@@ -1,0 +1,379 @@
+2026-08-22 15:30:29,151 INFO backfill_amfi_monthly_portfolios: Discovering monthly portfolio disclosure URLs from https://www.amfiindia.com/online-center/portfolio-disclosure
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios: Discovered 50 AMC monthly-portfolio disclosure URLs
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   360 ONE Mutual Fund -> https://www.360.one/asset/mutual-funds/downloads
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Aditya Birla Sun Life Mutual Fund -> https://mutualfund.adityabirlacapital.com/forms-and-downloads/portfolio
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   AlphaGrep Mutual Fund -> https://www.alphagrepmf.ai/disclosures
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Angel One Mutual Fund -> https://www.angelonemf.com/downloads
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   ASK MUTUAL FUND -> https://www.axismf.com/statutory-disclosures
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Bajaj Finserv Mutual Fund -> https://www.bajajamc.com/downloads?statutory-disclosures=
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Bandhan Mutual Fund -> https://bandhanmutual.com/downloads/disclosures
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Bank of India Mutual Fund -> https://www.boimf.in/investor-corner#t2
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Baroda BNP Paribas Mutual Fund -> https://www.barodabnpparibasmf.in/downloads/monthly-portfolio-scheme
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios:   Canara Robeco Mutual Fund -> https://www.canararobeco.com/documents/statutory-disclosures/scheme-dashboard/scheme-monthly-portfolio
+2026-08-22 15:30:29,307 INFO backfill_amfi_monthly_portfolios: Member slice [12:32]: 20 of 50 AMCs in this chunk
+2026-08-22 15:30:29,308 INFO backfill_amfi_monthly_portfolios: Resume state: 470 URLs already completed
+2026-08-22 15:30:30,992 WARNING backfill_amfi_monthly_portfolios: Landing page failed https://www.edelweissmf.com/statutory#Portfolio-of-Schemes: 403 Client Error: Forbidden for url: https://www.edelweissmf.com/statutory#Portfolio-of-Schemes
+2026-08-22 15:30:30,993 INFO backfill_amfi_monthly_portfolios: Landing page https://www.edelweissmf.com/statutory#Portfolio-of-Schemes (Edelweiss Mutual Fund): 0 file links
+2026-08-22 15:30:33,123 INFO backfill_amfi_monthly_portfolios: Landing page https://www.franklintempletonindia.com/investor/reports?firstFilter-12 (Franklin Templeton Mutual Fund): 0 file links
+2026-08-22 15:30:34,982 INFO backfill_amfi_monthly_portfolios: Landing page https://growwmf.in/statutory-disclosure/portfolio (Groww Mutual Fund): 13 file links
+2026-08-22 15:30:36,679 WARNING backfill_amfi_monthly_portfolios: Landing page failed https://www.hdfcfund.com/statutory-disclosure/portfolio/monthly-portfolio: 403 Client Error: Forbidden for url: https://www.hdfcfund.com/statutory-disclosure/portfolio/monthly-portfolio
+2026-08-22 15:30:36,679 INFO backfill_amfi_monthly_portfolios: Landing page https://www.hdfcfund.com/statutory-disclosure/portfolio/monthly-portfolio (HDFC Mutual Fund): 0 file links
+2026-08-22 15:30:39,234 INFO backfill_amfi_monthly_portfolios: Landing page https://www.heliosmf.in/portfolio-disclosure (Helios Mutual Fund): 263 file links
+2026-08-22 15:31:40,870 WARNING backfill_amfi_monthly_portfolios: Landing page failed https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources/information-library#&accordion1446811090=2: HTTPSConnectionPool(host='www.assetmanagement.hsbc.co.in', port=443): Read timed out. (read timeout=60)
+2026-08-22 15:31:40,872 INFO backfill_amfi_monthly_portfolios: Landing page https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources/information-library#&accordion1446811090=2 (HSBC Mutual Fund): 0 file links
+2026-08-22 15:31:42,726 INFO backfill_amfi_monthly_portfolios: Landing page https://www.icicipruamc.com/news-and-media/downloads?currentTabFilter=Disclosures&&subCatTabFilter=MonthlyPortfolioDisclosures (ICICI Prudential Mutual Fund): 0 file links
+2026-08-22 15:31:45,755 INFO backfill_amfi_monthly_portfolios: Landing page http://www.ilfsinfrafund.com/other.php (IL&FS Mutual Fund (IDF)): 51 file links
+2026-08-22 15:31:48,293 INFO backfill_amfi_monthly_portfolios: Landing page https://invescomutualfund.com/literature-and-form?tab=Complete (Invesco Mutual Fund): 0 file links
+2026-08-22 15:31:51,065 INFO backfill_amfi_monthly_portfolios: Landing page https://www.itiamc.com/statuory-disclosure (ITI Mutual Fund): 0 file links
+2026-08-22 15:31:53,136 INFO backfill_amfi_monthly_portfolios: Landing page https://www.jioblackrockamc.com/statutory-disclosure/disclosures/monthly-portfolio-disclosure (Jio BlackRock Mutual Fund): 0 file links
+2026-08-22 15:31:54,868 INFO backfill_amfi_monthly_portfolios: Landing page https://www.jmfinancialmf.com/downloads/Portfolio-Disclosure (JM Financial Mutual Fund): 0 file links
+2026-08-22 15:31:57,675 INFO backfill_amfi_monthly_portfolios: Landing page https://www.kotakmf.com/Information/forms-and-downloads (Kotak Mahindra Mutual Fund): 0 file links
+2026-08-22 15:31:59,591 INFO backfill_amfi_monthly_portfolios: Landing page https://www.licmf.com/downloads/monthly-portfolio (Lakshya Mutual Fund): 0 file links
+2026-08-22 15:32:01,490 INFO backfill_amfi_monthly_portfolios: Landing page https://www.mahindramanulife.com/downloads#mandatory-disclosures (Mahindra Manulife Mutual Fund): 0 file links
+2026-08-22 15:32:03,280 INFO backfill_amfi_monthly_portfolios: Landing page https://www.miraeassetmf.co.in/downloads/portfolio (Mirae Asset Mutual Fund): 0 file links
+2026-08-22 15:32:04,845 INFO backfill_amfi_monthly_portfolios: Landing page https://www.motilaloswalmf.com/downloads/scheme-portfolio-details (Monarch Mutual Fund): 0 file links
+2026-08-22 15:32:06,547 INFO backfill_amfi_monthly_portfolios: Landing page https://navi.com/mutual-fund/downloads/portfolio (Navi Mutual Fund): 0 file links
+2026-08-22 15:32:09,733 INFO backfill_amfi_monthly_portfolios: Landing page https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures (Nippon India Mutual Fund): 0 file links
+2026-08-22 15:32:11,690 INFO backfill_amfi_monthly_portfolios: Landing page https://downloads.njmutualfund.com/njmf_download.php?nme=127 (NJ Mutual Fund): 101 file links
+2026-08-22 15:32:13,195 INFO backfill_amfi_monthly_portfolios: Will ingest 428 files
+2026-08-22 15:32:13,270 INFO backfill_amfi_monthly_portfolios: Will ingest 428 files (0 skipped as already done)
+2026-08-22 15:32:13,271 INFO backfill_amfi_monthly_portfolios: Processing 1/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20May%2031,%202026.xlsx
+2026-08-22 15:32:14,140 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20May%2031,%202026.xlsx: 2917117 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:14,140 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:15,085 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 3005 records (confidence=0.80), 0 errors
+2026-08-22 15:32:15,559 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB26-Groww Nifty India Defence ETF FOF' reporting_date='2026-05-31' pct_sum=1.0006 n_records=1
+2026-08-22 15:32:15,559 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB49-Groww Multi Asset Allocation Fund' reporting_date='2026-05-31' pct_sum=66.3354 n_records=74
+2026-08-22 15:32:15,559 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB67-Groww Arbitrage Fund' reporting_date='2026-05-31' pct_sum=76.9696 n_records=44
+2026-08-22 15:32:15,559 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20May%2031,%202026.xlsx: 3005 valid, 0 quarantined
+2026-08-22 15:32:20,032 INFO backfill_amfi_monthly_portfolios: Processing 2/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20June%2030,%202026.xlsx
+2026-08-22 15:32:20,782 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20June%2030,%202026.xlsx: 3088108 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:20,782 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:21,299 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 3201 records (confidence=0.80), 0 errors
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB22-Groww Nifty EV & New Age Automotive ETF FOF' reporting_date='2026-06-30' pct_sum=1.0001 n_records=1
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB26-Groww Nifty India Defence ETF FOF' reporting_date='2026-06-30' pct_sum=1.0009 n_records=1
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB46-Groww BSE Power ETF FOF' reporting_date='2026-06-30' pct_sum=1.0015 n_records=1
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB49-Groww Multi Asset Allocation Fund' reporting_date='2026-06-30' pct_sum=67.8803 n_records=77
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB64-Groww BSE Hospitals ETF FOF' reporting_date='2026-06-30' pct_sum=1.0072 n_records=1
+2026-08-22 15:32:21,627 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB67-Groww Arbitrage Fund' reporting_date='2026-06-30' pct_sum=76.798 n_records=50
+2026-08-22 15:32:21,627 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20June%2030,%202026.xlsx: 3201 valid, 0 quarantined
+2026-08-22 15:32:25,581 INFO backfill_amfi_monthly_portfolios: Processing 3/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20July%2031%202026.xlsx
+2026-08-22 15:32:26,338 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20July%2031%202026.xlsx: 3553362 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:26,338 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:26,848 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 3238 records (confidence=0.80), 0 errors
+2026-08-22 15:32:27,156 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB26-Groww Nifty India Defence ETF FOF' reporting_date='2026-07-31' pct_sum=1.0004 n_records=1
+2026-08-22 15:32:27,156 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB46-Groww BSE Power ETF FOF' reporting_date='2026-07-31' pct_sum=1.0068 n_records=1
+2026-08-22 15:32:27,156 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB49-Groww Multi Asset Allocation Fund' reporting_date='2026-07-31' pct_sum=70.9789 n_records=78
+2026-08-22 15:32:27,156 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB64-Groww BSE Hospitals ETF FOF' reporting_date='2026-07-31' pct_sum=1.0043 n_records=1
+2026-08-22 15:32:27,157 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB67-Groww Arbitrage Fund' reporting_date='2026-07-31' pct_sum=74.1571 n_records=42
+2026-08-22 15:32:27,157 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20July%2031%202026.xlsx: 3238 valid, 0 quarantined
+2026-08-22 15:32:31,358 INFO backfill_amfi_monthly_portfolios: Processing 4/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20Apr%2030,%202026.xlsx
+2026-08-22 15:32:31,896 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20Apr%2030,%202026.xlsx: 2617031 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:31,896 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:32,357 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 2970 records (confidence=0.80), 0 errors
+2026-08-22 15:32:32,589 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB22-Groww Nifty EV & New Age Auto ETF FOF' reporting_date='2026-04-30' pct_sum=1.0002 n_records=1
+2026-08-22 15:32:32,590 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB49-Groww Multi Asset Allocation Fund' reporting_date='2026-04-30' pct_sum=66.9408 n_records=76
+2026-08-22 15:32:32,590 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB56-Groww Nifty Capital Markets ETF FOF' reporting_date='2026-04-30' pct_sum=1.0005 n_records=1
+2026-08-22 15:32:32,590 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB64-Groww BSE Hospitals ETF FOF' reporting_date='2026-04-30' pct_sum=1.0017 n_records=1
+2026-08-22 15:32:32,590 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='IB67-Groww Arbitrage Fund' reporting_date='2026-04-30' pct_sum=47.4043 n_records=22
+2026-08-22 15:32:32,590 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Monthly%20Portfolio-%20Apr%2030,%202026.xlsx: 2970 valid, 0 quarantined
+2026-08-22 15:32:36,714 INFO backfill_amfi_monthly_portfolios: Processing 5/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2030,%202026.xlsx
+2026-08-22 15:32:36,872 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2030,%202026.xlsx: 751079 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:36,872 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:36,947 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 65 records (confidence=0.80), 0 errors
+2026-08-22 15:32:36,960 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2030,%202026.xlsx: 65 valid, 0 quarantined
+2026-08-22 15:32:38,563 INFO backfill_amfi_monthly_portfolios: Processing 6/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2015,%202026.xlsx
+2026-08-22 15:32:38,701 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2015,%202026.xlsx: 751065 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:38,701 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:38,774 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 63 records (confidence=0.80), 0 errors
+2026-08-22 15:32:38,782 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jun%2015,%202026.xlsx: 63 valid, 0 quarantined
+2026-08-22 15:32:40,370 INFO backfill_amfi_monthly_portfolios: Processing 7/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jul%2015,%202026.xlsx
+2026-08-22 15:32:40,498 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jul%2015,%202026.xlsx: 751378 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:40,498 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:40,565 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 69 records (confidence=0.80), 0 errors
+2026-08-22 15:32:40,573 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Jul%2015,%202026.xlsx: 69 valid, 0 quarantined
+2026-08-22 15:32:42,309 INFO backfill_amfi_monthly_portfolios: Processing 8/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Apr%2015,%202026.xls
+2026-08-22 15:32:42,820 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Apr%2015,%202026.xls: 1377792 bytes (application/vnd.ms-excel)
+2026-08-22 15:32:42,820 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:32:42,849 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 69 records (confidence=0.80), 0 errors
+2026-08-22 15:32:42,856 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio-%20Apr%2015,%202026.xls: 69 valid, 0 quarantined
+2026-08-22 15:32:44,636 INFO backfill_amfi_monthly_portfolios: Processing 9/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2031,%202026.xlsx
+2026-08-22 15:32:44,982 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2031,%202026.xlsx: 744236 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:44,982 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:45,063 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 70 records (confidence=0.80), 0 errors
+2026-08-22 15:32:45,072 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2031,%202026.xlsx: 70 valid, 0 quarantined
+2026-08-22 15:32:46,663 INFO backfill_amfi_monthly_portfolios: Processing 10/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2015,%202026.xlsx
+2026-08-22 15:32:47,005 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2015,%202026.xlsx: 751348 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:47,005 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:47,073 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 73 records (confidence=0.80), 0 errors
+2026-08-22 15:32:47,086 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20May%2015,%202026.xlsx: 73 valid, 0 quarantined
+2026-08-22 15:32:48,850 INFO backfill_amfi_monthly_portfolios: Processing 11/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20July%2031,%202026.xlsx
+2026-08-22 15:32:49,232 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20July%2031,%202026.xlsx: 752050 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:49,233 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:49,302 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 70 records (confidence=0.80), 0 errors
+2026-08-22 15:32:49,312 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20July%2031,%202026.xlsx: 70 valid, 0 quarantined
+2026-08-22 15:32:50,924 INFO backfill_amfi_monthly_portfolios: Processing 12/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20Aug%2015,%202026.xlsx
+2026-08-22 15:32:51,193 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20Aug%2015,%202026.xlsx: 753665 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:32:51,193 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:32:51,273 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 82 records (confidence=0.80), 0 errors
+2026-08-22 15:32:51,284 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%20Aug%2015,%202026.xlsx: 82 valid, 0 quarantined
+2026-08-22 15:32:53,054 INFO backfill_amfi_monthly_portfolios: Processing 13/428: https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%2030%20April,%202026.xls
+2026-08-22 15:32:53,590 INFO backfill_amfi_monthly_portfolios: Downloaded https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%2030%20April,%202026.xls: 1416192 bytes (application/vnd.ms-excel)
+2026-08-22 15:32:53,590 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:32:53,636 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 75 records (confidence=0.80), 0 errors
+2026-08-22 15:32:53,663 INFO backfill_amfi_monthly_portfolios: Validation https://assets-netstorage.growwmf.in/compliance_docs/Statutory%20Disclosure/Portfolio/2026%20-2027/Fortnightly%20Portfolio%20-%2030%20April,%202026.xls: 75 valid, 0 quarantined
+2026-08-22 15:32:55,264 INFO backfill_amfi_monthly_portfolios: Processing 14/428: https://www.heliosmf.in/wp-content/uploads/2026/08/helios-overnight-fund-fortnightly-portfolio-as-on-15th-august-2026.xls
+2026-08-22 15:32:55,997 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/08/helios-overnight-fund-fortnightly-portfolio-as-on-15th-august-2026.xls: 284160 bytes (application/vnd.ms-excel)
+2026-08-22 15:32:55,997 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:32:56,007 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:32:57,509 INFO backfill_amfi_monthly_portfolios: Processing 15/428: https://www.heliosmf.in/wp-content/uploads/2026/08/helios-overnight-fund-fortnightly-portfolio-as-on-31st-july-2026.xls
+2026-08-22 15:32:57,884 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/08/helios-overnight-fund-fortnightly-portfolio-as-on-31st-july-2026.xls: 292352 bytes (application/vnd.ms-excel)
+2026-08-22 15:32:57,884 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:32:57,892 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:32:59,393 INFO backfill_amfi_monthly_portfolios: Processing 16/428: https://www.heliosmf.in/wp-content/uploads/2026/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2026.xls
+2026-08-22 15:33:00,065 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2026.xls: 292352 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:00,065 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:00,073 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:01,577 INFO backfill_amfi_monthly_portfolios: Processing 17/428: https://www.heliosmf.in/wp-content/uploads/2026/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2026.xls
+2026-08-22 15:33:01,942 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2026.xls: 287232 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:01,942 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:01,950 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:03,455 INFO backfill_amfi_monthly_portfolios: Processing 18/428: https://www.heliosmf.in/wp-content/uploads/2026/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2026.xls
+2026-08-22 15:33:03,819 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2026.xls: 290816 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:03,819 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:03,826 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:05,328 INFO backfill_amfi_monthly_portfolios: Processing 19/428: https://www.heliosmf.in/wp-content/uploads/2026/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2026.xls
+2026-08-22 15:33:06,362 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2026.xls: 286720 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:06,362 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:06,370 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:07,871 INFO backfill_amfi_monthly_portfolios: Processing 20/428: https://www.heliosmf.in/wp-content/uploads/2026/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2026.xls
+2026-08-22 15:33:08,258 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2026.xls: 288256 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:08,258 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:08,266 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:09,767 INFO backfill_amfi_monthly_portfolios: Processing 21/428: https://www.heliosmf.in/wp-content/uploads/2026/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2026.xls
+2026-08-22 15:33:10,151 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2026.xls: 290816 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:10,151 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:10,159 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:11,660 INFO backfill_amfi_monthly_portfolios: Processing 22/428: https://www.heliosmf.in/wp-content/uploads/2026/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-April-2026.xls
+2026-08-22 15:33:17,429 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-April-2026.xls: 273920 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:17,429 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:17,435 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:18,937 INFO backfill_amfi_monthly_portfolios: Processing 23/428: https://www.heliosmf.in/wp-content/uploads/2026/04/HeliosMF_Fortnightly-Portfolio_31st-March-2026___.xls
+2026-08-22 15:33:21,301 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/04/HeliosMF_Fortnightly-Portfolio_31st-March-2026___.xls: 286720 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:21,301 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:21,309 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:22,810 INFO backfill_amfi_monthly_portfolios: Processing 24/428: https://www.heliosmf.in/wp-content/uploads/2026/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2026.xls
+2026-08-22 15:33:24,168 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2026.xls: 287232 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:24,168 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:24,175 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:25,676 INFO backfill_amfi_monthly_portfolios: Processing 25/428: https://www.heliosmf.in/wp-content/uploads/2026/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-28th-February-2026.xls
+2026-08-22 15:33:26,592 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-28th-February-2026.xls: 287232 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:26,592 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:26,594 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:28,096 INFO backfill_amfi_monthly_portfolios: Processing 26/428: https://www.heliosmf.in/wp-content/uploads/2026/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2026.xls
+2026-08-22 15:33:28,868 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2026.xls: 284160 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:28,868 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:28,875 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:30,380 INFO backfill_amfi_monthly_portfolios: Processing 27/428: https://www.heliosmf.in/wp-content/uploads/2026/02/HeliosMF_Fortnightly-Portfolio_31st-January-2026___.xls
+2026-08-22 15:33:31,099 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/02/HeliosMF_Fortnightly-Portfolio_31st-January-2026___.xls: 283648 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:31,099 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:31,105 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:32,611 INFO backfill_amfi_monthly_portfolios: Processing 28/428: https://www.heliosmf.in/wp-content/uploads/2026/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2026.xls
+2026-08-22 15:33:33,276 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2026.xls: 283648 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:33,276 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:33,278 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:34,779 INFO backfill_amfi_monthly_portfolios: Processing 29/428: https://www.heliosmf.in/wp-content/uploads/2026/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2025.xls
+2026-08-22 15:33:35,388 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2026/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2025.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:35,388 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:35,394 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:36,895 INFO backfill_amfi_monthly_portfolios: Processing 30/428: https://www.heliosmf.in/wp-content/uploads/2025/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-December-2025.xls
+2026-08-22 15:33:37,509 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-December-2025.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:37,509 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:37,511 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:39,016 INFO backfill_amfi_monthly_portfolios: Processing 31/428: https://www.heliosmf.in/wp-content/uploads/2025/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-November-2025.xls
+2026-08-22 15:33:39,596 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-November-2025.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:39,596 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:39,598 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:41,099 INFO backfill_amfi_monthly_portfolios: Processing 32/428: https://www.heliosmf.in/wp-content/uploads/2025/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-November-2025.xls
+2026-08-22 15:33:41,643 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-November-2025.xls: 271872 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:41,644 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:41,650 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:43,155 INFO backfill_amfi_monthly_portfolios: Processing 33/428: https://www.heliosmf.in/wp-content/uploads/2025/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-October-2025.xls
+2026-08-22 15:33:43,699 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-October-2025.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:43,700 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:43,706 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:45,208 INFO backfill_amfi_monthly_portfolios: Processing 34/428: https://www.heliosmf.in/wp-content/uploads/2025/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-October-2025.xls
+2026-08-22 15:33:45,795 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-October-2025.xls: 280576 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:45,798 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:45,806 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:47,307 INFO backfill_amfi_monthly_portfolios: Processing 35/428: https://www.heliosmf.in/wp-content/uploads/2025/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-September-2025.xls
+2026-08-22 15:33:47,892 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-September-2025.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:47,892 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:47,897 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:49,402 INFO backfill_amfi_monthly_portfolios: Processing 36/428: https://www.heliosmf.in/wp-content/uploads/2025/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-September-2025.xls
+2026-08-22 15:33:49,966 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-September-2025.xls: 278016 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:49,966 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:49,975 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:33:51,481 INFO backfill_amfi_monthly_portfolios: Processing 37/428: https://www.heliosmf.in/wp-content/uploads/2025/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-August-2025.xls
+2026-08-22 15:33:52,086 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-August-2025.xls: 364544 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:52,086 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:52,089 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:53,595 INFO backfill_amfi_monthly_portfolios: Processing 38/428: https://www.heliosmf.in/wp-content/uploads/2025/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-August-2025.xls
+2026-08-22 15:33:54,224 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-August-2025.xls: 358912 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:54,224 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:54,226 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:55,732 INFO backfill_amfi_monthly_portfolios: Processing 39/428: https://www.heliosmf.in/wp-content/uploads/2025/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-July-2025.xls
+2026-08-22 15:33:56,389 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-July-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:56,389 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:56,397 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:33:57,902 INFO backfill_amfi_monthly_portfolios: Processing 40/428: https://www.heliosmf.in/wp-content/uploads/2025/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2025.xls
+2026-08-22 15:33:58,507 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:33:58,507 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:33:58,519 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:00,024 INFO backfill_amfi_monthly_portfolios: Processing 41/428: https://www.heliosmf.in/wp-content/uploads/2025/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2025.xls
+2026-08-22 15:34:00,583 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:00,583 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:00,586 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:34:02,092 INFO backfill_amfi_monthly_portfolios: Processing 42/428: https://www.heliosmf.in/wp-content/uploads/2025/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2025.xls
+2026-08-22 15:34:02,650 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:02,650 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:02,652 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:34:04,158 INFO backfill_amfi_monthly_portfolios: Processing 43/428: https://www.heliosmf.in/wp-content/uploads/2025/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2025.xls
+2026-08-22 15:34:04,707 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:04,707 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:04,711 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 1 errors
+2026-08-22 15:34:06,211 INFO backfill_amfi_monthly_portfolios: Processing 44/428: https://www.heliosmf.in/wp-content/uploads/2025/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2025.xls
+2026-08-22 15:34:06,874 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2025.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:06,874 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:06,882 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:08,385 INFO backfill_amfi_monthly_portfolios: Processing 45/428: https://www.heliosmf.in/wp-content/uploads/2025/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2025.xls
+2026-08-22 15:34:08,930 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:08,930 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:08,937 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:10,440 INFO backfill_amfi_monthly_portfolios: Processing 46/428: https://www.heliosmf.in/wp-content/uploads/2025/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-April-2025.xls
+2026-08-22 15:34:10,969 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-April-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:10,969 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:10,977 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:12,480 INFO backfill_amfi_monthly_portfolios: Processing 47/428: https://www.heliosmf.in/wp-content/uploads/2025/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-March-2025.xls
+2026-08-22 15:34:13,084 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-March-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:13,085 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:13,099 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:14,603 INFO backfill_amfi_monthly_portfolios: Processing 48/428: https://www.heliosmf.in/wp-content/uploads/2025/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2025.xls
+2026-08-22 15:34:15,160 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:15,160 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:15,168 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:16,674 INFO backfill_amfi_monthly_portfolios: Processing 49/428: https://www.heliosmf.in/wp-content/uploads/2025/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-28th-February-2025.xls
+2026-08-22 15:34:17,258 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-28th-February-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:17,258 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:17,270 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:18,776 INFO backfill_amfi_monthly_portfolios: Processing 50/428: https://www.heliosmf.in/wp-content/uploads/2025/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2025.xls
+2026-08-22 15:34:19,343 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2025.xls: 430592 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:19,343 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:19,353 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:20,857 INFO backfill_amfi_monthly_portfolios: Processing 51/428: https://www.heliosmf.in/wp-content/uploads/2025/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-January-2025.xls
+2026-08-22 15:34:21,474 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-January-2025.xls: 427520 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:21,474 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:21,499 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:23,005 INFO backfill_amfi_monthly_portfolios: Processing 52/428: https://www.heliosmf.in/wp-content/uploads/2025/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2025.xls
+2026-08-22 15:34:28,902 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2025.xls: 425472 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:28,902 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:28,909 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:30,410 INFO backfill_amfi_monthly_portfolios: Processing 53/428: https://www.heliosmf.in/wp-content/uploads/2025/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2024.xls
+2026-08-22 15:34:31,081 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2025/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2024.xls: 418304 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:31,081 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:31,092 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:32,596 INFO backfill_amfi_monthly_portfolios: Processing 54/428: https://www.heliosmf.in/wp-content/uploads/2024/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-December-2024.xls
+2026-08-22 15:34:33,113 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-December-2024.xls: 424960 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:33,114 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:33,124 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:34,635 INFO backfill_amfi_monthly_portfolios: Processing 55/428: https://www.heliosmf.in/wp-content/uploads/2024/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-November-2024.xls
+2026-08-22 15:34:35,157 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/12/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-November-2024.xls: 423424 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:35,158 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:35,185 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:36,686 INFO backfill_amfi_monthly_portfolios: Processing 56/428: https://www.heliosmf.in/wp-content/uploads/2024/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-November-2024.xls
+2026-08-22 15:34:37,158 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-November-2024.xls: 443392 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:37,158 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:37,179 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:38,685 INFO backfill_amfi_monthly_portfolios: Processing 57/428: https://www.heliosmf.in/wp-content/uploads/2024/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-October-2024.xls
+2026-08-22 15:34:39,199 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/11/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-October-2024.xls: 493568 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:39,199 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:39,213 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:40,715 INFO backfill_amfi_monthly_portfolios: Processing 58/428: https://www.heliosmf.in/wp-content/uploads/2024/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-October-2024.xls
+2026-08-22 15:34:41,411 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-October-2024.xls: 500224 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:41,411 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:41,425 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:42,931 INFO backfill_amfi_monthly_portfolios: Processing 59/428: https://www.heliosmf.in/wp-content/uploads/2024/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-September-2024.xls
+2026-08-22 15:34:43,471 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/10/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-September-2024.xls: 500736 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:43,471 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:43,493 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:44,998 INFO backfill_amfi_monthly_portfolios: Processing 60/428: https://www.heliosmf.in/wp-content/uploads/2024/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-September-2024.xlsx
+2026-08-22 15:34:46,337 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-September-2024.xlsx: 205249 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:46,337 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:46,371 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:47,878 INFO backfill_amfi_monthly_portfolios: Processing 61/428: https://www.heliosmf.in/wp-content/uploads/2024/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-August-2024.xls
+2026-08-22 15:34:48,416 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/09/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-August-2024.xls: 493568 bytes (application/vnd.ms-excel)
+2026-08-22 15:34:48,416 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:34:48,428 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:49,935 INFO backfill_amfi_monthly_portfolios: Processing 62/428: https://www.heliosmf.in/wp-content/uploads/2024/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-August-2024.xlsx
+2026-08-22 15:34:50,457 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-August-2024.xlsx: 318053 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:50,458 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:50,550 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:52,053 INFO backfill_amfi_monthly_portfolios: Processing 63/428: https://www.heliosmf.in/wp-content/uploads/2024/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-July-2024.xlsx
+2026-08-22 15:34:52,494 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/08/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-July-2024.xlsx: 179312 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:52,494 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:52,516 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:54,020 INFO backfill_amfi_monthly_portfolios: Processing 64/428: https://www.heliosmf.in/wp-content/uploads/2024/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2024.xlsx
+2026-08-22 15:34:54,412 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2024.xlsx: 243239 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:54,412 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:54,456 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:55,961 INFO backfill_amfi_monthly_portfolios: Processing 65/428: https://www.heliosmf.in/wp-content/uploads/2024/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2024.xlsx
+2026-08-22 15:34:56,375 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/07/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-June-2024.xlsx: 243449 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:56,376 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:56,443 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:57,951 INFO backfill_amfi_monthly_portfolios: Processing 66/428: https://www.heliosmf.in/wp-content/uploads/2024/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2024.xlsx
+2026-08-22 15:34:58,391 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-June-2024.xlsx: 243525 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:34:58,391 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:34:58,494 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:34:59,999 INFO backfill_amfi_monthly_portfolios: Processing 67/428: https://www.heliosmf.in/wp-content/uploads/2024/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2024.xlsx
+2026-08-22 15:35:00,514 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/06/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-May-2024.xlsx: 243602 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:35:00,514 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:35:00,600 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:02,106 INFO backfill_amfi_monthly_portfolios: Processing 68/428: https://www.heliosmf.in/wp-content/uploads/2024/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2024.xlsx
+2026-08-22 15:35:02,576 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-May-2024.xlsx: 243638 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:35:02,576 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:35:02,673 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:04,179 INFO backfill_amfi_monthly_portfolios: Processing 69/428: https://www.heliosmf.in/wp-content/uploads/2024/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2024.xls
+2026-08-22 15:35:04,693 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/05/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-30th-April-2024.xls: 276992 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:04,693 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:04,708 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:06,211 INFO backfill_amfi_monthly_portfolios: Processing 70/428: https://www.heliosmf.in/wp-content/uploads/2024/04/HeliosMF_Fortnightly-Portfolio_15th-April-2024.xls
+2026-08-22 15:35:06,634 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/04/HeliosMF_Fortnightly-Portfolio_15th-April-2024.xls: 278528 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:06,634 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:06,690 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:08,197 INFO backfill_amfi_monthly_portfolios: Processing 71/428: https://www.heliosmf.in/wp-content/uploads/2024/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-March-2024.xlsx
+2026-08-22 15:35:08,689 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/04/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-March-2024.xlsx: 248381 bytes (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-08-22 15:35:08,689 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xlsx
+2026-08-22 15:35:08,871 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:10,377 INFO backfill_amfi_monthly_portfolios: Processing 72/428: https://www.heliosmf.in/wp-content/uploads/2024/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2024.xls
+2026-08-22 15:35:10,853 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-March-2024.xls: 277504 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:10,853 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:10,900 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:12,405 INFO backfill_amfi_monthly_portfolios: Processing 73/428: https://www.heliosmf.in/wp-content/uploads/2024/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-29th-February-2024.xls
+2026-08-22 15:35:12,850 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/03/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-29th-February-2024.xls: 276992 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:12,850 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:12,884 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:14,388 INFO backfill_amfi_monthly_portfolios: Processing 74/428: https://www.heliosmf.in/wp-content/uploads/2024/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2024.xls
+2026-08-22 15:35:14,895 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-February-2024.xls: 277504 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:14,895 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:14,909 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:16,410 INFO backfill_amfi_monthly_portfolios: Processing 75/428: https://www.heliosmf.in/wp-content/uploads/2024/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-January-2024.xls
+2026-08-22 15:35:17,781 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/02/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-January-2024.xls: 280576 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:17,781 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:17,790 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:19,293 INFO backfill_amfi_monthly_portfolios: Processing 76/428: https://www.heliosmf.in/wp-content/uploads/2024/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2024.xls
+2026-08-22 15:35:19,694 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-January-2024.xls: 274944 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:19,694 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:19,701 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors
+2026-08-22 15:35:21,207 INFO backfill_amfi_monthly_portfolios: Processing 77/428: https://www.heliosmf.in/wp-content/uploads/2024/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2023.xls
+2026-08-22 15:35:21,689 INFO backfill_amfi_monthly_portfolios: Downloaded https://www.heliosmf.in/wp-content/uploads/2024/01/Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-31st-December-2023.xls: 279552 bytes (application/vnd.ms-excel)
+2026-08-22 15:35:21,689 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_monthly_amfi for dataset_type=portfolio_disclosure file_type=amfi_monthly_xls
+2026-08-22 15:35:21,698 INFO backfill_amfi_monthly_portfolios: Parser portfolio_monthly_amfi: 0 records (confidence=0.00), 0 errors

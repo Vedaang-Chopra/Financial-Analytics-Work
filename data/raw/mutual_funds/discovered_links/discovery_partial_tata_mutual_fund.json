@@ -1,0 +1,19 @@
+{
+  "amc_name": "Tata Mutual Fund",
+  "seed_url": "https://www.tatamutualfund.com/schemes-related",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://www.tatamutualfund.com/system/files/2026-04/Revised%20format%20for%20disclosure%20of%20scheme%20category-wise%20AAUM%20data_JAN%2726-MAR%2726-TATA%20MF.XLS",
+      "context": "Geography-wise AUM as on 31/03/2026"
+    },
+    {
+      "url": "https://tatamutualfund.com/system/files/2026-08/Debt%20Index%20Replication%20Factor%20as%20on%2015th%20August%202026.xlsx",
+      "context": "Debt Index Replication Factor"
+    }
+  ],
+  "notes": [
+    "harvested 2 unique file links after render+expand"
+  ]
+}

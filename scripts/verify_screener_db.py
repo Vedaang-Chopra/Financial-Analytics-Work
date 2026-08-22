@@ -7,8 +7,9 @@ import psycopg2
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from screener_ingestion import parse  # noqa: F401  (ensures package importable)
+from db_config import screener_url  # noqa: E402
 
-conn = psycopg2.connect("postgresql://vlmrouter:vlmrouter@localhost:5432/screener")
+conn = psycopg2.connect(screener_url())
 cur = conn.cursor()
 
 print("== stocks ==")

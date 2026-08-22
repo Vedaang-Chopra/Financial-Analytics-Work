@@ -48,7 +48,7 @@ and what it looks like — with interactive Plotly visualizations.
 ## How to run
 
 ```bash
-export DATABASE_URL="postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+# DB URL resolves via DATABASE_URL env var or api.env (db_config.py)
 ./financial_env/bin/python -m jupyter lab notebooks/mutual_fund_ingestion/05_nav_data_exploration.ipynb
 ```
 
@@ -69,6 +69,8 @@ while not (PROJECT_ROOT / "mutual_fund_ingestion").exists() and PROJECT_ROOT != 
     PROJECT_ROOT = PROJECT_ROOT.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+
+from db_config import generic_database_url
 
 import pandas as pd
 import numpy as np
@@ -99,8 +101,13 @@ cells.append(md(
 Set `DATABASE_URL` to override; the default below matches the local Docker setup."""
 ))
 cells.append(code(
-"""DEFAULT_DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-DATABASE_URL = os.environ.get("DATABASE_URL", DEFAULT_DATABASE_URL)
+"""# DSN resolution: DATABASE_URL env var > api.env (db_config.py) > local Docker default
+import sys as _sys
+_sys.path.insert(0, str(_ROOT))
+
+from db_config import generic_database_url
+
+DATABASE_URL = generic_database_url()
 
 engine = create_engine(DATABASE_URL)
 

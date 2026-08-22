@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 import uuid
 from pathlib import Path
 
@@ -25,16 +26,17 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SQL_PATH = REPO_ROOT / "mutual_fund_ingestion" / "analysis" / "consensus_panel.sql"
 
+sys.path.insert(0, str(REPO_ROOT))
+
+from db_config import mutual_funds_url  # noqa: E402
+
 try:
     import psycopg2
     import psycopg2.extensions
 except ImportError:  # pragma: no cover - environment-dependent
     psycopg2 = None
 
-DSN = os.environ.get(
-    "MF_DATABASE_URL",
-    "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds",
-)
+DSN = mutual_funds_url()
 
 pg_available = psycopg2 is not None
 

@@ -1,0 +1,4 @@
+dup groups: 174
+snapshots moved=444 deleted=557 | docs moved=445 | schemes deleted=671
+dup snapshot groups after merge: 0
+icici sanity ok/bad: (533, 59)

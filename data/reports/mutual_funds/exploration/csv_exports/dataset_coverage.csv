@@ -1,0 +1,3 @@
+id,dataset_type,total_amcs,total_schemes,total_expected,total_stored,total_missing,coverage_pct,global_earliest,global_latest,amcs_complete,amcs_partial,amcs_minimal,amcs_empty,last_updated
+dd643709-548d-472b-8a1c-ede23fbce4f4,nav_history,50,8067,15160,15161,-1,100.0,2021-09-17,2026-08-22,49,0,0,0,2026-08-21 07:25:45.538642+00:00
+e6b4683d-a290-4b09-8a1e-64f39b934a1a,portfolio_disclosure,50,8067,912,428,484,46.9,2013-03-31,2026-08-21,5,0,1,43,2026-08-21 07:25:45.538642+00:00

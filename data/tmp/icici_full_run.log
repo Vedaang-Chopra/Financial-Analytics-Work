@@ -1,0 +1,447 @@
+INFO 128 artifacts match host='icicipruamc.com'
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2142 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-08-15' pct_sum=9.0771 n_records=3
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-08-15' pct_sum=162.579 n_records=201
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-08-15' pct_sum=186.3497 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-08-15' pct_sum=142.6204 n_records=21
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-08-15' pct_sum=67.5468 n_records=135
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-08-15' pct_sum=24.4324 n_records=49
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-08-15' pct_sum=46.6917 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-08-15' pct_sum=170.9561 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-08-15' pct_sum=135.8376 n_records=89
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Overnight Fund' reporting_date='2026-08-15' pct_sum=4.5116 n_records=8
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-08-15' pct_sum=163.3456 n_records=133
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-08-15' pct_sum=126.2139 n_records=154
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-08-15' pct_sum=173.6138 n_records=173
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-08-15' pct_sum=76.2572 n_records=184
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-08-15' pct_sum=169.1153 n_records=100
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2143 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-07-31' pct_sum=9.0513 n_records=3
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-07-31' pct_sum=167.3253 n_records=203
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-07-31' pct_sum=190.5994 n_records=108
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-07-31' pct_sum=147.3642 n_records=20
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-07-31' pct_sum=70.8449 n_records=129
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-07-31' pct_sum=48.494 n_records=42
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-07-31' pct_sum=46.8249 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-07-31' pct_sum=177.3917 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-07-31' pct_sum=134.7391 n_records=90
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Overnight Fund' reporting_date='2026-07-31' pct_sum=83.7071 n_records=10
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-07-31' pct_sum=163.7021 n_records=139
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-07-31' pct_sum=130.5765 n_records=160
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-07-31' pct_sum=181.8691 n_records=184
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-07-31' pct_sum=80.1066 n_records=180
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-07-31' pct_sum=132.0455 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-07-31' pct_sum=171.3685 n_records=104
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2120 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-07-15' pct_sum=134.9291 n_records=90
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-07-15' pct_sum=164.4802 n_records=139
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-07-15' pct_sum=131.6498 n_records=167
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-07-15' pct_sum=183.7458 n_records=182
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-07-15' pct_sum=79.6975 n_records=181
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-07-15' pct_sum=120.9013 n_records=98
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-07-15' pct_sum=172.5595 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-07-15' pct_sum=4.0087 n_records=5
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-07-15' pct_sum=164.9284 n_records=201
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-07-15' pct_sum=179.1918 n_records=102
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-07-15' pct_sum=138.8741 n_records=17
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-07-15' pct_sum=76.0275 n_records=123
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-07-15' pct_sum=49.1895 n_records=42
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-07-15' pct_sum=46.2947 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-07-15' pct_sum=169.1122 n_records=105
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2096 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-06-30' pct_sum=169.5352 n_records=105
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-06-30' pct_sum=135.0282 n_records=90
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-06-30' pct_sum=165.2982 n_records=138
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-06-30' pct_sum=128.2419 n_records=173
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-06-30' pct_sum=181.6512 n_records=182
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-06-30' pct_sum=79.4167 n_records=172
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-06-30' pct_sum=118.738 n_records=97
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-06-30' pct_sum=168.0532 n_records=103
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-06-30' pct_sum=-8.2264 n_records=6
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-06-30' pct_sum=162.7029 n_records=198
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-06-30' pct_sum=175.7872 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-06-30' pct_sum=131.296 n_records=22
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-06-30' pct_sum=74.9162 n_records=123
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-06-30' pct_sum=49.1639 n_records=42
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Liquid Fund' reporting_date='2026-06-30' pct_sum=121.3846 n_records=177
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-06-30' pct_sum=46.021 n_records=18
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2066 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-06-15' pct_sum=168.1082 n_records=202
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-06-15' pct_sum=176.9092 n_records=105
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-06-15' pct_sum=129.8988 n_records=23
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-06-15' pct_sum=47.8172 n_records=40
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-06-15' pct_sum=45.8787 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-06-15' pct_sum=169.1813 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-06-15' pct_sum=135.0586 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-06-15' pct_sum=164.5375 n_records=140
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-06-15' pct_sum=138.1348 n_records=176
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-06-15' pct_sum=185.5956 n_records=188
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-06-15' pct_sum=119.3558 n_records=96
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-06-15' pct_sum=168.0513 n_records=104
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2077 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-05-31' pct_sum=134.6706 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-05-31' pct_sum=163.1606 n_records=138
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2026-05-31' pct_sum=115.9366 n_records=41
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-05-31' pct_sum=131.0224 n_records=182
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-05-31' pct_sum=171.5039 n_records=192
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-05-31' pct_sum=119.121 n_records=99
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-05-31' pct_sum=168.4693 n_records=110
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-05-31' pct_sum=164.6594 n_records=209
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-05-31' pct_sum=177.0511 n_records=104
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-05-31' pct_sum=137.8551 n_records=24
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-05-31' pct_sum=47.9346 n_records=40
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-05-31' pct_sum=45.9635 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-05-31' pct_sum=167.9603 n_records=106
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2064 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-05-15' pct_sum=133.4713 n_records=23
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-05-15' pct_sum=64.4206 n_records=109
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-05-15' pct_sum=45.276 n_records=40
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-05-15' pct_sum=45.6922 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-05-15' pct_sum=163.423 n_records=102
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-05-15' pct_sum=134.684 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Overnight Fund' reporting_date='2026-05-15' pct_sum=78.3665 n_records=9
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-05-15' pct_sum=162.6034 n_records=137
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-05-15' pct_sum=118.96 n_records=199
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-05-15' pct_sum=163.0444 n_records=181
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-05-15' pct_sum=162.8044 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-05-15' pct_sum=159.8659 n_records=206
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-05-15' pct_sum=172.4341 n_records=101
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2089 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-04-30' pct_sum=157.0927 n_records=204
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-04-30' pct_sum=169.2313 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-04-30' pct_sum=145.904 n_records=22
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-04-30' pct_sum=69.907 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-04-30' pct_sum=44.948 n_records=39
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-04-30' pct_sum=45.9975 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-04-30' pct_sum=163.4595 n_records=103
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 4060 Index Fund' reporting_date='2026-04-30' pct_sum=135.8295 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-04-30' pct_sum=160.635 n_records=137
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2026-04-30' pct_sum=115.6155 n_records=38
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-04-30' pct_sum=115.3615 n_records=220
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-04-30' pct_sum=162.8942 n_records=178
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-04-30' pct_sum=115.0088 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-04-30' pct_sum=164.0465 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-04-30' pct_sum=63.5052 n_records=57
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2151 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-04-15' pct_sum=158.1257 n_records=212
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-04-15' pct_sum=172.2734 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-04-15' pct_sum=151.465 n_records=22
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-04-15' pct_sum=71.3097 n_records=111
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-04-15' pct_sum=44.3803 n_records=38
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-04-15' pct_sum=43.4394 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-04-15' pct_sum=168.993 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-04-15' pct_sum=134.8807 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-04-15' pct_sum=166.0911 n_records=142
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2026-04-15' pct_sum=117.4579 n_records=36
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-04-15' pct_sum=159.2549 n_records=182
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-04-15' pct_sum=77.5996 n_records=152
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-04-15' pct_sum=166.1937 n_records=109
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-04-15' pct_sum=65.8596 n_records=58
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2197 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-03-31' pct_sum=154.047 n_records=22
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-03-31' pct_sum=73.8952 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-03-31' pct_sum=50.6383 n_records=39
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-03-31' pct_sum=43.374 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-03-31' pct_sum=163.8909 n_records=110
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-03-31' pct_sum=134.3279 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-03-31' pct_sum=169.2558 n_records=145
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-03-31' pct_sum=157.2107 n_records=198
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-03-31' pct_sum=60.6286 n_records=164
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-03-31' pct_sum=164.6953 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-03-31' pct_sum=65.5675 n_records=60
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-03-31' pct_sum=-1297.3421 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-03-31' pct_sum=163.1488 n_records=214
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-03-31' pct_sum=173.141 n_records=104
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2252 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20March%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-03-15' pct_sum=50.5516 n_records=60
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-03-15' pct_sum=-1240.1401 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-03-15' pct_sum=141.6491 n_records=221
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-03-15' pct_sum=163.512 n_records=102
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-03-15' pct_sum=139.4204 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-03-15' pct_sum=60.4694 n_records=118
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-03-15' pct_sum=25.9228 n_records=53
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-03-15' pct_sum=41.6835 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-03-15' pct_sum=155.4828 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-03-15' pct_sum=133.8556 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-03-15' pct_sum=166.6501 n_records=145
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-03-15' pct_sum=144.0561 n_records=204
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-03-15' pct_sum=71.0518 n_records=177
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-03-15' pct_sum=152.1293 n_records=112
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2242 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2028th%20February%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-02-28' pct_sum=-1129.7952 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-02-28' pct_sum=128.6453 n_records=219
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-02-28' pct_sum=158.8358 n_records=94
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-02-28' pct_sum=148.1561 n_records=20
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-02-28' pct_sum=44.3507 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-02-28' pct_sum=17.9295 n_records=50
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-02-28' pct_sum=41.0724 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-02-28' pct_sum=147.8105 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-02-28' pct_sum=134.1627 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-02-28' pct_sum=158.9074 n_records=139
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-02-28' pct_sum=135.4646 n_records=205
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-02-28' pct_sum=65.3271 n_records=172
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-02-28' pct_sum=83.0238 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-02-28' pct_sum=149.5524 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-02-28' pct_sum=39.1431 n_records=57
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2214 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20February%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-02-15' pct_sum=-1131.8334 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-02-15' pct_sum=131.5685 n_records=217
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-02-15' pct_sum=160.5748 n_records=93
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-02-15' pct_sum=150.0837 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-02-15' pct_sum=44.1326 n_records=98
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-02-15' pct_sum=19.2336 n_records=50
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-02-15' pct_sum=41.3613 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-02-15' pct_sum=149.5666 n_records=99
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-02-15' pct_sum=133.7322 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-02-15' pct_sum=158.7239 n_records=139
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-02-15' pct_sum=133.7512 n_records=199
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-02-15' pct_sum=68.8166 n_records=177
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-02-15' pct_sum=83.1117 n_records=111
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-02-15' pct_sum=150.1766 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-02-15' pct_sum=39.1256 n_records=57
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2225 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20January%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-01-31' pct_sum=-1195.8187 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-01-31' pct_sum=127.4356 n_records=222
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-01-31' pct_sum=166.285 n_records=95
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-01-31' pct_sum=149.6797 n_records=19
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-01-31' pct_sum=39.8109 n_records=95
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-01-31' pct_sum=-8.1058 n_records=57
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-01-31' pct_sum=35.6688 n_records=21
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-01-31' pct_sum=156.7878 n_records=102
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-01-31' pct_sum=134.5653 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-01-31' pct_sum=162.9208 n_records=137
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-01-31' pct_sum=133.1568 n_records=197
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-01-31' pct_sum=83.4062 n_records=170
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-01-31' pct_sum=76.3037 n_records=119
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-01-31' pct_sum=142.1617 n_records=109
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-01-31' pct_sum=11.8176 n_records=55
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2254 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20January%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-01-15' pct_sum=149.2675 n_records=101
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-01-15' pct_sum=134.3637 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-01-15' pct_sum=153.4518 n_records=137
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-01-15' pct_sum=119.4156 n_records=239
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-01-15' pct_sum=124.3667 n_records=193
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2026-01-15' pct_sum=60.6516 n_records=133
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-01-15' pct_sum=141.4468 n_records=112
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2026-01-15' pct_sum=7.4314 n_records=59
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-01-15' pct_sum=-1180.3914 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-01-15' pct_sum=122.2095 n_records=229
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-01-15' pct_sum=158.0706 n_records=94
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-01-15' pct_sum=152.7761 n_records=17
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-01-15' pct_sum=45.5515 n_records=92
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-01-15' pct_sum=-41.1631 n_records=77
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-01-15' pct_sum=26.3867 n_records=24
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2378 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20December%202025.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2025-12-31' pct_sum=127.5557 n_records=250
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2025-12-31' pct_sum=160.8727 n_records=97
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2025-12-31' pct_sum=173.6224 n_records=17
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2025-12-31' pct_sum=58.6159 n_records=96
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2025-12-31' pct_sum=-64.6079 n_records=90
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2025-12-31' pct_sum=26.4343 n_records=24
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2025-12-31' pct_sum=156.3309 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2025-12-31' pct_sum=134.0908 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2025-12-31' pct_sum=154.0439 n_records=142
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2025-12-31' pct_sum=126.3527 n_records=244
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2025-12-31' pct_sum=139.431 n_records=215
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2025-12-31' pct_sum=125.674 n_records=168
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2025-12-31' pct_sum=48.2493 n_records=145
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2025-12-31' pct_sum=141.1804 n_records=120
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2025-12-31' pct_sum=11.1084 n_records=62
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2390 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20December%202025.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2025-12-15' pct_sum=125.8462 n_records=252
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2025-12-15' pct_sum=158.0984 n_records=96
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2025-12-15' pct_sum=170.0141 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2025-12-15' pct_sum=57.2521 n_records=91
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2025-12-15' pct_sum=-65.0065 n_records=89
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2025-12-15' pct_sum=26.1164 n_records=24
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2025-12-15' pct_sum=153.656 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 4060 Index Fund' reporting_date='2025-12-15' pct_sum=135.6451 n_records=100
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2025-12-15' pct_sum=153.7091 n_records=143
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2025-12-15' pct_sum=116.9066 n_records=35
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Pure Debt Plan' reporting_date='2025-12-15' pct_sum=83.0193 n_records=12
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2025-12-15' pct_sum=118.8723 n_records=252
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2025-12-15' pct_sum=125.9883 n_records=218
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2025-12-15' pct_sum=48.3044 n_records=145
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2025-12-15' pct_sum=142.3968 n_records=118
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2025-12-15' pct_sum=11.6863 n_records=63
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2397 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20November%202025.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2025-11-30' pct_sum=126.1192 n_records=257
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2025-11-30' pct_sum=155.7802 n_records=96
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2025-11-30' pct_sum=159.0544 n_records=20
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2025-11-30' pct_sum=58.0293 n_records=93
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2025-11-30' pct_sum=-83.0671 n_records=98
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2025-11-30' pct_sum=21.6034 n_records=25
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2025-11-30' pct_sum=149.9738 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2025-11-30' pct_sum=134.478 n_records=98
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Overnight Fund' reporting_date='2025-11-30' pct_sum=4.6105 n_records=4
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2025-11-30' pct_sum=145.4383 n_records=138
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2025-11-30' pct_sum=123.5584 n_records=37
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Pure Debt Plan' reporting_date='2025-11-30' pct_sum=84.6676 n_records=12
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2025-11-30' pct_sum=118.8192 n_records=247
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2025-11-30' pct_sum=123.9304 n_records=218
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2025-11-30' pct_sum=42.8615 n_records=152
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2025-11-30' pct_sum=144.7908 n_records=126
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2025-11-30' pct_sum=2.5256 n_records=68
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2385 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20November%202025.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2025-11-15' pct_sum=128.0081 n_records=257
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2025-11-15' pct_sum=165.1956 n_records=99
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2025-11-15' pct_sum=157.781 n_records=21
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2025-11-15' pct_sum=67.337 n_records=89
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2025-11-15' pct_sum=-78.2927 n_records=92
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2025-11-15' pct_sum=20.8459 n_records=23
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2025-11-15' pct_sum=153.7144 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 4060 Index Fund' reporting_date='2025-11-15' pct_sum=135.087 n_records=97
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2025-11-15' pct_sum=156.221 n_records=136
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2025-11-15' pct_sum=122.6906 n_records=38
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Pure Debt Plan' reporting_date='2025-11-15' pct_sum=84.259 n_records=12
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2025-11-15' pct_sum=116.5183 n_records=243
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2025-11-15' pct_sum=123.6857 n_records=212
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2025-11-15' pct_sum=46.6748 n_records=158
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2025-11-15' pct_sum=144.3134 n_records=127
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2025-11-15' pct_sum=8.0405 n_records=76
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2398 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20October%202025.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX AAA Bond Financial Services Index - Dec 2026 Fund' reporting_date='2025-10-31' pct_sum=178.6382 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2025-10-31' pct_sum=160.5858 n_records=22
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2025-10-31' pct_sum=74.3655 n_records=92
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2025-10-31' pct_sum=-78.2428 n_records=92
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2025-10-31' pct_sum=21.9033 n_records=25
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2025-10-31' pct_sum=152.9574 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2025-10-31' pct_sum=137.0081 n_records=93
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2025-10-31' pct_sum=152.1819 n_records=133
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Retirement Fund - Hybrid Conservative Plan' reporting_date='2025-10-31' pct_sum=122.0707 n_records=38
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2025-10-31' pct_sum=120.2132 n_records=246
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2025-10-31' pct_sum=126.248 n_records=212
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential All Seasons Bond Fund' reporting_date='2025-10-31' pct_sum=47.7038 n_records=161
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2025-10-31' pct_sum=142.3661 n_records=129
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Bond Fund' reporting_date='2025-10-31' pct_sum=12.5032 n_records=75
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2025-10-31' pct_sum=128.5235 n_records=243
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2025-10-31' pct_sum=167.683 n_records=100
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2028th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20December%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2028th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20December%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20December%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20November%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20November%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20October%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20March%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2028th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20February%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20January%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20December%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20December%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20November%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20November%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2025/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20October%202025.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20July%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20June%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2031st%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20May%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2030th%20April%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+INFO SKIP (re-fetched checksum known): https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+{'fetched': 20, 'parse_ok': 20, 'parse_empty': 0, 'fetch_failed': 0, 'rows_upserted': 40046, 'rows_quarantined': 4234, 'snapshots_after': 3297}

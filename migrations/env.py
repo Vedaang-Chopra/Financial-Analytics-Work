@@ -18,6 +18,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from mutual_fund_ingestion.agent.db import Base  # noqa: E402
 
+from db_config import generic_database_url  # noqa: E402
+
 # Importing agent.db registers all ORM models on Base.metadata.
 target_metadata = Base.metadata
 
@@ -26,16 +28,14 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-DEFAULT_DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-
 
 def get_database_url() -> str:
     # -x database_url=... takes precedence (scratch-DB verification),
-    # then DATABASE_URL env var, then the project default.
+    # then DATABASE_URL/MF_DATABASE_URL env vars or api.env (db_config.py).
     url = context.get_x_argument(as_dictionary=True).get("database_url")
     if url:
         return url
-    return os.environ.get("DATABASE_URL", DEFAULT_DATABASE_URL)
+    return generic_database_url()
 
 
 def run_migrations_offline() -> None:

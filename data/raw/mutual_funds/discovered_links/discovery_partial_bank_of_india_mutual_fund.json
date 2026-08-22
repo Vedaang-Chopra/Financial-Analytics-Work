@@ -1,0 +1,53 @@
+{
+  "amc_name": "Bank of India Mutual Fund",
+  "seed_url": "https://www.boimf.in/regulatory-reports",
+  "strategy": "playwright",
+  "portfolio_links": [
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/fortnightly-portfolio-of-debt-schemes/15082026_bank-of-india_fortnightlydisclosure.xlsx?sfvrsn=b4187a81_3",
+      "context": "15082026_BANK OF INDIA_FORTNIGHTLYDISCLOSURE",
+      "reporting_date_hint": null
+    }
+  ],
+  "other_links": [
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/daily-disclosure-of-information-ratio-(ir)/ir_bank-of-india-mutual-fund_20082026.xlsx?sfvrsn=995d83c2_3",
+      "context": "IR_BANK OF INDIA MUTUAL FUND_20082026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/daily-disclosure-of-information-ratio-(ir)/ir_bank-of-india-mutual-fund_19082026.xlsx?sfvrsn=5f950909_3",
+      "context": "IR_BANK OF INDIA MUTUAL FUND_19082026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/debt-money-market-report/17-aug-2026.xlsx?sfvrsn=6e2a1a5d_3",
+      "context": "17-AUG-2026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/debt-money-market-report/14-aug-2026.xlsx?sfvrsn=95c07f12_3",
+      "context": "14-AUG-2026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/debt-money-market-report/13-aug-2026.xlsx?sfvrsn=157c0cf8_3",
+      "context": "13-AUG-2026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/debt-money-market-report/12-aug-2026.xlsx?sfvrsn=a48c426e_3",
+      "context": "12-AUG-2026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/debt-money-market-report/11-aug-2026.xlsx?sfvrsn=9b8bca2d_3",
+      "context": "11-AUG-2026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/daily-disclosure-of-information-ratio-(ir)/ir_bank-of-india-mutual-fund_18082026.xlsx?sfvrsn=2e90d033_3",
+      "context": "IR_BANK OF INDIA MUTUAL FUND_18082026"
+    },
+    {
+      "url": "https://www.boimf.in/docs/default-source/reports/daily-disclosure-of-information-ratio-(ir)/ir_bank-of-india-mutual-fund_17082026.xlsx?sfvrsn=3348fb38_3",
+      "context": "IR_BANK OF INDIA MUTUAL FUND_17082026"
+    }
+  ],
+  "notes": [
+    "harvested 10 unique file links after render+expand"
+  ]
+}

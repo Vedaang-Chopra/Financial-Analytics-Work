@@ -14,7 +14,7 @@ Strategy:
   - polite: sequential requests, ~1s sleep between windows
 
 Usage:
-  export DATABASE_URL="postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+  # DB URL resolves via DATABASE_URL/MF_DATABASE_URL env var or api.env (db_config.py)
   ./financial_env/bin/python scripts/backfill_amfi_nav_history.py [--start 2006-04-01]
 """
 from __future__ import annotations
@@ -40,6 +40,8 @@ from mutual_fund_ingestion.agent.db import (
 from mutual_fund_ingestion.agent.parser import parse_file
 from mutual_fund_ingestion.agent.upserts import UpsertManager
 from mutual_fund_ingestion.agent.validate import validate_and_filter_records
+
+from db_config import generic_database_url as _generic_db_url  # noqa: E402
 
 logging.basicConfig(
     level=logging.INFO,
@@ -89,9 +91,10 @@ def main() -> int:
     args = ap.parse_args()
 
     import os
+
     db_url = args.database_url or os.environ.get(
-        "DATABASE_URL", "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-    )
+        "DATABASE_URL", ""
+    ) or _generic_db_url()
 
     start_date = date.fromisoformat(args.start)
     end_date = date.fromisoformat(args.end) if args.end else date.today()

@@ -41,7 +41,9 @@ from mutual_fund_ingestion.agent.parser.portfolio import (  # noqa: E402
     _is_section_header,
 )
 
-DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DATABASE_URL = mutual_funds_url()
 BACKUP_DIR = REPO_ROOT / "data" / "backups"
 
 # Task-mandated minimum exact-match set (lowercased trimmed security_name).

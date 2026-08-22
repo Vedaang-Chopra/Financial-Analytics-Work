@@ -35,7 +35,9 @@ import psycopg2
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SQL_PATH = REPO_ROOT / "mutual_fund_ingestion" / "analysis" / "scheme_overlap.sql"
 
-DEFAULT_DSN = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DEFAULT_DSN = mutual_funds_url()
 
 
 def overlap_coefficient(set_a: set, set_b: set) -> tuple[float, int, int]:

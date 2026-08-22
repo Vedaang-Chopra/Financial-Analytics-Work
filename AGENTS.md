@@ -15,10 +15,14 @@ Skills root:  `~/agent-governance/skills/core/`
 
 ## §1 Read These First (Project Overrides)
 
+**Product vision (read before any implementation work): `docs/VISION.md`**
+**Current build plan: `docs/plans/EXECUTION_PLAN_v2_fix_rulers.md`** (v1 `EXECUTION_PLAN_consensus_platform.md` Tracks A–D are COMPLETE — do not redo)
+
 These paths override the global `docs/ai_context/` references in `~/agent-governance/AGENTS.md`.
 
 | File | What it tells you |
 |---|---|
+| `docs/VISION.md` | The product we are building (consensus/dissent MF intelligence platform) — all work serves this |
 | `docs/02_architecture/codebase_map.md` | Module ownership, entry points, what not to duplicate |
 | `docs/01_status/AGENT_EXECUTION_LOG.md` | What was tried before, what failed, what not to repeat |
 | `docs/01_status/session_state.md` | Current implementation state if resuming |

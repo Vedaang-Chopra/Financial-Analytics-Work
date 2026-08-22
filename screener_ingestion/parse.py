@@ -68,15 +68,30 @@ def parse_company_meta(soup: BeautifulSoup) -> dict:
     h1 = soup.find("h1")
     meta["name"] = clean_text(h1) if h1 else None
 
-    # BSE/NSE codes live in the .sub.company-links block
-    codes_block = soup.select_one(".sub.company-links")
+    # BSE/NSE codes: anchors to exchange quote pages near the company header
+    # (markup verified 2026-08 — the old .sub.company-links block is gone).
+    # Scoped to stock-share-price / get-quotes hrefs so #documents announcement
+    # links (also on bseindia.com) can never be mistaken for codes.
     codes: dict[str, str] = {}
-    if codes_block:
-        for a in codes_block.find_all("a"):
-            text = clean_text(a)
-            m = re.match(r"^(BSE|NSE):\s*([\w&.-]+)", text)
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        text = clean_text(a)
+        if "bseindia.com/stock-share-price" in href:
+            m = re.search(r"BSE:\s*([\w&.-]+)", text)
             if m:
-                codes[m.group(1).lower()] = m.group(2)
+                codes["bse"] = m.group(1)
+            else:  # fall back to the trailing numeric code in the URL
+                m = re.search(r"/(\d{6})/?$", href)
+                if m:
+                    codes["bse"] = m.group(1)
+        elif "nseindia.com/get-quotes/equity?symbol=" in href:
+            m = re.search(r"NSE:\s*([\w&.-]+)", text)
+            if m:
+                codes["nse"] = m.group(1)
+            else:
+                m = re.search(r"symbol=([\w&.-]+)", href)
+                if m:
+                    codes["nse"] = m.group(1)
     meta["bse_code"] = codes.get("bse")
     meta["nse_code"] = codes.get("nse")
 
@@ -247,33 +262,38 @@ def parse_financial_sections(soup: BeautifulSoup) -> dict[str, dict]:
 
 
 def parse_growth_tables(soup: BeautifulSoup) -> list[dict]:
-    """Compounded Sales/Profit growth, Stock Price CAGR, ROE — ranges tables."""
+    """Compounded Sales/Profit growth, Stock Price CAGR, ROE — ranges tables.
+
+    Markup (verified 2026-08): each metric is its own ``table.ranges-table``
+    inside #profit-loss; the first row's ``<th colspan=2>`` holds the metric
+    name and data rows are ``<td>window:</td><td>value%</td>`` pairs — there
+    is no per-section h2 marker.
+    """
     results: list[dict] = []
     pl = soup.find("section", id="profit-loss")
     if pl is None:
         return results
-    current_metric: str | None = None
-    for el in pl.find_all(["h2", "table"], recursive=True):
-        if el.name == "h2":
-            txt = clean_text(el)
-            if "growth" in txt.lower() or "cagr" in txt.lower() or "return on equity" in txt.lower():
-                current_metric = txt
+    for table in pl.find_all("table"):
+        classes = table.get("class") or []
+        if "ranges-table" not in classes:
             continue
-        classes = el.get("class") or []
-        if "ranges-table" not in classes or current_metric is None:
+        header_row = table.find("tr")
+        th = header_row.find("th") if header_row else None
+        if th is None:
             continue
-        window = None
-        value = None
-        for tr in el.find_all("tr"):
-            th, td = tr.find("th"), tr.find("td")
-            if th is None or td is None:
+        metric_key = clean_text(th)
+        low = metric_key.lower()
+        if not ("growth" in low or "cagr" in low or "return on equity" in low):
+            continue
+        for tr in table.find_all("tr"):
+            tds = tr.find_all("td")
+            if len(tds) != 2:
                 continue
-            t = clean_text(th)
-            if t.lower().startswith("compounded") or "cagr" in t.lower() or t == "ROE":
-                window, value = t, to_number(td)
-        if window and value is not None:
-            metric_key = current_metric.split("\n")[0].strip()
-            results.append({"metric": metric_key, "window": window, "value_pct": value})
+            window = clean_text(tds[0]).rstrip(":").strip()
+            value = to_number(tds[1])
+            if window and value is not None:
+                results.append({"metric": metric_key, "window": window,
+                                "value_pct": value})
     return results
 
 

@@ -1,0 +1,15 @@
+{
+  "amc_name": "Choice Mutual Fund",
+  "seed_url": "https://choicemf.com/",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://choicemf.com/CAMS-Branches.xlsx",
+      "context": "CAMS Branches"
+    }
+  ],
+  "notes": [
+    "harvested 1 unique file links after render+expand"
+  ]
+}

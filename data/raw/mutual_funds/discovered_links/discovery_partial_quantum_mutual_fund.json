@@ -1,0 +1,92 @@
+{
+  "amc_name": "Quantum Mutual Fund",
+  "seed_url": "https://www.quantumamc.com/portfolio/combined/-1/1/0/0",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/d701fe6a-e00f-4291-a9f3-47e40f4946da.xlsx",
+      "context": "July 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/83d3ddb2-d731-4039-9884-8159ee1976ff.xlsx",
+      "context": "June 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/cb50090a-93af-4863-a4cb-18ef81c6b14c.xlsx",
+      "context": "May 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/67126745-1c42-42c8-967f-87bf24b05981.xlsx",
+      "context": "April 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/3ef1f1c6-99f0-4251-97aa-4e6f770bf6f2.xlsx",
+      "context": "March 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/62cd6b26-9cea-480d-8de1-bd331661c6b9.xlsx",
+      "context": "February 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/b6f73754-008a-48df-98cf-7e387bd02e47.xlsx",
+      "context": "January 2026 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/d3cb2692-3209-4fe9-8ee6-078502b2828f.xlsx",
+      "context": "December 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/0ea2bc67-bfa9-4672-8acb-4a57ab794212.xlsx",
+      "context": "November 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/63507f28-a2c3-4f65-bedc-fe8ce162bf65.xlsx",
+      "context": "October 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/53b808a8-2646-4dff-af72-e56558d5587f.xlsx",
+      "context": "September 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/3c1c097c-80af-4f65-9070-06fc9b89d37b.xlsx",
+      "context": "August 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/f22c3932-34a1-441d-8fba-6a02fb6e0506.xlsx",
+      "context": "July 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/bfcb6fe4-d521-47f0-b9fd-d6f0918671e0.xlsx",
+      "context": "June 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/4453306a-8a56-4883-a298-9110c434b0a0.xlsx",
+      "context": "May 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/d613c204-c40a-4424-99c1-c126637106ef.xlsx",
+      "context": "April 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/7fa56d03-0c61-4321-8c50-88b708bb1f12.xlsx",
+      "context": "March 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/767b9bf3-1f14-40ba-8146-e12eea5bdad7.xlsx",
+      "context": "February 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/0de9ed96-b41f-4bbc-b624-da5f7e959c9d.xlsx",
+      "context": "January 2025 - All Funds"
+    },
+    {
+      "url": "https://www.quantumamc.com/FileCDN/FactSheet/0339bffa-1064-4110-a309-5a08b304bf54.xlsx",
+      "context": "December 2024 - All Funds"
+    }
+  ],
+  "notes": [
+    "networkidle timeout (continuing)",
+    "harvested 20 unique file links after render+expand"
+  ]
+}

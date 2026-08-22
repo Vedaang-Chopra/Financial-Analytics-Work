@@ -46,7 +46,9 @@ from pathlib import Path
 from sqlalchemy import create_engine, text
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DEFAULT_DATABASE_URL = mutual_funds_url()
 
 HOLDINGS_COLUMNS = [
     "id",

@@ -1,0 +1,13 @@
+{
+  "amc_name": "Kotak Mahindra Mutual Fund",
+  "seed_url": "https://www.kotakmf.com/Information/forms-and-downloads",
+  "strategy": "no_files_found",
+  "portfolio_links": [],
+  "other_links": [],
+  "notes": [
+    "networkidle timeout (continuing)",
+    "harvested 0 unique file links after render+expand",
+    "screenshot saved: kotak_mahindra_mutual_fund_nolinks.png",
+    "manual_review candidate"
+  ]
+}

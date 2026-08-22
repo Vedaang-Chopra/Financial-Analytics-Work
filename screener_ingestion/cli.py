@@ -18,6 +18,14 @@ from sqlalchemy import text
 
 from . import db, fetch, parse
 
+try:
+    from db_config import screener_url
+except ImportError:  # imported from outside the repo root (installed package)
+    def screener_url() -> str:
+        import os
+
+        return os.environ.get("SCREENER_DATABASE_URL", "")
+
 
 def cmd_init_db(args) -> int:
     db.init_db(args.database_url)
@@ -181,7 +189,7 @@ def cmd_inspect(args) -> int:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="screener_ingestion", description=__doc__)
     p.add_argument("--database-url",
-                   default="postgresql://vlmrouter:vlmrouter@localhost:5432/screener")
+                   default=screener_url())
     sub = p.add_subparsers(dest="command", required=True)
 
     init_p = sub.add_parser("init-db", help="Create all tables")

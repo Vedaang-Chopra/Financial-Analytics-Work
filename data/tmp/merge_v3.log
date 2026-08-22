@@ -1,0 +1,8 @@
+dup groups: 174
+Traceback (most recent call last):
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/data/tmp/merge_icici_dup_schemes_v2.py", line 69, in <module>
+    cur.execute("UPDATE documents SET scheme_id=%s WHERE scheme_id=%s", (keep_id, d))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "documents_scheme_date_type_url_key"
+DETAIL:  Key (scheme_id, reporting_date, document_type, source_url)=(fd30e275-c8f7-405f-bae7-004d59d960ba, 2026-03-15, portfolio_disclosure, https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20March%202026.zip) already exists.
+

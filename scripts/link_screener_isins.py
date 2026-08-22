@@ -31,8 +31,10 @@ import psycopg2
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-MUTUAL_FUNDS_DSN = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-SCREENER_DSN = "postgresql://vlmrouter:vlmrouter@localhost:5432/screener"
+from db_config import mutual_funds_url, screener_url  # noqa: E402
+
+MUTUAL_FUNDS_DSN = mutual_funds_url()
+SCREENER_DSN = screener_url()
 
 MATCH_THRESHOLD = 85.0
 

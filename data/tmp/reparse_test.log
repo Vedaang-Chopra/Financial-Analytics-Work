@@ -1,0 +1,135 @@
+INFO 110 artifacts match host='icicipruamc.com'
+INFO Routing to parser=portfolio_zip for dataset_type=portfolio_disclosure file_type=zip
+INFO parsed 2142 records from https://www.icicipruamc.com/blob/downloads/Files/Fortnightly%20Portfolio%20Disclosures/2026/Fortnightly%20Debt%20Scheme%20Portfolio%20-%2015th%20August%202026.zip
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Constant Maturity Gilt Fund' reporting_date='2026-08-15' pct_sum=9.0771 n_records=3
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Corporate Bond Fund' reporting_date='2026-08-15' pct_sum=162.579 n_records=201
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Credit Risk Fund' reporting_date='2026-08-15' pct_sum=186.3497 n_records=106
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund' reporting_date='2026-08-15' pct_sum=142.6204 n_records=21
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Floating Interest Fund' reporting_date='2026-08-15' pct_sum=67.5468 n_records=135
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Gilt Fund' reporting_date='2026-08-15' pct_sum=24.4324 n_records=49
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Long Term Bond Fund' reporting_date='2026-08-15' pct_sum=46.6917 n_records=18
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Medium Term Bond Fund' reporting_date='2026-08-15' pct_sum=170.9561 n_records=107
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund' reporting_date='2026-08-15' pct_sum=135.8376 n_records=89
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Overnight Fund' reporting_date='2026-08-15' pct_sum=4.5116 n_records=8
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Regular Savings Fund' reporting_date='2026-08-15' pct_sum=163.3456 n_records=133
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Savings Fund' reporting_date='2026-08-15' pct_sum=126.2139 n_records=154
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Short Term Fund' reporting_date='2026-08-15' pct_sum=173.6138 n_records=173
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Ultra Short Term Fund' reporting_date='2026-08-15' pct_sum=76.2572 n_records=184
+WARNING snapshot_pct_sum out of range [85.0, 115.0]: scheme='ICICI Prudential Banking & PSU Debt Fund' reporting_date='2026-08-15' pct_sum=169.1153 n_records=100
+Traceback (most recent call last):
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "uq_holdings_snapshot_security_null_isin"
+DETAIL:  Key (snapshot_id, security_name)=(0a2c84bd-3c74-4d19-8e3d-eb3aa8c18550, Interest Rate Swaps- MD -14-May-2029 (Pay float/receive fixed)) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/scripts/reparse_artifacts.py", line 179, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/scripts/reparse_artifacts.py", line 155, in main
+    upsert_manager.upsert_canonical(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        session, valid, "portfolio_disclosure", art.id, url, {},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        checksum=checksum, amc_name="ICICI Prudential Mutual Fund",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/mutual_fund_ingestion/agent/upserts.py", line 176, in upsert_canonical
+    self.upsert_portfolio(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        session, records, raw_artifact_id, source_url, stats,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        checksum=checksum, amc_name=amc_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/mutual_fund_ingestion/agent/upserts.py", line 631, in upsert_portfolio
+    session.execute(holding_stmt)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2372, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2270, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/orm/bulk_persistence.py", line 1306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1421, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vedaangchopra/all_data/complete_technical_work/all_projects_implemented/Financial Analytics Work/financial_env/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_holdings_snapshot_security_null_isin"
+DETAIL:  Key (snapshot_id, security_name)=(0a2c84bd-3c74-4d19-8e3d-eb3aa8c18550, Interest Rate Swaps- MD -14-May-2029 (Pay float/receive fixed)) already exists.
+
+[SQL: INSERT INTO portfolio_holdings (id, snapshot_id, instrument_id, security_name, isin, sector, asset_class, quantity, market_value, market_value_currency, percentage_to_nav, coupon, maturity_date, rating, metadata_json, created_at) VALUES (%(id)s::UUID, %(snapshot_id)s::UUID, %(instrument_id)s::UUID, %(security_name)s, %(isin)s, %(sector)s, %(asset_class)s, %(quantity)s, %(market_value)s, %(market_value_currency)s, %(percentage_to_nav)s, %(coupon)s, %(maturity_date)s, %(rating)s, %(metadata_json)s::JSON, now()) ON CONFLICT (snapshot_id, security_name, isin) DO UPDATE SET instrument_id = excluded.instrument_id, sector = excluded.sector, asset_class = excluded.asset_class, quantity = excluded.quantity, market_value = excluded.market_value, percentage_to_nav = excluded.percentage_to_nav, coupon = excluded.coupon, maturity_date = excluded.maturity_date, rating = excluded.rating]
+[parameters: {'id': UUID('5131388c-1061-418a-8996-b5856525301e'), 'snapshot_id': UUID('0a2c84bd-3c74-4d19-8e3d-eb3aa8c18550'), 'instrument_id': UUID('3658f7f0-2ea8-4afa-99fc-140f4dfed4ae'), 'security_name': 'Interest Rate Swaps- MD -14-May-2029 (Pay float/receive fixed)', 'isin': None, 'sector': None, 'asset_class': None, 'quantity': None, 'market_value': 250020.47999999998, 'market_value_currency': 'INR', 'percentage_to_nav': 8.311622, 'coupon': None, 'maturity_date': None, 'rating': None, 'metadata_json': '{}'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)

@@ -1,0 +1,49 @@
+2026-08-22 07:29:26,297 INFO __main__: ============================================================
+2026-08-22 07:29:26,297 INFO __main__: Starting ingestion for Parag Parikh Mutual Fund (ppfas)
+2026-08-22 07:29:26,297 INFO __main__: ============================================================
+2026-08-22 07:29:27,392 INFO __main__: Found 5 portfolio URLs for Parag Parikh Mutual Fund
+2026-08-22 07:29:27,392 INFO __main__: Processing 1/5: https://amc.ppfas.com/downloads/portfolio-disclosure/Monthly-Portfolio_July-2014.xls
+2026-08-22 07:29:27,392 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/Monthly-Portfolio_July-2014.xls
+2026-08-22 07:29:27,482 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/Monthly-Portfolio_July-2014.xls: 22016 bytes, type=xls
+2026-08-22 07:29:27,482 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:29:27,797 INFO __main__: Parser portfolio_excel_v1 returned 30 records (confidence=0.70)
+2026-08-22 07:29:27,821 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='Name of the Scheme: PPFAS Long Term Value Fund' reporting_date=None pct_sum=191.8074 n_records=30
+2026-08-22 07:29:27,821 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/Monthly-Portfolio_July-2014.xls: 30 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:29:28,040 INFO __main__: Upserted 31 records for https://amc.ppfas.com/downloads/portfolio-disclosure/Monthly-Portfolio_July-2014.xls
+2026-08-22 07:29:28,040 INFO __main__: Processing 2/5: https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2024/PPLF_Fortnightly_Portfolio_Report_15-january-2024.xlsx?18012024
+2026-08-22 07:29:28,040 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2024/PPLF_Fortnightly_Portfolio_Report_15-january-2024.xlsx?18012024
+2026-08-22 07:29:28,119 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2024/PPLF_Fortnightly_Portfolio_Report_15-january-2024.xlsx?18012024: 23144 bytes, type=xlsx
+2026-08-22 07:29:28,119 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xlsx
+2026-08-22 07:29:28,138 INFO __main__: Parser portfolio_excel_v1 returned 38 records (confidence=0.70)
+2026-08-22 07:29:28,147 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2024/PPLF_Fortnightly_Portfolio_Report_15-january-2024.xlsx?18012024: 38 valid, 0 quarantined, 0 snapshot warnings
+2026-08-22 07:29:28,293 INFO __main__: Upserted 70 records for https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2024/PPLF_Fortnightly_Portfolio_Report_15-january-2024.xlsx?18012024
+2026-08-22 07:29:28,294 INFO __main__: Processing 3/5: https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2023/PPCHF_Fortnightly_Portfolio_Report_30-november-2023.xlsx?04122023_1
+2026-08-22 07:29:28,294 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2023/PPCHF_Fortnightly_Portfolio_Report_30-november-2023.xlsx?04122023_1
+2026-08-22 07:29:28,381 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2023/PPCHF_Fortnightly_Portfolio_Report_30-november-2023.xlsx?04122023_1: 33667 bytes, type=xlsx
+2026-08-22 07:29:28,381 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xlsx
+2026-08-22 07:29:28,413 INFO __main__: Parser portfolio_excel_v1 returned 125 records (confidence=0.70)
+2026-08-22 07:29:28,440 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2023/PPCHF_Fortnightly_Portfolio_Report_30-november-2023.xlsx?04122023_1: 125 valid, 0 quarantined, 0 snapshot warnings
+2026-08-22 07:29:28,762 INFO __main__: Upserted 196 records for https://amc.ppfas.com/downloads/portfolio-disclosure/fortnightly-debt-portfolio-disclosure/2023/PPCHF_Fortnightly_Portfolio_Report_30-november-2023.xlsx?04122023_1
+2026-08-22 07:29:28,762 INFO __main__: Processing 4/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2024/PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2024.xls?08082024_1
+2026-08-22 07:29:28,762 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2024/PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2024.xls?08082024_1
+2026-08-22 07:29:28,865 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2024/PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2024.xls?08082024_1: 120832 bytes, type=xls
+2026-08-22 07:29:28,865 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:29:28,871 INFO __main__: Parser portfolio_excel_v1 returned 33 records (confidence=0.70)
+2026-08-22 07:29:28,875 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2024/PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2024.xls?08082024_1: 33 valid, 0 quarantined, 0 snapshot warnings
+2026-08-22 07:29:28,960 INFO __main__: Upserted 230 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2024/PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2024.xls?08082024_1
+2026-08-22 07:29:28,960 INFO __main__: Processing 5/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2021/PPFAS_Monthly_Portfolio_Report_December_31_2021.xls?07012022
+2026-08-22 07:29:28,960 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2021/PPFAS_Monthly_Portfolio_Report_December_31_2021.xls?07012022
+2026-08-22 07:29:29,108 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2021/PPFAS_Monthly_Portfolio_Report_December_31_2021.xls?07012022: 352256 bytes, type=xls
+2026-08-22 07:29:29,108 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:29:29,130 INFO __main__: Parser portfolio_excel_v1 returned 155 records (confidence=0.70)
+2026-08-22 07:29:29,155 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=372.22 n_records=155
+2026-08-22 07:29:29,155 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2021/PPFAS_Monthly_Portfolio_Report_December_31_2021.xls?07012022: 155 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:29:29,438 INFO __main__: Upserted 337 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2021/PPFAS_Monthly_Portfolio_Report_December_31_2021.xls?07012022
+2026-08-22 07:29:29,441 INFO __main__: ============================================================
+2026-08-22 07:29:29,441 INFO __main__: INGESTION COMPLETE
+2026-08-22 07:29:29,441 INFO __main__: ============================================================
+2026-08-22 07:29:29,441 INFO __main__: Files downloaded: 5
+2026-08-22 07:29:29,441 INFO __main__: Artifacts parsed: 5
+2026-08-22 07:29:29,441 INFO __main__: Rows staged: 381
+2026-08-22 07:29:29,441 INFO __main__: Rows inserted: 337
+2026-08-22 07:29:29,441 INFO __main__: Errors: 0

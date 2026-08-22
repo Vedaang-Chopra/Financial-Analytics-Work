@@ -1,0 +1,2 @@
+UPSERT FAILED: IntegrityError (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "uq_holdings_snapshot_security_null_isin"
+DETAIL:  Key (snapshot_id, security_name)=(349992b8-5c78-455c-8a37-851ad2cfca

@@ -47,7 +47,9 @@ from mutual_fund_ingestion.market_data.index_prices import (
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
 LOGGER = logging.getLogger("index_backfill")
 
-DATABASE_URL = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DATABASE_URL = mutual_funds_url()
 SOURCE_URL_TEMPLATE = daily_close_all_url(date(2000, 1, 1))  # re-formatted per day
 SLEEP_SECONDS = 1.1
 

@@ -1,0 +1,1256 @@
+{
+ "completed": {
+  "360ONE": {
+   "at": "2026-08-21T23:30:31.214224+00:00",
+   "items": 572,
+   "price_points": 1448
+  },
+  "3MINDIA": {
+   "at": "2026-08-21T23:30:36.544954+00:00",
+   "items": 508,
+   "price_points": 2088
+  },
+  "ABB": {
+   "at": "2026-08-21T23:30:41.754230+00:00",
+   "items": 405,
+   "price_points": 2088
+  },
+  "ACC": {
+   "at": "2026-08-21T23:30:47.297645+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ACMESOLAR": {
+   "at": "2026-08-21T23:30:51.365389+00:00",
+   "items": 439,
+   "price_points": 372
+  },
+  "AIAENG": {
+   "at": "2026-08-21T23:30:56.811403+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "APLAPOLLO": {
+   "at": "2026-08-21T23:31:02.590868+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "AUBANK": {
+   "at": "2026-08-21T23:31:08.145468+00:00",
+   "items": 226,
+   "price_points": 1904
+  },
+  "AWL": {
+   "at": "2026-08-21T23:31:12.659884+00:00",
+   "items": 535,
+   "price_points": 948
+  },
+  "AADHARHFC": {
+   "at": "2026-08-21T23:31:16.797022+00:00",
+   "items": 473,
+   "price_points": 476
+  },
+  "AARTIIND": {
+   "at": "2026-08-21T23:31:22.191022+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "AAVAS": {
+   "at": "2026-08-21T23:31:26.950455+00:00",
+   "items": 477,
+   "price_points": 1644
+  },
+  "ABBOTINDIA": {
+   "at": "2026-08-21T23:31:31.811873+00:00",
+   "items": 115,
+   "price_points": 2088
+  },
+  "ACE": {
+   "at": "2026-08-21T23:31:37.158942+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ACUTAAS": {
+   "at": "2026-08-21T23:31:41.719672+00:00",
+   "items": 603,
+   "price_points": 1032
+  },
+  "ADANIENSOL": {
+   "at": "2026-08-21T23:31:47.486380+00:00",
+   "items": 654,
+   "price_points": 2088
+  },
+  "ADANIENT": {
+   "at": "2026-08-21T23:31:52.983615+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "ADANIGREEN": {
+   "at": "2026-08-21T23:31:57.949065+00:00",
+   "items": 634,
+   "price_points": 1708
+  },
+  "ATGL": {
+   "at": "2026-08-21T23:32:08.552176+00:00",
+   "items": 571,
+   "price_points": 1628
+  },
+  "ABCAPITAL": {
+   "at": "2026-08-21T23:32:13.875698+00:00",
+   "items": 635,
+   "price_points": 1876
+  },
+  "ABLBL": {
+   "at": "2026-08-21T23:32:17.472734+00:00",
+   "items": 221,
+   "price_points": 0
+  },
+  "ABREL": {
+   "at": "2026-08-21T23:32:23.013546+00:00",
+   "items": 656,
+   "price_points": 2088
+  },
+  "ABSLAMC": {
+   "at": "2026-08-21T23:32:27.543742+00:00",
+   "items": 583,
+   "price_points": 1016
+  },
+  "CPPLUS": {
+   "at": "2026-08-21T23:32:31.256870+00:00",
+   "items": 379,
+   "price_points": 0
+  },
+  "AEGISLOG": {
+   "at": "2026-08-21T23:32:36.918468+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "AEGISVOPAK": {
+   "at": "2026-08-21T23:32:40.713842+00:00",
+   "items": 306,
+   "price_points": 256
+  },
+  "AFCONS": {
+   "at": "2026-08-21T23:32:44.745024+00:00",
+   "items": 443,
+   "price_points": 376
+  },
+  "AFFLE": {
+   "at": "2026-08-21T23:32:50.628976+00:00",
+   "items": 563,
+   "price_points": 1472
+  },
+  "ALKEM": {
+   "at": "2026-08-21T23:32:56.944064+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "ARE&M": {
+   "at": "2026-08-21T23:33:03.031253+00:00",
+   "items": 553,
+   "price_points": 2088
+  },
+  "AMBER": {
+   "at": "2026-08-21T23:33:09.588983+00:00",
+   "items": 673,
+   "price_points": 1788
+  },
+  "AMBUJACEM": {
+   "at": "2026-08-21T23:33:15.738065+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ANANDRATHI": {
+   "at": "2026-08-21T23:33:21.821080+00:00",
+   "items": 519,
+   "price_points": 980
+  },
+  "ANANTRAJ": {
+   "at": "2026-08-21T23:33:29.346781+00:00",
+   "items": 665,
+   "price_points": 2088
+  },
+  "ANGELONE": {
+   "at": "2026-08-21T23:33:35.152043+00:00",
+   "items": 653,
+   "price_points": 1228
+  },
+  "ANTHEM": {
+   "at": "2026-08-21T23:33:38.839683+00:00",
+   "items": 379,
+   "price_points": 0
+  },
+  "ANURAS": {
+   "at": "2026-08-21T23:33:43.388934+00:00",
+   "items": 522,
+   "price_points": 1132
+  },
+  "APARINDS": {
+   "at": "2026-08-21T23:33:48.900596+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "APOLLOHOSP": {
+   "at": "2026-08-21T23:33:56.224567+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "APOLLOTYRE": {
+   "at": "2026-08-21T23:34:04.124878+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "APTUS": {
+   "at": "2026-08-21T23:34:10.828301+00:00",
+   "items": 561,
+   "price_points": 1044
+  },
+  "ASAHIINDIA": {
+   "at": "2026-08-21T23:34:17.898443+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "ASHOKLEY": {
+   "at": "2026-08-21T23:34:25.003287+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ASIANPAINT": {
+   "at": "2026-08-21T23:34:32.701331+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "ASTERDM": {
+   "at": "2026-08-21T23:34:39.592041+00:00",
+   "items": 695,
+   "price_points": 1772
+  },
+  "ASTRAL": {
+   "at": "2026-08-21T23:34:46.442532+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ATHERENERG": {
+   "at": "2026-08-21T23:34:50.157463+00:00",
+   "items": 85,
+   "price_points": 272
+  },
+  "ATUL": {
+   "at": "2026-08-21T23:34:55.699204+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "AUROPHARMA": {
+   "at": "2026-08-21T23:35:01.804989+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "AIIL": {
+   "at": "2026-08-21T23:35:15.434394+00:00",
+   "items": 386,
+   "price_points": 2040
+  },
+  "DMART": {
+   "at": "2026-08-21T23:35:23.562743+00:00",
+   "items": 701,
+   "price_points": 1968
+  },
+  "AXISBANK": {
+   "at": "2026-08-21T23:35:29.773955+00:00",
+   "items": 630,
+   "price_points": 2088
+  },
+  "BEML": {
+   "at": "2026-08-21T23:35:35.791312+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BLS": {
+   "at": "2026-08-21T23:35:41.723925+00:00",
+   "items": 677,
+   "price_points": 2080
+  },
+  "BSE": {
+   "at": "2026-08-21T23:35:48.129880+00:00",
+   "items": 677,
+   "price_points": 1996
+  },
+  "BAJAJ-AUTO": {
+   "at": "2026-08-21T23:35:54.722201+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "BAJFINANCE": {
+   "at": "2026-08-21T23:36:01.759896+00:00",
+   "items": 690,
+   "price_points": 2088
+  },
+  "BAJAJFINSV": {
+   "at": "2026-08-21T23:36:07.461360+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "BAJAJHLDNG": {
+   "at": "2026-08-21T23:36:13.655720+00:00",
+   "items": 654,
+   "price_points": 2088
+  },
+  "BAJAJHFL": {
+   "at": "2026-08-21T23:36:17.621197+00:00",
+   "items": 74,
+   "price_points": 404
+  },
+  "BALKRISIND": {
+   "at": "2026-08-21T23:36:23.369549+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "BALRAMCHIN": {
+   "at": "2026-08-21T23:36:29.487931+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BANDHANBNK": {
+   "at": "2026-08-21T23:36:34.356741+00:00",
+   "items": 132,
+   "price_points": 1756
+  },
+  "BANKBARODA": {
+   "at": "2026-08-21T23:36:40.338348+00:00",
+   "items": 653,
+   "price_points": 2088
+  },
+  "BANKINDIA": {
+   "at": "2026-08-21T23:36:48.335830+00:00",
+   "items": 630,
+   "price_points": 2088
+  },
+  "MAHABANK": {
+   "at": "2026-08-21T23:36:54.635507+00:00",
+   "items": 656,
+   "price_points": 2088
+  },
+  "BATAINDIA": {
+   "at": "2026-08-21T23:37:01.805785+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BAYERCROP": {
+   "at": "2026-08-21T23:37:07.591083+00:00",
+   "items": 205,
+   "price_points": 2088
+  },
+  "BELRISE": {
+   "at": "2026-08-21T23:37:11.382282+00:00",
+   "items": 332,
+   "price_points": 260
+  },
+  "BERGEPAINT": {
+   "at": "2026-08-21T23:37:17.803140+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BDL": {
+   "at": "2026-08-21T23:37:22.970046+00:00",
+   "items": 110,
+   "price_points": 1760
+  },
+  "BEL": {
+   "at": "2026-08-21T23:37:28.748838+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BHARATFORG": {
+   "at": "2026-08-21T23:37:35.395238+00:00",
+   "items": 707,
+   "price_points": 2088
+  },
+  "BHEL": {
+   "at": "2026-08-21T23:37:44.429520+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "BPCL": {
+   "at": "2026-08-21T23:37:51.765313+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "BHARTIARTL": {
+   "at": "2026-08-21T23:37:58.341474+00:00",
+   "items": 700,
+   "price_points": 2088
+  },
+  "BHARTIHEXA": {
+   "at": "2026-08-21T23:38:02.553825+00:00",
+   "items": 60,
+   "price_points": 496
+  },
+  "BIKAJI": {
+   "at": "2026-08-21T23:38:09.965398+00:00",
+   "items": 478,
+   "price_points": 788
+  },
+  "GROWW": {
+   "at": "2026-08-21T23:38:14.714092+00:00",
+   "items": 290,
+   "price_points": 772
+  },
+  "BIOCON": {
+   "at": "2026-08-21T23:38:22.278644+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "BSOFT": {
+   "at": "2026-08-21T23:38:29.200170+00:00",
+   "items": 688,
+   "price_points": 2088
+  },
+  "BLUEDART": {
+   "at": "2026-08-21T23:38:34.860568+00:00",
+   "items": 654,
+   "price_points": 2088
+  },
+  "BLUEJET": {
+   "at": "2026-08-21T23:38:39.217438+00:00",
+   "items": 148,
+   "price_points": 588
+  },
+  "BLUESTARCO": {
+   "at": "2026-08-21T23:38:45.252880+00:00",
+   "items": 712,
+   "price_points": 2088
+  },
+  "BBTC": {
+   "at": "2026-08-21T23:38:50.484772+00:00",
+   "items": 683,
+   "price_points": 2088
+  },
+  "BOSCHLTD": {
+   "at": "2026-08-21T23:38:56.080760+00:00",
+   "items": 644,
+   "price_points": 2088
+  },
+  "FIRSTCRY": {
+   "at": "2026-08-21T23:39:00.080705+00:00",
+   "items": 516,
+   "price_points": 424
+  },
+  "BRIGADE": {
+   "at": "2026-08-21T23:39:05.882286+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "BRITANNIA": {
+   "at": "2026-08-21T23:39:14.206077+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "MAPMYINDIA": {
+   "at": "2026-08-21T23:39:18.908485+00:00",
+   "items": 517,
+   "price_points": 976
+  },
+  "CESC": {
+   "at": "2026-08-21T23:39:24.765985+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "CIEINDIA": {
+   "at": "2026-08-21T23:39:30.847198+00:00",
+   "items": 711,
+   "price_points": 2088
+  },
+  "CRISIL": {
+   "at": "2026-08-21T23:39:36.293607+00:00",
+   "items": 664,
+   "price_points": 2088
+  },
+  "CANFINHOME": {
+   "at": "2026-08-21T23:39:41.569915+00:00",
+   "items": 115,
+   "price_points": 2088
+  },
+  "CANBK": {
+   "at": "2026-08-21T23:39:47.253225+00:00",
+   "items": 656,
+   "price_points": 2088
+  },
+  "CANHLIFE": {
+   "at": "2026-08-21T23:39:50.644202+00:00",
+   "items": 30,
+   "price_points": 0
+  },
+  "CAPLIPOINT": {
+   "at": "2026-08-21T23:39:56.427732+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "CGCL": {
+   "at": "2026-08-21T23:40:01.982671+00:00",
+   "items": 655,
+   "price_points": 2088
+  },
+  "CARBORUNIV": {
+   "at": "2026-08-21T23:40:08.046575+00:00",
+   "items": 707,
+   "price_points": 2088
+  },
+  "CUB": {
+   "at": "2026-08-22T09:32:18.323661+00:00",
+   "items": 92,
+   "price_points": 2088
+  },
+  "COALINDIA": {
+   "at": "2026-08-22T09:32:31.210962+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "COCHINSHIP": {
+   "at": "2026-08-22T09:32:47.338831+00:00",
+   "items": 571,
+   "price_points": 1888
+  },
+  "COFORGE": {
+   "at": "2026-08-22T09:32:59.277717+00:00",
+   "items": 653,
+   "price_points": 2088
+  },
+  "COHANCE": {
+   "at": "2026-08-22T09:33:05.027244+00:00",
+   "items": 547,
+   "price_points": 1348
+  },
+  "CAMS": {
+   "at": "2026-08-22T09:33:10.907586+00:00",
+   "items": 557,
+   "price_points": 1232
+  },
+  "CONCORDBIO": {
+   "at": "2026-08-22T09:33:15.761486+00:00",
+   "items": 473,
+   "price_points": 632
+  },
+  "CONCOR": {
+   "at": "2026-08-22T09:33:24.544155+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "COROMANDEL": {
+   "at": "2026-08-22T09:33:33.635682+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "CRAFTSMAN": {
+   "at": "2026-08-22T09:33:39.298302+00:00",
+   "items": 590,
+   "price_points": 1132
+  },
+  "CREDITACC": {
+   "at": "2026-08-22T09:33:50.832110+00:00",
+   "items": 518,
+   "price_points": 1672
+  },
+  "CROMPTON": {
+   "at": "2026-08-22T09:34:05.115370+00:00",
+   "items": 587,
+   "price_points": 2088
+  },
+  "CUMMINSIND": {
+   "at": "2026-08-22T09:34:24.324944+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "CYIENT": {
+   "at": "2026-08-22T09:34:35.732029+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "DCMSHRIRAM": {
+   "at": "2026-08-22T09:34:50.349476+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "DLF": {
+   "at": "2026-08-22T09:35:02.970107+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "DOMS": {
+   "at": "2026-08-22T09:35:07.820447+00:00",
+   "items": 468,
+   "price_points": 560
+  },
+  "DABUR": {
+   "at": "2026-08-22T09:35:19.449640+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "DALBHARAT": {
+   "at": "2026-08-22T09:35:26.030524+00:00",
+   "items": 630,
+   "price_points": 1596
+  },
+  "DATAPATTNS": {
+   "at": "2026-08-22T09:35:31.873987+00:00",
+   "items": 90,
+   "price_points": 976
+  },
+  "DEEPAKNTR": {
+   "at": "2026-08-22T09:35:43.435960+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "DELHIVERY": {
+   "at": "2026-08-22T09:35:49.580895+00:00",
+   "items": 479,
+   "price_points": 888
+  },
+  "DEVYANI": {
+   "at": "2026-08-22T09:35:55.958804+00:00",
+   "items": 619,
+   "price_points": 1048
+  },
+  "DIXON": {
+   "at": "2026-08-22T09:36:03.507431+00:00",
+   "items": 673,
+   "price_points": 1864
+  },
+  "EIHOTEL": {
+   "at": "2026-08-22T09:36:17.660503+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "EICHERMOT": {
+   "at": "2026-08-22T09:36:28.704864+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ELGIEQUIP": {
+   "at": "2026-08-22T09:36:38.991717+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "EMAMILTD": {
+   "at": "2026-08-22T09:36:49.255031+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "EMCURE": {
+   "at": "2026-08-22T09:36:54.166878+00:00",
+   "items": 482,
+   "price_points": 444
+  },
+  "EMMVEE": {
+   "at": "2026-08-22T09:36:58.655603+00:00",
+   "items": 366,
+   "price_points": 756
+  },
+  "ENDURANCE": {
+   "at": "2026-08-22T09:37:07.161890+00:00",
+   "items": 678,
+   "price_points": 2056
+  },
+  "ENGINERSIN": {
+   "at": "2026-08-22T09:37:19.575325+00:00",
+   "items": 707,
+   "price_points": 2088
+  },
+  "ERIS": {
+   "at": "2026-08-22T09:37:27.093061+00:00",
+   "items": 673,
+   "price_points": 1912
+  },
+  "ESCORTS": {
+   "at": "2026-08-22T09:37:41.729247+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "ETERNAL": {
+   "at": "2026-08-22T09:37:48.887615+00:00",
+   "items": 569,
+   "price_points": 1064
+  },
+  "EXIDEIND": {
+   "at": "2026-08-22T09:38:01.617810+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "NYKAA": {
+   "at": "2026-08-22T09:38:09.444985+00:00",
+   "items": 551,
+   "price_points": 1000
+  },
+  "FEDERALBNK": {
+   "at": "2026-08-22T09:38:19.595063+00:00",
+   "items": 656,
+   "price_points": 2088
+  },
+  "FINCABLES": {
+   "at": "2026-08-22T09:38:30.185957+00:00",
+   "items": 644,
+   "price_points": 2088
+  },
+  "FSL": {
+   "at": "2026-08-22T09:38:40.760151+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "FIVESTAR": {
+   "at": "2026-08-22T09:38:45.820891+00:00",
+   "items": 230,
+   "price_points": 784
+  },
+  "FORCEMOT": {
+   "at": "2026-08-22T09:38:52.477705+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "FORTIS": {
+   "at": "2026-08-22T09:39:01.969801+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "GAIL": {
+   "at": "2026-08-22T09:39:14.144108+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "GVT&D": {
+   "at": "2026-08-22T09:45:23.434772+00:00",
+   "items": 159,
+   "price_points": 2088
+  },
+  "GMRAIRPORT": {
+   "at": "2026-08-22T09:45:35.497318+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "GABRIEL": {
+   "at": "2026-08-22T09:45:48.682017+00:00",
+   "items": 372,
+   "price_points": 2088
+  },
+  "GALLANTT": {
+   "at": "2026-08-22T09:46:05.662465+00:00",
+   "items": 678,
+   "price_points": 2020
+  },
+  "GRSE": {
+   "at": "2026-08-22T09:46:16.706525+00:00",
+   "items": 105,
+   "price_points": 1644
+  },
+  "GICRE": {
+   "at": "2026-08-22T09:46:25.915387+00:00",
+   "items": 649,
+   "price_points": 1844
+  },
+  "GILLETTE": {
+   "at": "2026-08-22T09:47:07.516546+00:00",
+   "items": 138,
+   "price_points": 2088
+  },
+  "GLAND": {
+   "at": "2026-08-22T09:47:14.158185+00:00",
+   "items": 488,
+   "price_points": 1200
+  },
+  "GLAXO": {
+   "at": "2026-08-22T09:47:26.899059+00:00",
+   "items": 690,
+   "price_points": 2088
+  },
+  "GLENMARK": {
+   "at": "2026-08-22T09:47:39.325136+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "MEDANTA": {
+   "at": "2026-08-22T09:47:45.555142+00:00",
+   "items": 597,
+   "price_points": 788
+  },
+  "GODIGIT": {
+   "at": "2026-08-22T09:47:50.095464+00:00",
+   "items": 60,
+   "price_points": 472
+  },
+  "GPIL": {
+   "at": "2026-08-22T09:48:01.002319+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "GODFRYPHLP": {
+   "at": "2026-08-22T09:48:17.059529+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "GODREJCP": {
+   "at": "2026-08-22T09:48:29.533457+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "GODREJIND": {
+   "at": "2026-08-22T09:48:45.165233+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "GODREJPROP": {
+   "at": "2026-08-22T09:48:56.628639+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "GRANULES": {
+   "at": "2026-08-22T09:49:08.366279+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "GRAPHITE": {
+   "at": "2026-08-22T09:49:19.254894+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "GRASIM": {
+   "at": "2026-08-22T09:49:29.422001+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "GRAVITA": {
+   "at": "2026-08-22T09:49:37.806128+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "FLUOROCHEM": {
+   "at": "2026-08-22T09:49:43.648329+00:00",
+   "items": 561,
+   "price_points": 1432
+  },
+  "GMDCLTD": {
+   "at": "2026-08-22T09:49:52.414232+00:00",
+   "items": 677,
+   "price_points": 2088
+  },
+  "HEG": {
+   "at": "2026-08-22T09:50:01.404401+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "HBLENGINE": {
+   "at": "2026-08-22T09:50:10.299613+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "HCLTECH": {
+   "at": "2026-08-22T09:50:20.067848+00:00",
+   "items": 700,
+   "price_points": 2088
+  },
+  "HDBFS": {
+   "at": "2026-08-22T09:50:24.259456+00:00",
+   "items": 214,
+   "price_points": 0
+  },
+  "HDFCAMC": {
+   "at": "2026-08-22T09:50:30.520727+00:00",
+   "items": 388,
+   "price_points": 1680
+  },
+  "HDFCLIFE": {
+   "at": "2026-08-22T09:50:37.229492+00:00",
+   "items": 671,
+   "price_points": 1832
+  },
+  "HFCL": {
+   "at": "2026-08-22T09:50:47.016173+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "HAVELLS": {
+   "at": "2026-08-22T09:50:57.660128+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "HEROMOTOCO": {
+   "at": "2026-08-22T09:51:07.607041+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "HEXT": {
+   "at": "2026-08-22T09:51:12.531268+00:00",
+   "items": 675,
+   "price_points": 1192
+  },
+  "HSCL": {
+   "at": "2026-08-22T09:51:21.067589+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "HINDALCO": {
+   "at": "2026-08-22T09:51:31.700374+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "HINDCOPPER": {
+   "at": "2026-08-22T09:51:39.322782+00:00",
+   "items": 542,
+   "price_points": 2088
+  },
+  "HINDPETRO": {
+   "at": "2026-08-22T09:51:49.532388+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "HINDUNILVR": {
+   "at": "2026-08-22T09:52:00.201103+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "HINDZINC": {
+   "at": "2026-08-22T09:52:09.717803+00:00",
+   "items": 491,
+   "price_points": 2088
+  },
+  "POWERINDIA": {
+   "at": "2026-08-22T09:52:15.625156+00:00",
+   "items": 100,
+   "price_points": 1336
+  },
+  "HOMEFIRST": {
+   "at": "2026-08-22T09:52:21.134400+00:00",
+   "items": 102,
+   "price_points": 1160
+  },
+  "HONASA": {
+   "at": "2026-08-22T09:52:26.004716+00:00",
+   "items": 434,
+   "price_points": 584
+  },
+  "HONAUT": {
+   "at": "2026-08-22T09:52:34.327638+00:00",
+   "items": 115,
+   "price_points": 2088
+  },
+  "HUDCO": {
+   "at": "2026-08-22T09:52:41.214213+00:00",
+   "items": 613,
+   "price_points": 1936
+  },
+  "HYUNDAI": {
+   "at": "2026-08-22T09:52:45.562256+00:00",
+   "items": 419,
+   "price_points": 384
+  },
+  "ICICIBANK": {
+   "at": "2026-08-22T09:52:54.659305+00:00",
+   "items": 630,
+   "price_points": 2088
+  },
+  "ICICIGI": {
+   "at": "2026-08-22T09:53:01.168137+00:00",
+   "items": 132,
+   "price_points": 1860
+  },
+  "ICICIPRULI": {
+   "at": "2026-08-22T09:53:08.270256+00:00",
+   "items": 642,
+   "price_points": 2068
+  },
+  "IDBI": {
+   "at": "2026-08-22T09:53:18.659714+00:00",
+   "items": 659,
+   "price_points": 2088
+  },
+  "IDFCFIRSTB": {
+   "at": "2026-08-22T09:53:25.793841+00:00",
+   "items": 593,
+   "price_points": 2088
+  },
+  "IFCI": {
+   "at": "2026-08-22T09:53:35.495318+00:00",
+   "items": 641,
+   "price_points": 2088
+  },
+  "IIFL": {
+   "at": "2026-08-22T09:53:44.549610+00:00",
+   "items": 655,
+   "price_points": 2088
+  },
+  "IRB": {
+   "at": "2026-08-22T09:53:53.113126+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "IRCON": {
+   "at": "2026-08-22T09:53:59.799029+00:00",
+   "items": 689,
+   "price_points": 1652
+  },
+  "ITCHOTELS": {
+   "at": "2026-08-22T09:54:04.191614+00:00",
+   "items": 261,
+   "price_points": 328
+  },
+  "ITI": {
+   "at": "2026-08-22T09:54:13.386641+00:00",
+   "items": 633,
+   "price_points": 2088
+  },
+  "INDGN": {
+   "at": "2026-08-22T09:54:38.613191+00:00",
+   "items": 459,
+   "price_points": 476
+  },
+  "INDIACEM": {
+   "at": "2026-08-22T09:54:49.882883+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "INDIAMART": {
+   "at": "2026-08-22T09:54:55.929567+00:00",
+   "items": 659,
+   "price_points": 1492
+  },
+  "INDIANB": {
+   "at": "2026-08-22T09:55:04.528922+00:00",
+   "items": 656,
+   "price_points": 2088
+  },
+  "IEX": {
+   "at": "2026-08-22T09:55:11.390395+00:00",
+   "items": 521,
+   "price_points": 1844
+  },
+  "IOC": {
+   "at": "2026-08-22T09:55:21.969432+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "IOB": {
+   "at": "2026-08-22T09:55:31.022833+00:00",
+   "items": 480,
+   "price_points": 2088
+  },
+  "IRFC": {
+   "at": "2026-08-22T09:55:36.523453+00:00",
+   "items": 95,
+   "price_points": 1164
+  },
+  "IREDA": {
+   "at": "2026-08-22T09:55:41.296690+00:00",
+   "items": 449,
+   "price_points": 572
+  },
+  "IGL": {
+   "at": "2026-08-22T09:55:50.467912+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "INDUSTOWER": {
+   "at": "2026-08-22T09:55:58.172440+00:00",
+   "items": 700,
+   "price_points": 2088
+  },
+  "INDUSINDBK": {
+   "at": "2026-08-22T09:56:07.227966+00:00",
+   "items": 649,
+   "price_points": 2088
+  },
+  "NAUKRI": {
+   "at": "2026-08-22T09:56:15.592210+00:00",
+   "items": 700,
+   "price_points": 2088
+  },
+  "INOXWIND": {
+   "at": "2026-08-22T09:56:22.624243+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "INTELLECT": {
+   "at": "2026-08-22T09:56:30.278343+00:00",
+   "items": 665,
+   "price_points": 2088
+  },
+  "INDIGO": {
+   "at": "2026-08-22T09:56:37.114482+00:00",
+   "items": 613,
+   "price_points": 2088
+  },
+  "IGIL": {
+   "at": "2026-08-22T09:56:41.480664+00:00",
+   "items": 311,
+   "price_points": 352
+  },
+  "IKS": {
+   "at": "2026-08-22T09:56:45.777696+00:00",
+   "items": 417,
+   "price_points": 352
+  },
+  "IPCALAB": {
+   "at": "2026-08-22T09:56:56.290868+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "JKCEMENT": {
+   "at": "2026-08-22T09:57:04.878024+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "JBMA": {
+   "at": "2026-08-22T09:57:13.729062+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "JKTYRE": {
+   "at": "2026-08-22T09:57:22.614568+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "JMFINANCIL": {
+   "at": "2026-08-22T09:57:31.299346+00:00",
+   "items": 654,
+   "price_points": 2088
+  },
+  "JSWCEMENT": {
+   "at": "2026-08-22T09:57:35.807787+00:00",
+   "items": 385,
+   "price_points": 0
+  },
+  "JSWDULUX": {
+   "at": "2026-08-22T09:57:45.026185+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "JSWENERGY": {
+   "at": "2026-08-22T09:57:52.759096+00:00",
+   "items": 700,
+   "price_points": 2088
+  },
+  "JSWINFRA": {
+   "at": "2026-08-22T09:57:58.501009+00:00",
+   "items": 571,
+   "price_points": 604
+  },
+  "JSWSTEEL": {
+   "at": "2026-08-22T09:58:08.644131+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "JAINREC": {
+   "at": "2026-08-22T09:58:12.670647+00:00",
+   "items": 283,
+   "price_points": 0
+  },
+  "JPPOWER": {
+   "at": "2026-08-22T09:58:21.427471+00:00",
+   "items": 665,
+   "price_points": 2088
+  },
+  "JINDALSAW": {
+   "at": "2026-08-22T09:58:30.670869+00:00",
+   "items": 707,
+   "price_points": 2088
+  },
+  "JSL": {
+   "at": "2026-08-22T09:58:40.320175+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "JINDALSTEL": {
+   "at": "2026-08-22T09:58:49.724565+00:00",
+   "items": 712,
+   "price_points": 2088
+  },
+  "JIOFIN": {
+   "at": "2026-08-22T09:58:54.501337+00:00",
+   "items": 379,
+   "price_points": 628
+  },
+  "JUBLFOOD": {
+   "at": "2026-08-22T09:59:02.242791+00:00",
+   "items": 724,
+   "price_points": 2088
+  },
+  "JUBLINGREA": {
+   "at": "2026-08-22T09:59:08.004164+00:00",
+   "items": 526,
+   "price_points": 1136
+  },
+  "JUBLPHARMA": {
+   "at": "2026-08-22T09:59:16.855699+00:00",
+   "items": 712,
+   "price_points": 2088
+  },
+  "JWL": {
+   "at": "2026-08-22T09:59:24.710427+00:00",
+   "items": 474,
+   "price_points": 2088
+  },
+  "JYOTICNC": {
+   "at": "2026-08-22T09:59:29.490606+00:00",
+   "items": 497,
+   "price_points": 544
+  },
+  "KPRMILL": {
+   "at": "2026-08-22T09:59:37.775885+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "KEI": {
+   "at": "2026-08-22T09:59:46.190847+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "KPITTECH": {
+   "at": "2026-08-22T09:59:52.231001+00:00",
+   "items": 563,
+   "price_points": 1532
+  },
+  "KAJARIACER": {
+   "at": "2026-08-22T10:00:01.247355+00:00",
+   "items": 689,
+   "price_points": 2088
+  },
+  "KPIL": {
+   "at": "2026-08-22T10:00:10.643013+00:00",
+   "items": 701,
+   "price_points": 2088
+  },
+  "KALYANKJIL": {
+   "at": "2026-08-22T10:00:16.336529+00:00",
+   "items": 556,
+   "price_points": 1132
+  },
+  "KARURVYSYA": {
+   "at": "2026-08-22T10:00:27.445260+00:00",
+   "items": 144,
+   "price_points": 2088
+  },
+  "KAYNES": {
+   "at": "2026-08-22T10:00:32.792797+00:00",
+   "items": 512,
+   "price_points": 784
+  },
+  "KEC": {
+   "at": "2026-08-22T10:00:42.085899+00:00",
+   "items": 678,
+   "price_points": 2088
+  },
+  "KFINTECH": {
+   "at": "2026-08-22T10:00:47.277446+00:00",
+   "items": 496,
+   "price_points": 764
+  },
+  "KIRLOSENG": {
+   "at": "2026-08-22T10:00:57.565012+00:00",
+   "items": 655,
+   "price_points": 2088
+  }
+ },
+ "failed": {
+  "ADANIPOWER": {
+   "at": "2026-08-21T23:32:03.092848+00:00",
+   "error": "(raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)\n(psycopg2.errors.NumericValueOutOfRange) integer out of range\n\n[SQL: INSERT INTO price_points (stock_id, point_date, series, close, volume, delivery_pct, fetched_at) VA"
+  }
+ },
+ "last_chunk_at": "2026-08-22T10:01:00.572456+00:00"
+}

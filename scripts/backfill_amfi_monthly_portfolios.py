@@ -16,7 +16,6 @@ portfolio landing page. The fetcher:
 
 Usage:
     ./financial_env/bin/python scripts/backfill_amfi_monthly_portfolios.py \
-        --database-url postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds \
         --max-files 2
 """
 from __future__ import annotations
@@ -33,6 +32,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
 import requests
+from sqlalchemy import text
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -207,6 +207,27 @@ def process_file(url: str, amc_name: str, run_id: str, session: requests.Session
             upsert_manager.upsert_canonical(
                 sess, valid_records, "portfolio_disclosure",
                 raw_artifact.id, url, stats, amc_name=amc_name)
+
+            # Provenance stamp: persist source_dataset=amfi_monthly onto the
+            # canonical snapshots this file just upserted. portfolio_snapshots
+            # has no source_dataset column and its metadata_json is a plain
+            # `json` column, so merge through ::jsonb and cast back. Merge-only
+            # (||) — never wipes existing keys. History-preserving.
+            sess.execute(text(
+                "UPDATE portfolio_snapshots ps "
+                "SET metadata_json = ("
+                "  COALESCE(ps.metadata_json, '{}'::json)::jsonb"
+                "  || jsonb_build_object("
+                "    'source_dataset', 'amfi_monthly',"
+                "    'source_run_id', :run_id,"
+                "    'provenance_source_url', :src_url)"
+                ")::json "
+                "FROM documents d "
+                "WHERE ps.document_id = d.id "
+                "  AND d.raw_artifact_id = :artifact_id"),
+                {"run_id": run_id, "src_url": url,
+                 "artifact_id": raw_artifact.id})
+
             sess.commit()
             return len(valid_records)
         finally:
@@ -214,18 +235,26 @@ def process_file(url: str, amc_name: str, run_id: str, session: requests.Session
     except Exception as exc:
         LOGGER.error("Failed to process %s: %s", url, exc)
         stats["errors"] += 1
-        return 0
+        return -1
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--database-url", required=True)
+    ap.add_argument("--database-url", default=None,
+                    help="Overrides MF_DATABASE_URL/api.env resolution (db_config.py)")
     ap.add_argument("--max-pages", type=int, default=3,
                     help="Max AMC landing pages to scan for file links")
     ap.add_argument("--max-files", type=int, default=2,
                     help="Max portfolio files to download and ingest")
     ap.add_argument("--per-page", type=int, default=0,
                     help="Max files taken from any single landing page (0 = no cap)")
+    ap.add_argument("--members-start", type=int, default=0,
+                    help="Start index into the sorted AMC member list (chunking)")
+    ap.add_argument("--members-end", type=int, default=0,
+                    help="Exclusive end index into the sorted member list (0 = through last)")
+    ap.add_argument("--state-file", default=None,
+                    help="JSON checkpoint of completed URLs; completed URLs are "
+                         "skipped on resume so chunks can be re-run safely")
     ap.add_argument("--sleep", type=float, default=POLITE_SLEEP_SECONDS)
     ap.add_argument("--log-level", default="INFO")
     args = ap.parse_args()
@@ -252,21 +281,39 @@ def main() -> None:
     if not members:
         LOGGER.error("No disclosure URLs discovered — aborting before download step.")
         sys.exit(2)
+    total_members = len(members)
+    members = members[args.members_start:args.members_end or None]
+    LOGGER.info("Member slice [%d:%s]: %d of %d AMCs in this chunk",
+                args.members_start, args.members_end or "end",
+                len(members), total_members)
+
+    # Resume state: URLs already successfully ingested by a previous chunk.
+    state_path = Path(args.state_file) if args.state_file else None
+    done_urls: set[str] = set()
+    if state_path and state_path.exists():
+        try:
+            done_urls = set(json.loads(state_path.read_text()).get("done", []))
+            LOGGER.info("Resume state: %d URLs already completed", len(done_urls))
+        except Exception as exc:
+            LOGGER.warning("Could not read state file %s: %s — starting fresh",
+                           state_path, exc)
 
     time.sleep(args.sleep)
 
     # Step 2: collect file links from the first --max-pages landing pages
     file_jobs: list[tuple[str, str]] = []
     for m in members:
-        if len(file_jobs) >= args.max_files:
+        if args.max_files and len(file_jobs) >= args.max_files:
             break
-        if len({u for u, _ in file_jobs}) >= args.max_pages:
+        if args.max_pages and len({u for u, _ in file_jobs}) >= args.max_pages:
             break
         links = discover_file_links(session, m["url"])
         LOGGER.info("Landing page %s (%s): %d file links", m["url"], m["mf_name"], len(links))
         taken = 0
         for link in links:
-            if len(file_jobs) >= args.max_files:
+            if link in done_urls:
+                continue
+            if args.max_files and len(file_jobs) >= args.max_files:
                 break
             if args.per_page and taken >= args.per_page:
                 break
@@ -280,7 +327,9 @@ def main() -> None:
     LOGGER.info("Will ingest %d files", len(file_jobs))
 
     # Step 3: ingestion run + upsert loop
-    session_maker = get_session_maker(args.database_url)
+    from db_config import mutual_funds_url
+
+    session_maker = get_session_maker(args.database_url or mutual_funds_url())
     upsert_manager = UpsertManager()
     run_id = str(uuid.uuid4())
     sess = session_maker()
@@ -299,10 +348,20 @@ def main() -> None:
     stats = {"files_downloaded": 0, "artifacts_parsed": 0, "rows_staged": 0,
              "rows_quarantined": 0, "snapshot_warnings": 0, "errors": 0,
              "files_no_records": 0}
-    for i, (url, amc) in enumerate(file_jobs, 1):
-        LOGGER.info("Processing %d/%d: %s", i, len(file_jobs), url)
-        process_file(url, amc, run_id, session, session_maker,
-                     upsert_manager, stats)
+    pending_jobs = [(u, a) for (u, a) in file_jobs if u not in done_urls]
+    LOGGER.info("Will ingest %d files (%d skipped as already done)",
+                len(pending_jobs), len(file_jobs) - len(pending_jobs))
+    for i, (url, amc) in enumerate(pending_jobs, 1):
+        LOGGER.info("Processing %d/%d: %s", i, len(pending_jobs), url)
+        rc = process_file(url, amc, run_id, session, session_maker,
+                          upsert_manager, stats)
+        # Checkpoint successful ingests (>=0). Errors (-1) stay pending so a
+        # re-run of the chunk retries them.
+        if rc >= 0:
+            done_urls.add(url)
+            if state_path:
+                state_path.parent.mkdir(parents=True, exist_ok=True)
+                state_path.write_text(json.dumps({"done": sorted(done_urls)}))
         time.sleep(args.sleep)
 
     sess = session_maker()

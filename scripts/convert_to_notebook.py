@@ -55,11 +55,13 @@ from mutual_fund_ingestion.agent.db import create_tables, get_session_maker
 from mutual_fund_ingestion.agent.config import AgentConfig
 
 print(f'[SETUP] Repository root: {ROOT}')"""),
-    ("# Database Connection Setup", """# Database URL - uses env var or falls back to SQLite for demo
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-)
+    ("# Database Connection Setup", """# DSN resolution: DATABASE_URL env var > api.env (db_config.py) > local default
+import sys as _sys
+_sys.path.insert(0, str(ROOT))
+
+from db_config import generic_database_url
+
+DATABASE_URL = generic_database_url()
 
 # For offline/demo mode, use SQLite
 USE_SQLITE_DEMO = not DATABASE_URL.startswith(("postgresql://", "postgres://"))

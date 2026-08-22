@@ -22,7 +22,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from sqlalchemy import create_engine, text
 
-DB = "postgresql://vlmrouter:vlmrouter@localhost:5432/screener"
+from db_config import screener_url  # noqa: E402
+
+DB = screener_url()
 UNIVERSE = Path("data/raw/screener/universe_nifty500.csv")
 CHECKPOINT = Path("data/raw/screener/ingest_checkpoint.json")
 FRESH_HOURS = 24

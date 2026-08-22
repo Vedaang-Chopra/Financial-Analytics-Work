@@ -60,13 +60,12 @@ sys.path.insert(0, str(ROOT))
 from mutual_fund_ingestion.agent.db import create_tables, get_session_maker
 from mutual_fund_ingestion.agent.config import AgentConfig
 
+from db_config import generic_database_url
+
 
 def setup_database():
     """Setup database connection - uses PostgreSQL if available, otherwise SQLite"""
-    DATABASE_URL = os.environ.get(
-        "DATABASE_URL",
-        "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
-    )
+    DATABASE_URL = generic_database_url()
 
     USE_SQLITE_DEMO = not DATABASE_URL.startswith(("postgresql://", "postgres://"))
 

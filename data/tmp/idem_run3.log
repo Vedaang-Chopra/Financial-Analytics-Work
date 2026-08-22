@@ -1,0 +1,52 @@
+2026-08-22 07:30:36,485 INFO __main__: ============================================================
+2026-08-22 07:30:36,485 INFO __main__: Starting ingestion for Parag Parikh Mutual Fund (ppfas)
+2026-08-22 07:30:36,485 INFO __main__: ============================================================
+2026-08-22 07:30:39,017 INFO __main__: Found 5 portfolio URLs for Parag Parikh Mutual Fund
+2026-08-22 07:30:39,017 INFO __main__: Processing 1/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-august-2019.xls?25092019
+2026-08-22 07:30:39,017 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-august-2019.xls?25092019
+2026-08-22 07:30:39,113 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-august-2019.xls?25092019: 92160 bytes, type=xls
+2026-08-22 07:30:39,113 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:30:39,436 INFO __main__: Parser portfolio_excel_v1 returned 77 records (confidence=0.70)
+2026-08-22 07:30:39,462 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=257.22 n_records=77
+2026-08-22 07:30:39,462 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-august-2019.xls?25092019: 77 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:30:39,653 INFO __main__: Upserted 38 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-august-2019.xls?25092019
+2026-08-22 07:30:39,653 INFO __main__: Processing 2/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-december-2019.xls?08112019
+2026-08-22 07:30:39,653 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-december-2019.xls?08112019
+2026-08-22 07:30:39,757 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-december-2019.xls?08112019: 155136 bytes, type=xls
+2026-08-22 07:30:39,757 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:30:39,772 INFO __main__: Parser portfolio_excel_v1 returned 72 records (confidence=0.70)
+2026-08-22 07:30:39,788 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=264.96 n_records=72
+2026-08-22 07:30:39,788 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-december-2019.xls?08112019: 72 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:30:39,921 INFO __main__: Upserted 63 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-december-2019.xls?08112019
+2026-08-22 07:30:39,921 INFO __main__: Processing 3/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-november-2019.xls?08112019
+2026-08-22 07:30:39,921 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-november-2019.xls?08112019
+2026-08-22 07:30:40,020 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-november-2019.xls?08112019: 169472 bytes, type=xls
+2026-08-22 07:30:40,020 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:30:40,033 INFO __main__: Parser portfolio_excel_v1 returned 69 records (confidence=0.70)
+2026-08-22 07:30:40,047 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=255.38 n_records=69
+2026-08-22 07:30:40,047 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-november-2019.xls?08112019: 69 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:30:40,122 INFO __main__: Upserted 68 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-november-2019.xls?08112019
+2026-08-22 07:30:40,123 INFO __main__: Processing 4/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-october-2019.xls?08112019
+2026-08-22 07:30:40,123 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-october-2019.xls?08112019
+2026-08-22 07:30:40,235 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-october-2019.xls?08112019: 175104 bytes, type=xls
+2026-08-22 07:30:40,235 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:30:40,251 INFO __main__: Parser portfolio_excel_v1 returned 73 records (confidence=0.70)
+2026-08-22 07:30:40,264 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=255.21 n_records=73
+2026-08-22 07:30:40,264 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-october-2019.xls?08112019: 73 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:30:40,324 INFO __main__: Upserted 74 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-october-2019.xls?08112019
+2026-08-22 07:30:40,325 INFO __main__: Processing 5/5: https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-september-2019.xls?10102019
+2026-08-22 07:30:40,325 INFO __main__: Downloading https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-september-2019.xls?10102019
+2026-08-22 07:30:40,426 INFO __main__: Downloaded https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-september-2019.xls?10102019: 111616 bytes, type=xls
+2026-08-22 07:30:40,426 INFO mutual_fund_ingestion.agent.parser: Routing to parser=portfolio_excel for dataset_type=portfolio_disclosure file_type=xls
+2026-08-22 07:30:40,440 INFO __main__: Parser portfolio_excel_v1 returned 76 records (confidence=0.70)
+2026-08-22 07:30:40,453 WARNING mutual_fund_ingestion.agent.validate: snapshot_pct_sum out of range [85.0, 115.0]: scheme='SCHEME NAME :' reporting_date=None pct_sum=258.26 n_records=76
+2026-08-22 07:30:40,453 INFO __main__: Validation for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-september-2019.xls?10102019: 76 valid, 0 quarantined, 1 snapshot warnings
+2026-08-22 07:30:40,513 INFO __main__: Upserted 75 records for https://amc.ppfas.com/downloads/portfolio-disclosure/2019/Monthly-Portfolio-september-2019.xls?10102019
+2026-08-22 07:30:40,516 INFO __main__: ============================================================
+2026-08-22 07:30:40,516 INFO __main__: INGESTION COMPLETE
+2026-08-22 07:30:40,516 INFO __main__: ============================================================
+2026-08-22 07:30:40,516 INFO __main__: Files downloaded: 5
+2026-08-22 07:30:40,516 INFO __main__: Artifacts parsed: 5
+2026-08-22 07:30:40,516 INFO __main__: Rows staged: 367
+2026-08-22 07:30:40,516 INFO __main__: Rows inserted: 75
+2026-08-22 07:30:40,516 INFO __main__: Errors: 0

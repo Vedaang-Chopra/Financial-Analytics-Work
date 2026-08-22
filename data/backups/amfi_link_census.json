@@ -1,0 +1,350 @@
+[
+ {
+  "mf": "360 ONE Mutual Fund",
+  "url": "https://www.360.one/asset/mutual-funds/downloads",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Aditya Birla Sun Life Mutual Fund",
+  "url": "https://mutualfund.adityabirlacapital.com/forms-and-downloads/portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "AlphaGrep Mutual Fund",
+  "url": "https://www.alphagrepmf.ai/disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Angel One Mutual Fund",
+  "url": "https://www.angelonemf.com/downloads",
+  "n_links": 143,
+  "sample": [
+   "Monthly-Portfolio-July-2026-Angel-One-Nifty-1D-Rate-Liquid-ETF-GROWTH.xlsx",
+   "Monthly-Portfolio-July-2026-Angel-One-Nifty-50-ETF.xlsx",
+   "Monthly-Portfolio-July-2026-Angel-One-Nifty-50-Index-Fund.xlsx"
+  ]
+ },
+ {
+  "mf": "ASK MUTUAL FUND",
+  "url": "https://www.axismf.com/statutory-disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Bajaj Finserv Mutual Fund",
+  "url": "https://www.bajajamc.com/downloads?statutory-disclosures=",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Bandhan Mutual Fund",
+  "url": "https://bandhanmutual.com/downloads/disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Bank of India Mutual Fund",
+  "url": "https://www.boimf.in/investor-corner#t2",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Baroda BNP Paribas Mutual Fund",
+  "url": "https://www.barodabnpparibasmf.in/downloads/monthly-portfolio-scheme",
+  "n_links": 1,
+  "sample": [
+   "BOBBNPMF_Monthly_Portfolio_31-07-2026_19490.xls"
+  ]
+ },
+ {
+  "mf": "Canara Robeco Mutual Fund",
+  "url": "https://www.canararobeco.com/documents/statutory-disclosures/scheme-dashboard/scheme-monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Carnelian Mutual Fund",
+  "url": "https://choicemf.com/disclosures/monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "DSP Mutual Fund",
+  "url": "https://www.dspim.com/about-us/mandatory-disclosure/portfolio-disclosures",
+  "n_links": 326,
+  "sample": [
+   "dsp-isin-debt-fortnightly-portfolio-as-on-15-aug-2026.xlsx",
+   "dsp-isin-debt-portfolio-as-on-31-jul-2026.xlsx",
+   "dsp-isin-debt-fortnightly-portfolio-as-on-15-jul-2026.xlsx"
+  ]
+ },
+ {
+  "mf": "Edelweiss Mutual Fund",
+  "url": "https://www.edelweissmf.com/statutory#Portfolio-of-Schemes",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Franklin Templeton Mutual Fund",
+  "url": "https://www.franklintempletonindia.com/investor/reports?firstFilter-12",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Groww Mutual Fund",
+  "url": "https://growwmf.in/statutory-disclosure/portfolio",
+  "n_links": 13,
+  "sample": [
+   "Monthly%20Portfolio-%20May%2031,%202026.xlsx",
+   "Monthly%20Portfolio-%20June%2030,%202026.xlsx",
+   "Monthly%20Portfolio-%20July%2031%202026.xlsx"
+  ]
+ },
+ {
+  "mf": "HDFC Mutual Fund",
+  "url": "https://www.hdfcfund.com/statutory-disclosure/portfolio/monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Helios Mutual Fund",
+  "url": "https://www.heliosmf.in/portfolio-disclosure",
+  "n_links": 263,
+  "sample": [
+   "helios-overnight-fund-fortnightly-portfolio-as-on-15th-august-2026.xls",
+   "helios-overnight-fund-fortnightly-portfolio-as-on-31st-july-2026.xls",
+   "Helios-Overnight-Fund-Fortnightly-Portfolio-as-on-15th-July-2026.xls"
+  ]
+ },
+ {
+  "mf": "HSBC Mutual Fund",
+  "url": "https://www.assetmanagement.hsbc.co.in/en/mutual-funds/investor-resources/information-library#&accordion1446811090=2",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "ICICI Prudential Mutual Fund",
+  "url": "https://www.icicipruamc.com/news-and-media/downloads?currentTabFilter=Disclosures&&subCatTabFilter=MonthlyPortfolioDisclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "IL&FS Mutual Fund (IDF)",
+  "url": "http://www.ilfsinfrafund.com/other.php",
+  "n_links": 51,
+  "sample": [
+   "ILFS_Portfolio_TransactionReports_July_2026.xlsx",
+   "ILFS_Portfolio_TransactionReports_June_2026.xlsx",
+   "ILFS_Portfolio_TransactionReports_May_2026.xlsx"
+  ]
+ },
+ {
+  "mf": "Invesco Mutual Fund",
+  "url": "https://invescomutualfund.com/literature-and-form?tab=Complete",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "ITI Mutual Fund",
+  "url": "https://www.itiamc.com/statuory-disclosure",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Jio BlackRock Mutual Fund",
+  "url": "https://www.jioblackrockamc.com/statutory-disclosure/disclosures/monthly-portfolio-disclosure",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "JM Financial Mutual Fund",
+  "url": "https://www.jmfinancialmf.com/downloads/Portfolio-Disclosure",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Kotak Mahindra Mutual Fund",
+  "url": "https://www.kotakmf.com/Information/forms-and-downloads",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Lakshya Mutual Fund",
+  "url": "https://www.licmf.com/downloads/monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Mahindra Manulife Mutual Fund",
+  "url": "https://www.mahindramanulife.com/downloads#mandatory-disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Mirae Asset Mutual Fund",
+  "url": "https://www.miraeassetmf.co.in/downloads/portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Monarch Mutual Fund",
+  "url": "https://www.motilaloswalmf.com/downloads/scheme-portfolio-details",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Navi Mutual Fund",
+  "url": "https://navi.com/mutual-fund/downloads/portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Nippon India Mutual Fund",
+  "url": "https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "NJ Mutual Fund",
+  "url": "https://downloads.njmutualfund.com/njmf_download.php?nme=127",
+  "n_links": 101,
+  "sample": [
+   "viewfile.php?file=Monthly-Portfolio-March-31-2022-20220430041900.xls",
+   "viewfile.php?file=Monthly-Portfolio-Disclosure-as-on-January-2022-20220430041801",
+   "viewfile.php?file=Monthly-Portfolio-Disclosure-as-on-December-2021-2022043004140"
+  ]
+ },
+ {
+  "mf": "Nuvama Mutual Fund",
+  "url": "https://oldbridgemf.com/statutory-disclosures.html#v-pills-tabContent2",
+  "n_links": 43,
+  "sample": [
+   "Old_Bridge_Flexi_Cap_Fund_Portfolio_July_26_ca0b230896.xlsx",
+   "Old_Bridge_Arbitrage_Fund_Portfolio_July_26_fef858ffff.xls",
+   "Old_Bridge_Focused_Fund_Portfolio_July_26_1729091a89.xlsx"
+  ]
+ },
+ {
+  "mf": "PGIM India Mutual Fund",
+  "url": "https://www.pgimindia.com/mutual-funds/disclosures/Portfolios/Monthly-Portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "PPFAS Mutual Fund",
+  "url": "https://amc.ppfas.com/downloads/portfolio-disclosure",
+  "n_links": 407,
+  "sample": [
+   "PPFAS_Monthly_Portfolio_Report_July_31_2026.xls?07082026_4",
+   "PPFCF_PPFAS_Monthly_Portfolio_Report_July_31_2026.xlsx?07082026",
+   "PPLF_PPFAS_Monthly_Portfolio_Report_July_31_2026.xlsx?07082026_2"
+  ]
+ },
+ {
+  "mf": "quant Mutual Fund",
+  "url": "https://quantmutual.com/statutory-disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Quantum Mutual Fund",
+  "url": "https://www.quantumamc.com/FileCDN/FactSheet/5f6c4b6e-5264-472c-b378-d54727d45369.xlsx",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Samco Mutual Fund",
+  "url": "https://www.samcomf.com/StatutoryDisclosure",
+  "n_links": 938,
+  "sample": [
+   "IN_MF_FORTNIGHTLY_Portfolio_Overnight_15082026_1787117820.xlsx",
+   "IN_MF_Portfolio_Monthly_Fortnightly_OvernightFund_31072026_1785836948.xlsx",
+   "IN_MF_FORTNIGHTLY_Portfolio_Overnight_15072026_1784290241.xlsx"
+  ]
+ },
+ {
+  "mf": "SBI Mutual Fund",
+  "url": "https://www.sbimf.com/portfolios",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Shriram Mutual Fund",
+  "url": "https://www.shriramamc.in/investor-statutory-disclosures",
+  "n_links": 4,
+  "sample": [
+   "Monthly-Portfolio-Shriram-Mutual-Fund-July-2026.xls",
+   "Monthly-Portfolio-Shriram-Mutual-Fund-June-2026.xls",
+   "Monthly-Portfolio-Shriram-Mutual-Fund-May-2026.xls"
+  ]
+ },
+ {
+  "mf": "Sundaram Mutual Fund",
+  "url": "https://www.sundarammutual.com/Monthly-Fortnightly-Adhoc-Portfolios",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Tata Mutual Fund",
+  "url": "https://www.tatamutualfund.com/schemes-related",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Taurus Mutual Fund",
+  "url": "https://taurusmutualfund.com/monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "The Wealth Company Mutual Fund",
+  "url": "https://www.wealthcompanyamc.in/literature-forms/portfolio-documents/monthly",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Trust Mutual Fund",
+  "url": "https://www.trustmf.com/disclosures?activeTab=portfolio-disclosures",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Unifi Mutual Fund",
+  "url": "https://unifimf.com/statutorydocuments/#monthly-portfolio-disclosure",
+  "n_links": 1,
+  "sample": [
+   "Monthly-Portfolio-April-25.xlsx"
+  ]
+ },
+ {
+  "mf": "Union Mutual Fund",
+  "url": "https://unionmf.com/about-us/downloads/monthly-portfolio",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "UTI Mutual Fund",
+  "url": "https://www.utimf.com/downloads/consolidate-all-portfolio-disclosure",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "WhiteOak Capital Mutual Fund",
+  "url": "https://mf.whiteoakamc.com/regulatory-disclosures/scheme-portfolios",
+  "n_links": 0,
+  "sample": []
+ },
+ {
+  "mf": "Zerodha Mutual Fund",
+  "url": "https://www.zerodhafundhouse.com/resources/disclosures?source=footer",
+  "n_links": 4,
+  "sample": [
+   "ZN250 - Quarterly Portfolio March 2025.xlsx",
+   "ZELSS - Quarterly Portfolio March 2025.xlsx",
+   "ZE150- Quarterly Portfolio March 2025.xlsx"
+  ]
+ }
+]

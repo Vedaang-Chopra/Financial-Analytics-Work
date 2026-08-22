@@ -30,7 +30,9 @@ import yaml  # noqa: E402
 from mutual_fund_ingestion.agent.upserts import _registered_domain  # noqa: E402
 from utils.text_utils import normalize_amc_name  # noqa: E402
 
-DSN = "postgresql://vlmrouter:vlmrouter@localhost:5432/mutual_funds"
+from db_config import mutual_funds_url  # noqa: E402
+
+DSN = mutual_funds_url()
 
 BACKUP_COLUMNS = [
     "snapshot_id", "scheme_id", "amc_id", "reporting_date",

@@ -1,0 +1,35 @@
+{
+  "amc_name": "Baroda BNP Paribas Mutual Fund",
+  "seed_url": "https://www.barodabnpparibasmf.in/downloads/midmonth-portfolio-scheme",
+  "strategy": "playwright_files_no_portfolio_hint",
+  "portfolio_links": [],
+  "other_links": [
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR52_19720.xlsx",
+      "context": "READ"
+    },
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR51_19719.xlsx",
+      "context": "READ"
+    },
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR47_19718.xlsx",
+      "context": "READ"
+    },
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR45_19717.xlsx",
+      "context": "READ"
+    },
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR15_19716.xlsx",
+      "context": "READ"
+    },
+    {
+      "url": "https://www.barodabnpparibasmf.in/assets/download_documents/YR11_19715.xlsx",
+      "context": "READ"
+    }
+  ],
+  "notes": [
+    "harvested 6 unique file links after render+expand"
+  ]
+}

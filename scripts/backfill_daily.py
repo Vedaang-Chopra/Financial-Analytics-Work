@@ -21,7 +21,9 @@ from sqlalchemy import create_engine, text
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-DB = "postgresql://vlmrouter:vlmrouter@localhost:5432/screener"
+from db_config import screener_url  # noqa: E402
+
+DB = screener_url()
 
 
 def main() -> int:
