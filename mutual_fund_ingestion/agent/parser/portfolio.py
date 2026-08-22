@@ -94,12 +94,16 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^treps\b.*$',                            # TREPS / reverse-repo cash rows (all variants)
     r'^commercial papers?$',                   # section header (singular + plural)
     r'^certificates? of deposits?$',           # section header
-    r'^government securities(?: \((?:central/state|state)\))?$',  # header + qualified variant
+    r'^government securities(?: \((?:central/state|state)\))?$',
+    # ^ exact-name header only; rows named "Government Securities" WITH an
+    # ISIN are real holdings (ICICI gilt/sovereign sheets) and must survive.
     r'^net current assets?\*?$',               # subtotal row
     r'^total net assets$',                     # subtotal row
     r'^cash & cash equivalent$',               # singular variant of existing plural pattern
     r'^grand total \(aum\)$',
     r'^bond & ncd.?s?$',                       # "BOND & NCD's" grouping
+    r'^non-?convertible debentures? / bonds$',  # ICICI debt grouping header (children listed below)
+    r'^zero coupon bonds / deep discount bonds$',  # ICICI grouping header
     r'^equity & equity related(?: foreign investments)?$',  # equity grouping headers
     r'^market value includes accrued interest$',
     r'^scheme name:?$',                        # disclosure metadata labels
@@ -391,8 +395,14 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                         LOGGER.debug("Sheet %s: end of portfolio at row %d (%r)", sheet_name, idx, security_name[:40])
                         break
                     continue
-                # Skip section headers (Total, Sub Total, Direct Plan, etc.)
-                if _is_section_header(security_name):
+                # Skip section headers (Total, Sub Total, Direct Plan, etc.).
+                # Exception: a header-named row carrying a valid ISIN is a real
+                # holding (ICICI gilt sheets name sovereign bonds exactly
+                # "Government Securities" — the ISIN distinguishes them from
+                # the section header, which has none).
+                isin_col_early = next((k for k, v in col_map.items() if v == "isin"), None)
+                isin_early = str(row.get(isin_col_early, "")).strip() if isin_col_early else ""
+                if _is_section_header(security_name) and not _is_valid_isin(isin_early):
                     continue
                 pct_nav = None
                 for col, mapped in col_map.items():

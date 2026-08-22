@@ -1,25 +1,18 @@
 """Yahoo Finance daily price history (secondary source for deep back-history).
 
-Uses the public chart API: GET /v8/finance/chart/<SYMBOL>.NS?period1=&period2=&interval=1d
-Returns daily OHLC + adjusted close + volume back to each stock's listing.
-Screener remains the primary source for fundamentals; this only fills price_points.
+Uses the `yfinance` library (handles Yahoo's cookie/crumb session auth that
+breaks raw HTTP calls). Returns daily OHLC + volume + dividends/splits back to
+each stock's listing. Screener remains the primary source for fundamentals;
+this only fills the 'daily' series in price_points.
 """
 
 from __future__ import annotations
 
 import logging
 import time
-from datetime import date, datetime, timezone
-
-import requests
+from datetime import date
 
 LOGGER = logging.getLogger(__name__)
-
-BASE = "https://query1.finance.yahoo.com/v8/finance/chart"
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
-TIMEOUT_S = 20
-MAX_RETRIES = 3
 
 
 class YahooError(RuntimeError):
@@ -27,80 +20,65 @@ class YahooError(RuntimeError):
 
 
 def yahoo_symbol(screener_slug: str, nse_code: str | None = None) -> str:
-    """Map our stock identity to a Yahoo symbol (NSE suffix .NS, fallback .BO)."""
-    base = (nse_code or screener_slug).upper().replace("&", "")
+    """Map our stock identity to a Yahoo symbol (NSE suffix .NS).
+
+    Yahoo keeps '&' in symbols (e.g. 'ARE&M.NS'), so only map the slug when
+    no NSE code is available.
+    """
+    base = (nse_code or screener_slug).upper()
     return f"{base}.NS"
 
 
-def fetch_daily(symbol: str, period1: int = 0, period2: int | None = None) -> dict:
-    """Fetch full daily history for one Yahoo symbol. Returns raw chart JSON."""
-    if period2 is None:
-        period2 = int(datetime.now(timezone.utc).timestamp())
-    url = f"{BASE}/{symbol}"
-    params = {"period1": period1, "period2": period2, "interval": "1d"}
+def fetch_daily(symbol: str, period: str = "max") -> dict:
+    """Fetch full daily history via yfinance. Returns {'history': DataFrame-like dict}."""
+    import yfinance as yf
+
     last_exc: Exception | None = None
-    for attempt in range(1, MAX_RETRIES + 1):
+    for attempt in range(1, 4):
         try:
-            resp = requests.get(url, params=params,
-                                headers={"User-Agent": UA},
-                                timeout=TIMEOUT_S)
-            if resp.status_code == 429:
-                wait = 30 * attempt
-                LOGGER.warning("Yahoo 429 for %s; sleeping %ss", symbol, wait)
-                time.sleep(wait)
-                continue
-            resp.raise_for_status()
-            return resp.json()
-        except (requests.RequestException, ValueError) as exc:
+            hist = yf.Ticker(symbol).history(period=period, interval="1d", auto_adjust=False)
+            if hist is None or hist.empty:
+                raise YahooError(f"empty history for {symbol}")
+            return {"symbol": symbol, "frame": hist}
+        except Exception as exc:
             last_exc = exc
-            if attempt < MAX_RETRIES:
-                time.sleep(5 * attempt)
+            wait = 60 * attempt
+            LOGGER.warning("yfinance attempt %d failed for %s (%s); sleeping %ss",
+                           attempt, symbol, str(exc)[:80], wait)
+            time.sleep(wait)
     raise YahooError(f"Yahoo fetch failed for {symbol}: {last_exc}")
 
 
-def parse_daily(chart_json: dict) -> tuple[list[dict], dict]:
-    """Parse chart JSON into daily price-point rows.
+def parse_daily(result: dict) -> tuple[list[dict], dict]:
+    """Convert a fetch_daily result into daily price-point rows.
 
-    Returns (rows, meta) where rows are dicts:
-      {point_date, series='daily', open, high, low, close, adj_close, volume}
-    and meta = {symbol, first_date, last_date, count}.
+    Rows: {point_date, series='daily', open, high, low, close, adj_close,
+           volume, delivery_pct=None}
     """
-    result = ((chart_json.get("chart") or {}).get("result") or [None])[0]
-    if result is None:
-        err = (chart_json.get("chart") or {}).get("error") or {}
-        raise YahooError(f"no result: {err.get('description', 'unknown error')}")
-
-    meta = result.get("meta") or {}
-    symbol = meta.get("symbol")
-    ts = result.get("timestamp") or []
-    quote = (result.get("indicators") or {}).get("quote") or [{}]
-    quote = quote[0] if quote else {}
-    adj_closes = ((result.get("indicators") or {}).get("adjclose") or [{}])
-    adj_closes = adj_closes[0].get("adjclose") if adj_closes else None
-
+    frame = result["frame"]
+    symbol = result.get("symbol")
     rows: list[dict] = []
-    for i, t in enumerate(ts):
-        try:
-            d = date.fromtimestamp(t)  # exchange-local date
-        except (ValueError, OSError, OverflowError):
+    for idx, row in frame.iterrows():
+        close = row.get("Close")
+        if close is None or (isinstance(close, float) and close != close):  # NaN check
             continue
-        o = quote.get("open", [None] * len(ts))[i] if quote.get("open") else None
-        h = quote.get("high", [None] * len(ts))[i] if quote.get("high") else None
-        l = quote.get("low", [None] * len(ts))[i] if quote.get("low") else None
-        c = quote.get("close", [None] * len(ts))[i] if quote.get("close") else None
-        v = quote.get("volume", [None] * len(ts))[i] if quote.get("volume") else None
-        ac = adj_closes[i] if adj_closes and i < len(adj_closes) else None
-        if c is None:
-            continue  # skip dead rows
+        d = idx.date() if hasattr(idx, "date") else date.fromisoformat(str(idx)[:10])
+
+        def _f(v):
+            try:
+                return round(float(v), 4)
+            except (TypeError, ValueError):
+                return None
+
         rows.append({
             "point_date": d.isoformat(),
             "series": "daily",
-            "open": round(float(o), 4) if o is not None else None,
-            "high": round(float(h), 4) if h is not None else None,
-            "low": round(float(l), 4) if l is not None else None,
-            "close": round(float(c), 4),
-            "adj_close": round(float(ac), 4) if ac is not None else None,
-            "volume": int(v) if v is not None else None,
+            "open": _f(row.get("Open")),
+            "high": _f(row.get("High")),
+            "low": _f(row.get("Low")),
+            "close": _f(close),
+            "adj_close": _f(row.get("Adj Close")),
+            "volume": int(row["Volume"]) if row.get("Volume") == row.get("Volume") else None,
             "delivery_pct": None,
         })
 
