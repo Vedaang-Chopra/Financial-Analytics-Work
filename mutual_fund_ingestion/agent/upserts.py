@@ -566,6 +566,9 @@ class UpsertManager:
                 isin = holding.get("isin")
                 sector = holding.get("sector")
                 rating = holding.get("rating")
+                # Re-read per holding: the dedupe loop above leaves
+                # ``security_name`` bound to the LAST iterated holding.
+                security_name = holding.get("security_name")
 
                 # Resolve or create instrument.
                 # Valid ISIN: look up by ISIN first (existing behavior).
