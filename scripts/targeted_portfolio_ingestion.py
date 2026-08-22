@@ -10,7 +10,7 @@ from __future__ import annotations
 import logging
 import sys
 import uuid
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -81,6 +81,36 @@ AMC_PORTFOLIO_CONFIGS = {
         "method": "playwright",
         "file_pattern": "xlsx",
     },
+    "sbi": {
+        "name": "SBI Mutual Fund",
+        "base_url": "https://www.sbimf.com/portfolios",
+        "method": "network_api",
+        "file_pattern": "xlsx",
+    },
+    "hdfc": {
+        "name": "HDFC Mutual Fund",
+        "base_url": "https://www.hdfcfund.com/statutory-disclosure/portfolio/monthly-portfolio",
+        "method": "static_html",
+        "file_pattern": "xlsx",
+    },
+    "nippon_india": {
+        "name": "Nippon India Mutual Fund",
+        "base_url": "https://mf.nipponindiaim.com/investor-service/downloads/factsheet-portfolio-and-other-disclosures",
+        "method": "static_html",
+        "file_pattern": "xls",
+    },
+    "uti": {
+        "name": "UTI Mutual Fund",
+        "base_url": "https://www.utimf.com/downloads/consolidate-debt-portfolio-disclosure",
+        "method": "network_api",
+        "file_pattern": "zip",
+    },
+    "franklin_templeton": {
+        "name": "Franklin Templeton Mutual Fund",
+        "base_url": "https://www.franklintempletonindia.com/investor/reports?firstFilter-10",
+        "method": "network_api",
+        "file_pattern": "xls",
+    },
 }
 
 
@@ -102,7 +132,69 @@ def get_invesco_portfolio_urls():  # legacy alias → see portfolio_navigators
     return _impl()
 
 
-def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upsert_manager: UpsertManager, stats: dict) -> int:
+def _reporting_date_from_url(url: str) -> str | None:
+    """Derive reporting_date from disclosure filename when the sheet lacks one.
+
+    LIC (and some other AMCs) embed the as-of date only in the filename:
+      ...as-on-28-February-2013.xls / ...as-on-October-31,2016.xls
+      MONTHLY_PORTFOLIO-30-11-2016.xls / Portfolio-Monthly-31122018.xls
+      LIC MF Fortnightly Portfolio_Dec-23.xlsx  (month granularity -> month end)
+    Without this fallback upserts.py defaults every record to date.today(),
+    collapsing all periods into one snapshot.
+    """
+    import re
+    from calendar import monthrange
+    from urllib.parse import unquote
+
+    name = unquote(url.split("?")[0].rsplit("/", 1)[-1])
+    months = {}
+    for i, m in enumerate(
+        ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"], start=1):
+        months[m.lower()] = i
+        months[m.lower()[:3]] = i
+        months[m.lower()[:4]] = i  # sept / june-style variants resolve too
+
+    # "...as-on-28-February-2013" or "...as on October-31,2016"
+    m = re.search(r"as[-_ ]?on[-_ ]?(?:([A-Za-z]+)[-_ ]?(\d{1,2}),?-?(\d{4})|(\d{1,2})[-_ ]([A-Za-z]+)[-_ ](\d{4}))", name, re.IGNORECASE)
+    if m:
+        if m.group(1):
+            mon = months.get(m.group(1).lower())
+            if mon:
+                return date(int(m.group(3)), mon, int(m.group(2))).isoformat()
+        else:
+            mon = months.get(m.group(5).lower())
+            if mon:
+                return date(int(m.group(6)), mon, int(m.group(4))).isoformat()
+
+    # "-30-11-2016" style tail before extension
+    m = re.search(r"[-_ ](\d{1,2})-(\d{1,2})-(\d{4})(?:[^\d]|$)", name)
+    if m:
+        try:
+            return date(int(m.group(3)), int(m.group(2)), int(m.group(1))).isoformat()
+        except ValueError:
+            pass
+
+    # "-31122018" compact style before extension/separator
+    m = re.search(r"[-_ ](\d{2})(\d{2})(\d{4})(?:\.\w+)?$|[-_ ](\d{2})(\d{2})(\d{4})[-_ ]", name)
+    if m:
+        d, mo, y = (m.group(1), m.group(2), m.group(3)) if m.group(1) else (m.group(4), m.group(5), m.group(6))
+        try:
+            return date(int(y), int(mo), int(d)).isoformat()
+        except ValueError:
+            pass
+
+    # "_Dec-23" / "_Feb-22" month-year granularity -> last day of month
+    m = re.search(r"[_ -]([A-Za-z]{3,9})[-_ ](\d{2})(?:\.\w+)?$", name)
+    if m:
+        mon = months.get(m.group(1).lower()[:3]) or months.get(m.group(1).lower())
+        if mon:
+            y = 2000 + int(m.group(2))
+            return date(y, mon, monthrange(y, mon)[1]).isoformat()
+    return None
+
+
+def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upsert_manager: UpsertManager, stats: dict, extra_metadata: dict | None = None) -> int:
     """Download a file, parse it, and upsert records."""
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'}
     
@@ -122,7 +214,7 @@ def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upse
         stats['files_downloaded'] = stats.get('files_downloaded', 0) + 1
         
         # Parse
-        metadata = {'source_url': url, 'amc_name': amc_name, 'run_id': run_id}
+        metadata = {'source_url': url, 'amc_name': amc_name, 'run_id': run_id, **(extra_metadata or {})}
         result = parse_file('portfolio_disclosure', file_type, content, metadata)
         
         LOGGER.info("Parser %s returned %d records (confidence=%.2f)", 
@@ -131,7 +223,23 @@ def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upse
         if result.confidence == 0.0 or not result.records:
             LOGGER.warning("No valid records from %s", url)
             return 0
-        
+
+        # Fallback: fill missing reporting_date from the disclosure filename.
+        # Without it upserts.py stamps date.today() and all periods collapse
+        # into a single snapshot (seen with LIC monthly/fortnightly files).
+        url_date = _reporting_date_from_url(url)
+        if url_date:
+            filled = sum(
+                1 for r in result.records
+                if not r.get("reporting_date") and not r.get("date")
+            )
+            if filled:
+                for r in result.records:
+                    if not r.get("reporting_date") and not r.get("date"):
+                        r["reporting_date"] = url_date
+                LOGGER.info("Filled reporting_date=%s from filename for %d/%d records (%s)",
+                            url_date, filled, len(result.records), url)
+
         stats['artifacts_parsed'] = stats.get('artifacts_parsed', 0) + 1
         
         # Upsert using a session

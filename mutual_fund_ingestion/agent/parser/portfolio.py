@@ -310,12 +310,27 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                     header_row_idx = int(i)
                     break
                 # Extract scheme_name and reporting_date from rows before header
-                for cell in row.values:
+                row_cells = list(row.values)
+                for cell_idx, cell in enumerate(row_cells):
                     if pd.notna(cell):
                         cell_str = str(cell).strip()
                         # Look for scheme name patterns - prefer more specific names
                         cell_lower = cell_str.lower()
                         is_scheme_like = any(kw in cell_lower for kw in ["fund", "scheme", "etf"]) and "portfolio" not in cell_lower
+                        # Bare label like "Scheme Name :" / "Name of the Scheme :"
+                        # -> the actual scheme name sits in an adjacent cell
+                        if re.match(r'^(?:scheme\s*name|name\s*of\s*(?:the\s*)?scheme)\s*[:\-]?\s*$', cell_lower):
+                            adjacent = next(
+                                (
+                                    str(c).strip()
+                                    for c in row_cells[cell_idx + 1:]
+                                    if pd.notna(c) and str(c).strip() and str(c).strip().lower() != "nan"
+                                ),
+                                None,
+                            )
+                            if adjacent:
+                                scheme_name = adjacent.split(" (")[0].strip() or adjacent
+                                continue
                         is_portfolio_label = "portfolio" in cell_lower and "fund" not in cell_lower and "scheme" not in cell_lower and "etf" not in cell_lower
                         if scheme_name is None and is_scheme_like:
                             # Skip generic AMC/company names and statement headers (case-insensitive)
@@ -335,7 +350,6 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                                     continue
                             # Try to extract date from "Monthly Portfolio Statement as on June 30, 2026" pattern
                             if reporting_date is None:
-                                import re
                                 match = re.search(r'as on\s+([A-Za-z]+\s+\d{1,2},?\s+\d{4})', cell_str)
                                 if match:
                                     try:
@@ -344,7 +358,6 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                                         pass
                             # Try "Portfolio as on Aug 15,2026" pattern
                             if reporting_date is None:
-                                import re
                                 match = re.search(r'portfolio as on\s+(.+)', cell_str, re.IGNORECASE)
                                 if match:
                                     date_str = match.group(1).strip()
@@ -366,6 +379,23 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                                             reporting_date = datetime.strptime(f"{day} {month.title()} {year}", "%d %B %Y").date().isoformat()
                                         except ValueError:
                                             pass
+                            # Try day-first with ordinal suffix: "as on 30th September 2025" (SBI)
+                            if reporting_date is None:
+                                match = re.search(
+                                    r'as\s+on\s+(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+),?\s+(\d{4})',
+                                    cell_str, re.IGNORECASE,
+                                )
+                                if match:
+                                    try:
+                                        day, month, year = match.groups()
+                                        reporting_date = datetime.strptime(f"{day} {month.title()} {year}", "%d %B %Y").date().isoformat()
+                                    except ValueError:
+                                        pass
+
+                            # Caller-provided fallback (e.g. month parsed from the page link
+                            # text by discovery tooling) when the sheet itself has no date.
+                            if reporting_date is None:
+                                reporting_date = metadata.get("fallback_reporting_date")
 
             # Re-read with detected header row
             df = pd.read_excel(xlsx, sheet_name=sheet_name, header=header_row_idx, dtype=str)
