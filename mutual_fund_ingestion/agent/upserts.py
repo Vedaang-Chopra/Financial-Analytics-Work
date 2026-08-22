@@ -542,7 +542,7 @@ class UpsertManager:
             # 3-col ON CONFLICT target can't match NULL isins — so repeated
             # NULL-isin rows (e.g. ICICI swap legs) must collapse to one here.
             seen_holdings: set[tuple[str, Any]] = {
-                (name, isin)
+                (name, str(isin))
                 for name, isin in session.execute(
                     select(
                         PortfolioHolding.security_name,
