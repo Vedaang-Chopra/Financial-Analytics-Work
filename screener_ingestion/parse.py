@@ -145,8 +145,11 @@ def parse_chart_data(chart_json: dict) -> list[dict]:
                 except (TypeError, ValueError):
                     continue
                 meta = val[2] if len(val) > 2 else {}
-                if isinstance(meta, dict) and "delivery" in meta:
-                    row["delivery_pct"] = float(meta["delivery"])
+                if isinstance(meta, dict) and meta.get("delivery") is not None:
+                    try:
+                        row["delivery_pct"] = float(meta["delivery"])
+                    except (TypeError, ValueError):
+                        row["delivery_pct"] = None
             else:
                 try:
                     row["close"] = float(v)
