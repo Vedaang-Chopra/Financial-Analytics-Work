@@ -4,9 +4,11 @@ from __future__ import annotations
 import logging
 import uuid
 from datetime import date
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
+from urllib.parse import urlparse
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.dialects.postgresql import insert
 
 from .db import (
@@ -87,6 +89,62 @@ def _resolve_amc_for_scheme_name(session: Session, scheme_name: str) -> AMC | No
         if alias in normalized_scheme and target_norm in amcs_by_norm:
             return amcs_by_norm[target_norm]
 
+    return None
+
+
+_AMC_SOURCES_YAML = Path(__file__).resolve().parents[2] / "configs" / "amc_sources.yaml"
+
+
+def _registered_domain(netloc: str) -> str:
+    """Reduce a netloc to its registrable domain (last two labels, www. stripped)."""
+    host = netloc.lower().split("@")[-1].split(":")[0]
+    parts = host.split(".")
+    if parts and parts[0] == "www":
+        parts = parts[1:]
+    return ".".join(parts[-2:]) if len(parts) >= 2 else host
+
+
+def resolve_amc_by_source_url(
+    session: Session,
+    source_url: str,
+    config_path: Path | str | None = None,
+) -> AMC | None:
+    """Resolve an AMC by matching the source URL's domain against ``amc_sources.yaml``.
+
+    Each entry in the curated source registry carries a ``seed_url`` and an
+    ``amc_name``; when the disclosure source URL shares a registered domain
+    with a seed URL, the entry's AMC is looked up (by normalized name). Used
+    as the fallback when the scheme itself cannot provide an ``amc_id``.
+    """
+    try:
+        src_domain = _registered_domain(urlparse(source_url).netloc)
+    except ValueError:
+        return None
+    if not src_domain or "." not in src_domain:
+        return None
+
+    path = Path(config_path) if config_path else _AMC_SOURCES_YAML
+    if not path.exists():
+        LOGGER.warning("AMC source registry not found at %s; skipping URL-domain AMC resolution", path)
+        return None
+
+    import yaml
+
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    for entry in data.get("sources", []) or []:
+        seed_url = entry.get("seed_url") or ""
+        try:
+            seed_domain = _registered_domain(urlparse(seed_url).netloc)
+        except ValueError:
+            continue
+        if seed_domain != src_domain:
+            continue
+        amc_name = entry.get("amc_name")
+        if not amc_name:
+            continue
+        return session.execute(
+            select(AMC).where(AMC.normalized_name == normalize_amc_name(amc_name))
+        ).scalar_one_or_none()
     return None
 
 
@@ -408,11 +466,30 @@ class UpsertManager:
             key = (scheme.id, reporting_date)
             snapshots[key].append(record)
 
+        # Snapshot-level AMC: prefer the scheme's amc_id; fall back to
+        # resolving via the source URL domain against configs/amc_sources.yaml.
+        snapshot_amc_ids: dict[tuple, Any] = {}
+        needs_url_fallback = False
+        for (scheme_id, _reporting_date), _holdings in snapshots.items():
+            scheme_row = session.get(Scheme, scheme_id)
+            amc_id = scheme_row.amc_id if scheme_row is not None else None
+            if amc_id is None:
+                needs_url_fallback = True
+            snapshot_amc_ids[(scheme_id, _reporting_date)] = amc_id
+
+        url_amc_id = None
+        if needs_url_fallback:
+            url_amc = resolve_amc_by_source_url(session, source_url)
+            if url_amc is not None:
+                url_amc_id = url_amc.id
+
         for (scheme_id, reporting_date), holdings in snapshots.items():
             # Upsert portfolio snapshot (on conflict: update source_url, parser_version, validation_status)
+            snap_amc_id = snapshot_amc_ids[(scheme_id, reporting_date)] or url_amc_id
             stmt = insert(PortfolioSnapshot).values(
                 scheme_id=scheme_id,
                 reporting_date=reporting_date,
+                amc_id=snap_amc_id,
                 source_url=source_url,
                 parser_version="portfolio_excel_v1",
                 validation_status="validated",
@@ -420,6 +497,9 @@ class UpsertManager:
             stmt = stmt.on_conflict_do_update(
                 index_elements=["scheme_id", "reporting_date"],
                 set_={
+                    # coalesce: refresh the link when resolved, never wipe an
+                    # existing amc_id if this pass failed to resolve one
+                    "amc_id": func.coalesce(stmt.excluded.amc_id, PortfolioSnapshot.amc_id),
                     "source_url": stmt.excluded.source_url,
                     "parser_version": stmt.excluded.parser_version,
                     "validation_status": stmt.excluded.validation_status,
@@ -456,11 +536,32 @@ class UpsertManager:
                 .values(document_id=doc_id)
             )
 
-            # Create holdings (upsert on snapshot_id + security_name + isin)
+            # Create holdings (upsert on snapshot_id + security_name + isin).
+            # Dedupe by (security_name, isin): Postgres enforces a partial
+            # unique (snapshot_id, security_name) WHERE isin IS NULL, and the
+            # 3-col ON CONFLICT target can't match NULL isins — so repeated
+            # NULL-isin rows (e.g. ICICI swap legs) must collapse to one here.
+            seen_holdings: set[tuple[str, Any]] = {
+                (name, isin)
+                for name, isin in session.execute(
+                    select(
+                        PortfolioHolding.security_name,
+                        PortfolioHolding.isin,
+                    ).where(PortfolioHolding.snapshot_id == snapshot_id)
+                ).all()
+            }
+            deduped: list[dict[str, Any]] = []
             for holding in holdings:
                 security_name = holding.get("security_name")
                 if not security_name:
                     continue
+                hkey = (str(security_name), str(holding.get("isin")))
+                if hkey in seen_holdings:
+                    continue
+                seen_holdings.add(hkey)
+                deduped.append(holding)
+
+            for holding in deduped:
 
                 isin = holding.get("isin")
                 sector = holding.get("sector")
