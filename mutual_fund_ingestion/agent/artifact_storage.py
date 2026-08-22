@@ -676,6 +676,142 @@ class ArtifactStorageManager:
         return 0
 
 
+def check_persistence_gate(session) -> set[str]:
+    """Return the set of checksums whose parsed data provably reached canonical tables.
+
+    An artifact checksum is "persisted" when at least one raw_artifact row with that
+    checksum has:
+      - NAV rows: nav_history.raw_artifact_id -> raw_artifacts.id, OR
+      - Portfolio rows: documents.raw_artifact_id -> portfolio_snapshots.document_id
+        with at least one portfolio_holdings row on that snapshot.
+
+    Matching by checksum (not just id) also covers deduplicated downloads where rows
+    were persisted under a different raw_artifacts.id with identical content.
+
+    Implementation note: nav_history is large (tens of millions of rows) and has no
+    index on raw_artifact_id, so the NAV leg is a single set-driven pass rather than
+    a correlated EXISTS per artifact.
+    """
+    from sqlalchemy import text
+
+    nav_ids = [
+        row[0]
+        for row in session.execute(
+            text("SELECT DISTINCT raw_artifact_id FROM nav_history WHERE raw_artifact_id IS NOT NULL")
+        )
+    ]
+
+    persisted_ids: set[Any] = set(nav_ids)
+    persisted_ids.update(
+        row[0]
+        for row in session.execute(
+            text(
+                """
+                SELECT DISTINCT d.raw_artifact_id
+                FROM portfolio_snapshots ps
+                JOIN documents d ON d.id = ps.document_id
+                JOIN portfolio_holdings ph ON ph.snapshot_id = ps.id
+                WHERE d.raw_artifact_id IS NOT NULL
+                """
+            )
+        )
+    )
+    # Deduplicated re-downloads: rows persisted under one raw_artifacts.id while
+    # sibling rows (same source_url, different id/checksum presence) hold the
+    # local file. Treat every raw_artifacts.id sharing that source_url as
+    # persisted too — the URL's data provably reached canonical tables.
+    persisted_ids.update(
+        row[0]
+        for row in session.execute(
+            text(
+                """
+                SELECT DISTINCT ra2.id
+                FROM raw_artifacts ra2
+                WHERE ra2.source_url IN (
+                    SELECT d.source_url
+                    FROM portfolio_snapshots ps
+                    JOIN documents d ON d.id = ps.document_id
+                    JOIN portfolio_holdings ph ON ph.snapshot_id = ps.id
+                    WHERE d.raw_artifact_id IS NOT NULL AND d.source_url IS NOT NULL
+                )
+                """
+            )
+        )
+    )
+
+    if not persisted_ids:
+        return set()
+
+    checksums: set[str] = set()
+    id_list = sorted(str(i) for i in persisted_ids)
+    chunk_size = 500
+    for start in range(0, len(id_list), chunk_size):
+        chunk = id_list[start:start + chunk_size]
+        rows = session.execute(
+            text("SELECT DISTINCT checksum FROM raw_artifacts WHERE checksum IS NOT NULL AND id::text = ANY(:ids)"),
+            {"ids": chunk},
+        )
+        checksums.update(row[0] for row in rows)
+    return checksums
+
+
+def load_retention_candidates(
+    session,
+    *,
+    persisted_checksums: set[str],
+    finished_before: datetime,
+    min_age: timedelta,
+) -> list[dict[str, Any]]:
+    """List local artifact files eligible for delete-after-ingest cleanup.
+
+    A file is eligible only when ALL hold:
+      1. It exists on disk (raw_artifacts.local_path, retained=True).
+      2. Its checksum is recorded AND appears in ``persisted_checksums``.
+      3. Its ingestion run finished before ``finished_before`` (not a live run).
+      4. The on-disk file is older than ``min_age``.
+
+    Blocked entries are returned too, each with a ``blocked_reasons`` list.
+    """
+    from sqlalchemy import text
+
+    sql = text(
+        """
+        SELECT ra.id, ra.local_path, ra.checksum, ra.size_bytes,
+               ra.source_url, ra.artifact_type, ra.retained,
+               r.status AS run_status, r.finished_at AS run_finished_at
+        FROM raw_artifacts ra
+        JOIN ingestion_runs r ON r.id = ra.run_id
+        WHERE ra.local_path IS NOT NULL
+          AND ra.checksum IS NOT NULL
+        """
+    )
+    now = datetime.now(timezone.utc)
+    candidates: list[dict[str, Any]] = []
+    for row in session.execute(sql).mappings():
+        entry = dict(row)
+        reasons: list[str] = []
+        local_path = entry["local_path"]
+        if not entry["checksum"]:
+            reasons.append("no_checksum")
+        elif entry["checksum"] not in persisted_checksums:
+            reasons.append("rows_not_in_canonical_tables")
+        if entry["run_status"] == "running" or entry["run_finished_at"] is None:
+            reasons.append("run_still_running_or_unfinished")
+        elif entry["run_finished_at"] > finished_before:
+            reasons.append("run_finished_after_cutoff")
+        path = Path(local_path)
+        if not path.exists():
+            reasons.append("file_missing_on_disk")
+        else:
+            age = now - datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+            if age < min_age:
+                reasons.append("file_younger_than_min_age")
+            entry["disk_size_bytes"] = path.stat().st_size
+        entry["blocked_reasons"] = reasons
+        candidates.append(entry)
+    return candidates
+
+
 def create_storage_manager(
     backend_type: str = "local",
     database_url: str | None = None,
