@@ -552,6 +552,31 @@ class IndexPrice(Base):
     )
 
 
+class SchemeAumHistory(Base):
+    """Monthly/quarterly average AUM (₹ crore) per scheme.
+
+    Primary source: AMFI scheme-wise Average AUM API
+    (https://www.amfiindia.com/api/average-aum-schemewise) — quarterly
+    periods keyed by AMFI scheme code; month_start is the first day of
+    the reporting period's opening month (quarterly data lands on the
+    quarter's first day).
+    """
+
+    __tablename__ = "scheme_aum_history"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4,
+                server_default=func.gen_random_uuid())
+    scheme_id = Column(UUID(as_uuid=True), ForeignKey("schemes.id"), nullable=True)
+    month_start = Column(Date, nullable=False)
+    avg_aum_cr = Column(Numeric, nullable=True)
+    source_url = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint("scheme_id", "month_start", name="uq_scheme_aum_history_scheme_month"),
+        Index("ix_scheme_aum_history_scheme_month", "scheme_id", "month_start"),
+    )
+
+
 class SecurityPrice(Base):
     """Daily closing price/volume for one security (NSE bhavcopy)."""
 
