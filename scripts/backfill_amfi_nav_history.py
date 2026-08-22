@@ -31,9 +31,15 @@ sys.path.insert(0, ".")
 
 import requests
 
-from mutual_fund_ingestion.agent.db import IngestionRun, RawArtifact, get_session_maker
+from mutual_fund_ingestion.agent.db import (
+    IngestionRun,
+    QuarantineRow,
+    RawArtifact,
+    get_session_maker,
+)
 from mutual_fund_ingestion.agent.parser import parse_file
 from mutual_fund_ingestion.agent.upserts import UpsertManager
+from mutual_fund_ingestion.agent.validate import validate_and_filter_records
 
 logging.basicConfig(
     level=logging.INFO,
@@ -112,7 +118,8 @@ def main() -> int:
     s.commit()
     s.close()
 
-    totals = {"windows": 0, "downloaded": 0, "parsed": 0, "upserted": 0, "errors": 0}
+    totals = {"windows": 0, "downloaded": 0, "parsed": 0, "upserted": 0,
+              "quarantined": 0, "errors": 0}
     t0 = time.time()
 
     try:
@@ -127,10 +134,7 @@ def main() -> int:
             result = parse_file("nav_history", "text", content,
                                 {"source_url": f"{HISTORY_URL}?frmdt={w_start}&todt={w_end}"})
             totals["parsed"] += len(result.records)
-
-            # filter out zero NAV rows the validator would quarantine anyway —
-            # keeps quarantine noise down; they remain visible in raw artifacts
-            valid = [r for r in result.records if r["nav_value"] > 0]
+            valid: list[dict] = []
 
             sess = session_maker()
             try:
@@ -145,6 +149,45 @@ def main() -> int:
                 )
                 sess.add(artifact)
                 sess.flush()
+
+                # Validate -> quarantine -> canonical (same path as
+                # ArtifactProcessor). Zero/invalid NAV rows land in
+                # quarantine_rows instead of entering canonical tables.
+                upserts.set_run_id(run_id)
+                valid, quarantined, snapshot_warnings = validate_and_filter_records(
+                    result, run_id, return_warnings=True
+                )
+
+                for q in quarantined:
+                    upserts.write_validation_result(
+                        sess,
+                        entity_type="nav_history",
+                        check_name="schema_validation",
+                        severity="error",
+                        status="failed",
+                        message=q.get("reason", "validation failed"),
+                    )
+                    sess.add(QuarantineRow(
+                        run_id=uuid.UUID(run_id),
+                        raw_artifact_id=artifact.id,
+                        dataset_type="nav_history",
+                        reason=q.get("reason", "unknown"),
+                        raw_data_json=q.get("raw_data_json"),
+                        parser_error=q.get("parser_error"),
+                        retryable=q.get("retryable", False),
+                    ))
+                    totals["quarantined"] = totals.get("quarantined", 0) + 1
+
+                # Snapshot-level WARN gate: logged, never drops rows.
+                for warning in snapshot_warnings:
+                    upserts.write_validation_result(
+                        sess,
+                        entity_type="nav_history",
+                        check_name=warning.get("check_name", "snapshot_pct_sum"),
+                        severity=warning.get("severity", "warn"),
+                        status=warning.get("status", "warning"),
+                        message=warning.get("message"),
+                    )
 
                 stats: dict = {}
                 upserts.upsert_canonical(

@@ -4,7 +4,7 @@ from __future__ import annotations
 import logging
 import re
 from collections import defaultdict
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal, overload
 
 from .models import ParserResult
 
@@ -228,6 +228,22 @@ def write_retry_task(
         "status": "pending",
         "retry_count": 0,
     }
+
+
+@overload
+def validate_and_filter_records(
+    parser_result: ParserResult,
+    run_id: str,
+    return_warnings: Literal[True],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]: ...
+
+
+@overload
+def validate_and_filter_records(
+    parser_result: ParserResult,
+    run_id: str,
+    return_warnings: Literal[False] = False,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]: ...
 
 
 def validate_and_filter_records(

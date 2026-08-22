@@ -19,10 +19,11 @@ import requests
 # Add project root (parent of scripts/) to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from mutual_fund_ingestion.agent.db import get_session_maker
+from mutual_fund_ingestion.agent.db import get_session_maker, QuarantineRow
 from mutual_fund_ingestion.agent.upserts import UpsertManager
 from mutual_fund_ingestion.agent.artifact_processor import ArtifactProcessor
 from mutual_fund_ingestion.agent.parser import parse_file
+from mutual_fund_ingestion.agent.validate import validate_and_filter_records
 from mutual_fund_ingestion.agent.icici_navigator import extract_icici_portfolio_urls
 from mutual_fund_ingestion.agent.portfolio_navigators import AMC_NAVIGATORS
 from utils.http import HttpSettings, build_session
@@ -168,10 +169,56 @@ def download_and_parse(url: str, amc_name: str, run_id: str, session_maker, upse
             session.flush()
             stats['rows_staged'] = stats.get('rows_staged', 0) + len(result.records)
             
-            # Upsert to canonical tables
+            # Validate -> quarantine -> canonical (same path as ArtifactProcessor).
+            # Invalid rows land in quarantine_rows, never in canonical tables.
+            upsert_manager.set_run_id(run_id)
+            valid_records, quarantined_records, snapshot_warnings = validate_and_filter_records(
+                result, run_id, return_warnings=True
+            )
+            
+            LOGGER.info(
+                "Validation for %s: %d valid, %d quarantined, %d snapshot warnings",
+                url, len(valid_records), len(quarantined_records), len(snapshot_warnings),
+            )
+            
+            for quarantined in quarantined_records:
+                upsert_manager.write_validation_result(
+                    session,
+                    entity_type="portfolio_disclosure",
+                    check_name="schema_validation",
+                    severity="error",
+                    status="failed",
+                    message=quarantined.get("reason", "validation failed"),
+                )
+                session.add(QuarantineRow(
+                    run_id=uuid.UUID(run_id),
+                    raw_artifact_id=raw_artifact.id,
+                    dataset_type="portfolio_disclosure",
+                    reason=quarantined.get("reason", "unknown"),
+                    raw_data_json=quarantined.get("raw_data_json"),
+                    parser_error=quarantined.get("parser_error"),
+                    retryable=quarantined.get("retryable", False),
+                ))
+                stats['rows_quarantined'] = stats.get('rows_quarantined', 0) + 1
+            
+            # Snapshot-level WARN gate: pct-to-NAV sums outside bounds are
+            # logged to validation_results but never drop rows.
+            for warning in snapshot_warnings:
+                upsert_manager.write_validation_result(
+                    session,
+                    entity_type="portfolio_disclosure",
+                    check_name=warning.get("check_name", "snapshot_pct_sum"),
+                    severity=warning.get("severity", "warn"),
+                    status=warning.get("status", "warning"),
+                    message=warning.get("message"),
+                )
+            if snapshot_warnings:
+                stats['snapshot_warnings'] = stats.get('snapshot_warnings', 0) + len(snapshot_warnings)
+            
+            # Upsert only VALID records to canonical tables
             upsert_manager.upsert_canonical(
                 session,
-                result.records,
+                valid_records,
                 "portfolio_disclosure",
                 raw_artifact.id,
                 url,

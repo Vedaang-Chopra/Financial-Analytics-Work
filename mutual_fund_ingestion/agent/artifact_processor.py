@@ -213,6 +213,22 @@ class ArtifactProcessor:
                     session.add(qr)
                     self.stats["rows_quarantined"] = self.stats.get("rows_quarantined", 0) + 1
 
+        # Snapshot-level WARN gate (e.g. pct-to-NAV sums outside bounds):
+        # never drops rows — logged to validation_results only.
+        for warning in snapshot_warnings:
+            self.upsert_manager.write_validation_result(
+                session,
+                entity_type=dataset_candidate.dataset_type,
+                check_name=warning.get("check_name", "snapshot_pct_sum"),
+                severity=warning.get("severity", "warn"),
+                status=warning.get("status", "warning"),
+                message=warning.get("message"),
+            )
+        if snapshot_warnings:
+            self.stats["snapshot_warnings"] = (
+                self.stats.get("snapshot_warnings", 0) + len(snapshot_warnings)
+            )
+
         # Upsert valid records to canonical tables with provenance
         self.upsert_manager.upsert_canonical(
             session,
