@@ -106,6 +106,7 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^non-?convertible debentures? / bonds$',  # ICICI debt grouping header (children listed below)
     r'^zero coupon bonds / deep discount bonds$',  # ICICI grouping header
     r'^equity & equity related(?: foreign investments)?$',  # equity grouping headers
+    r'^units of (?:real estate investment trusts? \(reits\)|infrastructure investment trusts?|an alternative investment fund[^*]*)$',  # REIT/InvIT/AIF grouping headers (children listed with ISINs)
     r'^market value includes accrued interest$',
     r'^scheme name:?$',                        # disclosure metadata labels
     r'^as on \(date\)$',
