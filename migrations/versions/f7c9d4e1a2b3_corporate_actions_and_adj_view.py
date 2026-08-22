@@ -79,7 +79,7 @@ def upgrade() -> None:
         SELECT isin,
                trade_date,
                close                                  AS raw_close,
-               ROUND((close / NULLIF(cum_factor, 0))::numeric, 6) AS adjusted_close,
+               ROUND((close * NULLIF(cum_factor, 0))::numeric, 6) AS adjusted_close,
                cum_factor
         FROM factors;
         """
