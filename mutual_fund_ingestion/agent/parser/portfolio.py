@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import datetime
+from datetime import date, datetime
 from io import BytesIO
 from typing import Any
 
@@ -32,10 +32,14 @@ COLUMN_ALIASES = {
         "market/fair value (rs. in lacs)", "market/fair value (rs. in lakh)",
         "net receivable/ market value", "net receivable / market value",
         "market value (rs. lakh)", "market value(rs. lakh)",
+        # dot-less variants seen on HSBC workbooks ("Market Value\n(Rs in Lacs)")
+        "market value (rs in lacs)", "market value(rs in lacs)",
+        "market value (rs in lakhs)", "market value (rs. in lacs)",
+        "market value (rs. in lakhs)",
         "exposure/market value(rs.lakh)", "exposure/market value (rs.lakh)",
         "cost of investment (rs. in lakhs)",
     ],
-    "percentage_to_nav": ["% to nav", "% net assets", "percentage", "% of net assets", "percentage to nav", "% to aum", "% to net assets", "percentage to aum", "% of nav"],
+    "percentage_to_nav": ["% to nav", "% net assets", "percentage", "% of net assets", "percentage to nav", "% to aum", "% to net assets", "percentage to aum", "% of nav", "percentage to net assets", "% to net asset", "percent to net assets"],
     "sector": [
         "industry", "sector", "sector/industry", "industry sector", "business sector",
         "industry / rating", "industry^ / rating", "industry ^/ rating",
@@ -100,8 +104,8 @@ JUNK_ROW_PATTERNS = SECTION_HEADER_PATTERNS + [
     r'^government securities(?: \((?:central/state|state)\))?$',
     # ^ exact-name header only; rows named "Government Securities" WITH an
     # ISIN are real holdings (ICICI gilt/sovereign sheets) and must survive.
-    r'^net current assets?\*?$',               # subtotal row
-    r'^total net assets$',                     # subtotal row
+    r'^net current assets?.*$',                # subtotal row (incl. "(including cash...)")
+    r'^total net assets.*$',                   # subtotal row ("Total Net Assets as on ...")
     r'^cash & cash equivalent$',               # singular variant of existing plural pattern
     r'^grand total \(aum\)$',
     r'^bond & ncd.?s?$',                       # "BOND & NCD's" grouping
@@ -344,10 +348,32 @@ def parse_portfolio_excel(content: bytes | str, metadata: dict[str, Any]) -> Par
                         if reporting_date is None:
                             for fmt in ["%d-%b-%Y", "%b %Y", "%Y-%m-%d", "%d/%m/%Y", "%B %Y", "%d-%m-%Y"]:
                                 try:
-                                    reporting_date = datetime.strptime(cell_str, fmt).date().isoformat()
+                                    parsed_d = datetime.strptime(cell_str, fmt).date()
+                                    # Guard: scheme names like "... SDL APR 2028 INDEX FUND"
+                                    # contain month-year strings that parse cleanly but are
+                                    # NOT report dates. A real report date is never in the
+                                    # future.
+                                    if parsed_d <= date.today():
+                                        reporting_date = parsed_d.isoformat()
                                     break
                                 except ValueError:
                                     continue
+                            # Month-first "as of July 31, 2026" (HSBC: "Portfolio
+                            # Statement as of July 31, 2026") — must run before the
+                            # bare "%b %Y" fallback above can hit a scheme-name year.
+                            if reporting_date is None:
+                                match = re.search(
+                                    r'as (?:of|on)\s+([A-Za-z]+\s+\d{1,2},?\s+\d{4})',
+                                    cell_str, re.IGNORECASE,
+                                )
+                                if match:
+                                    date_str = match.group(1).replace(",", ", ").replace("  ", " ").strip()
+                                    for mfmt in ("%B %d, %Y", "%b %d, %Y"):
+                                        try:
+                                            reporting_date = datetime.strptime(date_str, mfmt).date().isoformat()
+                                            break
+                                        except ValueError:
+                                            continue
                             # Try to extract date from "Monthly Portfolio Statement as on June 30, 2026" pattern
                             if reporting_date is None:
                                 match = re.search(r'as on\s+([A-Za-z]+\s+\d{1,2},?\s+\d{4})', cell_str)
